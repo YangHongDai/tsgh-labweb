@@ -28,7 +28,7 @@ sections:
               brightness: 0.7
           position: center
           color: '#555'
-      - title: Perspectives and News in Nephrology and Oncology
+      - title: Perspectives
         content: 'Updated regularly!'
         align: right
         background:
