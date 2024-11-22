@@ -17,3 +17,16 @@ authors: ["李定頡", ""]
  3. FGF23：維持磷離子平衡
 
 ![mechanism](para.jpg)
+
+透過上圖可以看到，紅色箭頭是「促進」，方向接往FGF-23前進；「抑制」的直線方向，往PTH前進。
+
+
+**相關解答**:
+FHH 屬AD疾病，主因為 inactivating mutations of CaSR，後續造成 upward reset of the calcium setpoint，也會伴隨有hypermagnesemia and hypophosphatemia。即便高血鈣的狀態下， PTH會持續分泌。
+FHH可能會有mild hypercalcemia 且伴隨hypermagnesemia and hypophosphatemia。但和primary hyperparathyroidism最大差異還是在hypocalciuria vs. hypercalciuria。
+primary hyperparathyroidism因為腺瘤，造成 filtered load of calcium大幅超過腎小管的加強吸收狀態 (under PTH effect)。
+
+
+ **參考文獻**: 
+    Calcium and Phosphate Disorders: Core Curriculum 2024
+    雖然文章的標題是在介紹鈣磷離子，但實際上內文還包括了鎂離子的調控。
