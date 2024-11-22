@@ -3,7 +3,9 @@ title: 鈣磷鎂離子的調控
 date: 2020-12-01
 authors: ["李定頡", ""]
 ---
-Everything you need to know about the regulation of calcium, magnesium and phosphate
+
+Everything you need to know about the regulation of calcium, magnesium and phosphate!
+
 <!--more-->
 **鈣離子**
 
