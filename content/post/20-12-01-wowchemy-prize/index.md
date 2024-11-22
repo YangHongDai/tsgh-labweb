@@ -2,6 +2,8 @@
 title: 鈣磷鎂離子的調控
 date: 2020-12-01
 authors: ["李定頡", ""]
+summary: "鈣磷鎂離子的調控"
+
 ---
 
 **鈣離子**
@@ -11,6 +13,7 @@ authors: ["李定頡", ""]
 2. FHH 和 primary hyperparathyroidism 檢驗差在哪?
 3. PTH會造成尿中鈣離子重吸收，所以FHH 低尿鈣可以理解，但為何primary hyperparathyroidism 會高尿鈣?
 <!--more-->
+
 關鍵hormone (關鍵目標):
  1. 活性維他命D：維持骨頭mineralization，從腸胃道吸收鈣磷 
  2. 副甲狀腺素: 維持鈣離子濃度
