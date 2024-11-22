@@ -19,12 +19,12 @@ organizations:
     url: ''
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: My research focuses on integrating system biology, multi-omics with renal disease.
 
 interests:
   - Clinical nephrology
-  - Computational Linguistics
-  - Information Retrieval
+  - System biology
+  - Multi-omics
 
 education:
   courses:
