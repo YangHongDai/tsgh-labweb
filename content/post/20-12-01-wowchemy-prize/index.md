@@ -16,4 +16,4 @@ authors: ["李定頡", ""]
  2. 副甲狀腺素: 維持鈣離子濃度
  3. FGF23：維持磷離子平衡
 
-![mechanism](featured.png)
+![mechanism](para.jpeg)
