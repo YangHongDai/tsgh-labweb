@@ -1,10 +1,10 @@
 ---
-title: Example Event
+title: 腎臟科國考複習
 
-event: Wowchemy Conference
+event: 腎臟科國考複習錄影
 event_url: https://example.org
 
-location: Wowchemy HQ
+location: 線上
 address:
   street: 450 Serra Mall
   city: Stanford
@@ -33,6 +33,11 @@ featured: false
 image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
   focal_point: Right
+
+video:
+  url: 'https://www.youtube.com/watch?v=bVHMlVoop68'
+  caption: 'Video credit: [**YouTube**](https://www.youtube.com/watch?v=bVHMlVoop68)'
+  focal_point: Center
 
 url_code: ''
 url_pdf: ''
