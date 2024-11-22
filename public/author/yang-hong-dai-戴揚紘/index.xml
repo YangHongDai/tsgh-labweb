@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yang-Hong Dai 戴揚紘 | Dai&#39;s research group</title>
+    <link>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</link>
+      <atom:link href="http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/index.xml" rel="self" type="application/rss+xml" />
+    <description>Yang-Hong Dai 戴揚紘</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/avatar_hu9497666732678154168.jpg</url>
+      <title>Yang-Hong Dai 戴揚紘</title>
+      <link>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</link>
+    </image>
+    
+    <item>
+      <title>Yang-Hong Dai 戴揚紘</title>
+      <link>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</guid>
+      <description>&lt;p&gt;Yang-Hong is a dedicated radiation oncologist with a deep passion for the crossroads of oncology and immunology. His professional journey is driven by a commitment to advancing cancer treatment through innovative technologies and research.&lt;/p&gt;
+&lt;p&gt;After completing his medical training and specializing in radiation oncology, Yang-Hong became increasingly interested in the immune system’s role in cancer therapy. This fascination led him to explore the promising fields of deep learning and bioinformatics, where he applied these advanced analytical techniques to enhance treatment precision and outcomes.&lt;/p&gt;
+&lt;p&gt;Currently, Yang-Hong is deeply involved in unraveling the complexities of Radiopharmaceutical therapy, focusing particularly on Lu-177 PSMA therapy. This innovative treatment targets prostate cancer with remarkable precision, and he is investigating its potential to activate the immune system against cancer cells. His research aims not only to refine therapeutic strategies but also to pave the way for new paradigms in cancer treatment that integrate immunological mechanisms with radiological technologies.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
