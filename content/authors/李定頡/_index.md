@@ -40,7 +40,7 @@ education:
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
-  - icon: x
+  - icon: twitter
     icon_pack: fab
     link: https://x.com/dingjielee2
   - icon: google-scholar

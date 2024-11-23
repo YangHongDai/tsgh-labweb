@@ -2,18 +2,18 @@
 title: 腎臟科國考複習
 
 event: 腎臟科國考複習錄影
-event_url: https://example.org
+event_url: ''
 
 location: 線上
-address:
-  street: 450 Serra Mall
-  city: Stanford
-  region: CA
-  postcode: '94305'
-  country: United States
+#address:
+#  street: 450 Serra Mall
+ # city: Stanford
+  #region: CA
+  #postcode: '94305'
+  #country: Taiwan
 
 summary: 腎臟科國考複習
-abstract: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellusac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam.'
+abstract: '國考複習，沒來的當掉'
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
@@ -58,6 +58,8 @@ slides:
 #   Otherwise, set `projects = []`.
 projects:
 ---
+
+{{< youtube bVHMlVoop68 >}}
 
 Slides can be added in a few ways:
 

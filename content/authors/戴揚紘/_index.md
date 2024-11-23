@@ -48,7 +48,7 @@ social:
   - icon: linkedin
     icon_pack: fab
     link: 'https://www.linkedin.com/in/yang-hong-dai-200b1aab/?originalSubdomain=uk'
-  - icon: x
+  - icon: twitter
     icon_pack: fab
     link: https://x.com/yanghongdai1
   - icon: google-scholar
