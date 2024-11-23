@@ -29,7 +29,7 @@ sections:
           position: center
           color: '#555'
       - title: News
-        content: 'Updated regularly!'
+        content: 'Updated regularly!!'
         align: right
         background:
           image:
