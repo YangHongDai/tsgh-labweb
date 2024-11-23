@@ -2,7 +2,7 @@
 title: 鈣磷鎂離子的調控
 date: 2020-12-01
 authors: ["李定頡", ""]
-share: true
+comment: true
 ---
 
 Some important concepts of PHH and PTH

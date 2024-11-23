@@ -17,8 +17,8 @@ abstract: '國考複習，沒來的當掉'
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: '2030-06-01T13:00:00Z'
-date_end: '2030-06-01T15:00:00Z'
+date: '2024-02-07T13:00:00Z'
+date_end: '2024-02-07T15:00:00Z'
 all_day: false
 
 # Schedule page publish date (NOT talk date).
@@ -41,7 +41,7 @@ video:
 
 url_code: ''
 url_pdf: ''
-url_slides: ''
+url_slides: '/slides/slide.pdf'
 url_video: 'https://www.youtube.com/watch?v=bVHMlVoop68'
 
 # Markdown Slides (optional).
@@ -57,14 +57,16 @@ slides:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects:
+
+#Slides can be added in a few ways:
+
+#- **Create** slides using Wowchemy's [_Slides_](https://docs.hugoblox.com/managing-content/#create-slides) feature and link using `slides` parameter in the front matter of the talk file
+#- **Upload** an existing slide deck to `static/` and link using `url_slides` parameter in the front matter of the talk file
+#- **Embed** your slides (e.g. Google Slides) or presentation video on this page using [shortcodes](https://docs.hugoblox.com/writing-markdown-latex/).
+
+#Further event details, including page elements such as image galleries, can be added to the body of this page.
 ---
 
 {{< youtube bVHMlVoop68 >}}
 
-Slides can be added in a few ways:
 
-- **Create** slides using Wowchemy's [_Slides_](https://docs.hugoblox.com/managing-content/#create-slides) feature and link using `slides` parameter in the front matter of the talk file
-- **Upload** an existing slide deck to `static/` and link using `url_slides` parameter in the front matter of the talk file
-- **Embed** your slides (e.g. Google Slides) or presentation video on this page using [shortcodes](https://docs.hugoblox.com/writing-markdown-latex/).
-
-Further event details, including page elements such as image galleries, can be added to the body of this page.

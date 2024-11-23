@@ -14,7 +14,7 @@ sections:
       text: |
         <br>
         
-        Our researches focus on cancer immunotherapy, radiotherapy, targeted radionuclide therapy, nephrology and the applications of artificial intelligence and bioinformatics. 
+        This hub shares information and knowledge about cancer immunotherapy, radiotherapy, targeted radionuclide therapy, nephrology and the applications of artificial intelligence and bioinformatics. 
   
   - block: collection
     content:
@@ -44,7 +44,7 @@ sections:
       columns: '1'
       background:
         image: 
-          filename: cancer.jpg
+          filename: kidney2.jpg
           filters:
             brightness: 1
           parallax: false
