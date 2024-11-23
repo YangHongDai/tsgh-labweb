@@ -61,3 +61,10 @@ security:
   _merge: deep
 sitemap:
   _merge: deep
+comment:
+  provider: 'disqus'
+  disqus:
+    shortname: 'yhd'
+    show_count: true
+  commento:
+    url: 'https://yhd.disqus.com/'
