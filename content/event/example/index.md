@@ -4,7 +4,7 @@ title: 腎臟科國考複習
 event: 腎臟科國考複習錄影
 event_url: ''
 
-location: 線上
+#location: 線上
 #address:
 #  street: 450 Serra Mall
  # city: Stanford
@@ -13,18 +13,18 @@ location: 線上
   #country: Taiwan
 
 summary: 腎臟科國考複習
-abstract: '國考複習，沒來的當掉'
+abstract: ''
 
-# Talk start and end times.
+# Talk start and end times.#
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: '2024-02-07T13:00:00Z'
-date_end: '2024-02-07T15:00:00Z'
-all_day: false
+#date: '2024-02-07'
+#date_end: '2024-02-07'
+#all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: '2017-01-01T00:00:00Z'
+publishDate: '2024-02-07'
 
-authors: []
+authors: ['李定頡']
 tags: []
 
 # Is this a featured talk? (true/false)
@@ -41,7 +41,7 @@ video:
 
 url_code: ''
 url_pdf: ''
-url_slides: '/slides/slide.pdf'
+#url_slides: '/slides/slide.pdf'
 url_video: 'https://www.youtube.com/watch?v=bVHMlVoop68'
 
 # Markdown Slides (optional).

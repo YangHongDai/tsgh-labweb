@@ -5,7 +5,7 @@
     <link>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</link>
       <atom:link href="http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/index.xml" rel="self" type="application/rss+xml" />
     <description>Yang-Hong Dai 戴揚紘</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 23 Nov 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/avatar_hu9497666732678154168.jpg</url>
       <title>Yang-Hong Dai 戴揚紘</title>
@@ -13,14 +13,64 @@
     </image>
     
     <item>
+      <title>Resistance mechanism of immune checkpoint inhibitors in melanoma</title>
+      <link>http://localhost:1313/post/paperr1/</link>
+      <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/paperr1/</guid>
+      <description>&lt;p&gt;Resistance landscape in immunotherapy-melanoma&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-melanoma&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;melanoma&#34; srcset=&#34;
+               /post/paperr1/melanoma_hu1668936505934811645.webp 400w,
+               /post/paperr1/melanoma_hu10681258766639620492.webp 760w,
+               /post/paperr1/melanoma_hu12490770678493638992.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/paperr1/melanoma_hu1668936505934811645.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;529&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Melanoma
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;quick-look&#34;&gt;Quick look&lt;/h1&gt;
+&lt;p&gt;目前黑色素瘤的治療&lt;/p&gt;
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;According to recent &lt;a href=&#34;https://www.nature.com/articles/nri.2016.107&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;evidence&lt;/a&gt;, &lt;span style=&#34;color: red; font-weight: bold&#34;&gt;ICD&lt;/span&gt; is a&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Yang-Hong Dai 戴揚紘</title>
       <link>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</guid>
       <description>&lt;p&gt;Yang-Hong is a dedicated radiation oncologist with a deep passion for the crossroads of oncology and immunology. His professional journey is driven by a commitment to advancing cancer treatment through innovative technologies and research.&lt;/p&gt;
 &lt;p&gt;After completing his medical training and specializing in radiation oncology, Yang-Hong became increasingly interested in the immune system’s role in cancer therapy. This fascination led him to explore the promising fields of deep learning and bioinformatics, where he applied these advanced analytical techniques to enhance treatment precision and outcomes.&lt;/p&gt;
 &lt;p&gt;Currently, Yang-Hong is deeply involved in unraveling the complexities of Radiopharmaceutical therapy, focusing particularly on Lu-177 PSMA therapy. This innovative treatment targets prostate cancer with remarkable precision, and he is investigating its potential to activate the immune system against cancer cells. His research aims not only to refine therapeutic strategies but also to pave the way for new paradigms in cancer treatment that integrate immunological mechanisms with radiological technologies.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>New publication European Urology (2024 IF=25.3)</title>
+      <link>http://localhost:1313/event/meta_publish/</link>
+      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/event/meta_publish/</guid>
+      <description></description>
     </item>
     
   </channel>

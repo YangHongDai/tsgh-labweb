@@ -1,21 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Recent &amp; Upcoming Events | DLit-Hub</title>
+    <title>Recent Events | DLit-Hub</title>
     <link>http://localhost:1313/event/</link>
       <atom:link href="http://localhost:1313/event/index.xml" rel="self" type="application/rss+xml" />
-    <description>Recent &amp; Upcoming Events</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 07 Feb 2024 13:00:00 +0000</lastBuildDate>
+    <description>Recent Events</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 11 Sep 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu11734318148517933569.png</url>
-      <title>Recent &amp; Upcoming Events</title>
+      <title>Recent Events</title>
       <link>http://localhost:1313/event/</link>
     </image>
     
     <item>
+      <title>New publication on European Urology</title>
+      <link>http://localhost:1313/event/meta_publish/</link>
+      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/event/meta_publish/</guid>
+      <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
+&lt;p&gt;A Meta-Analysis and Meta-Regression of the Efficacy, Toxicity, and Quality of Life Outcomes Following Prostate-Specific Membrane Antigen Radioligand Therapy Utilising Lutetium-177 and Actinium- 225 in Metastatic Prostate Cancer&lt;/p&gt;
+&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;p&gt;Background and objective: Management of metastatic prostate cancer (mPCa) presents significant challenges. In this systematic review, meta-analysis, and meta-regression, the efficacy, safety, and quality of life (QoL) outcomes of prostate-specific membrane antigen (PSMA)-targeted radioligand therapy (PRLT) utilising lutetium-177 ([177Lu]Lu-PSMA) and actinium-225 ([225Ac]Ac-PSMA) were assessed.&lt;/p&gt;
+&lt;p&gt;Methods:
+A detailed literature search across PubMed/Medline, EMBASE, Web of Science, Scopus, and Cochrane Library was conducted, culminating in the inclusion of 100 studies involving 8711 patients. Data on prostate-specific antigen (PSA) responses, toxicity profiles, and QoL and survival outcomes were analysed. Proportional meta-analyses and meta-regression analyses were performed.&lt;/p&gt;
+&lt;p&gt;Key findings and limitations:
+The estimated proportion of patients with PSA decline ≥50% was 0.49 for [177Lu]Lu-PSMA and 0.60 for [225Ac]Ac-PSMA in mPCa, particularly metastatic castration-resistant prostate cancer. A meta-regression analysis indicated an association between the cumulative amount of administered activity and the proportion of PSA ≥50% decline. Positive PSA responses were observed alongside improved overall survival across both therapies. Our analyses also identified the key factors associated with PSA responses and survival outcomes, including baseline haemoglobin level, and the presence of visceral metastases. Although anaemia was commonly observed, with [177Lu]Lu-PSMA, severe toxicities were infrequent. Improved QoL was observed following [177Lu]Lu-PSMA therapy, whereas it remained stable following the second cycle of [225Ac]Ac-PSMA treatment. Heterogeneity across studies for PSA responses and toxicity profiles is a limitation.&lt;/p&gt;
+&lt;p&gt;Conclusions and clinical implications:
+Our findings suggest an association between PRLT and reductions in PSA levels, as well as associations with enhanced survival outcomes in mPCa. Furthermore, our analysis shows a low incidence of severe toxicity associated with this treatment. These observations highlight the important role of PRLT in the management of mPCa.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>New Preprint on biorxiv</title>
+      <link>http://localhost:1313/event/driveromics/</link>
+      <pubDate>Sun, 21 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/event/driveromics/</guid>
+      <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
+&lt;p&gt;DriverOmicsNet-An Integrated Graph Convolutional Network for Multi-Omics Exploration of Cancer Driver Genes&lt;/p&gt;
+&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;p&gt;Background: Cancer is a complex and heterogeneous group of diseases driven by genetic mutations and molecular changes. Identifying and characterizing cancer driver genes (CDgs) is crucial for understanding cancer biology and guiding precision oncology. Integrating multi-omics data can reveal the intricate molecular interactions underlying cancer progression and treatment responses.&lt;/p&gt;
+&lt;p&gt;Methods: We developed a graph convolutional network (GCN) framework, DriverOmicsNet, that integrates multi-omics data using STRING protein-protein interaction (PPI) networks and correlation-based weighted correlation network analysis (WGCNA). We applied this framework to 15 cancer types, analyzing 5555 tumor samples to predict cancer-related features such as homologous recombination deficiency (HRD), cancer stemness, immune clusters, tumor stage, and survival outcomes.&lt;/p&gt;
+&lt;p&gt;Findings: DriverOmicsNet demonstrated superior predictive accuracy and model performance metrics across all target labels when compared with GCN models based on STRING network alone. Gene expression emerged as the most significant feature, reflecting the dynamic and functional state of cancer cells. The combined use of STRING PPI and WGCNA networks enhanced the identification of key driver genes and their interactions.&lt;/p&gt;
+&lt;p&gt;Interpretation: Our study highlights the effectiveness of using GCNs to integrate multi-omics data for precision oncology. The integration of STRING PPI and WGCNA networks provides a comprehensive framework that improves predictive power and facilitates the understanding of cancer biology, paving the way for more tailored treatments.&#39;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>腎臟科國考複習</title>
       <link>http://localhost:1313/event/example/</link>
-      <pubDate>Wed, 07 Feb 2024 13:00:00 +0000</pubDate>
+      <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/event/example/</guid>
       <description>
 

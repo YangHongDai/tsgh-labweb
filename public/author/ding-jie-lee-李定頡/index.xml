@@ -5,12 +5,28 @@
     <link>http://localhost:1313/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/</link>
       <atom:link href="http://localhost:1313/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/index.xml" rel="self" type="application/rss+xml" />
     <description>Ding-Jie Lee 李定頡</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 07 Feb 2024 13:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/avatar_hu14417156126863153076.jpg</url>
       <title>Ding-Jie Lee 李定頡</title>
       <link>http://localhost:1313/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/</link>
     </image>
+    
+    <item>
+      <title>腎臟科國考複習</title>
+      <link>http://localhost:1313/event/example/</link>
+      <pubDate>Wed, 07 Feb 2024 13:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/event/example/</guid>
+      <description>
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/bVHMlVoop68?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+</description>
+    </item>
     
     <item>
       <title>鈣磷鎂離子的調控</title>
