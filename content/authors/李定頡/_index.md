@@ -10,29 +10,30 @@ last_name: Lee
 superuser: true
 
 # Role/position
-role: Attending Physician
+role: 主治醫師
 
 # Organizations/Affiliations
 organizations:
-  - name: Division of Nephrology, Department of Internal Medicine, Tri-Service General Hospital Keelung Branch, National Defense Medical Center, Taiwan 
-  - name: Department of Biological Science and Technology, Institute of Bioinformatics and System Biology, National Yang Ming Chiao Tung University, Hsinchu, Taiwan
+  - name: 三軍總醫院基隆分院 內科部 腎臟科 
+    url: 'https://wwwv.tsgh.ndmctsgh.edu.tw/DocDet/196/50146/25737/4786'
+  - name: 國立陽明交通大學 生物資訊及系統生物研究所 博士班進修中
     url: ''
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research focuses on integrating system biology, multi-omics with renal disease.
+bio: 我的研究興趣為利用系統生物學及基因多組學來探討腎臟疾病。
 
 interests:
-  - Clinical nephrology
-  - System biology
-  - Multi-omics
+  - 臨床腎臟學
+  - 系統生物學
+  - 基因多組學
 
 education:
   courses:
-    - course: PhD in System Biology
-      institution: National Yang Ming Chiao Tung University
+    - course: 生物資訊及系統生物研究所 博士班
+      institution: 國立陽明交通大學
       year: 2012
-    - course: MD in Medicine
-      institution: National Defense Medical Center
+    - course: 醫學士
+      institution: 國防醫學院
       year: 2007
 
 # Social/Academic Networking
@@ -67,4 +68,4 @@ user_groups:
   - Researchers
 ---
 
-Dr. Ding-Jie Lee is a nephrologist specializing in the development of computational tools for nephrology. His research interests include exploring protein interaction networks in acute kidney injury, glomerulonephritis, and chronic kidney disease. Currently pursuing advanced studies in systems biology at National Yang Ming Chiao Tung University in Taiwan, Dr. Lee is dedicated to advancing multi-omics computational applications to enhance understanding and treatment of kidney-related conditions.
+我是一位腎臟科醫師，專注於腎臟病學的計算工具開發。我的研究興趣包括探索急性腎損傷、腎絲球腎炎以及慢性腎病中的蛋白質交互網絡。目前，我在台灣國立陽明交通大學進行系統生物學的研究，致力於推進多組學的計算應用，以增進對腎臟相關疾病的理解與治療。

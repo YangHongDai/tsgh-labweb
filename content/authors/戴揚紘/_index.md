@@ -14,30 +14,30 @@ authors:
 superuser: true
 
 # Role/position
-role: Attending Physician
+role: 主治醫師
 
 # Organizations/Affiliations
 organizations:
-  - name: Department of Radiation Oncology, Tri-Service General Hospital, National Defense Medical Center, Taiwan
-  - name: Department of Oncolgoy, University of Oxford, UK
+  - name: 三軍總醫院 放射腫瘤部
+  - name: 英國牛津大學 腫瘤學博士班進修中
     url: ''
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include cancer immunotherapy, computational biology and deep learning.
+bio: 我的研究興趣為結合數據分析來探討各種癌症生物學。
 
 interests:
-  - Radiotherapy
-  - Targeted radionuclide therapy
-  - Cancer biology
-  - Data science
+  - 放射治療
+  - 標靶核種治療
+  - 癌症生物學
+  - 資料科學
 
 education:
   courses:
-    - course: DPhil student in Oncology
-      institution: University of Oxford
+    - course: 腫瘤學博士班
+      institution: 英國牛津大學
       year: 2023
-    - course: MD in Medicine
-      institution: National Defense Medical Center
+    - course: 醫學士
+      institution: 國防醫學院
       year: 2007
 
 # Social/Academic Networking
@@ -72,8 +72,5 @@ user_groups:
   - Researchers
 ---
 
-Yang-Hong is a dedicated radiation oncologist with a deep passion for the crossroads of oncology and immunology. His professional journey is driven by a commitment to advancing cancer treatment through innovative technologies and research.
-
-After completing his medical training and specializing in radiation oncology, Yang-Hong became increasingly interested in the immune system’s role in cancer therapy. This fascination led him to explore the promising fields of deep learning and bioinformatics, where he applied these advanced analytical techniques to enhance treatment precision and outcomes.
-
-Currently, Yang-Hong is deeply involved in unraveling the complexities of Radiopharmaceutical therapy, focusing particularly on Lu-177 PSMA therapy. This innovative treatment targets prostate cancer with remarkable precision, and he is investigating its potential to activate the immune system against cancer cells. His research aims not only to refine therapeutic strategies but also to pave the way for new paradigms in cancer treatment that integrate immunological mechanisms with radiological technologies.
+我是一位專注於腫瘤學與免疫治療的放射腫瘤科醫師，致力於透過創新技術和研究推進癌症治療的發展。
+除了體外放射治療的研究，目前我正在深入研究標靶核種藥物(targeted radionuclide)的潛力，特別是針對 Lutetium-177-prostate specific membrane antigen(PSMA)治療。我也在探討這種治療是否能刺激免疫系統對抗癌細胞的潛力。我的研究不僅在優化治療策略，還希望透過大數據分析來探討各種癌症治療模式與免疫機制間的關係。

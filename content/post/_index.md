@@ -1,5 +1,5 @@
 ---
-title: Perspectives
+title: 精選文章
 
 # Listing view
 view: compact

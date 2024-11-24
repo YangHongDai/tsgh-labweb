@@ -14,7 +14,7 @@ sections:
       text: |
         <br>
         
-        This hub shares information and knowledge about cancer immunotherapy, radiotherapy, targeted radionuclide therapy, nephrology and the applications of artificial intelligence and bioinformatics. 
+        這裡分享有關癌症免疫治療、放射治療、標靶核種治療、腎臟病學、數據科學和系統生物學應用的資訊和知識。 
   
   - block: collection
     content:

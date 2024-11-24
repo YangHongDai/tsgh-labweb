@@ -1,5 +1,5 @@
 ---
-title: New Preprint on biorxiv
+title: 新 Preprint 發表於 biorxiv
 event: 文章連結
 event_url: 'https://www.biorxiv.org/content/10.1101/2024.07.21.604474v1'
 

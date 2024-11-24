@@ -1,5 +1,5 @@
 ---
-title: New publication on European Urology
+title: 新文章發表於 European Urology
 
 event: 文章連結
 event_url: 'https://www.sciencedirect.com/science/article/pii/S0302283824026083'
