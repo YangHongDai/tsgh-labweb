@@ -6,7 +6,35 @@
     <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>http://localhost:1313/tag/cancer/</loc>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tag/immunotherapy/</loc>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tag/melanoma/</loc>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tag/resistance-mechanism/</loc>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</loc>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/category/%E5%85%8D%E7%96%AB%E6%B2%BB%E7%99%82/</loc>
     <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -14,7 +42,15 @@
     <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>http://localhost:1313/zh/</loc>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://localhost:1313/post/paperr1/</loc>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/zh/post/paperr1/</loc>
     <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -54,10 +90,6 @@
     <lastmod>2022-10-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/post/%E9%88%A3%E7%A3%B7%E9%8E%82%E9%9B%A2%E5%AD%90%E7%9A%84%E8%AA%BF%E6%8E%A7/</loc>
-    <lastmod>2020-12-01T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>http://localhost:1313/author/admin/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -82,10 +114,6 @@
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>http://localhost:1313/publication/journal-article/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -107,9 +135,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/admin/</loc>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

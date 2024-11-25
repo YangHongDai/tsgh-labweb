@@ -28,52 +28,5 @@
 </description>
     </item>
     
-    <item>
-      <title>鈣磷鎂離子的調控</title>
-      <link>http://localhost:1313/post/%E9%88%A3%E7%A3%B7%E9%8E%82%E9%9B%A2%E5%AD%90%E7%9A%84%E8%AA%BF%E6%8E%A7/</link>
-      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/%E9%88%A3%E7%A3%B7%E9%8E%82%E9%9B%A2%E5%AD%90%E7%9A%84%E8%AA%BF%E6%8E%A7/</guid>
-      <description>&lt;p&gt;Some important concepts of PHH and PTH&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;鈣離子&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;幾項問題可當作日後複習:
-familial hypocalciuric hypercalcemia (FHH)和primary hyperparathyroidism 都有PTH上升的問題，在FHH中造成PTH上升機轉為?
-FHH 和 primary hyperparathyroidism 檢驗差在哪?
-PTH會造成尿中鈣離子重吸收，所以FHH 低尿鈣可以理解，但為何primary hyperparathyroidism 會高尿鈣?
-關鍵hormone (關鍵目標):&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;活性維他命D：維持骨頭mineralization，從腸胃道吸收鈣磷&lt;/li&gt;
-&lt;li&gt;副甲狀腺素: 維持鈣離子濃度&lt;/li&gt;
-&lt;li&gt;FGF23：維持磷離子平衡&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;mechanism&#34; srcset=&#34;
-               /post/%E9%88%A3%E7%A3%B7%E9%8E%82%E9%9B%A2%E5%AD%90%E7%9A%84%E8%AA%BF%E6%8E%A7/para_hu14509651918300991015.webp 400w,
-               /post/%E9%88%A3%E7%A3%B7%E9%8E%82%E9%9B%A2%E5%AD%90%E7%9A%84%E8%AA%BF%E6%8E%A7/para_hu15289281860399683498.webp 760w,
-               /post/%E9%88%A3%E7%A3%B7%E9%8E%82%E9%9B%A2%E5%AD%90%E7%9A%84%E8%AA%BF%E6%8E%A7/para_hu17232589141974028403.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/%E9%88%A3%E7%A3%B7%E9%8E%82%E9%9B%A2%E5%AD%90%E7%9A%84%E8%AA%BF%E6%8E%A7/para_hu14509651918300991015.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;532&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;</description>
-    </item>
-    
   </channel>
 </rss>
