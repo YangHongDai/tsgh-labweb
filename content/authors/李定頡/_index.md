@@ -29,9 +29,9 @@ interests:
 
 education:
   courses:
-    - course: 生物資訊及系統生物研究所 博士班
+    - course: 生物資訊及系統生物研究所博士班
       institution: 國立陽明交通大學
-      year: 2012
+      year: 2023
     - course: 醫學士
       institution: 國防醫學院
       year: 2007
