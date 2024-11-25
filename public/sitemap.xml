@@ -136,5 +136,8 @@
   </url><url>
     <loc>http://localhost:1313/admin/</loc>
     <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</loc>
+    <changefreq>weekly</changefreq>
   </url>
 </urlset>
