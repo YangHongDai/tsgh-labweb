@@ -5,6 +5,7 @@ authors: ["戴揚紘", ""]
 commentable: true
 categories: [免疫治療]
 tags: [immunotherapy, melanoma, cancer, resistance mechanism]
+isCJKLanguage: true
 ---
 <!--more-->
 ## Quick look 
