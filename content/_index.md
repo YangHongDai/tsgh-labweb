@@ -10,7 +10,7 @@ sections:
       title: |
         DLit-Hub
       image:
-        filename: cancer.jpg
+        filename: dlithub.jpg
       text: |
         <br>
         
@@ -44,7 +44,7 @@ sections:
       columns: '1'
       background:
         image: 
-          filename: kidney2.jpg
+          filename: chemical.jpg
           filters:
             brightness: 1
           parallax: false
