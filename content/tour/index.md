@@ -13,7 +13,7 @@ sections:
         align: center
         background:
           image:
-            filename: /images/cell.jpg
+            filename: cell.jpg
             filters:
               brightness: 0.7
           position: right
@@ -23,7 +23,7 @@ sections:
         align: left
         background:
           image:
-            filename: images/chemical.jpg
+            filename: chemical.jpg
             filters:
               brightness: 0.7
           position: center
@@ -33,7 +33,7 @@ sections:
         align: right
         background:
           image:
-            filename: images/kidney.jpg
+            filename: kidney.jpg
             filters:
               brightness: 0.5
           position: center
