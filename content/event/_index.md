@@ -1,5 +1,5 @@
 ---
-title: Recent Events
+title: 最新消息
 
 # Listing view
 view: compact
