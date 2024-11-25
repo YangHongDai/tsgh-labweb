@@ -23,7 +23,7 @@ date: '2024-09-11'
 # Schedule page publish date (NOT talk date).
 publishDate: '2024-09-11'
 
-authors: ['戴揚紘']
+authors: ['戴揚紘','李定頡']
 tags: []
 
 # Is this a featured talk? (true/false)

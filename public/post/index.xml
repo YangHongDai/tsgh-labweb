@@ -29,7 +29,7 @@
       <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/paperr1/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;這篇&lt;a href=&#34;https://www.nature.com/articles/s41467-023-36979-y&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;研究了Immune checkpoint inhibitor（ICI）療法在黑色素瘤中(melanoma)的抗藥性機制。通過分析來自患者的短期腫瘤細胞系(short term cell line))和匹配的腫瘤樣本，作者發現了三種不同的抗藥性機制，分別涉及抗原表達的喪失、抗原呈現的破壞，以及與PTEN缺失相關的免疫細胞排斥。這些抗藥性機制揭示了可能的救援性治療策略，例如恢復MHC的表達、促進先天免疫反應、以及重新激活野生型抗原表達。&lt;/p&gt;
+&lt;p&gt;這篇&lt;a href=&#34;https://www.nature.com/articles/s41467-023-36979-y&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;研究了Immune checkpoint inhibitor（ICI）療法在黑色素瘤中(melanoma)的抗藥性機制。通過分析來自患者的短期腫瘤細胞系(short term cell line))和匹配的腫瘤樣本，作者發現了三種不同的抗藥性機制，分別涉及抗原表達的喪失、抗原呈現的破壞，以及與PTEN缺失相關的免疫細胞排斥。這些抗藥性機制揭示了可能的救援性治療策略，例如恢復MHC的表達、促進先天免疫反應、以及重新刺激抗原的呈現。&lt;/p&gt;
 &lt;h1 id=&#34;簡介&#34;&gt;簡介&lt;/h1&gt;
 &lt;p&gt;免疫檢查點抑制劑（ICI）針對PD-1的療法已徹底改變了轉移性黑色素瘤患者的治療方式。在許多III期臨床試驗中（如CheckMate-067和KEYNOTE-006），PD-1抑制劑顯示了42-45%的客觀反應率，以及6.5年42%的總體存活率。然而，約有55%的黑色素瘤患者對單獨的PD-1抑制劑療法存在先天性抗藥性，並且幾乎25%的患者在治療初期有反應，但在兩年內產生了抗藥性。因此，抗藥性問題仍然是ICI療法的一個重大挑戰。本研究通過全面分析黑色素瘤中對ICI的抗藥性機制，試圖探索這些ICI治療失敗的因素。&lt;/p&gt;
 &lt;p&gt;為此，研究人員針對18名接受PD-1 抑制劑並且病程仍然持續進展的第四期黑色素瘤患者(9名PD-1抑制劑;9名PD-1抑制劑+CTLA4 抑制劑)進行切片，建立了22株短期腫瘤細胞系和匹配的腫瘤樣本，通過基因組、轉錄組和流式細胞儀的分析方法，探討抗藥性的產生機制。他們總結出了三個主要的抗藥性機制：抗原表達的喪失、抗原呈現的破壞和免疫細胞排斥，這些機制或許可能為治療提供新的想法。&lt;/p&gt;

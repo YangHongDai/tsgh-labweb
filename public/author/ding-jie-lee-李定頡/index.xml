@@ -5,12 +5,30 @@
     <link>http://localhost:1313/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/</link>
       <atom:link href="http://localhost:1313/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/index.xml" rel="self" type="application/rss+xml" />
     <description>Ding-Jie Lee 李定頡</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 07 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 11 Sep 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/avatar_hu14417156126863153076.jpg</url>
       <title>Ding-Jie Lee 李定頡</title>
       <link>http://localhost:1313/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/</link>
     </image>
+    
+    <item>
+      <title>新文章發表於 European Urology</title>
+      <link>http://localhost:1313/event/meta_publish/</link>
+      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/event/meta_publish/</guid>
+      <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
+&lt;p&gt;A Meta-Analysis and Meta-Regression of the Efficacy, Toxicity, and Quality of Life Outcomes Following Prostate-Specific Membrane Antigen Radioligand Therapy Utilising Lutetium-177 and Actinium- 225 in Metastatic Prostate Cancer&lt;/p&gt;
+&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;p&gt;Background and objective: Management of metastatic prostate cancer (mPCa) presents significant challenges. In this systematic review, meta-analysis, and meta-regression, the efficacy, safety, and quality of life (QoL) outcomes of prostate-specific membrane antigen (PSMA)-targeted radioligand therapy (PRLT) utilising lutetium-177 ([177Lu]Lu-PSMA) and actinium-225 ([225Ac]Ac-PSMA) were assessed.&lt;/p&gt;
+&lt;p&gt;Methods:
+A detailed literature search across PubMed/Medline, EMBASE, Web of Science, Scopus, and Cochrane Library was conducted, culminating in the inclusion of 100 studies involving 8711 patients. Data on prostate-specific antigen (PSA) responses, toxicity profiles, and QoL and survival outcomes were analysed. Proportional meta-analyses and meta-regression analyses were performed.&lt;/p&gt;
+&lt;p&gt;Key findings and limitations:
+The estimated proportion of patients with PSA decline ≥50% was 0.49 for [177Lu]Lu-PSMA and 0.60 for [225Ac]Ac-PSMA in mPCa, particularly metastatic castration-resistant prostate cancer. A meta-regression analysis indicated an association between the cumulative amount of administered activity and the proportion of PSA ≥50% decline. Positive PSA responses were observed alongside improved overall survival across both therapies. Our analyses also identified the key factors associated with PSA responses and survival outcomes, including baseline haemoglobin level, and the presence of visceral metastases. Although anaemia was commonly observed, with [177Lu]Lu-PSMA, severe toxicities were infrequent. Improved QoL was observed following [177Lu]Lu-PSMA therapy, whereas it remained stable following the second cycle of [225Ac]Ac-PSMA treatment. Heterogeneity across studies for PSA responses and toxicity profiles is a limitation.&lt;/p&gt;
+&lt;p&gt;Conclusions and clinical implications:
+Our findings suggest an association between PRLT and reductions in PSA levels, as well as associations with enhanced survival outcomes in mPCa. Furthermore, our analysis shows a low incidence of severe toxicity associated with this treatment. These observations highlight the important role of PRLT in the management of mPCa.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>腎臟科國考複習</title>
@@ -25,6 +43,21 @@
       &gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
+</description>
+    </item>
+    
+    <item>
+      <title>新文章發表於Journal of Translational Medicine</title>
+      <link>http://localhost:1313/event/lupus/</link>
+      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/event/lupus/</guid>
+      <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
+&lt;p&gt;Incorporating knowledge of disease-defining hub genes and regulatory network into a machine learning-based model for predicting treatment response in lupus nephritis after the first renal flare&lt;/p&gt;
+&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;p&gt;Background:Identifying candidates responsive to treatment is important in lupus nephritis (LN) at the renal flare (RF) because an effective treatment can lower the risk of progression to end-stage kidney disease. However, machine learning (ML)-based models that address this issue are lacking.&lt;/p&gt;
+&lt;p&gt;Methods:Transcriptomic profiles based on DNA microarray data were extracted from the GSE32591 and GSE112943 datasets. Comprehensive bioinformatics analyses were performed to identify disease-defining genes (DDGs). Peripheral blood samples (GSE81622, GSE99967, and GSE72326) were used to evaluate the effect of DDGs. Single-sample gene set enrichment analysis (ssGSEA) scores of the DDGs were calculated and correlated with specific immunology genes listed in the nCounter panel. GSE60681 and GSE69438 were used to examine the ability of the DDGs to discriminate LN from other renal diseases. K-means clustering was used to obtain the separate gene sets. The clustering results were extended to data derived using the nCounter technique. The least absolute shrinkage and selection operator (LASSO) algorithm was used to identify genes with high predictive value for treatment response after the first RF in each cluster. LASSO models with tenfold validation were built in GSE200306 and assessed by receiver operating characteristic (ROC) analysis with area under curve (AUC). The models were validated by using an independent dataset (GSE113342).&lt;/p&gt;
+&lt;p&gt;Results:Forty-five hub genes specific to LN were identified. Eight optimal disease-defining clusters (DDCs) were identified in this study. Th1 and Th2 cell differentiation pathway was significantly enriched in DDC-6. LCK in DDC-6, whose expression positively correlated with various subsets of T cell infiltrations, was found to be differentially expressed between responders and non-responders and was ranked high in regulatory network analysis. Based on DDC-6, the prediction model had the best performance (AUC: 0.75; 95% confidence interval: 0.44–1 in the testing set) and high precision (0.83), recall (0.71), and F1 score (0.77) in the validation dataset.&lt;/p&gt;
+&lt;p&gt;Conclusions:Our study demonstrates that incorporating knowledge of biological phenotypes into the ML model is feasible for evaluating treatment response after the first RF in LN. This knowledge-based incorporation improves the model&amp;rsquo;s transparency and performance. In addition, LCK may serve as a biomarker for T-cell infiltration and a therapeutic target in LN.&lt;/p&gt;
 </description>
     </item>
     

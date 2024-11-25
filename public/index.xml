@@ -29,7 +29,7 @@
       <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/paperr1/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;這篇&lt;a href=&#34;https://www.nature.com/articles/s41467-023-36979-y&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;研究了Immune checkpoint inhibitor（ICI）療法在黑色素瘤中(melanoma)的抗藥性機制。通過分析來自患者的短期腫瘤細胞系(short term cell line))和匹配的腫瘤樣本，作者發現了三種不同的抗藥性機制，分別涉及抗原表達的喪失、抗原呈現的破壞，以及與PTEN缺失相關的免疫細胞排斥。這些抗藥性機制揭示了可能的救援性治療策略，例如恢復MHC的表達、促進先天免疫反應、以及重新激活野生型抗原表達。&lt;/p&gt;
+&lt;p&gt;這篇&lt;a href=&#34;https://www.nature.com/articles/s41467-023-36979-y&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;研究了Immune checkpoint inhibitor（ICI）療法在黑色素瘤中(melanoma)的抗藥性機制。通過分析來自患者的短期腫瘤細胞系(short term cell line))和匹配的腫瘤樣本，作者發現了三種不同的抗藥性機制，分別涉及抗原表達的喪失、抗原呈現的破壞，以及與PTEN缺失相關的免疫細胞排斥。這些抗藥性機制揭示了可能的救援性治療策略，例如恢復MHC的表達、促進先天免疫反應、以及重新刺激抗原的呈現。&lt;/p&gt;
 &lt;h1 id=&#34;簡介&#34;&gt;簡介&lt;/h1&gt;
 &lt;p&gt;免疫檢查點抑制劑（ICI）針對PD-1的療法已徹底改變了轉移性黑色素瘤患者的治療方式。在許多III期臨床試驗中（如CheckMate-067和KEYNOTE-006），PD-1抑制劑顯示了42-45%的客觀反應率，以及6.5年42%的總體存活率。然而，約有55%的黑色素瘤患者對單獨的PD-1抑制劑療法存在先天性抗藥性，並且幾乎25%的患者在治療初期有反應，但在兩年內產生了抗藥性。因此，抗藥性問題仍然是ICI療法的一個重大挑戰。本研究通過全面分析黑色素瘤中對ICI的抗藥性機制，試圖探索這些ICI治療失敗的因素。&lt;/p&gt;
 &lt;p&gt;為此，研究人員針對18名接受PD-1 抑制劑並且病程仍然持續進展的第四期黑色素瘤患者(9名PD-1抑制劑;9名PD-1抑制劑+CTLA4 抑制劑)進行切片，建立了22株短期腫瘤細胞系和匹配的腫瘤樣本，通過基因組、轉錄組和流式細胞儀的分析方法，探討抗藥性的產生機制。他們總結出了三個主要的抗藥性機制：抗原表達的喪失、抗原呈現的破壞和免疫細胞排斥，這些機制或許可能為治療提供新的想法。&lt;/p&gt;
@@ -175,7 +175,7 @@ Our findings suggest an association between PRLT and reductions in PSA levels, a
 &lt;p&gt;Background: Cancer is a complex and heterogeneous group of diseases driven by genetic mutations and molecular changes. Identifying and characterizing cancer driver genes (CDgs) is crucial for understanding cancer biology and guiding precision oncology. Integrating multi-omics data can reveal the intricate molecular interactions underlying cancer progression and treatment responses.&lt;/p&gt;
 &lt;p&gt;Methods: We developed a graph convolutional network (GCN) framework, DriverOmicsNet, that integrates multi-omics data using STRING protein-protein interaction (PPI) networks and correlation-based weighted correlation network analysis (WGCNA). We applied this framework to 15 cancer types, analyzing 5555 tumor samples to predict cancer-related features such as homologous recombination deficiency (HRD), cancer stemness, immune clusters, tumor stage, and survival outcomes.&lt;/p&gt;
 &lt;p&gt;Findings: DriverOmicsNet demonstrated superior predictive accuracy and model performance metrics across all target labels when compared with GCN models based on STRING network alone. Gene expression emerged as the most significant feature, reflecting the dynamic and functional state of cancer cells. The combined use of STRING PPI and WGCNA networks enhanced the identification of key driver genes and their interactions.&lt;/p&gt;
-&lt;p&gt;Interpretation: Our study highlights the effectiveness of using GCNs to integrate multi-omics data for precision oncology. The integration of STRING PPI and WGCNA networks provides a comprehensive framework that improves predictive power and facilitates the understanding of cancer biology, paving the way for more tailored treatments.&#39;&lt;/p&gt;
+&lt;p&gt;Interpretation: Our study highlights the effectiveness of using GCNs to integrate multi-omics data for precision oncology. The integration of STRING PPI and WGCNA networks provides a comprehensive framework that improves predictive power and facilitates the understanding of cancer biology, paving the way for more tailored treatments.&lt;/p&gt;
 </description>
     </item>
     
@@ -192,6 +192,21 @@ Our findings suggest an association between PRLT and reductions in PSA levels, a
       &gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
+</description>
+    </item>
+    
+    <item>
+      <title>新文章發表於Journal of Translational Medicine</title>
+      <link>http://localhost:1313/event/lupus/</link>
+      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/event/lupus/</guid>
+      <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
+&lt;p&gt;Incorporating knowledge of disease-defining hub genes and regulatory network into a machine learning-based model for predicting treatment response in lupus nephritis after the first renal flare&lt;/p&gt;
+&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;p&gt;Background:Identifying candidates responsive to treatment is important in lupus nephritis (LN) at the renal flare (RF) because an effective treatment can lower the risk of progression to end-stage kidney disease. However, machine learning (ML)-based models that address this issue are lacking.&lt;/p&gt;
+&lt;p&gt;Methods:Transcriptomic profiles based on DNA microarray data were extracted from the GSE32591 and GSE112943 datasets. Comprehensive bioinformatics analyses were performed to identify disease-defining genes (DDGs). Peripheral blood samples (GSE81622, GSE99967, and GSE72326) were used to evaluate the effect of DDGs. Single-sample gene set enrichment analysis (ssGSEA) scores of the DDGs were calculated and correlated with specific immunology genes listed in the nCounter panel. GSE60681 and GSE69438 were used to examine the ability of the DDGs to discriminate LN from other renal diseases. K-means clustering was used to obtain the separate gene sets. The clustering results were extended to data derived using the nCounter technique. The least absolute shrinkage and selection operator (LASSO) algorithm was used to identify genes with high predictive value for treatment response after the first RF in each cluster. LASSO models with tenfold validation were built in GSE200306 and assessed by receiver operating characteristic (ROC) analysis with area under curve (AUC). The models were validated by using an independent dataset (GSE113342).&lt;/p&gt;
+&lt;p&gt;Results:Forty-five hub genes specific to LN were identified. Eight optimal disease-defining clusters (DDCs) were identified in this study. Th1 and Th2 cell differentiation pathway was significantly enriched in DDC-6. LCK in DDC-6, whose expression positively correlated with various subsets of T cell infiltrations, was found to be differentially expressed between responders and non-responders and was ranked high in regulatory network analysis. Based on DDC-6, the prediction model had the best performance (AUC: 0.75; 95% confidence interval: 0.44–1 in the testing set) and high precision (0.83), recall (0.71), and F1 score (0.77) in the validation dataset.&lt;/p&gt;
+&lt;p&gt;Conclusions:Our study demonstrates that incorporating knowledge of biological phenotypes into the ML model is feasible for evaluating treatment response after the first RF in LN. This knowledge-based incorporation improves the model&amp;rsquo;s transparency and performance. In addition, LCK may serve as a biomarker for T-cell infiltration and a therapeutic target in LN.&lt;/p&gt;
 </description>
     </item>
     

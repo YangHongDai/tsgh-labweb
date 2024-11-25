@@ -73,6 +73,6 @@ Methods: We developed a graph convolutional network (GCN) framework, DriverOmics
 
 Findings: DriverOmicsNet demonstrated superior predictive accuracy and model performance metrics across all target labels when compared with GCN models based on STRING network alone. Gene expression emerged as the most significant feature, reflecting the dynamic and functional state of cancer cells. The combined use of STRING PPI and WGCNA networks enhanced the identification of key driver genes and their interactions.
 
-Interpretation: Our study highlights the effectiveness of using GCNs to integrate multi-omics data for precision oncology. The integration of STRING PPI and WGCNA networks provides a comprehensive framework that improves predictive power and facilitates the understanding of cancer biology, paving the way for more tailored treatments.'
+Interpretation: Our study highlights the effectiveness of using GCNs to integrate multi-omics data for precision oncology. The integration of STRING PPI and WGCNA networks provides a comprehensive framework that improves predictive power and facilitates the understanding of cancer biology, paving the way for more tailored treatments.
 
 

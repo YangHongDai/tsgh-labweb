@@ -41,7 +41,7 @@ Our findings suggest an association between PRLT and reductions in PSA levels, a
 &lt;p&gt;Background: Cancer is a complex and heterogeneous group of diseases driven by genetic mutations and molecular changes. Identifying and characterizing cancer driver genes (CDgs) is crucial for understanding cancer biology and guiding precision oncology. Integrating multi-omics data can reveal the intricate molecular interactions underlying cancer progression and treatment responses.&lt;/p&gt;
 &lt;p&gt;Methods: We developed a graph convolutional network (GCN) framework, DriverOmicsNet, that integrates multi-omics data using STRING protein-protein interaction (PPI) networks and correlation-based weighted correlation network analysis (WGCNA). We applied this framework to 15 cancer types, analyzing 5555 tumor samples to predict cancer-related features such as homologous recombination deficiency (HRD), cancer stemness, immune clusters, tumor stage, and survival outcomes.&lt;/p&gt;
 &lt;p&gt;Findings: DriverOmicsNet demonstrated superior predictive accuracy and model performance metrics across all target labels when compared with GCN models based on STRING network alone. Gene expression emerged as the most significant feature, reflecting the dynamic and functional state of cancer cells. The combined use of STRING PPI and WGCNA networks enhanced the identification of key driver genes and their interactions.&lt;/p&gt;
-&lt;p&gt;Interpretation: Our study highlights the effectiveness of using GCNs to integrate multi-omics data for precision oncology. The integration of STRING PPI and WGCNA networks provides a comprehensive framework that improves predictive power and facilitates the understanding of cancer biology, paving the way for more tailored treatments.&#39;&lt;/p&gt;
+&lt;p&gt;Interpretation: Our study highlights the effectiveness of using GCNs to integrate multi-omics data for precision oncology. The integration of STRING PPI and WGCNA networks provides a comprehensive framework that improves predictive power and facilitates the understanding of cancer biology, paving the way for more tailored treatments.&lt;/p&gt;
 </description>
     </item>
     
@@ -58,6 +58,21 @@ Our findings suggest an association between PRLT and reductions in PSA levels, a
       &gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
+</description>
+    </item>
+    
+    <item>
+      <title>新文章發表於Journal of Translational Medicine</title>
+      <link>http://localhost:1313/event/lupus/</link>
+      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/event/lupus/</guid>
+      <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
+&lt;p&gt;Incorporating knowledge of disease-defining hub genes and regulatory network into a machine learning-based model for predicting treatment response in lupus nephritis after the first renal flare&lt;/p&gt;
+&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;p&gt;Background:Identifying candidates responsive to treatment is important in lupus nephritis (LN) at the renal flare (RF) because an effective treatment can lower the risk of progression to end-stage kidney disease. However, machine learning (ML)-based models that address this issue are lacking.&lt;/p&gt;
+&lt;p&gt;Methods:Transcriptomic profiles based on DNA microarray data were extracted from the GSE32591 and GSE112943 datasets. Comprehensive bioinformatics analyses were performed to identify disease-defining genes (DDGs). Peripheral blood samples (GSE81622, GSE99967, and GSE72326) were used to evaluate the effect of DDGs. Single-sample gene set enrichment analysis (ssGSEA) scores of the DDGs were calculated and correlated with specific immunology genes listed in the nCounter panel. GSE60681 and GSE69438 were used to examine the ability of the DDGs to discriminate LN from other renal diseases. K-means clustering was used to obtain the separate gene sets. The clustering results were extended to data derived using the nCounter technique. The least absolute shrinkage and selection operator (LASSO) algorithm was used to identify genes with high predictive value for treatment response after the first RF in each cluster. LASSO models with tenfold validation were built in GSE200306 and assessed by receiver operating characteristic (ROC) analysis with area under curve (AUC). The models were validated by using an independent dataset (GSE113342).&lt;/p&gt;
+&lt;p&gt;Results:Forty-five hub genes specific to LN were identified. Eight optimal disease-defining clusters (DDCs) were identified in this study. Th1 and Th2 cell differentiation pathway was significantly enriched in DDC-6. LCK in DDC-6, whose expression positively correlated with various subsets of T cell infiltrations, was found to be differentially expressed between responders and non-responders and was ranked high in regulatory network analysis. Based on DDC-6, the prediction model had the best performance (AUC: 0.75; 95% confidence interval: 0.44–1 in the testing set) and high precision (0.83), recall (0.71), and F1 score (0.77) in the validation dataset.&lt;/p&gt;
+&lt;p&gt;Conclusions:Our study demonstrates that incorporating knowledge of biological phenotypes into the ML model is feasible for evaluating treatment response after the first RF in LN. This knowledge-based incorporation improves the model&amp;rsquo;s transparency and performance. In addition, LCK may serve as a biomarker for T-cell infiltration and a therapeutic target in LN.&lt;/p&gt;
 </description>
     </item>
     
