@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Medicine | DLit-Hub</title>
+    <link>http://localhost:1313/tag/medicine/</link>
+      <atom:link href="http://localhost:1313/tag/medicine/index.xml" rel="self" type="application/rss+xml" />
+    <description>Medicine</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 25 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
+      <title>Medicine</title>
+      <link>http://localhost:1313/tag/medicine/</link>
+    </image>
+    
+    <item>
+      <title>基礎模型於醫學領域的運用？</title>
+      <link>http://localhost:1313/post/paperr2/</link>
+      <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/paperr2/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;h1 id=&#34;簡介&#34;&gt;簡介&lt;/h1&gt;
+&lt;h2 id=&#34;heading&#34;&gt;？&lt;/h2&gt;
+&lt;h1 id=&#34;探討&#34;&gt;探討&lt;/h1&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
