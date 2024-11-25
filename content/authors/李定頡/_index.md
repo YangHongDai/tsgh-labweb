@@ -65,7 +65,7 @@ highlight_name: false
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
-  - Researchers
+  - 醫師
 ---
 
 我是一位腎臟科醫師，專注於腎臟病學的計算工具開發。我的研究興趣包括探索急性腎損傷、腎絲球腎炎以及慢性腎病中的蛋白質交互網絡。目前，我在台灣國立陽明交通大學進行系統生物學的研究，致力於推進多組學的計算應用，以增進對腎臟相關疾病的理解與治療。

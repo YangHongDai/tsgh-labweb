@@ -69,7 +69,8 @@ email: 'yang-hong.dai@stx.ox.ac.uk'
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
-  - Researchers
+  - 醫師
+
 ---
 
 我是一位專注於腫瘤學與免疫治療的放射腫瘤科醫師，致力於透過創新技術和研究推進癌症治療的發展。
