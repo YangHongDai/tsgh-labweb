@@ -35,7 +35,7 @@ image:
   focal_point: Right
 
 video:
-  url: 'https://www.youtube.com/watch?v=bVHMlVoop68'
+  url: ''
   caption: 'Video credit: [**YouTube**](https://www.youtube.com/watch?v=bVHMlVoop68)'
   focal_point: Center
 
