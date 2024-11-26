@@ -14,6 +14,14 @@
     <lastmod>2024-11-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>http://localhost:1313/tag/data-science/</loc>
+    <lastmod>2024-11-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tag/diemensionality-reduction/</loc>
+    <lastmod>2024-11-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://localhost:1313/tag/foundation-model/</loc>
     <lastmod>2024-11-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -26,6 +34,14 @@
     <lastmod>2024-11-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>http://localhost:1313/temp/</loc>
+    <lastmod>2024-11-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tag/visualization/</loc>
+    <lastmod>2024-11-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</loc>
     <lastmod>2024-11-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -35,6 +51,18 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/post/paperr2/</loc>
+    <lastmod>2024-11-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/temp/paperr2/</loc>
+    <lastmod>2024-11-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/category/%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8/</loc>
+    <lastmod>2024-11-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/post/data_pca/</loc>
     <lastmod>2024-11-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -76,6 +104,10 @@
   </url><url>
     <loc>http://localhost:1313/event/</loc>
     <lastmod>2024-09-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</loc>
+    <lastmod>2024-07-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/event/driveromics/</loc>
@@ -151,9 +183,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/admin/</loc>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:1313/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

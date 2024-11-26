@@ -23,5 +23,41 @@
 &lt;h1 id=&#34;探討&#34;&gt;探討&lt;/h1&gt;</description>
     </item>
     
+    <item>
+      <title>基礎模型於醫學領域的運用？</title>
+      <link>http://localhost:1313/temp/paperr2/</link>
+      <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/temp/paperr2/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;人工智慧的快速發展，特別是高靈活性和可重複使用的模型，預計將為醫學領域帶來全新的能力。這篇發表於nature的&lt;a href=&#34;https://www.nature.com/articles/s41586-023-05881-4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;提出了一種新的醫學AI模式，稱為通用型醫學人工智慧(Generalist Medical AI，GMAI)。GMAI 模型將能夠在極少甚至不依賴特定任務標註數據的情況下，執行多樣化的醫學任務。這些模型通過對大規模、多樣性數據集的自監督學習構建，能靈活解讀多種醫學數據模態的組合，包括影像數據、電子健康紀錄(EHR)、實驗室檢驗結果、基因組數據、圖形數據和醫學文本等。GMAI模型的輸出將更具表達性，例如提供自由文本解釋、語音建議或圖像註解，並展現出高級的醫學推理能力。&lt;/p&gt;
+&lt;h1 id=&#34;基礎模型真的有那麼強大&#34;&gt;基礎模型真的有那麼強大？&lt;/h1&gt;
+&lt;p&gt;基礎模型(Foundation Models)是最新一代的AI模型，基於大規模、多樣化的數據集訓練，並可用於多種下游任務。
+與以往專注於單一任務的AI模型不同，基礎模型具備處理多任務的靈活性和通用性，例如回答文本問題、描述圖像以及玩電子遊戲。&lt;/p&gt;
+&lt;p&gt;隨著數據集規模的增長、模型規模的增大以及模型架構的改進，基礎模型讓學界看到了AI強大的潛能。最著名的例子為於2020年發表的GPT-3，藉由通過&lt;span style=&#34;color: red; font-weight: bold&#34;&gt;上下文學習&lt;/span&gt;，僅需要提供一些實例或提示(prompts)，就能針對先前&lt;strong&gt;未曾訓練過&lt;/strong&gt;的資料作出判斷。而另一項關於基礎模型的潛能是，這種模型可以同時接受多種類型的數據模態(如圖像、文本)並生成輸出。另如Google DeepMind於2022年發表的Gato&lt;a href=&#34;https://deepmind.google/discover/blog/a-generalist-agent/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;模型&lt;/a&gt;能夠進行聊天、描述圖像、玩電子遊戲及控制機器臂，被視為通用代理(Generalist Agent)。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;醫學基礎模型的挑戰
+目前的醫學 AI 模型仍以特定任務為主，缺乏靈活性和通用性：
+例如胸部 X 光判讀模型只能檢測肺炎，無法完成完整的放射學報告。
+此類模型高度依賴人工標註的數據集，且模型的應用範圍受限於訓練數據的標籤。
+FDA 批准的超過 500 款臨床醫學 AI 模型中，大多僅針對 1 或 2 個狹窄任務。
+限制原因：
+醫學數據集難以獲取，數據高度多樣化。
+醫學領域的高複雜性及基礎模型技術的發展時間較短。&lt;/li&gt;
+&lt;li&gt;基礎模型對醫學 AI 的潛在顛覆
+基礎模型的進展，包括：
+多模態架構（Multimodal Architectures）：能處理多種數據模態。
+自監督學習技術（Self-supervised Learning）：擺脫對顯式標籤的依賴，例如語言建模和對比學習。
+上下文學習能力：使模型能快速適應新任務，而不需重新訓練。&lt;/li&gt;
+&lt;li&gt;通用型醫學 AI（GMAI）的特性
+GMAI 將取代目前的特定任務醫學 AI 模型，成為通用模型，適用於廣泛的醫學應用。
+GMAI 的三大關鍵能力：
+動態任務規範：模型只需用簡單的語言描述任務即可執行新問題，無需重新訓練。
+多模態輸入輸出：能處理並生成多種數據模態的組合（如影像、文本、實驗室結果等）。
+靈活應用於未知問題：GMAI 能解決未曾明確訓練過的新任務。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;heading&#34;&gt;？&lt;/h2&gt;
+&lt;h1 id=&#34;探討&#34;&gt;探討&lt;/h1&gt;</description>
+    </item>
+    
   </channel>
 </rss>
