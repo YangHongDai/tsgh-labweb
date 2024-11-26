@@ -75,7 +75,8 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;p&gt;到這邊我們已經可以發現，中間大框框包圍著的部分其實就是&lt;span style=&#34;color: red; font-weight: bold&#34;&gt;共變異矩陣(covariance matrix)！&lt;/span&gt; 到此，我們已經可以看出來PCA要解的其實就是共變異矩陣。&lt;/p&gt;
 &lt;h2 id=&#34;實際運用&#34;&gt;實際運用&lt;/h2&gt;
-&lt;p&gt;古人云：千言萬語不如一行code，我們來直接用R來玩玩看PCA是怎麼達成並且視覺化的。&lt;/p&gt;</description>
+&lt;p&gt;古人云：千言萬語不如一行code，我們來直接用R來玩玩看PCA是怎麼達成並且視覺化的。&lt;/p&gt;
+&lt;p&gt;#未寫完 待續&lt;/p&gt;</description>
     </item>
     
   </channel>
