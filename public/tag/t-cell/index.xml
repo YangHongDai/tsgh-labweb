@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>T Cell | DLit-Hub</title>
+    <link>http://localhost:1313/tag/t-cell/</link>
+      <atom:link href="http://localhost:1313/tag/t-cell/index.xml" rel="self" type="application/rss+xml" />
+    <description>T Cell</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 27 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
+      <title>T Cell</title>
+      <link>http://localhost:1313/tag/t-cell/</link>
+    </image>
+    
+    <item>
+      <title>纖維母性網狀細胞為肺癌中的T細胞塑造碉堡？</title>
+      <link>http://localhost:1313/post/paperr3/</link>
+      <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/paperr3/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
