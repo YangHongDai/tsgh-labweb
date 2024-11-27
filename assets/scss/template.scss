@@ -9,7 +9,7 @@
 }
 
 .math-display {
-  overflow-x: auto; /* 允許橫向滾動 */
+  overflow-x: scroll; /* 允許橫向滾動 */
   white-space: nowrap; /* 防止換行 */
 }
 
