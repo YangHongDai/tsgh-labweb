@@ -9735,3 +9735,16 @@ div.chart {
 
 .cta-group {
   justify-content: center; }
+
+.math-display {
+  overflow-x: auto;
+  /* 允許橫向滾動 */
+  white-space: nowrap;
+  /* 防止換行 */ }
+
+.math-inline {
+  max-width: 100%;
+  /* 適應父元素寬度 */
+  overflow-wrap: break-word;
+  /* 長公式換行 */
+  word-wrap: break-word; }
