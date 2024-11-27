@@ -23,7 +23,7 @@ PCA的目的是將高維數據投影到一組新的互相正交的坐標軸上�
 
 也就是在一堆雜亂的數據中，找到變異程度最大的主軸來最大程度的代表這群資料，接著PCA會逐步找到與這些主軸正交的其他軸，這些軸共同構成一組新的坐標系。而所有原始數據的值都會重新投影到新的軸上。每個空間中的數據點可以被所有主成分<span style="color: red; font-weight: bold">**線性加成**</span>的方式來還原原始數據。整個過程可以大致簡化成如下的公式：
 
-<div style="overflow-x: auto;">
+<div style="overflow-x: scroll;">
 $$
 S = C_{\text{mean}} + t_1C_1 + t_2C_2 + \dots \text{(t:主成分權重; C:主成分)}
 $$
@@ -42,7 +42,7 @@ $$
 這邊的*e*為長度為1的單位向量，也就是需要經過正規化(normalization)處理，此單位化向量確保了比較不同方向時，投影的變異性(方差)完全由數據本身決定，而非向量的長度。
 
 所有數據點投影後的長度可以表達為：
-<div style="overflow-x: auto;">
+<div style="overflow-x: scroll;">
 $$
 \
 e^T (\ x_1 - \bar{x}), e^T (\ x_2 - \bar{x}), \dots, e^T (\ x_n - \bar{x})
@@ -52,7 +52,7 @@ $$
 
 
 而在*e*上的數據變異度為：
-<div style="overflow-x: auto;">
+<div style="overflow-x: scroll;">
 $$
 \
 \sigma^2 = \frac{1}{n} \sum_{i=1}^n \left( e^T (\ x_i - \bar{x}) - 0 \right)^2
@@ -62,7 +62,7 @@ $$
 
 接下來把上面的公式拆開：
 平方公式可以看成兩個相同的元素相乘。
-<div style="overflow-x: auto;">
+<div style="overflow-x: scroll;">
 $$
 \sigma^2 = \frac{1}{n} \sum_{i=1}^{n} \left(e^T (x_i - \bar{x}) \right)^2 = \frac{1}{n} \sum_{i=1}^{n} \left(e^T (x_i - \bar{x}) \right) \left(e^T (x_i - \bar{x}) \right)^T
 $$
@@ -73,12 +73,12 @@ $$
 (AB)^T=B^TA^T
 $$
 所以上面的公式可以變換成:
-<div style="overflow-x: auto;">
+<div style="overflow-x: scroll;">
 $$
 \frac{1}{n} \sum_{i=1}^n \left(e^T (x_i - \bar{x})\right) \left((x_i - \bar{x})^T e\right)
 $$
 </div>
-<div style="overflow-x: auto;">
+<div style="overflow-x: scroll;">
 $$
 =e^T \left( \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})(x_i - \bar{x})^T \right) e = e^T \Sigma e
 $$
