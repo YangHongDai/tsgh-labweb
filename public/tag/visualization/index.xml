@@ -31,9 +31,11 @@
 &lt;li&gt;第二個主成分捕捉剩餘變異性，且與第一主成分正交，依此類推。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;也就是在一堆雜亂的數據中，找到變異程度最大的主軸來最大程度的代表這群資料，接著PCA會逐步找到與這些主軸正交的其他軸，這些軸共同構成一組新的坐標系。而所有原始數據的值都會重新投影到新的軸上。每個空間中的數據點可以被所有主成分&lt;span style=&#34;color: red; font-weight: bold&#34;&gt;&lt;strong&gt;線性加成&lt;/strong&gt;&lt;/span&gt;的方式來還原原始數據。整個過程可以大致簡化成如下的公式：&lt;/p&gt;
-&lt;p&gt;$$
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
 S = C_{\text{mean}} + t_1C_1 + t_2C_2 + \dots \text{(t:主成分權重; C:主成分)}
-$$&lt;/p&gt;
+$$
+&lt;/div&gt;
 &lt;h2 id=&#34;pca的目的&#34;&gt;PCA的目的&lt;/h2&gt;
 &lt;p&gt;我自己在分析基因數據的時候也很常用到PCA，甚至有些R bioconductor package也將PCA當成是標準前處理過程，但其實一開始都會思考，目前有其他降維工具，為何PCA還是很多人用？關於PCA的目的，初略有以下三點：&lt;/p&gt;
 &lt;ol&gt;
@@ -45,35 +47,45 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;數學過程&#34;&gt;數學過程&lt;/h2&gt;
 &lt;p&gt;整個過程概念是先找到空間中數據點的平均值&lt;em&gt;x-mean&lt;/em&gt;，即數據的中心點，然後以&lt;em&gt;x-mean&lt;/em&gt;為原點，尋找通過此點的一個方向向量&lt;em&gt;e&lt;/em&gt;，對於所有數據點&lt;em&gt;xi&lt;/em&gt;，計算他們相對於&lt;em&gt;x-mean&lt;/em&gt;的差值，並將這些差值投影到方向&lt;em&gt;e&lt;/em&gt;上，在&lt;em&gt;e&lt;/em&gt;方向上的投影值的總變異性(即投影值平方的總和)如果達到最大值，則&lt;em&gt;e&lt;/em&gt;為第一主成分。
 這邊的&lt;em&gt;e&lt;/em&gt;為長度為1的單位向量，也就是需要經過正規化(normalization)處理，此單位化向量確保了比較不同方向時，投影的變異性(方差)完全由數據本身決定，而非向量的長度。&lt;/p&gt;
-&lt;p&gt;所有數據點投影後的長度可以表達為：
+&lt;p&gt;所有數據點投影後的長度可以表達為：&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
 $$
-&lt;br&gt;
+\
 e^T (\ x_1 - \bar{x}), e^T (\ x_2 - \bar{x}), \dots, e^T (\ x_n - \bar{x})
-&lt;br&gt;
-$$&lt;/p&gt;
-&lt;p&gt;而在&lt;em&gt;e&lt;/em&gt;上的數據變異度為：
+\
 $$
-&lt;br&gt;
+&lt;/div&gt;
+&lt;p&gt;而在&lt;em&gt;e&lt;/em&gt;上的數據變異度為：&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+\
 \sigma^2 = \frac{1}{n} \sum_{i=1}^n \left( e^T (\ x_i - \bar{x}) - 0 \right)^2
-&lt;br&gt;
-$$&lt;/p&gt;
+\
+$$
+&lt;/div&gt;
 &lt;p&gt;接下來把上面的公式拆開：
-平方公式可以看成兩個相同的元素相乘。
+平方公式可以看成兩個相同的元素相乘。&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
 $$
 \sigma^2 = \frac{1}{n} \sum_{i=1}^{n} \left(e^T (x_i - \bar{x}) \right)^2 = \frac{1}{n} \sum_{i=1}^{n} \left(e^T (x_i - \bar{x}) \right) \left(e^T (x_i - \bar{x}) \right)^T
 $$
-然而拆開為兩個矩陣，若要達到可以相乘的目的，後面的矩陣我們需要將其轉置。這邊我們回憶一下:
+&lt;/div&gt;
+&lt;p&gt;然而拆開為兩個矩陣，若要達到可以相乘的目的，後面的矩陣我們需要將其轉置。這邊我們回憶一下:
 $$
 (AB)^T=B^TA^T
 $$
-所以上面的公式可以變換成:
+所以上面的公式可以變換成:&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
 $$
 \frac{1}{n} \sum_{i=1}^n \left(e^T (x_i - \bar{x})\right) \left((x_i - \bar{x})^T e\right)
-$$&lt;/p&gt;
-&lt;p&gt;$$
+$$
+&lt;/div&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
 =e^T \left( \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})(x_i - \bar{x})^T \right) e = e^T \Sigma e
-$$&lt;/p&gt;
-&lt;p&gt;到這邊我們已經可以發現，中間大框框包圍著的部分其實就是&lt;span style=&#34;color: red; font-weight: bold&#34;&gt;共變異矩陣(covariance matrix)！&lt;/span&gt; 到此，我們已經可以看出來PCA要解的其實就是共變異矩陣。&lt;/p&gt;
+$$
+&lt;/div&gt;
+到這邊我們已經可以發現，中間大框框包圍著的部分其實就是&lt;span style=&#34;color: red; font-weight: bold&#34;&gt;共變異矩陣(covariance matrix)！&lt;/span&gt; 到此，我們已經可以看出來PCA要解的其實就是共變異矩陣。
 &lt;h2 id=&#34;實際運用&#34;&gt;實際運用&lt;/h2&gt;
 &lt;p&gt;古人云：千言萬語不如一行code，我們來直接用R來玩玩看PCA是怎麼達成並且視覺化的。&lt;/p&gt;
 &lt;p&gt;#未寫完 待續&lt;/p&gt;</description>
