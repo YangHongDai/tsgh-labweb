@@ -4,7 +4,7 @@ date: 2024-11-28
 authors: ["戴揚紘", ""]
 commentable: true
 categories: [生物資訊]
-tags: [Bioinformatics, data science, cancer, R, Bioconductor] 
+tags: [Bioinformatics, data science, cancer, R] 
 isCJKLanguage: true
 ---
 <!--more-->
