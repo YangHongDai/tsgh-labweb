@@ -184,5 +184,8 @@
   </url><url>
     <loc>http://localhost:1313/admin/</loc>
     <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/post/ucscxenatool/</loc>
+    <changefreq>weekly</changefreq>
   </url>
 </urlset>
