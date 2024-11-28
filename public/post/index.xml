@@ -18,7 +18,8 @@
       <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/ucscxenatool/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;UCSCXenaTools 是一個專門用來處理UCSC Xena&lt;a href=&#34;https://xenabrowser.net&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;平台&lt;/a&gt;的基因組數據的R套件。該平台集成了多個公開數據庫(如分析癌症數據一定要知道的TCGA、ICGC、TARGET、GTEx等），提供處理過的數據，便於我們進行數據的篩選、連結、探索及下載。UCSCXenaTools的功能強大且操作簡單，在我們先前的&lt;a href=&#34;https://www.biorxiv.org/content/10.1101/2024.07.21.604474v1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;preprint&lt;/a&gt;發表我也是利用這個套件做TCGA數據的處理，所以這邊就簡單分享我是如何用這個套件來進行分析的。&lt;/p&gt;
+&lt;p&gt;數年前我還是住院醫師的時候是直接在UCSC Xena&lt;a href=&#34;https://xenabrowser.net&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;平台&lt;/a&gt;下載癌症數據，但整個過程很難流程化， 而2019年發表的UCSCXenaTools解決了這個問題，也讓我在前年分析公開數據時方便許多。
+UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。該平台集成了多個公開數據庫(如分析癌症數據一定要知道的TCGA、ICGC、TARGET、GTEx等），提供處理過的數據，便於我們進行數據的篩選、連結、探索及下載。UCSCXenaTools的功能強大且操作簡單，在我們先前的&lt;a href=&#34;https://www.biorxiv.org/content/10.1101/2024.07.21.604474v1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;preprint&lt;/a&gt;發表我也是利用這個套件做TCGA數據的處理，所以這邊就簡單分享我是如何用這個套件來進行分析的。&lt;/p&gt;
 &lt;h1 id=&#34;簡介&#34;&gt;簡介&lt;/h1&gt;
 &lt;p&gt;UCSCXenaTools 通過多個Xena Hubs提供對各類公共基因組數據庫的訪問，這些數據經過規範化處理，支持用戶輕鬆地篩選、探索、下載並應用於進一步分析。目前支持的數據中心包括：&lt;/p&gt;
 &lt;ol&gt;
@@ -117,7 +118,7 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;n&#34;&gt;filterExpr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;filterGTEX02&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sample&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;filterTCGA02&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sampleID&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;sample&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;n&#34;&gt;ExprSubsetBySamp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;fread&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;Data/TcgaTargetGtex_gene_expected_count&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;filterExpr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;只取protein-coding基因來分析&#34;&gt;只取protein-coding基因來分析&lt;/h3&gt;
-&lt;p&gt;先從&lt;a href=&#34;https://osf.io/edjzv&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;這裡&lt;/a&gt;下載完整的protein-coding gene資訊。&lt;/p&gt;
+&lt;p&gt;先從&lt;a href=&#34;https://osf.io/edjzv&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;這裡&lt;/a&gt;下載完整的protein-coding gene資訊。以及在&lt;a href=&#34;https://toil-xena-hub.s3.us-east-1.amazonaws.com/download/probeMap%2Fgencode.v23.annotation.gene.probemap&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;這邊&lt;/a&gt;下載ID/gene mapping。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;probemap&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;fread&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;zz_gencode.v23.annotation.csv&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#只留前兩欄&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;exprALL&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;merge&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;probemap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ExprSubsetBySamp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;by.x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;by.y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;sample&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;genesPC&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;fread&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;zz_gene.protein.coding.csv&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -146,21 +147,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;將yesno-替換成10以用作後需分析使用&#34;&gt;將Yes/No 替換成1/0，以用作後需分析使用&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;clinFinal&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lymphaticinvasion&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;if_else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;clinFinal&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lymphaticinvasion&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;YES&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;missing&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;table&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;clinFinal&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lymphaticinvasion&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;到此終於告一段落啦，後面就可以無痛進行差異性基因分析了！&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;到此終於告一段落啦，後面就可以無痛進行差異性基因分析或是WGCNA了！&lt;/p&gt;
 &lt;h1 id=&#34;結論&#34;&gt;結論&lt;/h1&gt;
 &lt;p&gt;UCSCXenaTools是一個功能強大且靈活的工具，讓我們能夠在癌症基因組研究的道路上如虎添翼。在處理TCGA、GTEx 等大規模基因數據時，這個套件不僅簡化了繁瑣的數據篩選和整合流程，還提供了強大的數據搜索和下載功能，極大地提升了分析效率。&lt;/p&gt;
 &lt;p&gt;這樣的數據處理方法不僅適用於大腸癌研究，還能靈活地應用於其他癌症類型，甚至來可以下載近年十分熱門的單細胞數據。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>纖維母性網狀細胞為肺癌中的T細胞塑造碉堡？</title>
-      <link>http://localhost:1313/post/paperr3/</link>
-      <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/paperr3/</guid>
-      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;腫瘤內部的免疫微環境基本上都存在高度異質性，從免疫細胞密集分布到完全缺乏等等。目前的證據顯示，腫瘤抗原特異性T細胞(Tumor-specific T cell)若要順利的啟動及維持他們的活性，仰賴腫瘤引流淋巴結(tumor draining lymph node)和腫瘤組織內的微環境，特別是三級淋巴結構（tertiary lymphoid structure，TLS），其通常位於腫瘤邊緣並由B細胞主導。而TLS中的B細胞活性也與Immune checkpoint inhibitor的成功率息息相關。&lt;/p&gt;
-&lt;p&gt;這些免疫細胞由專門的纖維母細胞(如T細胞區網狀細胞和血管周圍網狀細胞)支撐，而這之間的交互作用也從TLS透過某種物理架構延伸到腫瘤內部。本篇研究通過單細胞轉錄組學和高解析度顯微技術，發現了在肺癌中形成特定T細胞環境的纖維母細胞亞群(fibroblastic reticular cell)。這些FRC與免疫細胞的互動促進了TLS的形成、T細胞軌跡中的分化，以及控制T細胞活性。實驗顯示，破壞腫瘤微環境中FRC與免疫細胞的互動會降低CD8+ T細胞的抗腫瘤活性並促進腫瘤生長。&lt;/p&gt;
-&lt;p&gt;由此可見，特定的FRC亞群通過提供增長和分化的信號，在腫瘤內部支持保護性免疫反應(protective immunity)，對抗腫瘤生長。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -456,10 +446,10 @@ $$
 &lt;figure  id=&#34;figure-pca-visualization&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;pca&#34; srcset=&#34;
-               /post/data_pca/fig1_hu15942855386301452877.webp 400w,
+               /post/data_pca/fig1_hu15827159032189168353.webp 400w,
                /post/data_pca/fig1_hu4818452470569895218.webp 760w,
                /post/data_pca/fig1_hu7070961658534383816.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/data_pca/fig1_hu15942855386301452877.webp&#34;
+               src=&#34;http://localhost:1313/post/data_pca/fig1_hu15827159032189168353.webp&#34;
                width=&#34;760&#34;
                height=&#34;656&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
