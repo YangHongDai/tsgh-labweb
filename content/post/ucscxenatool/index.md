@@ -9,7 +9,8 @@ isCJKLanguage: true
 ---
 <!--more-->
 ## Quick look
-UCSCXenaTools 是一個專門用來處理UCSC Xena[平台](https://xenabrowser.net)的基因組數據的R套件。該平台集成了多個公開數據庫(如分析癌症數據一定要知道的TCGA、ICGC、TARGET、GTEx等），提供處理過的數據，便於我們進行數據的篩選、連結、探索及下載。UCSCXenaTools的功能強大且操作簡單，在我們先前的[preprint](https://www.biorxiv.org/content/10.1101/2024.07.21.604474v1)發表我也是利用這個套件做TCGA數據的處理，所以這邊就簡單分享我是如何用這個套件來進行分析的。
+數年前我還是住院醫師的時候是直接在UCSC Xena[平台](https://xenabrowser.net)下載癌症數據，但整個過程很難流程化， 而2019年發表的UCSCXenaTools解決了這個問題，也讓我在前年分析公開數據時方便許多。
+UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。該平台集成了多個公開數據庫(如分析癌症數據一定要知道的TCGA、ICGC、TARGET、GTEx等），提供處理過的數據，便於我們進行數據的篩選、連結、探索及下載。UCSCXenaTools的功能強大且操作簡單，在我們先前的[preprint](https://www.biorxiv.org/content/10.1101/2024.07.21.604474v1)發表我也是利用這個套件做TCGA數據的處理，所以這邊就簡單分享我是如何用這個套件來進行分析的。
 
 # 簡介
 UCSCXenaTools 通過多個Xena Hubs提供對各類公共基因組數據庫的訪問，這些數據經過規範化處理，支持用戶輕鬆地篩選、探索、下載並應用於進一步分析。目前支持的數據中心包括：
