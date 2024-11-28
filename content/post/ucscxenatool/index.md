@@ -3,7 +3,7 @@ title: 生資硬核技術：公開癌症基因數據下載及操作
 date: 2024-11-28
 authors: ["戴揚紘", ""]
 commentable: true
-categories: [免疫治療]
+categories: [生物資訊]
 tags: [Bioinformatics, data science, cancer, R, Bioconductor] 
 isCJKLanguage: true
 ---
@@ -184,7 +184,7 @@ UCSCXenaTools 通過多個Xena Hubs提供對各類公共基因組數據庫的訪
     table(clinFinal$lymphaticinvasion)
 
 ```
-到此終於告一段落啦，後面就可以無痛進行差異性基因分析了！
+到此終於告一段落啦，後面就可以無痛進行差異性基因分析或是WGCNA了！
 
 # 結論
 UCSCXenaTools是一個功能強大且靈活的工具，讓我們能夠在癌症基因組研究的道路上如虎添翼。在處理TCGA、GTEx 等大規模基因數據時，這個套件不僅簡化了繁瑣的數據篩選和整合流程，還提供了強大的數據搜索和下載功能，極大地提升了分析效率。
