@@ -145,7 +145,7 @@ UCSCXenaTools 通過多個Xena Hubs提供對各類公共基因組數據庫的訪
 ```
 
 ### 只取protein-coding基因來分析
-先從[這裡](https://osf.io/edjzv)下載完整的protein-coding gene資訊。
+先從[這裡](https://osf.io/edjzv)下載完整的protein-coding gene資訊。以及在[這邊](https://toil-xena-hub.s3.us-east-1.amazonaws.com/download/probeMap%2Fgencode.v23.annotation.gene.probemap)下載ID/gene mapping。
 ```r
     probemap = fread('zz_gencode.v23.annotation.csv', select = c(1,2)) #只留前兩欄
     exprALL = merge(probemap, ExprSubsetBySamp, by.x = 'id', by.y = 'sample')
