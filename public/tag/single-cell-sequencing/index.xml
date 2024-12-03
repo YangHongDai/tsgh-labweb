@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Single Cell Sequencing | DLit-Hub</title>
+    <link>http://localhost:1313/tag/single-cell-sequencing/</link>
+      <atom:link href="http://localhost:1313/tag/single-cell-sequencing/index.xml" rel="self" type="application/rss+xml" />
+    <description>Single Cell Sequencing</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 03 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
+      <title>Single Cell Sequencing</title>
+      <link>http://localhost:1313/tag/single-cell-sequencing/</link>
+    </image>
+    
+    <item>
+      <title>10X Genomics 推出GEM-X Flex</title>
+      <link>http://localhost:1313/tech/tech1/</link>
+      <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tech/tech1/</guid>
+      <description>&lt;p&gt;10x Genomics 推出的&lt;a href=&#34;https://www.10xgenomics.com/support/single-cell-gene-expression-flex/documentation/steps/library-prep/gem-x-flex-gene-expression-reagent-kit-for-multiplex-samples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Single Cell GEM-X&lt;/a&gt;技術為單細胞分析開創了嶄新的可能性，提供前所未有的效能提升。基於這項創新，10x Genomics 進一步推出了GEM-X Flex和GEM-X Universal Multiplex，為研究者提供更靈活、高效且經濟的實驗設計選擇。&lt;/p&gt;
+&lt;p&gt;GEM-X Flex利用先進的探針技術進行基因表達檢測，即使在FFPE或冷凍組織中，仍能生成高品質的數據。這項技術適用於各類樣本，為研究設計帶來極大的靈活性和多樣性。
+GEM-X Universal Multiplex 則採用了 On-chip multiplexing(OCM)技術，實現在現有的 3&amp;rsquo; 和 5&amp;rsquo; 實驗流程中同時處理多個樣本。這不僅顯著降低實驗成本，還大幅提升了實驗通量和效率。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IgA Nephropathy | DLit-Hub</title>
+    <link>http://localhost:1313/tag/iga-nephropathy/</link>
+      <atom:link href="http://localhost:1313/tag/iga-nephropathy/index.xml" rel="self" type="application/rss+xml" />
+    <description>IgA Nephropathy</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 29 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
+      <title>IgA Nephropathy</title>
+      <link>http://localhost:1313/tag/iga-nephropathy/</link>
+    </image>
+    
+    <item>
+      <title>沈默的兇手：IgA腎病變</title>
+      <link>http://localhost:1313/post/iga_nephropathy/</link>
+      <pubDate>Fri, 29 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/iga_nephropathy/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;IgA腎病變(IgA nephropathy, IgAN)是一種常見的原發性腎小球腎炎，雖然進程緩慢，但仍有不少患者在會一生中面臨腎衰竭或是洗腎的風險。該疾病的致病機轉主要來自於黏膜免疫系統中衍生的缺半乳糖化IgA1在血液中濃度升高，且和特異性IgG和IgA抗體結合，形成免疫複合物沉積於腎小球內，導致發炎、補體活化及腎損傷。儘管現有的治療選擇有限，但針對不同途徑的療法(如腸道黏膜B細胞、APRIL和BAFF細胞因子、漿細胞及補體系統的活化)正在快速發展，本篇針對最新發表在nature review nephrology的&lt;a href=&#34;https://www.nature.com/articles/s41581-024-00885-3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;，深入探討IgAN的病生理機制與治療前景。&lt;/p&gt;
+&lt;h1 id=&#34;前情提要&#34;&gt;前情提要&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;IgAN最早於1968年由Jean Berger與Nicole Hinglais提出，其特徵為腎小球間質中出現IgA沉積。&lt;/li&gt;
+&lt;li&gt;IgA腎病與IgA血管炎在腎臟病理學上無法區分，但後者會影響其他器官如皮膚、關節、胃腸道。&lt;/li&gt;
+&lt;li&gt;IgAN的年發病率估計為每10萬成年人中至少2.5例，實際數據因不同因素而被低估。&lt;/li&gt;
+&lt;li&gt;患病率有明顯的地域差別(圖一)：東亞地區高達40-50%，而北美、歐洲分別為10-20%及20%，而非洲則少於5%。男性患者比例在歐美地區明顯偏高(約2:1)，亞洲則為1:1。&lt;/li&gt;
+&lt;li&gt;雖然部分患者病程較為良性，但大多數患者需要長期治療以減緩腎功能下降，現有標準治療對疾病的控制有限。&lt;/li&gt;
+&lt;li&gt;IgAN對患者及其家庭，以及全球各地的醫療體系帶來重大負擔。因此開發安全且有效的長期療法刻不容緩。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖一&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig1&#34; srcset=&#34;
+               /post/iga_nephropathy/fig1_hu8477814647956072909.webp 400w,
+               /post/iga_nephropathy/fig1_hu2347947302523353437.webp 760w,
+               /post/iga_nephropathy/fig1_hu16276878206001251811.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/iga_nephropathy/fig1_hu8477814647956072909.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;390&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖一
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;造成igan的關鍵何謂多打擊假說&#34;&gt;造成IgAN的關鍵?何謂多打擊假說?&lt;/h1&gt;
+&lt;p&gt;即使我們知道IgA1抗體鉸鏈區(hinge region)上O-glycan側鏈若缺少半乳糖(galactose)，也稱為galactose deficient IgA1(Gd-IgA1)是IgAN的主要根源，但光有這個變異還不夠，因為IgAN病人的一級親屬即使在血液中有高濃度的血清Gd-IgA1，也不一定會發病。而目前研究顯示，要導致IgAN，至少需要四個事件的發生(&lt;strong&gt;不一定是獨立事件&lt;/strong&gt;)，才會產生臨床症狀並診斷為IgAN(圖二):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;血液中出現Gd-IgA1(Hit1)。&lt;/li&gt;
+&lt;li&gt;血液中出現對抗Gd-IgA1的IgA或IgG自體免疫球蛋白(Hit2)。&lt;/li&gt;
+&lt;li&gt;Gd-IgA1會聚集在一起，吸引其他血清蛋白，並聯合自體免疫球蛋白形成免疫複合體(Immune complex)(Hit3)。&lt;/li&gt;
+&lt;li&gt;繫膜細胞(mesangial cell)增生及堆積，並對腎絲球產生損傷(Hit 4)。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而繫膜細胞的堆積會導致細胞激素(cytokine)的分泌、補體(complement)的活化、足細胞(podocyte)損傷、腎絲球過濾出問體等等，從血尿、蛋白尿、腎小管纖維化，進展到最終腎功能的喪失。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖二&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig2&#34; srcset=&#34;
+               /post/iga_nephropathy/fig2_hu9214946873256410068.webp 400w,
+               /post/iga_nephropathy/fig2_hu8460772400180790820.webp 760w,
+               /post/iga_nephropathy/fig2_hu1227887210895014429.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/iga_nephropathy/fig2_hu9214946873256410068.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;322&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖二
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;iga的抗體分型有什麼其妙之處&#34;&gt;IgA的抗體分型有什麼其妙之處？&lt;/h1&gt;
+&lt;p&gt;IgA有兩種分型，以有無延伸的鉸鏈區來區分為IgA1及IgA2。IgA大多由黏膜淋巴組織(mucosa-associated lymphoid tissue, MALT)分秘，其中腸道淋巴組織(gut-associated lymphoid tissue, GALT)為IgA的主要來源。&lt;/p&gt;
+&lt;p&gt;而IgA到底扮演了什麼角色？當腸道出現非共生(commensal)的病原時，腸道中的巨噬細胞或是M細胞會將抗原呈現給T細胞，間接或是直接刺激黏膜下的B細胞產生抗體，而產生抗體的過程需要一些協同的刺激訊號，其中細胞激素B cell activating factor(BAFF)及a proliferation-inducing ligand(APRIL)在獨立於T細胞(T cell independent)的抗體刺激中扮演了關鍵的角色。此時活化的B細胞不會馬上在黏膜下分秘IgA，而是再跑到中心的淋巴結進行進一步的變化：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;IgA+ B細胞從MALT離開，經由淋巴系統和循環系統遷移至中央淋巴結，在那裡進一步分化。&lt;/li&gt;
+&lt;li&gt;IgA+ B細胞回到黏膜固有層，在那裡成熟為分泌抗體的漿細胞(plasma cells)。&lt;/li&gt;
+&lt;li&gt;漿細胞主要分泌聚合型IgA(pIgA），這種分子形式由至少兩個IgA單體通過&lt;strong&gt;J鏈&lt;/strong&gt;連接而成，J鏈是一種17kDa的蛋白，通過二硫鍵將α-重鏈上的半胱氨酸殘基連接。&lt;/li&gt;
+&lt;li&gt;pIgA在黏膜上皮細胞的基底外側表面與聚合型Ig受體(pIgR)結合，並進行跨細胞移動至管腔面。&lt;/li&gt;
+&lt;li&gt;在黏膜表面，pIgR被酶切割，其中一部分受體仍與pIgA結合，成為分泌成分，從而形成分泌型IgA(sIgA)。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;需要注意的是，這邊分秘的IgA為antigen-specific，會在腸道免疫反應發生後於循環中上升，與本來在循環中的單體IgA不同(由骨髓B細胞分秘)。由此可見IgA的分泌是系統性免疫反應中很重要的一部分。&lt;/p&gt;
+&lt;h1 id=&#34;iga1鉸鏈區的混亂&#34;&gt;IgA1鉸鏈區的混亂？&lt;/h1&gt;
+&lt;p&gt;在IgA1分子中，有一個特別的結構叫做鉸鏈區域，位於α重鏈的第一和第二區之間。這裡有18個氨基酸，可以進行轉譯後的修飾，在蘇胺酸(threonine)及絲胺酸(serine)上加上一個糖基(圖三)。而這項修飾目的是要防止微生物蛋白酶對這個區域進行降解。&lt;/p&gt;
+&lt;p&gt;在IgA1分子中，9個潛在的糖基化位點中通常有3到6個會被修飾：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;由N-乙醯半乳糖胺轉移酶2(&lt;strong&gt;GalNAcT2&lt;/strong&gt;)添加N-乙醯半乳糖胺(&lt;strong&gt;GalNAc&lt;/strong&gt;)。&lt;/li&gt;
+&lt;li&gt;核心1β-1,3-半乳糖基轉移酶(&lt;strong&gt;C1GalT1&lt;/strong&gt;)在輔助下，將半乳糖與GalNAc結合，完成主要的修飾。&lt;/li&gt;
+&lt;li&gt;唾液酸(&lt;strong&gt;Sialic acid&lt;/strong&gt;)被加入，為分子提供更強的防護，防止後續修飾。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;其實，微生物的影響也不可忽視，一些微生物釋放的PAMPs(Pathogen-associated molecular patterns)會促使IgA1半乳糖化的程度減少，讓鉸鏈區對微生物蛋白酶失去招架的能力。&lt;/p&gt;
+&lt;p&gt;為什麼會出現這些異常？研究發現，基因的因素及腸道黏膜的環境都有可能造成C1GalT1活性下降或是GalNAc唾液酸化的增加，都會減少半乳糖化，促使更多的Gd-IgA1產生。&lt;/p&gt;
+&lt;p&gt;半乳糖化的程度減少似乎沒有想像中的可怕，但可怕的是Gd-IgA1會有和彼此之間形成聚合物的傾向，並和一堆血清蛋白結合。這種狀況下產生的免疫複合物還會激活補體系統，誘發一連串的發炎反應。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖三&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig3&#34; srcset=&#34;
+               /post/iga_nephropathy/fig3_hu17316065617603901825.webp 400w,
+               /post/iga_nephropathy/fig3_hu3953366864811020813.webp 760w,
+               /post/iga_nephropathy/fig3_hu2584949262212506169.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/iga_nephropathy/fig3_hu17316065617603901825.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;586&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖三
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;源源不絕的gd-iga1&#34;&gt;源源不絕的Gd-IgA1&lt;/h1&gt;
+&lt;p&gt;Gd-IgA1的來源可能涉及兩個主要的來源：黏膜和骨髓。目前許多證據支持黏膜是主要來源，因為IgAN的病情嚴重程度與黏膜感染密切相關。例如，在小鼠模型中，使用廣效抗生素清除腸道菌群可以有效防止IgA在腎絲球中的沉積。而在另一項實驗中(針對 BAFF過表達小鼠，這類小鼠會產生自發性類IgAN疾病)，將小鼠飼養於無菌環境下，能有效阻止腎絲球IgA的沉積。此外，研究發現IgAN患者在上呼吸道感染時，循環中的IgA+B細胞數量顯著增加，進一步支持黏膜作為Gd-IgA1主要來源的假說。&lt;/p&gt;
+&lt;p&gt;黏膜來源的IgA1常為聚合型，且O-糖基化不足，與IgAN患者循環中以及腎絲球中沉積的Gd-IgA1極為相似。然而，一些黏膜衍生的B細胞可&lt;strong&gt;錯位&lt;/strong&gt;至骨髓，並在那裡產生致病性Gd-IgA1。與健康人相比，IgAN患者骨髓中含有比例更高的漿細胞，這些細胞能分泌二聚體(dimeric)IgA1。總結來說，黏膜和骨髓都可能是病理性IgA的重要來源。&lt;/p&gt;
+&lt;h1 id=&#34;免疫複合體集結&#34;&gt;免疫複合體集結！&lt;/h1&gt;
+&lt;p&gt;IgAN患者的病理性Gd-IgA1主要以高分子量免疫複合物形式存在，這些複合物由抗Gd-IgA1的IgG或IgA抗體結合而成，其形成與遺傳因素(如HLA多型性)和環境因素密切相關。在環境因素的部分，&lt;/p&gt;
+&lt;p&gt;這些免疫複合物在腎絲球中的沉積會激活腎間質細胞，導致發炎和增殖，並通過補體系統加重腎臟的破壞。同時，這些複合物因其結構特性導致肝臟清除功能受限，進一步促使其累積並讓IgAN惡化。此外，IgA1–sCD89複合物的生成和作用在疾病中可能也具有重要意義，但其具體機制仍需進一步研究。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

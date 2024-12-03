@@ -5,7 +5,7 @@
     <link>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</link>
       <atom:link href="http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/index.xml" rel="self" type="application/rss+xml" />
     <description>Yang-Hong Dai 戴揚紘</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 28 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 03 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/avatar_hu12562275713898467528.jpg</url>
       <title>Yang-Hong Dai 戴揚紘</title>
@@ -13,9 +13,20 @@
     </image>
     
     <item>
+      <title>10X Genomics 推出GEM-X Flex</title>
+      <link>http://localhost:1313/tech/tech1/</link>
+      <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tech/tech1/</guid>
+      <description>&lt;p&gt;10x Genomics 推出的&lt;a href=&#34;https://www.10xgenomics.com/support/single-cell-gene-expression-flex/documentation/steps/library-prep/gem-x-flex-gene-expression-reagent-kit-for-multiplex-samples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Single Cell GEM-X&lt;/a&gt;技術為單細胞分析開創了嶄新的可能性，提供前所未有的效能提升。基於這項創新，10x Genomics 進一步推出了GEM-X Flex和GEM-X Universal Multiplex，為研究者提供更靈活、高效且經濟的實驗設計選擇。&lt;/p&gt;
+&lt;p&gt;GEM-X Flex利用先進的探針技術進行基因表達檢測，即使在FFPE或冷凍組織中，仍能生成高品質的數據。這項技術適用於各類樣本，為研究設計帶來極大的靈活性和多樣性。
+GEM-X Universal Multiplex 則採用了 On-chip multiplexing(OCM)技術，實現在現有的 3&amp;rsquo; 和 5&amp;rsquo; 實驗流程中同時處理多個樣本。這不僅顯著降低實驗成本，還大幅提升了實驗通量和效率。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Yang-Hong Dai 戴揚紘</title>
       <link>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</link>
-      <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</guid>
       <description>&lt;p&gt;我是一位專注於腫瘤學與免疫治療的放射腫瘤科醫師，致力於透過創新技術和研究推進癌症治療的發展。
 除了體外放射治療的研究，目前我正在深入研究標靶核種藥物(targeted radionuclide)的潛力，特別是針對 Lutetium-177-prostate specific membrane antigen(PSMA)治療。我也在探討這種治療是否能刺激免疫系統對抗癌細胞的潛力。我的研究不僅在優化治療策略，還希望透過大數據分析來探討各種癌症治療模式與免疫機制間的關係。&lt;/p&gt;
@@ -160,7 +171,7 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;到此終於告一段落啦，後面就可以無痛進行差異性基因分析或是WGCNA了！&lt;/p&gt;
 &lt;h1 id=&#34;結論&#34;&gt;結論&lt;/h1&gt;
 &lt;p&gt;UCSCXenaTools是一個功能強大且靈活的工具，讓我們能夠在癌症基因組研究的道路上如虎添翼。在處理TCGA、GTEx 等大規模基因數據時，這個套件不僅簡化了繁瑣的數據篩選和整合流程，還提供了強大的數據搜索和下載功能，極大地提升了分析效率。&lt;/p&gt;
-&lt;p&gt;這樣的數據處理方法不僅適用於大腸癌研究，還能靈活地應用於其他癌症類型，甚至來可以下載近年十分熱門的單細胞數據。&lt;/p&gt;</description>
+&lt;p&gt;這樣的數據處理方法不僅適用於大腸癌研究，還能靈活地應用於其他癌症類型，甚至還可以下載近年十分熱門的單細胞數據。&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -150,7 +150,7 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;到此終於告一段落啦，後面就可以無痛進行差異性基因分析或是WGCNA了！&lt;/p&gt;
 &lt;h1 id=&#34;結論&#34;&gt;結論&lt;/h1&gt;
 &lt;p&gt;UCSCXenaTools是一個功能強大且靈活的工具，讓我們能夠在癌症基因組研究的道路上如虎添翼。在處理TCGA、GTEx 等大規模基因數據時，這個套件不僅簡化了繁瑣的數據篩選和整合流程，還提供了強大的數據搜索和下載功能，極大地提升了分析效率。&lt;/p&gt;
-&lt;p&gt;這樣的數據處理方法不僅適用於大腸癌研究，還能靈活地應用於其他癌症類型，甚至來可以下載近年十分熱門的單細胞數據。&lt;/p&gt;</description>
+&lt;p&gt;這樣的數據處理方法不僅適用於大腸癌研究，還能靈活地應用於其他癌症類型，甚至還可以下載近年十分熱門的單細胞數據。&lt;/p&gt;</description>
     </item>
     
   </channel>

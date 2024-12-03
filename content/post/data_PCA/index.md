@@ -156,7 +156,7 @@ $$
 ```
 接著來同樣取出eigenvalues，看看是不是跟上面的一樣
 ```r
-    #取出eigenvalues
+    #取出eigenvalues prcomp用奇異值來解PCA，奇異值的平方就等於特徵值
     prcomp_eigenvalues <- pca_result$sdev^2
     prcomp_eigenvalues
 ```

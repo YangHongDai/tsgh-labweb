@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: November 28, 2024 --><html lang="en-us" >
+<!-- Last Published: December 3, 2024 --><html lang="en-us" >
 
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
@@ -643,6 +643,34 @@
           
           
 
+          
+
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/tech"><span>新技術分享</span></a>
+          </li>
+
+          
+          
+
         
 
           
@@ -941,7 +969,7 @@ $$
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl">    <span class="c1">#使用prcomp進行 PCA</span>
 </span></span><span class="line"><span class="cl">    <span class="n">pca_result</span> <span class="o">&lt;-</span> <span class="nf">prcomp</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">scale.</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 </span></span></code></pre></div><p>接著來同樣取出eigenvalues，看看是不是跟上面的一樣</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl">    <span class="c1">#取出eigenvalues</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl">    <span class="c1">#取出eigenvalues prcomp用奇異值來解PCA，奇異值的平方就等於特徵值</span>
 </span></span><span class="line"><span class="cl">    <span class="n">prcomp_eigenvalues</span> <span class="o">&lt;-</span> <span class="n">pca_result</span><span class="o">$</span><span class="n">sdev^2</span>
 </span></span><span class="line"><span class="cl">    <span class="n">prcomp_eigenvalues</span>
 </span></span></code></pre></div><p>出來的eigenvalues:
