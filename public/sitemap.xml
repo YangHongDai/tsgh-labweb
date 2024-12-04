@@ -54,6 +54,30 @@
     <lastmod>2024-12-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>http://localhost:1313/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/</loc>
+    <lastmod>2024-11-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tag/iga-nephropathy/</loc>
+    <lastmod>2024-11-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/post/iga_nephropathy/</loc>
+    <lastmod>2024-11-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tag/immune-complex/</loc>
+    <lastmod>2024-11-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tag/nephrology/</loc>
+    <lastmod>2024-11-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/category/%E8%85%8E%E8%87%9F%E7%97%85%E5%AD%B8/</loc>
+    <lastmod>2024-11-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://localhost:1313/tag/bioinformatics/</loc>
     <lastmod>2024-11-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -128,10 +152,6 @@
   </url><url>
     <loc>http://localhost:1313/post/paperr1/</loc>
     <lastmod>2024-11-23T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:1313/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/</loc>
-    <lastmod>2024-09-11T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/event/meta_publish/</loc>

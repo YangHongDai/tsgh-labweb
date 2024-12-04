@@ -13,7 +13,7 @@
     </image>
     
     <item>
-      <title>沈默的兇手：IgA腎病變</title>
+      <title>IgA腎病變：現況與挑戰</title>
       <link>http://localhost:1313/post/iga_nephropathy/</link>
       <pubDate>Fri, 29 Nov 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/iga_nephropathy/</guid>
@@ -153,8 +153,89 @@
 &lt;p&gt;Gd-IgA1的來源可能涉及兩個主要的來源：黏膜和骨髓。目前許多證據支持黏膜是主要來源，因為IgAN的病情嚴重程度與黏膜感染密切相關。例如，在小鼠模型中，使用廣效抗生素清除腸道菌群可以有效防止IgA在腎絲球中的沉積。而在另一項實驗中(針對 BAFF過表達小鼠，這類小鼠會產生自發性類IgAN疾病)，將小鼠飼養於無菌環境下，能有效阻止腎絲球IgA的沉積。此外，研究發現IgAN患者在上呼吸道感染時，循環中的IgA+B細胞數量顯著增加，進一步支持黏膜作為Gd-IgA1主要來源的假說。&lt;/p&gt;
 &lt;p&gt;黏膜來源的IgA1常為聚合型，且O-糖基化不足，與IgAN患者循環中以及腎絲球中沉積的Gd-IgA1極為相似。然而，一些黏膜衍生的B細胞可&lt;strong&gt;錯位&lt;/strong&gt;至骨髓，並在那裡產生致病性Gd-IgA1。與健康人相比，IgAN患者骨髓中含有比例更高的漿細胞，這些細胞能分泌二聚體(dimeric)IgA1。總結來說，黏膜和骨髓都可能是病理性IgA的重要來源。&lt;/p&gt;
 &lt;h1 id=&#34;免疫複合體集結&#34;&gt;免疫複合體集結！&lt;/h1&gt;
-&lt;p&gt;IgAN患者的病理性Gd-IgA1主要以高分子量免疫複合物形式存在，這些複合物由抗Gd-IgA1的IgG或IgA抗體結合而成，其形成與遺傳因素(如HLA多型性)和環境因素密切相關。在環境因素的部分，&lt;/p&gt;
-&lt;p&gt;這些免疫複合物在腎絲球中的沉積會激活腎間質細胞，導致發炎和增殖，並通過補體系統加重腎臟的破壞。同時，這些複合物因其結構特性導致肝臟清除功能受限，進一步促使其累積並讓IgAN惡化。此外，IgA1–sCD89複合物的生成和作用在疾病中可能也具有重要意義，但其具體機制仍需進一步研究。&lt;/p&gt;</description>
+&lt;p&gt;IgAN患者的病理性Gd-IgA1主要以高分子量免疫複合物形式存在，這些複合物由抗Gd-IgA1的IgG或IgA抗體結合而成，其形成與遺傳因素(如HLA多型性)和環境因素密切相關。在環境因素的部分，微生物可能會在細胞表面的多醣體表現GalNAc motif，而B細胞會因此被激活而分泌對抗這個motif的IgA與IgG，並會直接和裸露出來的鉸鏈區域結合，與Gd-IgA1形成複合物。這個過程也稱為分子模仿假說(molecular mimicry hypothesis)。&lt;/p&gt;
+&lt;p&gt;IgA-IgG免疫複合物與IgAN的活性有直接的關係，研究顯示，在兒童IgA血管炎中，只有同時出現腎炎的患者會出現升高的IgA–IgA與IgA–IgG複合物。而在IgAN患者中，抗Gd-IgA1的IgG抗體量顯著升高，尤其是IgG1和IgG3亞型，並在疾病活躍期間進一步增加。這些抗體會堆積於腎絲球間質，並與疾病的嚴重程度及腎功能惡化相關。進一步的研究發現，高分子量的Gd-IgA1免疫複合物會刺激腎間質細胞的增殖，而單一的Gd-IgA1則無此作用，另一方面，若自體抗體換成IgA則沒有類似的影響；研究發現IgA在血清中的濃度與Gd-IgA1的濃度沒有關聯性，也沒有直接證據說明病程的進展和IgA。總而言之，抗Gd-IgA1的IgG免疫複合物不僅促進了腎炎的發展，還可能成為IgAN疾病嚴重程度的重要指標。這為未來針對免疫複合物的治療提供了新的方向。&lt;/p&gt;
+&lt;p&gt;循環中的Gd-IgA1免疫複合物在肝臟分解受到阻礙，原因包括其高分子量減少了複合物與庫普弗細胞（Kupffer cells）的接觸機會，以及其對肝臟去唾糖蛋白受體(asialoglycoprotein receptor)的結合能力下降，而該受體負責識別IgA1鉸鏈區域中的末端半乳糖分子。這種系統性清除的受限導致Gd-IgA1免疫複合物更多地運輸到腎小球，使其容易沉積並在腎小球間質內累積，加重病情。&lt;/p&gt;
+&lt;h1 id=&#34;繫膜細胞的堆積&#34;&gt;繫膜細胞的堆積&lt;/h1&gt;
+&lt;p&gt;Gd-IgA1在腎絲球的堆積與清除其實是一個動態過程，當含有IgA堆積的腎臟移植給另外一個沒有IgAN的病人時，在後續的腎切片可以觀察到IgA被清除。而在腎絲球堆積的IgA會和繫膜細胞作用，導致不同程度的發炎與纖維化。目前針對到底是哪個繫膜細胞表面上的接受器會和IgA作用還沒有定論，但小鼠實驗發現IgA免疫複合物需要sCD89與tissue transglutaminase 2來成功激活繫膜細胞。&lt;/p&gt;
+&lt;p&gt;在IgA沈積在腎絲球後，一系列的發炎反應接連產生(圖四)，包含繫膜細胞的增生、促發炎及促纖維化細胞素的分泌、生長因子分泌以及細胞外組織的重塑。這一系列的發炎反應牽涉了pIgA在其中的影響。在實驗中，pIgA對繫膜細胞的親和力大，並且會導致IL8的分泌。而pIgA的N-glycan也與單體IgA(mIgA)不同，會透過lectin路徑對補體系統產生更多的刺激。此外，繫膜細胞在刺激後產生的各種細胞激素造成了足細胞的傷害，進一步導致蛋白尿、腎小管萎縮、間質纖維化與過濾率下降等臨床症狀。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖四&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig4&#34; srcset=&#34;
+               /post/iga_nephropathy/fig4_hu749390900782982757.webp 400w,
+               /post/iga_nephropathy/fig4_hu10351183366052398372.webp 760w,
+               /post/iga_nephropathy/fig4_hu12702964302490181733.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/iga_nephropathy/fig4_hu749390900782982757.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;436&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖四
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;補體系統活化&#34;&gt;補體系統活化&lt;/h1&gt;
+&lt;p&gt;在九成的IgAN患者中，補體成分C3與IgA會共同沉積於腎絲球中，而C3的缺失則通常表示較為緩和的病程。此外，有時候會觀察到膜攻擊複合物(membrane attack complex, MAC)的沉積，這通常也與較差的預後相關。研究發現，在IgAN患者中，循環中的C3水平可能降低，而相應的C3降解片段會升高，這表示除了腎臟內補體活化外，還可能存在全身性的補體活化。&lt;/p&gt;
+&lt;p&gt;由於C1q的沉積非常罕見，顯示補體活化的經典路徑並非IgAN的主要致病機制。相較之下，替代路徑和凝集素路徑在IgAN的病程中發揮了重要作用。在替代路徑中，properdin和補體因子H相關蛋白(FHR)的沉積與疾病的進展性病程密切相關；然而，CFHR3和CFHR1基因的缺失則對疾病有保護作用。華人族群中CFHR3和CFHR1缺失的頻率較低，這可能解釋為何該族群更易出現腎絲球發炎性的病變。&lt;/p&gt;
+&lt;p&gt;另一方面，凝集素路徑中的成分，如甘露聚糖結合凝集素(MBL)和MBL相關的絲氨酸蛋白酶(MASP)，在部分患者的腎絲球中沉積，進一步加重了腎損傷。這些發現表明，補體系統的激活在IgAN中呈現多層次且複雜的作用機制，並對疾病的進展和預後產生深遠影響。&lt;/p&gt;
+&lt;h1 id=&#34;遺傳機制&#34;&gt;遺傳機制&lt;/h1&gt;
+&lt;p&gt;IgAN和其他許多疾病一樣也有著複雜的遺傳因素，在近年，Genome-wide association studies(GWAS)已經成為一項不用透過&lt;strong&gt;假設推論&lt;/strong&gt;來探索複雜的遺傳機制的重要工具。在歐洲與東亞的許多GWAS計畫已經發現了30個獨立的高風險位點，約有11%的疾病風險可以用這些位點來解釋，因此也可以部分解釋為何IgAN會有區域上的差異。&lt;/p&gt;
+&lt;p&gt;有問題的GWAS位點主要出現在跟IgA製造、免疫調控與維護腸道黏膜完整性相關的基因上，而這些位點也出現在類風濕性關節炎、甲狀腺低下及氣喘等疾病上，表示這些疾病共享了這些多基因性的性狀(polygenic architecture)。&lt;/p&gt;
+&lt;p&gt;IgAN在臨床和病理特徵上變化多樣，可能代表不同致病途徑的共同病理終點。所以多重打擊假說中的每個&lt;strong&gt;打擊&lt;/strong&gt;可能對不同族裔的人群影響不同，導致疾病表現和病程的變化。舉例來說，C1GALT1基因的一個SNP與Gd-IgA1的表達增加相關，而該SNP在華人群中的頻率低於歐洲人群，導致華人患者血清中的Gd-IgA1濃度較低，但疾病進展率卻更高。由此可見，不同族群中IgAN的致病機制可能存在顯著差異，需進一步研究以更好地理解和治療此病。&lt;/p&gt;
+&lt;p&gt;其他的非基因遺傳因素，例如表觀遺傳學的變化或microRNA的表現異常，也與IgAN的發病機制密切相關。例如，miR-148b、miR-374b和miR-let-7b與調控O-糖基化相關酶的基因表現有關；而miR-150-5p和miR-204則參與調控與腎臟纖維化相關的基因表達。&lt;/p&gt;
+&lt;h1 id=&#34;igan的生物標記&#34;&gt;IgAN的生物標記&lt;/h1&gt;
+&lt;p&gt;臨床上我們常使用蛋白尿、腎絲球過濾率與血壓來區分疾病進展的風險，但這些臨床參數通常只會在很嚴重或是不可逆的腎臟損傷後出現。其他的分系統如Oxford分類與IIgANRPT(international IgAN risk prediction tool)都結合了組織切片與臨床特徵來做疾病的分類，但事實上這兩個系統都還沒被證實看以改變臨床上的治療決策。而針對致病機轉的生物標記也越來越多，但是沒有一個有辦法在臨床上使用，無法只用anti-phospholipase A receptor抗體就可以用來偵測primary membranous nephropathy，顯示IgAN複雜且多變的特性。&lt;/p&gt;
+&lt;p&gt;雖然IgAN患者血清中的Gd-IgA1和自體抗體IgG數值上升，但是他們在循環中的數量與健康的人會有很大程度的重疊，因此這種檢測方式缺乏敏感度及特異度。而前面有提到，IgAN患者會有一些與疾病相關的miRNA，如血清中的let-7b及miR-148b的量可能會上升。目前IIgANRPT已經將miRNA納入分類的系統，並且已經在單一群體證實可以改善風險預測的準確度。即便如此，這些工具仍須透過外在的驗證。&lt;/p&gt;
+&lt;p&gt;目前有許多地方在獨立或是共同合作來找出關鍵的生物標記，如CureGN、UK National Institute for Heath and Care Research BioResource及IgAN kidney atlas等，希望能用多組學的分析來進一步揭開IgAN神秘的面紗。&lt;/p&gt;
+&lt;h1 id=&#34;igan的治療&#34;&gt;IgAN的治療&lt;/h1&gt;
+&lt;p&gt;根據2021年的KDIGO指引的建議，IgAN的一線治療以支持性治療的優化為基礎，然而，由於當時缺乏安全且有效的治療方法，建議對於經過支持性療法後，仍處於高風險疾病進展(即蛋白尿持續高於0.5–1 g/天)的患者，應考慮參與臨床試驗。在無法參與臨床試驗的情況下， 可以考慮使用&lt;strong&gt;全身性糖皮質激素&lt;/strong&gt;治療。&lt;/p&gt;
+&lt;p&gt;全身性糖皮質激素(glucocorticoid)可緩解IgAN中的腎絲球發炎，但其副作用顯著，無法長期使用，且可能僅對蛋白尿和腎功能提供短期的益處。一旦停藥，疾病可能會持續進展。因此，對於能改變IgAN長期疾病進展的安全且有效治療，仍然存在重要的未被滿足的需求。&lt;/p&gt;
+&lt;h2 id=&#34;b細胞或漿細胞療法&#34;&gt;B細胞或漿細胞療法&lt;/h2&gt;
+&lt;p&gt;雖然用rituximab來降低CD20+B細胞的方式並沒有帶來益處，但是其他研究正在探討CD38的抗體如Felzartamab及mezagitamab是否能降低漿細胞的數量。&lt;/p&gt;
+&lt;h2 id=&#34;b細胞或漿細胞的調控&#34;&gt;B細胞或漿細胞的調控&lt;/h2&gt;
+&lt;p&gt;Targeted-release formulation budesonide，商品名Nefecon，透過特殊的藥物釋放機制，可以在經過肝臟代謝後，於空腸末端釋放活性藥物。而空腸末端是腸道黏膜Peyer&amp;rsquo;s patch聚集的地方，因此這種藥物可以針對此處的B細胞做調控，達到治療的目的。&lt;/p&gt;
+&lt;p&gt;在一項二期臨床試驗中，Nefecon的治療會降低病人循環中Gd-IgA1和IgA-IgG免疫複合物、sIgA及BAFF，而蛋白尿顯下降的程度也顯著高於安慰組。而在第三期臨床試驗NefIgArd中，接受16mg的Nefecon九個月可以顯著降低蛋白尿及延緩腎功能的下降，而在兩年的追蹤期時更是觀察到持續的改善。因此Nefecon也成為第一個被FDA與EMA通過用來治療IgAN的藥物。&lt;/p&gt;
+&lt;p&gt;另外因為B細胞會受到APRIL及BAFF的刺激而產生IgA與Gd-IgA1，因此目前有些研究正在探討Anti-APRIL療法，如sibeprenlimab與zigakibart。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在一項第二期臨床試驗中，sibeprenlimab可以顯著降低Gd-IgA1與IgA的數值，並且可以穩定腎絲球過濾率長達一年。&lt;/li&gt;
+&lt;li&gt;在一項第二期臨床試驗中，zigakibart可以降低Gd-IgA1的數值及改善蛋白尿。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;同時針對BAFF及APRIL也可能帶來益處，atacicept、telitacicept及povetacicept因為帶有TACI(TNFRSF13B)受體的細胞外部分，因此可以和這兩個細胞激素做結合，抑制他們的作用。在一項第二期臨床試驗中，atacicept可以有效降低Gd-IgA1與蛋白尿，腎功能和安慰組相比也較為穩定。&lt;/p&gt;
+&lt;h2 id=&#34;針對免疫複合物&#34;&gt;針對免疫複合物&lt;/h2&gt;
+&lt;p&gt;目前也有許多針對免疫複合物的治療：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Iptacopan是一種口服Factor B抑制劑，在一項第二期臨床試驗中，Iptacopan可以降低快速抑制補體替代路徑，降低蛋白尿。&lt;/li&gt;
+&lt;li&gt;Narsoplimab是MASP-2抑制劑，可以抑制lectin路徑，在一項小型臨床試驗中已證實可以降低蛋白尿，但一項第三期臨床試驗因為期中分析發現沒有顯著降低蛋白尿已提前終止。&lt;/li&gt;
+&lt;li&gt;其他潛在的補體抑制劑：ravulizumab (C5抑制劑)、ARO-C3 (C3抑制劑)、RO7434656 (Factor B抑制劑)及vemircopan (Factor D抑制劑).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;其他新治療&#34;&gt;其他新治療&lt;/h2&gt;
+&lt;h3 id=&#34;sglt2抑制劑&#34;&gt;SGLT2抑制劑&lt;/h3&gt;
+&lt;p&gt;因為IgAN是常見的腎絲球疾病與慢性腎衰竭的原因，有很多IgAN的病人被納入了探討sodium-glucose co-transporter 2在非糖尿病之慢性腎衰竭的臨床試驗中，如DAPA-CKD及EMPA-KIDNEY。而在接受SGLT2抑制劑治療後，IgAN的患者的腎功能有了顯著的改善，存活也隨之延長。除了比較清楚的腎小管腎絲球回饋(tubuloglomerular feedback)之外，SGLT2抑制劑對腎臟也有抗發炎的效果，目前SGLT2抑制劑已經成為控制IgAN很重要的藥物，特別是當期造成慢性腎衰竭的時候。&lt;/p&gt;
+&lt;h3 id=&#34;endothelin抑制劑&#34;&gt;Endothelin抑制劑&lt;/h3&gt;
+&lt;p&gt;Endothelin系統是IgAN發病機制中的重要的因子，對血流動力學和腎小球功能有害。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Sparsentan可以同時拮抗endothelin A受體與angiotensin受體，第三期臨床試驗已證明能顯著降低蛋白尿並改善腎功能，且已獲FDA和EMA批准。&lt;/li&gt;
+&lt;li&gt;Atrasentan 是另一種針對Endothelin A受體的藥物，正在進行IgAN的後續臨床試驗研究。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;礦物皮質素受體拮抗劑&#34;&gt;礦物皮質素受體拮抗劑&lt;/h3&gt;
+&lt;p&gt;一項臨床試驗正在使用finerenone於非糖尿病之慢性腎衰竭病人中，也收案了大量的IgAN，finerenone可能成為另一項新的支持性療法。&lt;/p&gt;
+&lt;h1 id=&#34;未來展望&#34;&gt;未來展望&lt;/h1&gt;
+&lt;p&gt;未來IgAN治療將聚焦於個人化的治療，包括標靶黏膜免疫系統、APRIL和BAFF細胞因子或CD38+漿細胞來抑制致病性IgA生成，以及補體抑制等方法快速抑制腎絲球發炎。同時，新療法如腸道微生物群調控、Gd-IgA1降解、免疫複合物干擾及阻止IgA1與系膜細胞結合的療法正處於早期開發階段。隨著治療選擇增加，非侵入性生物標誌物的開發及臨床試驗設計的優化將成為關鍵挑戰。&lt;/p&gt;</description>
     </item>
     
   </channel>
