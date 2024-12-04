@@ -11,7 +11,7 @@ draft: false
 <!--more-->
 # Quick look
 今天介紹R的data type:
-1. atomic vector
+1. Atomic vector
 2. Vector
 3. List
 4. Matrix
