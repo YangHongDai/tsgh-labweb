@@ -136,7 +136,7 @@ IgAN在臨床和病理特徵上變化多樣，可能代表不同致病途徑的�
 
 ## 其他新治療
 ### SGLT2抑制劑
-因為IgAN是常見的腎絲球疾病與慢性腎衰竭的原因，有很多IgAN的病人被納入了探討`sodium-glucose co-transporter 2`在非糖尿病之慢性腎衰竭的臨床試驗中，如DAPA-CKD及EMPA-KIDNEY。而在接受`SGLT2`抑制劑治療後，IgAN的患者的腎功能有了顯著的改善，存活也隨之延長。除了比較清楚的`腎小管腎絲球回饋(tubuloglomerular feedback)`之外，SGLT2抑制劑對腎臟也有抗發炎的效果，目前SGLT2抑制劑已經成為控制IgAN很重要的藥物，特別是當期造成慢性腎衰竭的時候。
+因為IgAN是常見的腎絲球疾病與慢性腎衰竭的原因，有很多IgAN的病人被納入了探討`sodium-glucose co-transporter 2`在非糖尿病之慢性腎衰竭的臨床試驗中，如DAPA-CKD及EMPA-KIDNEY。而在接受`SGLT2`抑制劑治療後，IgAN的患者的腎功能有了顯著的改善，存活也隨之延長。除了比較清楚的`腎小管腎絲球回饋(tubuloglomerular feedback)`之外，SGLT2抑制劑對腎臟也有抗發炎的效果，目前SGLT2抑制劑已經成為控制IgAN很重要的藥物，特別是當造成慢性腎衰竭的時候。
 
  ### Endothelin抑制劑
 Endothelin系統是IgAN發病機制中的重要的因子，對血流動力學和腎小球功能有害。
