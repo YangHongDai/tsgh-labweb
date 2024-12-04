@@ -142,7 +142,7 @@ IgAN的臨床和病理特徵多樣，可能是不同致病途徑匯聚的結果�
  ### Endothelin抑制劑
 Endothelin系統是IgAN發病機制中的重要的因子，對血流動力學和腎小球功能有害。
 1. `Sparsentan`可以同時拮抗endothelin A受體與angiotensin受體，第三期臨床試驗已證明能顯著降低蛋白尿並改善腎功能，且已獲FDA和EMA批准。
-2. `Atrasentan`是另一種針對endothelin A受體的藥物，正在進行IgAN的後續臨床試驗研究。
+2. `Atrasentan`是另一種針對endothelin A受體的藥物，一些臨床試驗研究也正在進行。
 
 ### 礦物皮質素受體拮抗劑
 一項臨床試驗正在使用`sfinerenone`於非糖尿病之慢性腎衰竭病人中，也收案了大量的IgAN，finerenone可能成為另一項新的支持性療法。
