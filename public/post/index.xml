@@ -54,12 +54,28 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;character_vec[1]&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# 獲取第一個元素&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;logical_vec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# 計算布林值的數值總和 (TRUE = 1, FALSE = 0)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;sum(logical_vec) 中的運算涉及&lt;code&gt;coercion(類型強制轉換)&lt;/code&gt;，因為布林值(TRUE 和 FALSE) 被自動轉換為數值(1 和 0))來進行數學運算。&lt;/p&gt;
+&lt;p&gt;而向量有許多特性：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;: 會得到向量長度。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;names()&lt;/code&gt;: 會得到向量名稱。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而R有一個特殊的函式叫replacement function，也就是很多函式都可以藉由&lt;code&gt;指派&lt;/code&gt;的方式改變某內容特徵：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;names&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;Jackson&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Joseph&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;Joanne&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這個在日後的數據處理非常常用，需要牢記。&lt;/p&gt;
 &lt;h3 id=&#34;何謂coercion&#34;&gt;何謂coercion?&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;Coercion&lt;/code&gt;是R中將一種資料類型自動轉換為另一種類型的過程。在這個例子中，邏輯型(logical)被轉換為數值(numeric)。&lt;/p&gt;
 &lt;p&gt;如果不小心將不同的data type用&lt;code&gt;c(...)&lt;/code&gt;存到vector中，R會自動Coercion，並轉成higher type。而何謂higher type? R會依據下列的排序來將資料型態轉換為其中比較高階的類別：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;logical&amp;lt;integer&amp;lt;double&amp;lt;complex&amp;lt;character&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;而R也有一寫好用的&lt;code&gt;manual coercion&lt;/code&gt;函式，如as.開頭的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;as.integer()&lt;/li&gt;
+&lt;li&gt;as.character()&lt;/li&gt;
+&lt;li&gt;as.double()&lt;/li&gt;
+&lt;li&gt;as.complex()&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;另外要使用迴圈時可以使用&lt;code&gt;as(c(x,x,x), &#39;character&#39;)&lt;/code&gt;來轉換S4物件內之元素，比較方便。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;list&#34;&gt;List&lt;/h1&gt;
 &lt;p&gt;List 是一種可以容納不同資料類型或結構的&lt;code&gt;容器&lt;/code&gt;，例如數字、字串、甚至是向量或矩陣。是一種non-atomic vector，且儲存過程不會產生&lt;code&gt;coercion&lt;/code&gt;。&lt;/p&gt;
@@ -377,7 +393,7 @@
 &lt;h1 id=&#34;遺傳機制&#34;&gt;遺傳機制&lt;/h1&gt;
 &lt;p&gt;IgAN和其他許多疾病一樣也有著複雜的遺傳因素，在近年，&lt;code&gt;Genome-wide association studies(GWAS)&lt;/code&gt;已經成為一項不用透過&lt;strong&gt;假設推論&lt;/strong&gt;來探索複雜的遺傳機制的重要工具。在歐洲與東亞的許多GWAS計畫已經發現了&lt;code&gt;30&lt;/code&gt;個獨立的高風險位點，約有&lt;code&gt;11%&lt;/code&gt;的疾病風險可以用這些位點來解釋，因此也可以部分解釋為何IgAN會有區域上的差異。&lt;/p&gt;
 &lt;p&gt;有問題的GWAS位點主要出現在跟IgA製造、免疫調控與維護腸道黏膜完整性相關的基因上，而這些位點也出現在類風濕性關節炎、甲狀腺低下及氣喘等疾病上，表示這些疾病共享了這些多基因性的性狀(&lt;code&gt;polygenic architecture&lt;/code&gt;)。&lt;/p&gt;
-&lt;p&gt;IgAN在臨床和病理特徵上變化多樣，可能代表不同致病途徑的共同病理終點。所以多重打擊假說中的每個&lt;strong&gt;打擊&lt;/strong&gt;可能對不同族裔的人群影響不同，導致疾病表現和病程的變化。舉例來說，&lt;code&gt;C1GALT1&lt;/code&gt;基因的一個SNP與Gd-IgA1的表達增加相關，而該SNP在華人群中的頻率低於歐洲人群，導致華人患者血清中的Gd-IgA1濃度較低，但疾病進展率卻更高。由此可見，不同族群中IgAN的致病機制可能存在顯著差異，需進一步研究以更好地理解和治療此病。&lt;/p&gt;
+&lt;p&gt;IgAN的臨床和病理特徵多樣，可能是不同致病途徑匯聚的結果。多重打擊假說中，每個&lt;code&gt;打擊&lt;/code&gt;對不同族群的影響有所差異，導致疾病表現和進程的變化。舉例來說，&lt;code&gt;C1GALT1&lt;/code&gt;基因的一個SNP與Gd-IgA1的表達增加相關，而該SNP在華人群中的頻率低於歐洲人群，導致華人患者血清中的Gd-IgA1濃度較低，但疾病進展率卻更高。由此可見，不同族群中IgAN的致病機制可能存在顯著差異，需進一步研究以更好地理解和治療此病。&lt;/p&gt;
 &lt;p&gt;其他的非基因遺傳因素，例如&lt;code&gt;表觀遺傳學&lt;/code&gt;的變化或&lt;code&gt;microRNA&lt;/code&gt;的表現異常，也與IgAN的發病機制密切相關。例如，miR-148b、miR-374b和miR-let-7b與調控O-糖基化相關酶的基因表現有關；而miR-150-5p和miR-204則參與調控與腎臟纖維化相關的基因表達。&lt;/p&gt;
 &lt;h1 id=&#34;igan的生物標記&#34;&gt;IgAN的生物標記&lt;/h1&gt;
 &lt;p&gt;臨床上我們常使用蛋白尿、腎絲球過濾率與血壓來區分疾病進展的風險，但這些臨床參數通常只會在很嚴重或是不可逆的腎臟損傷後出現。其他的分系統如&lt;code&gt;Oxford分類&lt;/code&gt;與&lt;code&gt;IIgANRPT(international IgAN risk prediction tool)&lt;/code&gt;都結合了組織切片與臨床特徵來做疾病的分類，但事實上這兩個系統都還沒被證實看以改變臨床上的治療決策。而針對致病機轉的生物標記也越來越多，但是沒有一個有辦法在臨床上使用，無法只用anti-phospholipase A receptor抗體就可以用來偵測primary membranous nephropathy，顯示IgAN複雜且多變的特性。&lt;/p&gt;
@@ -404,19 +420,19 @@
 &lt;li&gt;&lt;code&gt;Narsoplimab&lt;/code&gt;是MASP-2抑制劑，可以抑制lectin路徑，在一項小型臨床試驗中已證實可以降低蛋白尿，但一項第三期臨床試驗因為期中分析發現沒有顯著降低蛋白尿已提前終止。&lt;/li&gt;
 &lt;li&gt;其他潛在的補體抑制劑：ravulizumab (C5抑制劑)、ARO-C3 (C3抑制劑)、RO7434656 (Factor B抑制劑)及vemircopan (Factor D抑制劑).&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;其他新治療&#34;&gt;其他新治療&lt;/h2&gt;
+&lt;h3 id=&#34;其他新治療&#34;&gt;其他新治療&lt;/h3&gt;
 &lt;h3 id=&#34;sglt2抑制劑&#34;&gt;SGLT2抑制劑&lt;/h3&gt;
-&lt;p&gt;因為IgAN是常見的腎絲球疾病與慢性腎衰竭的原因，有很多IgAN的病人被納入了探討&lt;code&gt;sodium-glucose co-transporter 2&lt;/code&gt;在非糖尿病之慢性腎衰竭的臨床試驗中，如DAPA-CKD及EMPA-KIDNEY。而在接受&lt;code&gt;SGLT2&lt;/code&gt;抑制劑治療後，IgAN的患者的腎功能有了顯著的改善，存活也隨之延長。除了比較清楚的&lt;code&gt;腎小管腎絲球回饋(tubuloglomerular feedback)&lt;/code&gt;之外，SGLT2抑制劑對腎臟也有抗發炎的效果，目前SGLT2抑制劑已經成為控制IgAN很重要的藥物，特別是當期造成慢性腎衰竭的時候。&lt;/p&gt;
+&lt;p&gt;因為IgAN是常見的腎絲球疾病與慢性腎衰竭的原因，有很多IgAN的病人被納入了探討&lt;code&gt;sodium-glucose co-transporter 2&lt;/code&gt;在非糖尿病之慢性腎衰竭的臨床試驗中，如DAPA-CKD及EMPA-KIDNEY。而在接受&lt;code&gt;SGLT2&lt;/code&gt;抑制劑治療後，IgAN的患者的腎功能有了顯著的改善，存活也隨之延長。除了比較清楚的&lt;code&gt;腎小管腎絲球回饋(tubuloglomerular feedback)&lt;/code&gt;之外，SGLT2抑制劑對腎臟也有抗發炎的效果，目前SGLT2抑制劑已經成為控制IgAN很重要的藥物，特別是當造成慢性腎衰竭的時候。&lt;/p&gt;
 &lt;h3 id=&#34;endothelin抑制劑&#34;&gt;Endothelin抑制劑&lt;/h3&gt;
 &lt;p&gt;Endothelin系統是IgAN發病機制中的重要的因子，對血流動力學和腎小球功能有害。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;Sparsentan&lt;/code&gt;可以同時拮抗endothelin A受體與angiotensin受體，第三期臨床試驗已證明能顯著降低蛋白尿並改善腎功能，且已獲FDA和EMA批准。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Atrasentan&lt;/code&gt;是另一種針對endothelin A受體的藥物，正在進行IgAN的後續臨床試驗研究。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Atrasentan&lt;/code&gt;是另一種針對endothelin A受體的藥物，一些臨床試驗研究也正在進行。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;礦物皮質素受體拮抗劑&#34;&gt;礦物皮質素受體拮抗劑&lt;/h3&gt;
-&lt;p&gt;一項臨床試驗正在使用&lt;code&gt;sfinerenone&lt;/code&gt;於非糖尿病之慢性腎衰竭病人中，也收案了大量的IgAN，finerenone可能成為另一項新的支持性療法。&lt;/p&gt;
+&lt;p&gt;一項臨床試驗正在使用&lt;code&gt;finerenone&lt;/code&gt;於非糖尿病之慢性腎衰竭病人中，也收案了大量的IgAN，finerenone可能成為另一項新的支持性療法。&lt;/p&gt;
 &lt;h1 id=&#34;未來展望&#34;&gt;未來展望&lt;/h1&gt;
-&lt;p&gt;未來IgAN治療將聚焦於個人化的治療，包括標靶黏膜免疫系統、APRIL和BAFF細胞因子或CD38+漿細胞來抑制致病性IgA生成，以及補體抑制等方法快速抑制腎絲球發炎。同時，新療法如腸道微生物群調控、Gd-IgA1降解、免疫複合物干擾及阻止IgA1與系膜細胞結合的療法正處於早期開發階段。隨著治療選擇增加，非侵入性生物標誌物的開發及臨床試驗設計的優化將成為關鍵挑戰。&lt;/p&gt;</description>
+&lt;p&gt;未來IgAN治療將聚焦於個人化和多模式策略，包括抑制黏膜免疫系統、APRIL和BAFF細胞因子或CD38+漿細胞以阻斷致病性IgA生成，以及補體抑制等方法快速減輕腎絲球炎症。同時，腸道微生物群調控、Gd-IgA1降解等新療法正處於早期開發階段。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -558,6 +574,128 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
 &lt;h1 id=&#34;結論&#34;&gt;結論&lt;/h1&gt;
 &lt;p&gt;UCSCXenaTools是一個功能強大且靈活的工具，讓我們能夠在癌症基因組研究的道路上如虎添翼。在處理TCGA、GTEx 等大規模基因數據時，這個套件不僅簡化了繁瑣的數據篩選和整合流程，還提供了強大的數據搜索和下載功能，極大地提升了分析效率。&lt;/p&gt;
 &lt;p&gt;這樣的數據處理方法不僅適用於大腸癌研究，還能靈活地應用於其他癌症類型，甚至還可以下載近年十分熱門的單細胞數據。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>纖維母性網狀細胞為肺癌中的T細胞塑造碉堡？</title>
+      <link>http://localhost:1313/post/paperr3/</link>
+      <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/paperr3/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;腫瘤內部的免疫微環境基本上都存在高度異質性，從免疫細胞密集分布到完全缺乏等等。目前的證據顯示，腫瘤抗原特異性T細胞(Tumor-specific T cell)若要順利的啟動及維持他們的活性，仰賴腫瘤引流淋巴結(tumor draining lymph node)和腫瘤組織內的微環境，特別是三級淋巴結構（tertiary lymphoid structure，TLS），其通常位於腫瘤邊緣並由B細胞主導。而TLS中的B細胞活性也與Immune checkpoint inhibitor的成功率息息相關。&lt;/p&gt;
+&lt;p&gt;這些免疫細胞由專門的纖維母細胞(如T細胞區網狀細胞和血管周圍網狀細胞)支撐，而這之間的交互作用也從TLS透過某種物理架構延伸到腫瘤內部。本篇研究通過單細胞轉錄組學和高解析度顯微技術，發現了在肺癌中形成特定T細胞環境的纖維母細胞亞群(fibroblastic reticular cell)。這些FRC與免疫細胞的互動促進了TLS的形成、T細胞軌跡中的分化，以及控制T細胞活性。實驗顯示，破壞腫瘤微環境中FRC與免疫細胞的互動會降低CD8+ T細胞的抗腫瘤活性並促進腫瘤生長。&lt;/p&gt;
+&lt;p&gt;由此可見，特定的FRC亞群通過提供增長和分化的信號，在腫瘤內部支持保護性免疫反應(protective immunity)，對抗腫瘤生長。&lt;/p&gt;
+&lt;h1 id=&#34;frc細胞與肺癌腫瘤內部t細胞關係不尋常&#34;&gt;FRC細胞與肺癌腫瘤內部T細胞關係不尋常？&lt;/h1&gt;
+&lt;p&gt;對肺癌來說，有肋膜侵犯是一項不好的預後因子，而研究也發現，由subpleural region(Subpleural margin, SM，有肋膜侵犯的部分)切下的腫瘤，與位於central(central margin, CM，同一塊腫瘤，靠近中心的部分)的腫瘤在免疫細胞的組成上有顯著個差異。SM腫瘤的淋巴細胞比較鬆散，而且主要位於腫瘤周圍，但CM腫瘤內部有明顯的T細胞浸潤(圖一)。團隊也發現CM腫瘤T細胞附近充滿ACTA2陽性的纖維母細胞，而這些細胞與SM相比，與吸引T細胞有關的chemokine基因CCL19與CCL21之表現亮顯著較高。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖一&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig1&#34; srcset=&#34;
+               /post/paperr3/fig1_hu8012954762647498247.webp 400w,
+               /post/paperr3/fig1_hu18030004843405312440.webp 760w,
+               /post/paperr3/fig1_hu13374468011937916873.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/paperr3/fig1_hu8012954762647498247.webp&#34;
+               width=&#34;713&#34;
+               height=&#34;760&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖一
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;近一步用高解析顯微鏡發現，腫瘤內的T細胞棲息區(niche)，與腫瘤TLS有連結，而CCL19+ FRC更是與T細胞有接觸，而FRC表現的CCL19量的多寡也形成了一條T細胞依循的梯度(gradient)，由此可見CCL19+ FRC似乎主導了腫瘤內T細胞的遷移。&lt;/p&gt;
+&lt;h1 id=&#34;探索其中的分子機制&#34;&gt;探索其中的分子機制&lt;/h1&gt;
+&lt;h2 id=&#34;精細的交互作用&#34;&gt;精細的交互作用&lt;/h2&gt;
+&lt;p&gt;團隊使用螢光顯微鏡擷取圖片並重組成3D影像，發現在TLS中的CCL19+ POSTN+ PDPN+ 的FRC與T細胞有緊密的接觸，同樣的情形也在CM中血管附近的FRC出現。而利用scRNA-seq分析免疫細胞的interactome也發現，腫瘤內的PRC(perivascular reticular cell)與TRC(T cell zone reticular cell)主要跟CD8+ T細胞作用(圖二)。團隊利用&lt;a href=&#34;https://www.nature.com/articles/s41467-021-21246-9&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CellChat&lt;/a&gt;分析CCL19+FRC與CD8+T細胞之間的通訊涉及以下信號：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;遷移信號：CXCL12和CXCL16。&lt;/li&gt;
+&lt;li&gt;細胞間的黏附：VCAM1。&lt;/li&gt;
+&lt;li&gt;激活因子：包括type II interferon。&lt;/li&gt;
+&lt;li&gt;微環境因子：如LTBR、TNFRSF14和NOTCH3，為CD8+T細胞創造適合的微環境。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;總結來說，CCL19+TRCs和PRCs與CD8+T細胞的互動通過一系列信號網絡調節，形成特定的纖維母性微環境，進一步支持T細胞的功能活化和發育。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖二&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig2&#34; srcset=&#34;
+               /post/paperr3/fig2_hu8035623134348539547.webp 400w,
+               /post/paperr3/fig2_hu17343627255761551909.webp 760w,
+               /post/paperr3/fig2_hu6183092819207817373.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/paperr3/fig2_hu8035623134348539547.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;371&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖二
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;frc分化路徑&#34;&gt;FRC分化路徑&lt;/h2&gt;
+&lt;p&gt;團隊發現除了cancer-associated fibroblast(CAF)會表達CCL19之外，正常肺組織的mural細胞與adventitia細胞也會表現CCL19。因此作者合理懷疑表現CCL19的PRC與TRC來自於血管周圍的纖維母細胞。團隊使用分化路徑分析(differentiation trajectory analysis)後也證實mural細胞會衍生成為PRC；而adventitia細胞會於TRC路徑的根部(圖三)。而團隊進一步使用小鼠肺癌模型(Lewis lung carcinoma expressing the viral glycoprotein peptide 33 of the lymphocytic choriomeningitis virus)也支持這項發現。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖三&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig3&#34; srcset=&#34;
+               /post/paperr3/fig3_hu9023605283481264180.webp 400w,
+               /post/paperr3/fig3_hu3262590434171768881.webp 760w,
+               /post/paperr3/fig3_hu7929229898512150303.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/paperr3/fig3_hu9023605283481264180.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;363&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖三
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;小鼠模型也能出現tls&#34;&gt;小鼠模型也能出現TLS?&lt;/h1&gt;
+&lt;p&gt;根據先前的研究，藉由病毒激活的CD8+T細胞會在發炎組織中形成TLS，因此團隊在小鼠植入肺腫瘤細胞後在第15天接受疫苗注射，此疫苗設計為重組冠狀病毒的質體，可以表現LCMV glycoprotein gp33與myeloid cell stimulating factor Flt3l。在施打疫苗後，腫瘤成功出現腫瘤邊緣與腫瘤內部的TLS，而在小鼠的腫瘤內部的FRC也與CD8+T細胞緊密接觸。&lt;/p&gt;
+&lt;h1 id=&#34;frc對cd8t細胞抗腫瘤的影響&#34;&gt;FRC對CD8+T細胞抗腫瘤的影響？&lt;/h1&gt;
+&lt;p&gt;研究顯示，腫瘤微環境中的FRC在促進抗腫瘤 CD8+ T細胞免疫中發揮關鍵作用。通過使用白喉毒素(DT)去除小鼠Ccl19-Cre+ 細胞，發現FRC的缺失導致腫瘤失去FRC的網絡，顯著減少腫瘤內CD8+ T細胞的募集，並加速腫瘤生長。同時，腫瘤特異性CD8+ T細胞的效應功能(如 IFN-γ、TNF 和 granzyme B 的產生)以及增殖活性(KI67 表達)均顯著下降，且表現出更高的耗竭標誌(如 PD1、TIM3、KLRG1)。FRC 通過粘附分子(如 ICAM1、VCAM1）、趨化因子（CXCL16）和免疫調節細胞因子（如 TGF-β1、TSLP）與CD8+ T 細胞進行交互，促進其細胞毒性、增殖和分化。總結來說，FRC在腫瘤微環境中透過多重免疫調控途徑增強了抗腫瘤免疫反應，其缺失會削弱T細胞功能並促進腫瘤進展。&lt;/p&gt;
+&lt;h1 id=&#34;結論&#34;&gt;結論&lt;/h1&gt;
+&lt;p&gt;這篇研究揭示，腫瘤微環境中的CCL19表達FRCs在促進抗腫瘤CD8+ T細胞免疫反應中扮演關鍵角色。這些FRCs(包括PRCs和TRCs)形成三維細胞網絡，作為T細胞進入腫瘤實質的“通道”，同時支持T細胞在腫瘤淋巴結(TDLNs)和腫瘤相關淋巴樣結構(TLS)中的活化與擴增。CCL19+ FRCs還維持腫瘤特異性CD8+T細胞的增殖和效應分化，其功能受腫瘤和基質細胞產生的信號調控。這些FRC網絡不僅促進T細胞的遷移，還與患者的良好預後密切相關，未來應致力於探討其他腫瘤類型中FRC的發育途徑，並設計促進PRC/TRC分化的策略，以增強抗腫瘤免疫反應。&lt;/p&gt;</description>
     </item>
     
     <item>

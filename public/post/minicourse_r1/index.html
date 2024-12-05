@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: December 4, 2024 --><html lang="en-us" >
+<!-- Last Published: December 5, 2024 --><html lang="en-us" >
 
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
@@ -785,7 +785,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    4 min read
   </span>
   
 
@@ -864,12 +864,28 @@
 </span></span><span class="line"><span class="cl"><span class="n">character_vec[1]</span> <span class="c1"># 獲取第一個元素</span>
 </span></span><span class="line"><span class="cl"><span class="nf">sum</span><span class="p">(</span><span class="n">logical_vec</span><span class="p">)</span> <span class="c1"># 計算布林值的數值總和 (TRUE = 1, FALSE = 0)</span>
 </span></span></code></pre></div><p>sum(logical_vec) 中的運算涉及<code>coercion(類型強制轉換)</code>，因為布林值(TRUE 和 FALSE) 被自動轉換為數值(1 和 0))來進行數學運算。</p>
+<p>而向量有許多特性：</p>
+<ol>
+<li><code>length()</code>: 會得到向量長度。</li>
+<li><code>names()</code>: 會得到向量名稱。</li>
+</ol>
+<p>而R有一個特殊的函式叫replacement function，也就是很多函式都可以藉由<code>指派</code>的方式改變某內容特徵：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span><span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;Jackson&#39;</span><span class="p">,</span> <span class="s">&#39;Joseph&#39;</span><span class="p">,</span> <span class="s">&#39;Joanne&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>這個在日後的數據處理非常常用，需要牢記。</p>
 <h3 id="何謂coercion">何謂coercion?</h3>
 <p><code>Coercion</code>是R中將一種資料類型自動轉換為另一種類型的過程。在這個例子中，邏輯型(logical)被轉換為數值(numeric)。</p>
 <p>如果不小心將不同的data type用<code>c(...)</code>存到vector中，R會自動Coercion，並轉成higher type。而何謂higher type? R會依據下列的排序來將資料型態轉換為其中比較高階的類別：</p>
 <blockquote>
 <p>logical&lt;integer&lt;double&lt;complex&lt;character</p>
 </blockquote>
+<p>而R也有一寫好用的<code>manual coercion</code>函式，如as.開頭的：</p>
+<ol>
+<li>as.integer()</li>
+<li>as.character()</li>
+<li>as.double()</li>
+<li>as.complex()</li>
+</ol>
+<p>另外要使用迴圈時可以使用<code>as(c(x,x,x), 'character')</code>來轉換S4物件內之元素，比較方便。</p>
 <hr>
 <h1 id="list">List</h1>
 <p>List 是一種可以容納不同資料類型或結構的<code>容器</code>，例如數字、字串、甚至是向量或矩陣。是一種non-atomic vector，且儲存過程不會產生<code>coercion</code>。</p>

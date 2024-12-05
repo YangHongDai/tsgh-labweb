@@ -51,11 +51,30 @@ sum(logical_vec) # 計算布林值的數值總和 (TRUE = 1, FALSE = 0)
 ```
 sum(logical_vec) 中的運算涉及`coercion(類型強制轉換)`，因為布林值(TRUE 和 FALSE) 被自動轉換為數值(1 和 0))來進行數學運算。
 
+而向量有許多特性：
+1. `length()`: 會得到向量長度。
+2. `names()`: 會得到向量名稱。
+
+而R有一個特殊的函式叫replacement function，也就是很多函式都可以藉由`指派`的方式改變某內容特徵：
+```r
+names(vector)<- c('Jackson', 'Joseph', 'Joanne')
+```
+這個在日後的數據處理非常常用，需要牢記。
+
+
 ### 何謂coercion?
 `Coercion`是R中將一種資料類型自動轉換為另一種類型的過程。在這個例子中，邏輯型(logical)被轉換為數值(numeric)。
 
 如果不小心將不同的data type用`c(...)`存到vector中，R會自動Coercion，並轉成higher type。而何謂higher type? R會依據下列的排序來將資料型態轉換為其中比較高階的類別：
 > logical<integer<double<complex<character
+
+而R也有一寫好用的`manual coercion`函式，如as.開頭的：
+1. as.integer()
+2. as.character()
+3. as.double()
+4. as.complex()
+
+另外要使用迴圈時可以使用`as(c(x,x,x), 'character')`來轉換S4物件內之元素，比較方便。
 
 ---
 # List

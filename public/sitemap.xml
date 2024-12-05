@@ -98,6 +98,26 @@
     <lastmod>2024-11-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>http://localhost:1313/tag/immunotherapy/</loc>
+    <lastmod>2024-11-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tag/lung-cancer/</loc>
+    <lastmod>2024-11-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tag/t-cell/</loc>
+    <lastmod>2024-11-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/category/%E5%85%8D%E7%96%AB%E6%B2%BB%E7%99%82/</loc>
+    <lastmod>2024-11-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/post/paperr3/</loc>
+    <lastmod>2024-11-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://localhost:1313/tag/artificial-intelligence/</loc>
     <lastmod>2024-11-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -134,19 +154,11 @@
     <lastmod>2024-11-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:1313/tag/immunotherapy/</loc>
-    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>http://localhost:1313/tag/melanoma/</loc>
     <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/tag/resistance-mechanism/</loc>
-    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:1313/category/%E5%85%8D%E7%96%AB%E6%B2%BB%E7%99%82/</loc>
     <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
