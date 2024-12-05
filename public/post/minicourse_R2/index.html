@@ -3,7 +3,7 @@
 <!-- Last Published: December 5, 2024 --><html lang="en-us" >
 
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=53234&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=53854&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -278,8 +278,8 @@
 
 
 
-<link rel="alternate" hreflang="en-us" href="http://localhost:53234/post/minicourse_r2/" />
-<link rel="canonical" href="http://localhost:53234/post/minicourse_r2/" />
+<link rel="alternate" hreflang="en-us" href="http://localhost:53854/post/minicourse_r2/" />
+<link rel="canonical" href="http://localhost:53854/post/minicourse_r2/" />
 
 
 
@@ -312,7 +312,7 @@
 
   <meta property="twitter:site" content="@GetResearchDev" />
   <meta property="twitter:creator" content="@GetResearchDev" />
-<meta property="twitter:image" content="http://localhost:53234/post/minicourse_r2/featured.jpeg" />
+<meta property="twitter:image" content="http://localhost:53854/post/minicourse_r2/featured.jpeg" />
 
 
 
@@ -320,9 +320,9 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="DLit-Hub" />
-<meta property="og:url" content="http://localhost:53234/post/minicourse_r2/" />
+<meta property="og:url" content="http://localhost:53854/post/minicourse_r2/" />
 <meta property="og:title" content="迷你課程:R語言-2 | DLit-Hub" />
-<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:53234/post/minicourse_r2/featured.jpeg" /><meta property="og:locale" content="en-us" />
+<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:53854/post/minicourse_r2/featured.jpeg" /><meta property="og:locale" content="en-us" />
 
   
     <meta
@@ -357,12 +357,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:53234/post/minicourse_r2/"
+    "@id": "http://localhost:53854/post/minicourse_r2/"
   },
   "headline": "迷你課程:R語言-2",
   
   "image": [
-    "http://localhost:53234/post/minicourse_r2/featured.jpeg"
+    "http://localhost:53854/post/minicourse_r2/featured.jpeg"
   ],
   
   "datePublished": "2024-12-05T00:00:00Z",
@@ -378,7 +378,7 @@
     "name": "DLit-Hub",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:53234/media/icon_hu1636988907106955456.png"
+      "url": "http://localhost:53854/media/icon_hu1636988907106955456.png"
     }
   },
   "description": ""
@@ -904,8 +904,7 @@
 <hr>
 <h2 id="tibble-的優勢">Tibble 的優勢</h2>
 <ol>
-<li>不自動轉換資料類型:</li>
-<li>不像 Data Frame，Tibble不會將字串自動轉換為因子(Factor)。</li>
+<li>不自動轉換資料類型。</li>
 <li>輸出格式簡潔，特別適合大數據集。</li>
 <li>使用 $ 提取列，與 Data Frame 一樣簡單。</li>
 </ol>
@@ -957,7 +956,11 @@
 </table>
 <hr>
 <h2 id="使用dplyr與tibble結合">使用dplyr與Tibble結合</h2>
-<p>data frame 也可以用dplyr串接，但是tibble的設計可以讓整體更簡潔。因為tibble不會自動轉換字串，這對於使用<code>dplyr</code>操作時，特別是在篩選<code>filter</code>和分組<code>group_by</code>中處理字串數據時更加直觀。</p>
+<ol>
+<li>data frame 也可以用dplyr串接，但是tibble的設計可以讓整體更簡潔。使用<code>dplyr</code>操作時，特別是在篩選<code>filter</code>和分組<code>group_by</code>中處理字串數據時更加直觀。</li>
+<li>tibble()不允許引用不存在的列，而data.frame()則可能返回 NULL，這容易導致隱蔽錯誤。</li>
+<li>支持非標準列名：Tibble 支持包含空格或特殊字符的列名，而Data Frame通常需要更複雜的處理。</li>
+</ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 載入 tidyverse</span>
 </span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
@@ -972,6 +975,14 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 排序</span>
 </span></span><span class="line"><span class="cl"><span class="n">tb</span> <span class="o">&lt;-</span> <span class="n">tb</span> <span class="o">%&gt;%</span>
 </span></span><span class="line"><span class="cl">  <span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">Age</span><span class="p">))</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">tb</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#39;Name A&#39;</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;John&#34;</span><span class="p">,</span> <span class="s">&#34;Alice&#34;</span><span class="p">,</span> <span class="s">&#34;Bob&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Age</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">25</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">28</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Score</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">85.5</span><span class="p">,</span> <span class="m">92.0</span><span class="p">,</span> <span class="m">78.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#tibble可以允許中間有空格的column name，但是data frame則會自動將空格縮成.，會導致錯誤</span>
+</span></span><span class="line"><span class="cl"><span class="n">tb</span><span class="o">$</span><span class="n">`Name A`</span>
 </span></span></code></pre></div><p>關於tidyverse的部分，後續我會專門做介紹。</p>
 <hr>
 <h2 id="課程摘要">課程摘要</h2>
@@ -1029,7 +1040,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A53234%2Fpost%2Fminicourse_r2%2F&amp;text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-2" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A53854%2Fpost%2Fminicourse_r2%2F&amp;text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-2" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -1046,7 +1057,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A53234%2Fpost%2Fminicourse_r2%2F&amp;t=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-2" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A53854%2Fpost%2Fminicourse_r2%2F&amp;t=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-2" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -1065,7 +1076,7 @@
         
       
       <li>
-        <a href="mailto:?subject=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-2&amp;body=http%3A%2F%2Flocalhost%3A53234%2Fpost%2Fminicourse_r2%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-2&amp;body=http%3A%2F%2Flocalhost%3A53854%2Fpost%2Fminicourse_r2%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -1082,7 +1093,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A53234%2Fpost%2Fminicourse_r2%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-2" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A53854%2Fpost%2Fminicourse_r2%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-2" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -1099,7 +1110,7 @@
       
       
       <li>
-        <a href="whatsapp://send?text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-2%20http%3A%2F%2Flocalhost%3A53234%2Fpost%2Fminicourse_r2%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+        <a href="whatsapp://send?text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-2%20http%3A%2F%2Flocalhost%3A53854%2Fpost%2Fminicourse_r2%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1116,7 +1127,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A53234%2Fpost%2Fminicourse_r2%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-2" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A53854%2Fpost%2Fminicourse_r2%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-2" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
