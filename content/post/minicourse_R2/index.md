@@ -111,10 +111,9 @@ Tibble僅顯示前幾行和列的數據，幫助我們快速預覽，避免大�
 ---
 
 ## Tibble 的優勢
-1. 不自動轉換資料類型:
-2. 不像 Data Frame，Tibble不會將字串自動轉換為因子(Factor)。
-3. 輸出格式簡潔，特別適合大數據集。
-4. 使用 $ 提取列，與 Data Frame 一樣簡單。
+1. 不自動轉換資料類型。
+2. 輸出格式簡潔，特別適合大數據集。
+3. 使用 $ 提取列，與 Data Frame 一樣簡單。
 
 ---
 ## Tibble與Data Frame的比較
@@ -139,7 +138,9 @@ class(tb_from_df)  # "tbl_df" "tbl" "data.frame"
 
 ---
 ## 使用dplyr與Tibble結合
-data frame 也可以用dplyr串接，但是tibble的設計可以讓整體更簡潔。因為tibble不會自動轉換字串，這對於使用`dplyr`操作時，特別是在篩選`filter`和分組`group_by`中處理字串數據時更加直觀。
+1. data frame 也可以用dplyr串接，但是tibble的設計可以讓整體更簡潔。使用`dplyr`操作時，特別是在篩選`filter`和分組`group_by`中處理字串數據時更加直觀。
+2. tibble()不允許引用不存在的列，而data.frame()則可能返回 NULL，這容易導致隱蔽錯誤。
+3. 支持非標準列名：Tibble 支持包含空格或特殊字符的列名，而Data Frame通常需要更複雜的處理。
 ```r
 # 載入 tidyverse
 library(tidyverse)
@@ -156,6 +157,17 @@ tb <- tb %>%
 tb <- tb %>%
   arrange(desc(Age))
 ```
+```r
+tb <- tibble(
+  'Name A' = c("John", "Alice", "Bob"),
+  Age = c(25, 30, 28),
+  Score = c(85.5, 92.0, 78.5)
+)
+
+#tibble可以允許中間有空格的column name，但是data frame則會自動將空格縮成.，會導致錯誤
+tb$`Name A`
+```
+
 關於tidyverse的部分，後續我會專門做介紹。
 
 ---------
