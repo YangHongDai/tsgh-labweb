@@ -6,7 +6,7 @@ commentable: true
 categories: [免疫治療]
 tags: [Immunotherapy, lung cancer, T cell]
 isCJKLanguage: true
-draft: true
+draft: false
 ---
 <!--more-->
 ## Quick look 
@@ -41,4 +41,10 @@ draft: true
 ![fig3](fig3.png '圖三')
 
 # 小鼠模型也能出現TLS?
-根據先前的研究，藉由病毒激活的CD8+T細胞會在發炎組織中形成TLS，因此團隊在小鼠植入肺腫瘤細胞後在第15天接受疫苗注射，此疫苗設計為重組冠狀病毒的質體，可以表現LCMV glycoprotein gp33與myeloid cell stimulating factor Flt3l。在施打疫苗後，腫瘤成功出現腫瘤邊緣與腫瘤內部的TLS，而在小鼠的腫瘤內部的FRC也與CD8+T細胞緊密接觸，
+根據先前的研究，藉由病毒激活的CD8+T細胞會在發炎組織中形成TLS，因此團隊在小鼠植入肺腫瘤細胞後在第15天接受疫苗注射，此疫苗設計為重組冠狀病毒的質體，可以表現LCMV glycoprotein gp33與myeloid cell stimulating factor Flt3l。在施打疫苗後，腫瘤成功出現腫瘤邊緣與腫瘤內部的TLS，而在小鼠的腫瘤內部的FRC也與CD8+T細胞緊密接觸。
+
+# FRC對CD8+T細胞抗腫瘤的影響？
+研究顯示，腫瘤微環境中的FRC在促進抗腫瘤 CD8+ T細胞免疫中發揮關鍵作用。通過使用白喉毒素(DT)去除小鼠Ccl19-Cre+ 細胞，發現FRC的缺失導致腫瘤失去FRC的網絡，顯著減少腫瘤內CD8+ T細胞的募集，並加速腫瘤生長。同時，腫瘤特異性CD8+ T細胞的效應功能(如 IFN-γ、TNF 和 granzyme B 的產生)以及增殖活性(KI67 表達)均顯著下降，且表現出更高的耗竭標誌(如 PD1、TIM3、KLRG1)。FRC 通過粘附分子(如 ICAM1、VCAM1）、趨化因子（CXCL16）和免疫調節細胞因子（如 TGF-β1、TSLP）與CD8+ T 細胞進行交互，促進其細胞毒性、增殖和分化。總結來說，FRC在腫瘤微環境中透過多重免疫調控途徑增強了抗腫瘤免疫反應，其缺失會削弱T細胞功能並促進腫瘤進展。
+
+# 結論
+這篇研究揭示，腫瘤微環境中的CCL19表達FRCs在促進抗腫瘤CD8+ T細胞免疫反應中扮演關鍵角色。這些FRCs(包括PRCs和TRCs)形成三維細胞網絡，作為T細胞進入腫瘤實質的“通道”，同時支持T細胞在腫瘤淋巴結(TDLNs)和腫瘤相關淋巴樣結構(TLS)中的活化與擴增。CCL19+ FRCs還維持腫瘤特異性CD8+T細胞的增殖和效應分化，其功能受腫瘤和基質細胞產生的信號調控。這些FRC網絡不僅促進T細胞的遷移，還與患者的良好預後密切相關，未來應致力於探討其他腫瘤類型中FRC的發育途徑，並設計促進PRC/TRC分化的策略，以增強抗腫瘤免疫反應。
