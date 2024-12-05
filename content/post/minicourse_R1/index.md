@@ -9,7 +9,7 @@ isCJKLanguage: true
 draft: false
 ---
 <!--more-->
-# Quick look
+## Quick look
 今天介紹R的data type:
 1. Atomic vector
 2. Vector
@@ -17,8 +17,9 @@ draft: false
 4. Matrix
 5. Array
 
-# Atomic vector
-Atomic Vector 是 R 中最基本的資料類型之一，它只能包含相同類型的資料，例如數字、字串或布林值。
+---
+## Atomic vector
+`Atomic Vector` 是 R 中最基本的資料類型之一，它只能包含相同類型的資料，例如數字、字串或布林值。
 
 種類:
 1. Numeric（數值）
@@ -28,7 +29,9 @@ Atomic Vector 是 R 中最基本的資料類型之一，它只能包含相同類
 5. Complex（複數）
 
 Atomic vector可以很容易地用`c(...)`來建構起向量。
-### Examples
+
+---
+## Atomic vector的建立與操作
 ```r
 # 建立不同類型的 Atomic Vector
 numeric_vec <- c(1.5, 2.3, 4.8)    # 數值向量
@@ -42,7 +45,7 @@ class(character_vec)
 class(logical_vec)
 
 ```
-我們可以針對atomic vector做一般的向量操作。而布林值的運算會先被轉成integer，再做加總。
+我們可以針對atomic vector做一般的向量操作。而布林值的運算會先被轉成`integer`，再做加總。
 ```r
 # 向量操作
 numeric_vec * 2  # 每個元素乘以2
@@ -55,14 +58,14 @@ sum(logical_vec) 中的運算涉及`coercion(類型強制轉換)`，因為布林
 1. `length()`: 會得到向量長度。
 2. `names()`: 會得到向量名稱。
 
-而R有一個特殊的函式叫replacement function，也就是很多函式都可以藉由`指派`的方式改變某內容特徵：
+而R有一個特殊的函式叫`replacement function`，也就是很多函式都可以藉由`指派`的方式改變某內容特徵：
 ```r
 names(vector)<- c('Jackson', 'Joseph', 'Joanne')
 ```
 這個在日後的數據處理非常常用，需要牢記。
 
-
-### 何謂coercion?
+---
+## 何謂coercion?
 `Coercion`是R中將一種資料類型自動轉換為另一種類型的過程。在這個例子中，邏輯型(logical)被轉換為數值(numeric)。
 
 如果不小心將不同的data type用`c(...)`存到vector中，R會自動Coercion，並轉成higher type。而何謂higher type? R會依據下列的排序來將資料型態轉換為其中比較高階的類別：
@@ -77,10 +80,10 @@ names(vector)<- c('Jackson', 'Joseph', 'Joanne')
 另外要使用迴圈時可以使用`as(c(x,x,x), 'character')`來轉換S4物件內之元素，比較方便。
 
 ---
-# List
+## List
 List 是一種可以容納不同資料類型或結構的`容器`，例如數字、字串、甚至是向量或矩陣。是一種non-atomic vector，且儲存過程不會產生`coercion`。
 
-## Examples
+## List的建立與操作
 ```r
 # 建立一個 List
 my_list <- list(
@@ -96,7 +99,7 @@ my_list$scores[2]  # 第二個成績
 
 注意上面的my_list存了三個不同型態的元素，而且都賦予一個名稱。List的名稱可以用`$`取出來。如：
 
-```
+```r
 my_list$name
 ```
 ```
@@ -106,7 +109,7 @@ $name
 
 ```
 也可以用雙括號`[[1]]`的方式取出來：
-```
+```r
 my_list[[1]]
 ```
 ```
@@ -121,10 +124,10 @@ my_list[[1]]
 簡單來說就是用`[]`取出的東西會維持list的型態，但是用`[[]]`取出的東西則**屬於**那個元素的型態，如果是`John`，那就是`character`型態。
 
 ---
-# Matrix
-Matrix 是一種二维的atomic vector，必須有相同的資料類型。
+## Matrix
+Matrix 是一種`二维`的atomic vector，必須有`相同`的資料類型。
 
-### Example
+## Matrix的建立與操作
 可以用`dim()`來將向量轉變成矩陣
 ```r
 a <- 1:8
@@ -169,10 +172,10 @@ matrix(1:3,3,4)
 [3,]    3    3    3    3
 ```
 ---
-# Array
+## Array
 Array 是多維的數據結構，可以看作是矩陣的擴展。
 
-### Example
+## Array的建立與操作
 ```r
 # 建立三維陣列
 my_array <- array(1:12, dim = c(2, 3, 2))  # 2x3x2 陣列
@@ -211,12 +214,12 @@ dim(my_array)
 [1] 2 3 2
 ```
 ---
-### 其他特殊值
-1. NA: 表示missing value，是一種place holder，會顯示出來。
-2. NULL: 是一種長度為0的物件，與NA不同，無法印出來，在需要刪除某些物件的時候可以派上用場。
-3. Inf, -Inf: 也是一種place holder。
+## 其他特殊值
+1. `NA`: 表示missing value，是一種`place holder`，會顯示出來。
+2. `NULL`: 是一種長度為`0`的物件，與NA不同，無法印出來，在需要刪除某些物件的時候可以派上用場。
+3. `Inf, -Inf`: 也是一種place holder。
 ---
-# 課程摘要
+## 課程摘要
 
 | 資料類型       | 特性                    | 範例                              |
 |----------------|-------------------------|-----------------------------------|

@@ -3,7 +3,7 @@
 <!-- Last Published: December 5, 2024 --><html lang="en-us" >
 
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51542&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=53234&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -278,8 +278,8 @@
 
 
 
-<link rel="alternate" hreflang="en-us" href="http://localhost:51542/post/minicourse_r1/" />
-<link rel="canonical" href="http://localhost:51542/post/minicourse_r1/" />
+<link rel="alternate" hreflang="en-us" href="http://localhost:53234/post/minicourse_r1/" />
+<link rel="canonical" href="http://localhost:53234/post/minicourse_r1/" />
 
 
 
@@ -312,7 +312,7 @@
 
   <meta property="twitter:site" content="@GetResearchDev" />
   <meta property="twitter:creator" content="@GetResearchDev" />
-<meta property="twitter:image" content="http://localhost:51542/post/minicourse_r1/featured.jpeg" />
+<meta property="twitter:image" content="http://localhost:53234/post/minicourse_r1/featured.jpeg" />
 
 
 
@@ -320,9 +320,9 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="DLit-Hub" />
-<meta property="og:url" content="http://localhost:51542/post/minicourse_r1/" />
+<meta property="og:url" content="http://localhost:53234/post/minicourse_r1/" />
 <meta property="og:title" content="迷你課程:R語言-1 | DLit-Hub" />
-<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:51542/post/minicourse_r1/featured.jpeg" /><meta property="og:locale" content="en-us" />
+<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:53234/post/minicourse_r1/featured.jpeg" /><meta property="og:locale" content="en-us" />
 
   
     <meta
@@ -357,12 +357,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:51542/post/minicourse_r1/"
+    "@id": "http://localhost:53234/post/minicourse_r1/"
   },
   "headline": "迷你課程:R語言-1",
   
   "image": [
-    "http://localhost:51542/post/minicourse_r1/featured.jpeg"
+    "http://localhost:53234/post/minicourse_r1/featured.jpeg"
   ],
   
   "datePublished": "2024-12-04T00:00:00Z",
@@ -378,7 +378,7 @@
     "name": "DLit-Hub",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:51542/media/icon_hu1636988907106955456.png"
+      "url": "http://localhost:53234/media/icon_hu1636988907106955456.png"
     }
   },
   "description": ""
@@ -827,7 +827,7 @@
   <div class="article-container">
 
     <div class="article-style">
-      <h1 id="quick-look">Quick look</h1>
+      <h2 id="quick-look">Quick look</h2>
 <p>今天介紹R的data type:</p>
 <ol>
 <li>Atomic vector</li>
@@ -836,8 +836,9 @@
 <li>Matrix</li>
 <li>Array</li>
 </ol>
-<h1 id="atomic-vector">Atomic vector</h1>
-<p>Atomic Vector 是 R 中最基本的資料類型之一，它只能包含相同類型的資料，例如數字、字串或布林值。</p>
+<hr>
+<h2 id="atomic-vector">Atomic vector</h2>
+<p><code>Atomic Vector</code> 是 R 中最基本的資料類型之一，它只能包含相同類型的資料，例如數字、字串或布林值。</p>
 <p>種類:</p>
 <ol>
 <li>Numeric（數值）</li>
@@ -847,7 +848,8 @@
 <li>Complex（複數）</li>
 </ol>
 <p>Atomic vector可以很容易地用<code>c(...)</code>來建構起向量。</p>
-<h3 id="examples">Examples</h3>
+<hr>
+<h2 id="atomic-vector的建立與操作">Atomic vector的建立與操作</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 建立不同類型的 Atomic Vector</span>
 </span></span><span class="line"><span class="cl"><span class="n">numeric_vec</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1.5</span><span class="p">,</span> <span class="m">2.3</span><span class="p">,</span> <span class="m">4.8</span><span class="p">)</span>    <span class="c1"># 數值向量</span>
 </span></span><span class="line"><span class="cl"><span class="n">integer_vec</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1L</span><span class="p">,</span> <span class="m">2L</span><span class="p">,</span> <span class="m">3L</span><span class="p">)</span>
@@ -858,7 +860,7 @@
 </span></span><span class="line"><span class="cl"><span class="nf">class</span><span class="p">(</span><span class="n">numeric_vec</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">class</span><span class="p">(</span><span class="n">character_vec</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">class</span><span class="p">(</span><span class="n">logical_vec</span><span class="p">)</span>
-</span></span></code></pre></div><p>我們可以針對atomic vector做一般的向量操作。而布林值的運算會先被轉成integer，再做加總。</p>
+</span></span></code></pre></div><p>我們可以針對atomic vector做一般的向量操作。而布林值的運算會先被轉成<code>integer</code>，再做加總。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 向量操作</span>
 </span></span><span class="line"><span class="cl"><span class="n">numeric_vec</span> <span class="o">*</span> <span class="m">2</span>  <span class="c1"># 每個元素乘以2</span>
 </span></span><span class="line"><span class="cl"><span class="n">character_vec[1]</span> <span class="c1"># 獲取第一個元素</span>
@@ -869,10 +871,11 @@
 <li><code>length()</code>: 會得到向量長度。</li>
 <li><code>names()</code>: 會得到向量名稱。</li>
 </ol>
-<p>而R有一個特殊的函式叫replacement function，也就是很多函式都可以藉由<code>指派</code>的方式改變某內容特徵：</p>
+<p>而R有一個特殊的函式叫<code>replacement function</code>，也就是很多函式都可以藉由<code>指派</code>的方式改變某內容特徵：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">names</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span><span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;Jackson&#39;</span><span class="p">,</span> <span class="s">&#39;Joseph&#39;</span><span class="p">,</span> <span class="s">&#39;Joanne&#39;</span><span class="p">)</span>
 </span></span></code></pre></div><p>這個在日後的數據處理非常常用，需要牢記。</p>
-<h3 id="何謂coercion">何謂coercion?</h3>
+<hr>
+<h2 id="何謂coercion">何謂coercion?</h2>
 <p><code>Coercion</code>是R中將一種資料類型自動轉換為另一種類型的過程。在這個例子中，邏輯型(logical)被轉換為數值(numeric)。</p>
 <p>如果不小心將不同的data type用<code>c(...)</code>存到vector中，R會自動Coercion，並轉成higher type。而何謂higher type? R會依據下列的排序來將資料型態轉換為其中比較高階的類別：</p>
 <blockquote>
@@ -887,9 +890,9 @@
 </ol>
 <p>另外要使用迴圈時可以使用<code>as(c(x,x,x), 'character')</code>來轉換S4物件內之元素，比較方便。</p>
 <hr>
-<h1 id="list">List</h1>
+<h2 id="list">List</h2>
 <p>List 是一種可以容納不同資料類型或結構的<code>容器</code>，例如數字、字串、甚至是向量或矩陣。是一種non-atomic vector，且儲存過程不會產生<code>coercion</code>。</p>
-<h2 id="examples-1">Examples</h2>
+<h2 id="list的建立與操作">List的建立與操作</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 建立一個 List</span>
 </span></span><span class="line"><span class="cl"><span class="n">my_list</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">  <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;John&#34;</span><span class="p">,</span>
@@ -901,12 +904,12 @@
 </span></span><span class="line"><span class="cl"><span class="n">my_list</span><span class="o">$</span><span class="n">name</span>
 </span></span><span class="line"><span class="cl"><span class="n">my_list</span><span class="o">$</span><span class="n">scores[2]</span>  <span class="c1"># 第二個成績</span>
 </span></span></code></pre></div><p>注意上面的my_list存了三個不同型態的元素，而且都賦予一個名稱。List的名稱可以用<code>$</code>取出來。如：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">my_list$name
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">my_list</span><span class="o">$</span><span class="n">name</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#&gt;
 </span></span><span class="line"><span class="cl">$name
 </span></span><span class="line"><span class="cl">[1] &#34;John&#34;
 </span></span></code></pre></div><p>也可以用雙括號<code>[[1]]</code>的方式取出來：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">my_list[[1]]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">my_list[[1]]</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#&gt;
 </span></span><span class="line"><span class="cl">[1] &#34;John&#34;
 </span></span></code></pre></div><p>這邊注意，在R裡面<code>[[]]</code>與<code>[]</code>取出的內容是不同的:</p>
@@ -916,9 +919,9 @@
 </ol>
 <p>簡單來說就是用<code>[]</code>取出的東西會維持list的型態，但是用<code>[[]]</code>取出的東西則<strong>屬於</strong>那個元素的型態，如果是<code>John</code>，那就是<code>character</code>型態。</p>
 <hr>
-<h1 id="matrix">Matrix</h1>
-<p>Matrix 是一種二维的atomic vector，必須有相同的資料類型。</p>
-<h3 id="example">Example</h3>
+<h2 id="matrix">Matrix</h2>
+<p>Matrix 是一種<code>二维</code>的atomic vector，必須有<code>相同</code>的資料類型。</p>
+<h2 id="matrix的建立與操作">Matrix的建立與操作</h2>
 <p>可以用<code>dim()</code>來將向量轉變成矩陣</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">8</span>
 </span></span><span class="line"><span class="cl"><span class="nf">dim</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
@@ -951,9 +954,9 @@
 </span></span><span class="line"><span class="cl">[2,]    2    2    2    2
 </span></span><span class="line"><span class="cl">[3,]    3    3    3    3
 </span></span></code></pre></div><hr>
-<h1 id="array">Array</h1>
+<h2 id="array">Array</h2>
 <p>Array 是多維的數據結構，可以看作是矩陣的擴展。</p>
-<h3 id="example-1">Example</h3>
+<h2 id="array的建立與操作">Array的建立與操作</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 建立三維陣列</span>
 </span></span><span class="line"><span class="cl"><span class="n">my_array</span> <span class="o">&lt;-</span> <span class="nf">array</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">,</span> <span class="n">dim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">2</span><span class="p">))</span>  <span class="c1"># 2x3x2 陣列</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#&gt;
@@ -977,14 +980,14 @@
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#&gt;
 </span></span><span class="line"><span class="cl">[1] 2 3 2
 </span></span></code></pre></div><hr>
-<h3 id="其他特殊值">其他特殊值</h3>
+<h2 id="其他特殊值">其他特殊值</h2>
 <ol>
-<li>NA: 表示missing value，是一種place holder，會顯示出來。</li>
-<li>NULL: 是一種長度為0的物件，與NA不同，無法印出來，在需要刪除某些物件的時候可以派上用場。</li>
-<li>Inf, -Inf: 也是一種place holder。</li>
+<li><code>NA</code>: 表示missing value，是一種<code>place holder</code>，會顯示出來。</li>
+<li><code>NULL</code>: 是一種長度為<code>0</code>的物件，與NA不同，無法印出來，在需要刪除某些物件的時候可以派上用場。</li>
+<li><code>Inf, -Inf</code>: 也是一種place holder。</li>
 </ol>
 <hr>
-<h1 id="課程摘要">課程摘要</h1>
+<h2 id="課程摘要">課程摘要</h2>
 <table>
   <thead>
       <tr>
@@ -1049,7 +1052,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A51542%2Fpost%2Fminicourse_r1%2F&amp;text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-1" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A53234%2Fpost%2Fminicourse_r1%2F&amp;text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-1" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -1066,7 +1069,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A51542%2Fpost%2Fminicourse_r1%2F&amp;t=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-1" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A53234%2Fpost%2Fminicourse_r1%2F&amp;t=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-1" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -1085,7 +1088,7 @@
         
       
       <li>
-        <a href="mailto:?subject=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-1&amp;body=http%3A%2F%2Flocalhost%3A51542%2Fpost%2Fminicourse_r1%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-1&amp;body=http%3A%2F%2Flocalhost%3A53234%2Fpost%2Fminicourse_r1%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -1102,7 +1105,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A51542%2Fpost%2Fminicourse_r1%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-1" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A53234%2Fpost%2Fminicourse_r1%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-1" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -1119,7 +1122,7 @@
       
       
       <li>
-        <a href="whatsapp://send?text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-1%20http%3A%2F%2Flocalhost%3A51542%2Fpost%2Fminicourse_r1%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+        <a href="whatsapp://send?text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-1%20http%3A%2F%2Flocalhost%3A53234%2Fpost%2Fminicourse_r1%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1136,7 +1139,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A51542%2Fpost%2Fminicourse_r1%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-1" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A53234%2Fpost%2Fminicourse_r1%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-1" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
