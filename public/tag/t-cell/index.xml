@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>T Cell | DLit-Hub</title>
-    <link>http://localhost:50499/tag/t-cell/</link>
-      <atom:link href="http://localhost:50499/tag/t-cell/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:50624/tag/t-cell/</link>
+      <atom:link href="http://localhost:50624/tag/t-cell/index.xml" rel="self" type="application/rss+xml" />
     <description>T Cell</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 27 Nov 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:50499/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:50624/media/icon_hu15379254428347791189.png</url>
       <title>T Cell</title>
-      <link>http://localhost:50499/tag/t-cell/</link>
+      <link>http://localhost:50624/tag/t-cell/</link>
     </image>
     
     <item>
       <title>纖維母性網狀細胞為肺癌中的T細胞塑造碉堡？</title>
-      <link>http://localhost:50499/post/paperr3/</link>
+      <link>http://localhost:50624/post/paperr3/</link>
       <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:50499/post/paperr3/</guid>
+      <guid>http://localhost:50624/post/paperr3/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;腫瘤內部的免疫微環境基本上都存在高度異質性，從免疫細胞密集分布到完全缺乏等等。目前的證據顯示，腫瘤抗原特異性T細胞(Tumor-specific T cell)若要順利的啟動及維持他們的活性，仰賴腫瘤引流淋巴結(tumor draining lymph node)和腫瘤組織內的微環境，特別是三級淋巴結構（tertiary lymphoid structure，TLS），其通常位於腫瘤邊緣並由B細胞主導。而TLS中的B細胞活性也與Immune checkpoint inhibitor的成功率息息相關。&lt;/p&gt;
 &lt;p&gt;這些免疫細胞由專門的纖維母細胞(如T細胞區網狀細胞和血管周圍網狀細胞)支撐，而這之間的交互作用也從TLS透過某種物理架構延伸到腫瘤內部。本篇研究通過單細胞轉錄組學和高解析度顯微技術，發現了在肺癌中形成特定T細胞環境的纖維母細胞亞群(fibroblastic reticular cell)。這些FRC與免疫細胞的互動促進了TLS的形成、T細胞軌跡中的分化，以及控制T細胞活性。實驗顯示，破壞腫瘤微環境中FRC與免疫細胞的互動會降低CD8+ T細胞的抗腫瘤活性並促進腫瘤生長。&lt;/p&gt;
@@ -45,7 +45,7 @@
                /post/paperr3/fig1_hu8012954762647498247.webp 400w,
                /post/paperr3/fig1_hu18030004843405312440.webp 760w,
                /post/paperr3/fig1_hu13374468011937916873.webp 1200w&#34;
-               src=&#34;http://localhost:50499/post/paperr3/fig1_hu8012954762647498247.webp&#34;
+               src=&#34;http://localhost:50624/post/paperr3/fig1_hu8012954762647498247.webp&#34;
                width=&#34;713&#34;
                height=&#34;760&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -86,7 +86,7 @@
                /post/paperr3/fig2_hu8035623134348539547.webp 400w,
                /post/paperr3/fig2_hu17343627255761551909.webp 760w,
                /post/paperr3/fig2_hu6183092819207817373.webp 1200w&#34;
-               src=&#34;http://localhost:50499/post/paperr3/fig2_hu8035623134348539547.webp&#34;
+               src=&#34;http://localhost:50624/post/paperr3/fig2_hu8035623134348539547.webp&#34;
                width=&#34;760&#34;
                height=&#34;371&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -118,7 +118,7 @@
                /post/paperr3/fig3_hu9023605283481264180.webp 400w,
                /post/paperr3/fig3_hu3262590434171768881.webp 760w,
                /post/paperr3/fig3_hu7929229898512150303.webp 1200w&#34;
-               src=&#34;http://localhost:50499/post/paperr3/fig3_hu9023605283481264180.webp&#34;
+               src=&#34;http://localhost:50624/post/paperr3/fig3_hu9023605283481264180.webp&#34;
                width=&#34;760&#34;
                height=&#34;363&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;

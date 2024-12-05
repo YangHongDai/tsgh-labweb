@@ -9745,9 +9745,7 @@ div.chart {
   display: block; }
 
 .highlight pre {
-  --bg-color: #fcf3f3;
-  /* 默認背景色 */
-  --text-color: #110303;
-  /* 默認文字色 */
-  background-color: var(--bg-color);
-  color: var(--text-color); }
+  background-color: #fcf3f3;
+  /* 背景色設為黑色 */
+  color: #110303;
+  /* 文字色設為白色 */ }
