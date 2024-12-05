@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Artificial Intelligence | DLit-Hub</title>
-    <link>http://localhost:1313/tag/artificial-intelligence/</link>
-      <atom:link href="http://localhost:1313/tag/artificial-intelligence/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:50499/tag/artificial-intelligence/</link>
+      <atom:link href="http://localhost:50499/tag/artificial-intelligence/index.xml" rel="self" type="application/rss+xml" />
     <description>Artificial Intelligence</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 25 Nov 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:50499/media/icon_hu15379254428347791189.png</url>
       <title>Artificial Intelligence</title>
-      <link>http://localhost:1313/tag/artificial-intelligence/</link>
+      <link>http://localhost:50499/tag/artificial-intelligence/</link>
     </image>
     
     <item>
       <title>基礎模型於醫學領域的運用？</title>
-      <link>http://localhost:1313/post/paperr2/</link>
+      <link>http://localhost:50499/post/paperr2/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/paperr2/</guid>
+      <guid>http://localhost:50499/post/paperr2/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;人工智慧的快速發展，特別是高靈活性和可重複使用的模型，預計將為醫學領域帶來全新的能力。這篇發表於nature的&lt;a href=&#34;https://www.nature.com/articles/s41586-023-05881-4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;提出了一種新的醫學AI模式，稱為通用型醫學人工智慧(Generalist Medical AI，GMAI)。GMAI 模型將能夠在極少甚至不依賴特定任務標註數據的情況下，執行多樣化的醫學任務。這些模型通過對大規模、多樣性數據集的自監督學習構建，能靈活解讀多種醫學數據模態的組合，包括影像數據、電子健康紀錄(EHR)、實驗室檢驗結果、基因組數據、圖形數據和醫學文本等。GMAI模型的輸出將更具表達性，例如提供自由文本解釋、語音建議或圖像註解，並展現出高級的醫學推理能力。&lt;/p&gt;
 &lt;h1 id=&#34;基礎模型真的有那麼強大&#34;&gt;基礎模型真的有那麼強大？&lt;/h1&gt;
@@ -57,7 +57,7 @@
                /post/paperr2/fig1_hu4465402215046398491.webp 400w,
                /post/paperr2/fig1_hu7223638083453739918.webp 760w,
                /post/paperr2/fig1_hu1798559871620689176.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/paperr2/fig1_hu4465402215046398491.webp&#34;
+               src=&#34;http://localhost:50499/post/paperr2/fig1_hu4465402215046398491.webp&#34;
                width=&#34;760&#34;
                height=&#34;376&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -115,7 +115,7 @@
                /post/paperr2/fig2_hu5603937334617053369.webp 400w,
                /post/paperr2/fig2_hu14445273741430393331.webp 760w,
                /post/paperr2/fig2_hu10463116408328140366.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/paperr2/fig2_hu5603937334617053369.webp&#34;
+               src=&#34;http://localhost:50499/post/paperr2/fig2_hu5603937334617053369.webp&#34;
                width=&#34;760&#34;
                height=&#34;340&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;

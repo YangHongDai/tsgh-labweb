@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>精選文章 | DLit-Hub</title>
-    <link>http://localhost:1313/post/</link>
-      <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:50499/post/</link>
+      <atom:link href="http://localhost:50499/post/index.xml" rel="self" type="application/rss+xml" />
     <description>精選文章</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 04 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:50499/media/icon_hu15379254428347791189.png</url>
       <title>精選文章</title>
-      <link>http://localhost:1313/post/</link>
+      <link>http://localhost:50499/post/</link>
     </image>
     
     <item>
       <title>迷你課程:R語言-1</title>
-      <link>http://localhost:1313/post/minicourse_r1/</link>
+      <link>http://localhost:50499/post/minicourse_r1/</link>
       <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/minicourse_r1/</guid>
+      <guid>http://localhost:50499/post/minicourse_r1/</guid>
       <description>&lt;h1 id=&#34;quick-look&#34;&gt;Quick look&lt;/h1&gt;
 &lt;p&gt;今天介紹R的data type:&lt;/p&gt;
 &lt;ol&gt;
@@ -210,9 +210,9 @@
     
     <item>
       <title>IgA腎病變：現況與挑戰</title>
-      <link>http://localhost:1313/post/iga_nephropathy/</link>
+      <link>http://localhost:50499/post/iga_nephropathy/</link>
       <pubDate>Fri, 29 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/iga_nephropathy/</guid>
+      <guid>http://localhost:50499/post/iga_nephropathy/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;IgA腎病變(IgA nephropathy, IgAN)&lt;/code&gt;是一種常見的原發性腎絲球腎炎，雖然進程緩慢，但仍有不少患者在會一生中面臨腎衰竭或是洗腎的風險。該疾病的致病機轉主要來自於黏膜免疫系統中衍生的缺半乳糖化IgA1在血液中濃度升高，且和特異性IgG和IgA抗體結合，形成免疫複合物沉積於腎小球內，導致發炎、補體活化及腎損傷。儘管現有的治療選擇有限，但不同類型的療法正在快速發展，本篇針對最新發表在nature review nephrology的&lt;a href=&#34;https://www.nature.com/articles/s41581-024-00885-3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;，深入探討IgAN的病生理機制與治療前景。&lt;/p&gt;
 &lt;h1 id=&#34;前情提要&#34;&gt;前情提要&lt;/h1&gt;
@@ -246,7 +246,7 @@
                /post/iga_nephropathy/fig1_hu8477814647956072909.webp 400w,
                /post/iga_nephropathy/fig1_hu2347947302523353437.webp 760w,
                /post/iga_nephropathy/fig1_hu16276878206001251811.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/iga_nephropathy/fig1_hu8477814647956072909.webp&#34;
+               src=&#34;http://localhost:50499/post/iga_nephropathy/fig1_hu8477814647956072909.webp&#34;
                width=&#34;760&#34;
                height=&#34;390&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -285,7 +285,7 @@
                /post/iga_nephropathy/fig2_hu9214946873256410068.webp 400w,
                /post/iga_nephropathy/fig2_hu8460772400180790820.webp 760w,
                /post/iga_nephropathy/fig2_hu1227887210895014429.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/iga_nephropathy/fig2_hu9214946873256410068.webp&#34;
+               src=&#34;http://localhost:50499/post/iga_nephropathy/fig2_hu9214946873256410068.webp&#34;
                width=&#34;760&#34;
                height=&#34;322&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -337,7 +337,7 @@
                /post/iga_nephropathy/fig3_hu17316065617603901825.webp 400w,
                /post/iga_nephropathy/fig3_hu3953366864811020813.webp 760w,
                /post/iga_nephropathy/fig3_hu2584949262212506169.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/iga_nephropathy/fig3_hu17316065617603901825.webp&#34;
+               src=&#34;http://localhost:50499/post/iga_nephropathy/fig3_hu17316065617603901825.webp&#34;
                width=&#34;760&#34;
                height=&#34;586&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -378,7 +378,7 @@
                /post/iga_nephropathy/fig4_hu16834576376985772938.webp 400w,
                /post/iga_nephropathy/fig4_hu10351183366052398372.webp 760w,
                /post/iga_nephropathy/fig4_hu12702964302490181733.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/iga_nephropathy/fig4_hu16834576376985772938.webp&#34;
+               src=&#34;http://localhost:50499/post/iga_nephropathy/fig4_hu16834576376985772938.webp&#34;
                width=&#34;760&#34;
                height=&#34;436&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -437,9 +437,9 @@
     
     <item>
       <title>生資硬核技術：公開癌症基因數據下載及操作</title>
-      <link>http://localhost:1313/post/ucscxenatool/</link>
+      <link>http://localhost:50499/post/ucscxenatool/</link>
       <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/ucscxenatool/</guid>
+      <guid>http://localhost:50499/post/ucscxenatool/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;數年前我還是住院醫師的時候是直接在UCSC Xena&lt;a href=&#34;https://xenabrowser.net&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;平台&lt;/a&gt;下載癌症數據，但整個過程很難流程化， 而2019年發表的UCSCXenaTools解決了這個問題，也讓我在前年分析公開數據時方便許多。
 UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。該平台集成了多個公開數據庫(如分析癌症數據一定要知道的TCGA、ICGC、TARGET、GTEx等），提供處理過的數據，便於我們進行數據的篩選、連結、探索及下載。UCSCXenaTools的功能強大且操作簡單，在我們先前的&lt;a href=&#34;https://www.biorxiv.org/content/10.1101/2024.07.21.604474v1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;preprint&lt;/a&gt;發表我也是利用這個套件做TCGA數據的處理，所以這邊就簡單分享我是如何用這個套件來進行分析的。&lt;/p&gt;
@@ -578,9 +578,9 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
     
     <item>
       <title>纖維母性網狀細胞為肺癌中的T細胞塑造碉堡？</title>
-      <link>http://localhost:1313/post/paperr3/</link>
+      <link>http://localhost:50499/post/paperr3/</link>
       <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/paperr3/</guid>
+      <guid>http://localhost:50499/post/paperr3/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;腫瘤內部的免疫微環境基本上都存在高度異質性，從免疫細胞密集分布到完全缺乏等等。目前的證據顯示，腫瘤抗原特異性T細胞(Tumor-specific T cell)若要順利的啟動及維持他們的活性，仰賴腫瘤引流淋巴結(tumor draining lymph node)和腫瘤組織內的微環境，特別是三級淋巴結構（tertiary lymphoid structure，TLS），其通常位於腫瘤邊緣並由B細胞主導。而TLS中的B細胞活性也與Immune checkpoint inhibitor的成功率息息相關。&lt;/p&gt;
 &lt;p&gt;這些免疫細胞由專門的纖維母細胞(如T細胞區網狀細胞和血管周圍網狀細胞)支撐，而這之間的交互作用也從TLS透過某種物理架構延伸到腫瘤內部。本篇研究通過單細胞轉錄組學和高解析度顯微技術，發現了在肺癌中形成特定T細胞環境的纖維母細胞亞群(fibroblastic reticular cell)。這些FRC與免疫細胞的互動促進了TLS的形成、T細胞軌跡中的分化，以及控制T細胞活性。實驗顯示，破壞腫瘤微環境中FRC與免疫細胞的互動會降低CD8+ T細胞的抗腫瘤活性並促進腫瘤生長。&lt;/p&gt;
@@ -609,7 +609,7 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
                /post/paperr3/fig1_hu8012954762647498247.webp 400w,
                /post/paperr3/fig1_hu18030004843405312440.webp 760w,
                /post/paperr3/fig1_hu13374468011937916873.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/paperr3/fig1_hu8012954762647498247.webp&#34;
+               src=&#34;http://localhost:50499/post/paperr3/fig1_hu8012954762647498247.webp&#34;
                width=&#34;713&#34;
                height=&#34;760&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -650,7 +650,7 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
                /post/paperr3/fig2_hu8035623134348539547.webp 400w,
                /post/paperr3/fig2_hu17343627255761551909.webp 760w,
                /post/paperr3/fig2_hu6183092819207817373.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/paperr3/fig2_hu8035623134348539547.webp&#34;
+               src=&#34;http://localhost:50499/post/paperr3/fig2_hu8035623134348539547.webp&#34;
                width=&#34;760&#34;
                height=&#34;371&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -682,7 +682,7 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
                /post/paperr3/fig3_hu9023605283481264180.webp 400w,
                /post/paperr3/fig3_hu3262590434171768881.webp 760w,
                /post/paperr3/fig3_hu7929229898512150303.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/paperr3/fig3_hu9023605283481264180.webp&#34;
+               src=&#34;http://localhost:50499/post/paperr3/fig3_hu9023605283481264180.webp&#34;
                width=&#34;760&#34;
                height=&#34;363&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -700,9 +700,9 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
     
     <item>
       <title>基礎模型於醫學領域的運用？</title>
-      <link>http://localhost:1313/post/paperr2/</link>
+      <link>http://localhost:50499/post/paperr2/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/paperr2/</guid>
+      <guid>http://localhost:50499/post/paperr2/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;人工智慧的快速發展，特別是高靈活性和可重複使用的模型，預計將為醫學領域帶來全新的能力。這篇發表於nature的&lt;a href=&#34;https://www.nature.com/articles/s41586-023-05881-4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;提出了一種新的醫學AI模式，稱為通用型醫學人工智慧(Generalist Medical AI，GMAI)。GMAI 模型將能夠在極少甚至不依賴特定任務標註數據的情況下，執行多樣化的醫學任務。這些模型通過對大規模、多樣性數據集的自監督學習構建，能靈活解讀多種醫學數據模態的組合，包括影像數據、電子健康紀錄(EHR)、實驗室檢驗結果、基因組數據、圖形數據和醫學文本等。GMAI模型的輸出將更具表達性，例如提供自由文本解釋、語音建議或圖像註解，並展現出高級的醫學推理能力。&lt;/p&gt;
 &lt;h1 id=&#34;基礎模型真的有那麼強大&#34;&gt;基礎模型真的有那麼強大？&lt;/h1&gt;
@@ -743,7 +743,7 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
                /post/paperr2/fig1_hu4465402215046398491.webp 400w,
                /post/paperr2/fig1_hu7223638083453739918.webp 760w,
                /post/paperr2/fig1_hu1798559871620689176.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/paperr2/fig1_hu4465402215046398491.webp&#34;
+               src=&#34;http://localhost:50499/post/paperr2/fig1_hu4465402215046398491.webp&#34;
                width=&#34;760&#34;
                height=&#34;376&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -801,7 +801,7 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
                /post/paperr2/fig2_hu5603937334617053369.webp 400w,
                /post/paperr2/fig2_hu14445273741430393331.webp 760w,
                /post/paperr2/fig2_hu10463116408328140366.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/paperr2/fig2_hu5603937334617053369.webp&#34;
+               src=&#34;http://localhost:50499/post/paperr2/fig2_hu5603937334617053369.webp&#34;
                width=&#34;760&#34;
                height=&#34;340&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -815,9 +815,9 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
     
     <item>
       <title>數據科學技術盤點:主成分分析？</title>
-      <link>http://localhost:1313/post/data_pca/</link>
+      <link>http://localhost:50499/post/data_pca/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/data_pca/</guid>
+      <guid>http://localhost:50499/post/data_pca/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;主成分分析（Principal component analysis, PCA）是一種強大且直觀的數據降維技術，被廣泛應用於臨床研究與醫學數據分析中。作為醫師，在日常工作中，我們經常面對大量的病患數據，例如基因表達數據、影像數據、實驗室檢驗值等。PCA能夠幫助我們提取數據的關鍵特徵，將高維度的資料轉換成易於解釋的低維度數據，從而揭示潛在的生物學意義。&lt;/p&gt;
 &lt;ul&gt;
@@ -994,7 +994,7 @@ $$
                /post/data_pca/fig1_hu15827159032189168353.webp 400w,
                /post/data_pca/fig1_hu4818452470569895218.webp 760w,
                /post/data_pca/fig1_hu7070961658534383816.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/data_pca/fig1_hu15827159032189168353.webp&#34;
+               src=&#34;http://localhost:50499/post/data_pca/fig1_hu15827159032189168353.webp&#34;
                width=&#34;760&#34;
                height=&#34;656&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1021,9 +1021,9 @@ $$
     
     <item>
       <title>黑色素瘤如何對免疫治療產生抗藥性？</title>
-      <link>http://localhost:1313/post/paperr1/</link>
+      <link>http://localhost:50499/post/paperr1/</link>
       <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/paperr1/</guid>
+      <guid>http://localhost:50499/post/paperr1/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;這篇&lt;a href=&#34;https://www.nature.com/articles/s41467-023-36979-y&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;研究了Immune checkpoint inhibitor（ICI）療法在黑色素瘤中(melanoma)的抗藥性機制。通過分析來自患者的短期腫瘤細胞系(short term cell line))和匹配的腫瘤樣本，作者發現了三種不同的抗藥性機制，分別涉及抗原表達的喪失、抗原呈現的破壞，以及與PTEN缺失相關的免疫細胞排斥。這些抗藥性機制揭示了可能的救援性治療策略，例如恢復MHC的表達、促進先天免疫反應、以及重新刺激抗原的呈現。&lt;/p&gt;
 &lt;h1 id=&#34;簡介&#34;&gt;簡介&lt;/h1&gt;
@@ -1055,7 +1055,7 @@ $$
                /post/paperr1/fig1_hu9654123225570833926.webp 400w,
                /post/paperr1/fig1_hu9312653373427227540.webp 760w,
                /post/paperr1/fig1_hu15333842250656839342.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/paperr1/fig1_hu9654123225570833926.webp&#34;
+               src=&#34;http://localhost:50499/post/paperr1/fig1_hu9654123225570833926.webp&#34;
                width=&#34;760&#34;
                height=&#34;407&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1091,7 +1091,7 @@ $$
                /post/paperr1/fig2_hu14716284260067820646.webp 400w,
                /post/paperr1/fig2_hu3714876771964191745.webp 760w,
                /post/paperr1/fig2_hu13053414200563141755.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/paperr1/fig2_hu14716284260067820646.webp&#34;
+               src=&#34;http://localhost:50499/post/paperr1/fig2_hu14716284260067820646.webp&#34;
                width=&#34;760&#34;
                height=&#34;629&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1123,7 +1123,7 @@ $$
                /post/paperr1/fig3_hu15511228375094572697.webp 400w,
                /post/paperr1/fig3_hu17629593433813472757.webp 760w,
                /post/paperr1/fig3_hu17722807213131398297.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/paperr1/fig3_hu15511228375094572697.webp&#34;
+               src=&#34;http://localhost:50499/post/paperr1/fig3_hu15511228375094572697.webp&#34;
                width=&#34;760&#34;
                height=&#34;538&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
