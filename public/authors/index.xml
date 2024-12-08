@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors | DLit-Hub</title>
-    <link>http://localhost:64305/authors/</link>
-      <atom:link href="http://localhost:64305/authors/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:64608/authors/</link>
+      <atom:link href="http://localhost:64608/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 08 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:64305/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:64608/media/icon_hu15379254428347791189.png</url>
       <title>Authors</title>
-      <link>http://localhost:64305/authors/</link>
+      <link>http://localhost:64608/authors/</link>
     </image>
     
   </channel>
