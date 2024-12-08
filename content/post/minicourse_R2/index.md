@@ -1,5 +1,5 @@
 ---
-title: 迷你課程:R語言-2
+title: 迷你課程:R語言-2~Dataframe與tibble
 date: 2024-12-05
 authors: ["戴揚紘", ""]
 commentable: true

@@ -1,5 +1,5 @@
 ---
-title: 迷你課程:R語言-1
+title: 迷你課程:R語言-1~R的資本資料型態
 date: 2024-12-04
 authors: ["戴揚紘", ""]
 commentable: true
