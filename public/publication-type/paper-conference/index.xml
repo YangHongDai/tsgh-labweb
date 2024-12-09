@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Paper-Conference | DLit-Hub</title>
-    <link>http://localhost:64608/publication-type/paper-conference/</link>
-      <atom:link href="http://localhost:64608/publication-type/paper-conference/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:51145/publication-type/paper-conference/</link>
+      <atom:link href="http://localhost:51145/publication-type/paper-conference/index.xml" rel="self" type="application/rss+xml" />
     <description>Paper-Conference</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jul 2013 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:64608/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:51145/media/icon_hu15379254428347791189.png</url>
       <title>Paper-Conference</title>
-      <link>http://localhost:64608/publication-type/paper-conference/</link>
+      <link>http://localhost:51145/publication-type/paper-conference/</link>
     </image>
     
     <item>
       <title>An example conference paper</title>
-      <link>http://localhost:64608/publication/conference-paper/</link>
+      <link>http://localhost:51145/publication/conference-paper/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64608/publication/conference-paper/</guid>
+      <guid>http://localhost:51145/publication/conference-paper/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.

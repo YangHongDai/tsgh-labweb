@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: December 9, 2024 --><html lang="en-us" >
+
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51145&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Hugo Blox Builder 5.9.7" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+    
+    <script src="/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.css" integrity="" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Yang-Hong Dai 戴揚紘" />
+
+
+
+
+
+  
+
+<meta name="description" content="" />
+
+
+
+<link rel="alternate" hreflang="en-us" href="http://localhost:51145/post/markov/" />
+<link rel="canonical" href="http://localhost:51145/post/markov/" />
+
+
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/media/icon_hu4797303566791800343.png" />
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hu417240513471516789.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+
+  <meta property="twitter:site" content="@GetResearchDev" />
+  <meta property="twitter:creator" content="@GetResearchDev" />
+<meta property="twitter:image" content="http://localhost:51145/media/icon_hu15379254428347791189.png" />
+
+
+
+  
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="DLit-Hub" />
+<meta property="og:url" content="http://localhost:51145/post/markov/" />
+<meta property="og:title" content="計算生物學聊聊：Hidden Markov Chain | DLit-Hub" />
+<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:51145/media/icon_hu15379254428347791189.png" /><meta property="og:locale" content="en-us" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2024-12-08T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2024-12-08T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:51145/post/markov/"
+  },
+  "headline": "計算生物學聊聊：Hidden Markov Chain",
+  
+  "datePublished": "2024-12-08T00:00:00Z",
+  "dateModified": "2024-12-08T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "戴揚紘"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "DLit-Hub",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:51145/media/icon_hu1636988907106955456.png"
+    }
+  },
+  "description": ""
+}
+</script>
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>計算生物學聊聊：Hidden Markov Chain | DLit-Hub</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="b5a0fe38c49d04c87745213a2ae1f429" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">DLit-Hub</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">DLit-Hub</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/tour"><span>導覽</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/post"><span>文章</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/people"><span>人物</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/event"><span>消息</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/tech"><span>新技術分享</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+          
+        
+          
+        
+
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>計算生物學聊聊：Hidden Markov Chain</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  <span >
+      <a href="/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/">Yang-Hong Dai 戴揚紘</a></span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Dec 8, 2024
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+  
+  
+    <span class="middot-divider"></span>
+    <a href="/post/markov/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8/">計算生物學</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <h2 id="quick-look">Quick look</h2>
+<p><code>Hidden Markov Chain(HMM)</code>是計算生物學中一個重要的數學模型，廣泛應用於DNA序列分析和蛋白質結構預測等領域。HMM的核心概念是用<code>隱藏的狀態</code>來建立模型，並解釋觀察到的數據，通過<code>轉移機率</code>和<code>觀察機率</code>來描述系統的動態行為。</p>
+<hr>
+<h2 id="markov-chain">Markov chain</h2>
+<p><code>Markov chain</code>是一種數學模型，用於描述一個系統在<code>離散</code>時間內的<code>狀態轉移過程</code>。它的核心特點是 <code>&quot;無記憶性&quot;</code>，即下一個狀態<code>僅取決於當前狀態</code>，而與過去的狀態無關。</p>
+<h2 id="基本定義">基本定義</h2>
+<p>Markov chain 的所有可能狀態的集合，通常表示為：</p>
+<div style="overflow-x: scroll;">
+$$
+S={s1​,s2​,…,sn​}
+$$
+</div>
+<h2 id="轉移概率transition-probability">轉移概率（Transition Probability）</h2>
+<p>從當前狀態<em>Si</em> 到下一個狀態<em>Sj</em>，記為<em>Pij</em>:</p>
+<div style="overflow-x: scroll;">
+$$
+Pij=P(Xt+1​=Sj​∣Xt​=Si​)
+$$
+</div>
+<p>其中，<em>Xt</em> 表示時間<em>t</em> 時系統的狀態</p>
+<h2 id="轉移矩陣transition-matrix">轉移矩陣（Transition Matrix）</h2>
+<div style="overflow-x: scroll;">
+$$
+P = 
+\begin{bmatrix}
+P_{11} & P_{12} & \ldots & P_{1n} \\
+P_{21} & P_{22} & \ldots & P_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+P_{n1} & P_{n2} & \ldots & P_{nn}
+\end{bmatrix}
+$$
+</div>
+<p><code>每一列的概率總和為 1</code>：</p>
+<div style="overflow-x: scroll;">
+$$
+\sum_{j}Pij​=1
+$$
+</div>
+<h2 id="初始分佈initial-distribution">初始分佈（Initial Distribution）</h2>
+<p>系統初始時處於每個狀態的概率，記為向量 π:</p>
+<div style="overflow-x: scroll;">
+$$
+π=[π_1​,π_2​,…,π_n​],\sum_{i=1}π_i​=1
+$$
+</div>
+<hr>
+<h2 id="markov-chain的性質">Markov chain的性質</h2>
+<h2 id="無記憶性markov-property">無記憶性（Markov Property）</h2>
+<p>下一狀態的分佈僅取決於當前狀態：</p>
+<div style="overflow-x: scroll;">
+$$
+P(Xt+1​=Sj​∣Xt​=Si​,Xt−1​,…,X1​)=P(Xt+1​=Sj​∣Xt​=Si​)
+$$
+</div>
+<h2 id="穩態分佈stationary-distribution">穩態分佈（Stationary Distribution）</h2>
+<p>當Markov chain運行足夠長時間後，系統的狀態分佈趨於穩定，滿足：</p>
+<div style="overflow-x: scroll;">
+$$
+π = πP
+$$
+</div>
+<hr>
+<h2 id="markov-chain-實例">Markov chain 實例</h2>
+<p>假設我們有一個系統，代表每天的天氣狀態，狀態空間為：</p>
+<div style="overflow-x: scroll;">
+$$
+S = [晴天, 雨天]
+$$
+</div>
+<p>轉移概率如下：</p>
+<ol>
+<li>晴天後下一天仍是晴天的概率為 0.8; 變為雨天的概率為
+0.2。</li>
+<li>雨天後下一天變為晴天的概率為 0.6，仍是雨天的概率為 0.4。</li>
+</ol>
+<p>轉移矩陣可以表示為：</p>
+<div style="overflow-x: scroll;">
+$$
+P = 
+\begin{bmatrix}
+0.8 & 0.2 \\
+0.6 & 0.4
+\end{bmatrix}
+$$
+</div>
+<p>初始分佈：</p>
+<p>假設第一天是晴天：</p>
+<div style="overflow-x: scroll;">
+$$
+π=[1,0]
+$$
+</div>
+運行Markov chain可以計算未來任一天的天氣分佈。
+<hr>
+<h2 id="hmm">HMM</h2>
+<p>HMM常用於分析序列數據或時序數據，尤其是當觀察數據（顯性數據）與內部狀態（隱藏狀態）之間存在間接關係時。HMM 是一種生成式模型 (generative model)，通過隱藏狀態的轉移和觀察狀態的生成來描述數據行為。</p>
+<p>類似於Markov chain，HMM除了有觀察狀態之外，還包含了隱藏狀態 (hidden state)，隱藏狀態是一組未直接觀察到的狀態，用來描述系統的內部狀態。如投擲硬幣時，我們只會<code>觀察</code>到正面和反面，但是硬幣是真硬幣還是假硬幣是被隱藏起來的，而隱藏狀態之間的轉移由<code>轉移機率</code>矩陣來描述。而隱藏狀態生成觀察狀態的機率用觀察機率矩陣 (emission probability matrix) 來描述：</p>
+<div style="overflow-x: scroll;">
+$$
+B={b_jk​},b_jk​=P(ok​∣Sj​)
+$$
+</div>
+<h2 id="hmm-性質">HMM 性質</h2>
+<ol>
+<li>隱藏狀態與觀察數據的關係
+隱藏狀態 <em>S</em> 影響觀察數據 <em>O</em>，但隱藏狀態本身無法直接觀測。
+每一個觀察 <em>Ot</em> 僅與當前隱藏狀態 <em>St</em> 相關。</li>
+<li>隱藏狀態之間的轉移滿足Markov chain property，未來的狀態僅依賴<code>當前</code>狀態，與過去狀態無關。</li>
+</ol>
+<h2 id="範例">範例</h2>
+<p>接下來我來看一個簡單的例子：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-圖一">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="fig1" srcset="
+               /post/markov/fig1_hu8822840645180452515.webp 400w,
+               /post/markov/fig1_hu2316656150060041621.webp 760w,
+               /post/markov/fig1_hu8691795879731039526.webp 1200w"
+               src="/post/markov/fig1_hu8822840645180452515.webp"
+               width="760"
+               height="348"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      圖一
+    </figcaption></figure>
+</p>
+<p>這張圖是一個兩狀態HMM，其中隱藏狀態代表<code>公平硬幣</code>（Fair Coin,
+F) 與<code>偏斜硬幣</code>（Biased Coin, B)，並包含以下數學定義：</p>
+<ol>
+<li>初始狀態分佈:</li>
+</ol>
+<div style="overflow-x: scroll;">
+$$
+πF​=0.4,πB​=0.6
+$$
+</div>
+這表示系統初始時處於公平硬幣狀態的機率為 0.4，而偏斜硬幣狀態的機率為 0.6。
+<ol start="2">
+<li>轉移機率矩陣 (隱藏狀態的轉移機率):</li>
+</ol>
+<div style="overflow-x: scroll;">
+$$
+A =
+\begin{bmatrix}
+P(F \to F) & P(F \to B) \\
+P(B \to F) & P(B \to B)
+\end{bmatrix}
+=
+\begin{bmatrix}
+0.9 & 0.1 \\
+0.3 & 0.7
+\end{bmatrix}
+$$
+</div>
+<ol start="3">
+<li>觀察機率矩陣:</li>
+</ol>
+<p>每個隱藏狀態對應不同的觀察機率分佈。</p>
+<div style="overflow-x: scroll;">
+$$
+B =
+\begin{bmatrix}
+P(H \mid F) & P(T \mid F) \\
+P(H \mid B) & P(T \mid B)
+\end{bmatrix}
+=
+\begin{bmatrix}
+0.5 & 0.5 \\
+0.8 & 0.2
+\end{bmatrix}  
+$$
+</div>
+<p>上面的數學描述基本上告訴我們:</p>
+<p>當處於某一隱藏狀態 <em>St</em> 時，根據對應的觀察機率矩陣 <em>B</em> 生成觀察 <em>Ot</em>。例如：</p>
+<ol>
+<li>
+<p>若 <em>St</em> = F，則生成 <em>H</em> 或 <em>T</em> 的機率皆為0.5。</p>
+</li>
+<li>
+<p>若 <em>St</em> = B，則生成 <em>H</em> 的機率為0.8，生成 <em>T</em> 的機率為0.2。</p>
+</li>
+<li>
+<p>機率計算
+對於給定的觀察序列<em>O</em> = {<em>H</em>, <em>T</em>, <em>H</em>}，我們可以計算總機率：</p>
+</li>
+</ol>
+<div style="overflow-x: scroll;">
+$$
+P(O∣λ)
+$$
+</div>
+<p>然而，上面的總機率必須考慮所有<code>隱藏狀態的序列</code>，即便是 <em>H</em>，有可能 fair coin或是biased coin擲出，而這兩種狀態都必須考慮進來，然後加總。所以一旦序列很長，計算的<code>複雜度</code>會變得很大，導致在計算上無法順利執行，為了解決個問題，接下來會介紹一些常見的HMM演算法來解決這個問題。</p>
+<hr>
+<h2 id="forward-procedure">Forward procedure</h2>
+<p>前向算法<code>（Forward Algorithm）</code> 是 HMM 中用於計算觀察序列的總機率 P(O∣λ) 的一種高效動態規劃方法。這個機率表示給定模型參數 λ = (A,B,π) 時，生成觀察序列 O= {o1,o2,…,oT} 的機率。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-圖二">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="fig2" srcset="
+               /post/markov/fig2_hu4390774657599844428.webp 400w,
+               /post/markov/fig2_hu9501806590322226021.webp 760w,
+               /post/markov/fig2_hu16811126276551008659.webp 1200w"
+               src="/post/markov/fig2_hu4390774657599844428.webp"
+               width="708"
+               height="408"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      圖二
+    </figcaption></figure>
+</p>
+<p>如圖二所示，我今天要來計算硬幣投擲序列的總機率，對於HMM來說，當下的隱藏態具有Markov chain property，亦即只依賴前一個隱藏態的分佈與轉移。</p>
+<p>當t=1時，我們看到觀測值為 T，而T的出現機率由初始的隱藏狀態F和B來決定，而F與B分別有一個emission probability，表示由隱藏態映射到觀察值的機率，所以如果一開始投擲硬幣時使用到fair coin的機率為0.6，而<code>使用此硬幣</code>，也就是此<code>狀態</code>投出 T 的機率為0.5，那麼出現 T 的機率為 α1(F) = 0.6 * 0.5 = 0.3。</p>
+<p>但是這還不夠，因為我們必須要考慮所有可能出現的狀態，因此還要考慮biased coin投擲時的情況，如果在biased coin 投擲下出現 T 機率為0.4 * 0.2 = 0.08， 那麼在 t=1 時出現 T 的機率就等於 α1(B) = 0.3 + 0.08 = 0.38。</p>
+<p>我們可以把兩個隱藏狀態映射出來的機率結果當成一個<code>節點</code> （圖二中紅色的點），而這個節點儲存了隱藏狀態運算的結果，而我們可以把個運算結果傳到下一個觀察時間點，也就是下一次的投擲。</p>
+<p>而這邊有一個很重要的概念就是，下一個觀察值取決於當下的隱藏狀態，而當下的隱藏狀態取決於前一個隱藏態，而非觀察值的結果，因為觀察值是已知，不像隱藏狀態有機率分佈，在了解了這個區別之後，接下來我們要進行下一次的硬幣投擲。
+第二次投擲的結果為H，所以<code>累積到第二次投擲</code>，O = {<em>T</em>, <em>H</em>} 的機率為以下所有情況的加總：</p>
+<ol>
+<li>前一個狀態為 F，這次狀態為 F: α1(F) * αFF * bFH</li>
+<li>前一個狀態為 B，這次狀態為 F: α1(B) * αBF * bFH</li>
+<li>前一個狀態為 F，這次狀態為 B: α1(F) * αFB * bBH</li>
+<li>前一個狀態為 B，這次狀態為 B: α1(B) * αBB * bBH</li>
+</ol>
+<blockquote>
+<p>注意α1(F)及α1(B)已經記憶了前一個狀態的結果，所以再往後的運算，更前面的數據結果都可以拋棄，節省記憶體。</p>
+</blockquote>
+<p>上面的過程可以用以下的數學式來描述：</p>
+<ol>
+<li>初始化：
+對於時間 t=1：</li>
+</ol>
+<div style="overflow-x: scroll;">
+$$
+α_1​(i) =π_i​ \cdot b_i​(O_1​),1≤i≤N
+$$
+</div>
+<p>其中，<em>πi</em> 是初始狀態分佈，<em>bi(O1)</em> 是狀態 <em>si</em> 下產生觀察 <em>O1</em> 的機率。</p>
+<ol start="2">
+<li>遞推（時間 t&gt;1）:
+對於每個時間步t = 2,3,4,5&hellip;T，計算每個隱藏狀態的 αt​(i)：</li>
+</ol>
+<div style="overflow-x: scroll;">
+$$
+\alpha_t(i) = \left( \sum_{j=1}^N \alpha_{t-1}(j) \cdot a_{ji} \right) \cdot b_i(o_t), \quad 1 \leq i \leq N
+$$
+</div>
+其中，
+<ol>
+<li><em>αt-1(j)</em>: 表示前一個時刻在狀態 <em>sj</em> 的機率。</li>
+<li><em>αji</em>: 表示從狀態 <em>sj</em> 轉移到 <em>si</em> 的機率。</li>
+<li><em>bi(Ot)</em>: 表示在狀態 <em>si</em> 下生成觀察 <em>Ot</em> 的機率。</li>
+</ol>
+<p>用上面的例子來說明，</p>
+<ol>
+<li><em>αt-1(j)</em> 為 α1(F): 表示前一個狀態為fair coin下的機率結果=0.3。</li>
+<li><em>aji</em> 為 αFF 及 αBF。</li>
+<li><em>bi(Ot)</em> 為 bFH 及 bBH。</li>
+</ol>
+<hr>
+<h2 id="結論">結論</h2>
+<p>HMM 是在 Markov chain 上的擴展，允許狀態是隱藏的（hidden），而我們只能觀察到通過這些狀態生成的觀察值。它由三個主要部分構成：</p>
+<ol>
+<li>隱藏狀態（Hidden States）：如公平硬幣（Fair Coin）或偏斜硬幣（Biased Coin）。</li>
+<li>轉移機率（Transition Probabilities）：描述隱藏狀態之間的轉移。</li>
+<li>觀察機率（Emission Probabilities）：描述隱藏狀態生成觀察值的可能性。</li>
+</ol>
+<p>之後的文章我會探討針對其他演算法及HMM在生物資訊學中的運用。</p>
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/computational-biology/">Computational Biology</a>
+  
+  <a class="badge badge-light" href="/tag/data-science/">Data Science</a>
+  
+</div>
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A51145%2Fpost%2Fmarkov%2F&amp;text=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9AHidden&#43;Markov&#43;Chain" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A51145%2Fpost%2Fmarkov%2F&amp;t=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9AHidden&#43;Markov&#43;Chain" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a href="mailto:?subject=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9AHidden%20Markov%20Chain&amp;body=http%3A%2F%2Flocalhost%3A51145%2Fpost%2Fmarkov%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A51145%2Fpost%2Fmarkov%2F&amp;title=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9AHidden&#43;Markov&#43;Chain" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9AHidden&#43;Markov&#43;Chain%20http%3A%2F%2Flocalhost%3A51145%2Fpost%2Fmarkov%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A51145%2Fpost%2Fmarkov%2F&amp;title=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9AHidden&#43;Markov&#43;Chain" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+
+
+
+  
+  
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/"><img class="avatar mr-3 avatar-circle" src="/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/avatar_hu9497666732678154168.jpg" alt="Yang-Hong Dai 戴揚紘"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/">Yang-Hong Dai 戴揚紘</a></h5>
+      <h6 class="card-subtitle">主治醫師</h6>
+      <p class="card-text">我的研究興趣為結合數據分析來探討各種癌症生物學。</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/yang-hong-dai-200b1aab/?originalSubdomain=uk" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://x.com/yanghongdai1" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=bH-1OKcAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.facebook.com/yanghong.dai" target="_blank" rel="noopener">
+        <i class="fab fa-facebook"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <section id="comments">
+    
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "yhd" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  </section>
+  
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2024. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/js/vendor-bundle.min.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.js" integrity="" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+  <script id="dsq-count-scr" src="https://yhd.disqus.com/count.js" async></script>
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+  <script src="/js/wowchemy-headroom.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/en/js/wowchemy.min.js"></script>
+
+
+
+  <script src="/js/wowchemy-map.js" type="module"></script>
+
+
+
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <pre><code></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/wowchemy-publication.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
