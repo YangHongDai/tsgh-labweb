@@ -1,6 +1,6 @@
 ---
 title: 計算生物學聊聊：Hidden Markov Chain
-date: 2024-12-08
+date: 2024-12-09
 authors: ["戴揚紘", ""]
 commentable: true
 categories: [計算生物學]
