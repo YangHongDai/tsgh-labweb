@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Immunotherapy | DLit-Hub</title>
-    <link>http://localhost:51145/tag/immunotherapy/</link>
-      <atom:link href="http://localhost:51145/tag/immunotherapy/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:62526/tag/immunotherapy/</link>
+      <atom:link href="http://localhost:62526/tag/immunotherapy/index.xml" rel="self" type="application/rss+xml" />
     <description>Immunotherapy</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 27 Nov 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:51145/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:62526/media/icon_hu15379254428347791189.png</url>
       <title>Immunotherapy</title>
-      <link>http://localhost:51145/tag/immunotherapy/</link>
+      <link>http://localhost:62526/tag/immunotherapy/</link>
     </image>
     
     <item>
       <title>纖維母性網狀細胞為肺癌中的T細胞塑造碉堡？</title>
-      <link>http://localhost:51145/post/paperr3/</link>
+      <link>http://localhost:62526/post/paperr3/</link>
       <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51145/post/paperr3/</guid>
+      <guid>http://localhost:62526/post/paperr3/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;腫瘤內部的免疫微環境基本上都存在高度異質性，從免疫細胞密集分布到完全缺乏等等。目前的證據顯示，腫瘤抗原特異性T細胞(Tumor-specific T cell)若要順利的啟動及維持他們的活性，仰賴腫瘤引流淋巴結(tumor draining lymph node)和腫瘤組織內的微環境，特別是三級淋巴結構（tertiary lymphoid structure，TLS），其通常位於腫瘤邊緣並由B細胞主導。而TLS中的B細胞活性也與Immune checkpoint inhibitor的成功率息息相關。&lt;/p&gt;
 &lt;p&gt;這些免疫細胞由專門的纖維母細胞(如T細胞區網狀細胞和血管周圍網狀細胞)支撐，而這之間的交互作用也從TLS透過某種物理架構延伸到腫瘤內部。本篇研究通過單細胞轉錄組學和高解析度顯微技術，發現了在肺癌中形成特定T細胞環境的纖維母細胞亞群(fibroblastic reticular cell)。這些FRC與免疫細胞的互動促進了TLS的形成、T細胞軌跡中的分化，以及控制T細胞活性。實驗顯示，破壞腫瘤微環境中FRC與免疫細胞的互動會降低CD8+ T細胞的抗腫瘤活性並促進腫瘤生長。&lt;/p&gt;
@@ -45,7 +45,7 @@
                /post/paperr3/fig1_hu8012954762647498247.webp 400w,
                /post/paperr3/fig1_hu18030004843405312440.webp 760w,
                /post/paperr3/fig1_hu13374468011937916873.webp 1200w&#34;
-               src=&#34;http://localhost:51145/post/paperr3/fig1_hu8012954762647498247.webp&#34;
+               src=&#34;http://localhost:62526/post/paperr3/fig1_hu8012954762647498247.webp&#34;
                width=&#34;713&#34;
                height=&#34;760&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -86,7 +86,7 @@
                /post/paperr3/fig2_hu8035623134348539547.webp 400w,
                /post/paperr3/fig2_hu17343627255761551909.webp 760w,
                /post/paperr3/fig2_hu6183092819207817373.webp 1200w&#34;
-               src=&#34;http://localhost:51145/post/paperr3/fig2_hu8035623134348539547.webp&#34;
+               src=&#34;http://localhost:62526/post/paperr3/fig2_hu8035623134348539547.webp&#34;
                width=&#34;760&#34;
                height=&#34;371&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -118,7 +118,7 @@
                /post/paperr3/fig3_hu9023605283481264180.webp 400w,
                /post/paperr3/fig3_hu3262590434171768881.webp 760w,
                /post/paperr3/fig3_hu7929229898512150303.webp 1200w&#34;
-               src=&#34;http://localhost:51145/post/paperr3/fig3_hu9023605283481264180.webp&#34;
+               src=&#34;http://localhost:62526/post/paperr3/fig3_hu9023605283481264180.webp&#34;
                width=&#34;760&#34;
                height=&#34;363&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -136,9 +136,9 @@
     
     <item>
       <title>黑色素瘤如何對免疫治療產生抗藥性？</title>
-      <link>http://localhost:51145/post/paperr1/</link>
+      <link>http://localhost:62526/post/paperr1/</link>
       <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51145/post/paperr1/</guid>
+      <guid>http://localhost:62526/post/paperr1/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;這篇&lt;a href=&#34;https://www.nature.com/articles/s41467-023-36979-y&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;研究了Immune checkpoint inhibitor（ICI）療法在黑色素瘤中(melanoma)的抗藥性機制。通過分析來自患者的短期腫瘤細胞系(short term cell line))和匹配的腫瘤樣本，作者發現了三種不同的抗藥性機制，分別涉及抗原表達的喪失、抗原呈現的破壞，以及與PTEN缺失相關的免疫細胞排斥。這些抗藥性機制揭示了可能的救援性治療策略，例如恢復MHC的表達、促進先天免疫反應、以及重新刺激抗原的呈現。&lt;/p&gt;
 &lt;h1 id=&#34;簡介&#34;&gt;簡介&lt;/h1&gt;
@@ -170,7 +170,7 @@
                /post/paperr1/fig1_hu9654123225570833926.webp 400w,
                /post/paperr1/fig1_hu9312653373427227540.webp 760w,
                /post/paperr1/fig1_hu15333842250656839342.webp 1200w&#34;
-               src=&#34;http://localhost:51145/post/paperr1/fig1_hu9654123225570833926.webp&#34;
+               src=&#34;http://localhost:62526/post/paperr1/fig1_hu9654123225570833926.webp&#34;
                width=&#34;760&#34;
                height=&#34;407&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -206,7 +206,7 @@
                /post/paperr1/fig2_hu14716284260067820646.webp 400w,
                /post/paperr1/fig2_hu3714876771964191745.webp 760w,
                /post/paperr1/fig2_hu13053414200563141755.webp 1200w&#34;
-               src=&#34;http://localhost:51145/post/paperr1/fig2_hu14716284260067820646.webp&#34;
+               src=&#34;http://localhost:62526/post/paperr1/fig2_hu14716284260067820646.webp&#34;
                width=&#34;760&#34;
                height=&#34;629&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -238,7 +238,7 @@
                /post/paperr1/fig3_hu15511228375094572697.webp 400w,
                /post/paperr1/fig3_hu17629593433813472757.webp 760w,
                /post/paperr1/fig3_hu17722807213131398297.webp 1200w&#34;
-               src=&#34;http://localhost:51145/post/paperr1/fig3_hu15511228375094572697.webp&#34;
+               src=&#34;http://localhost:62526/post/paperr1/fig3_hu15511228375094572697.webp&#34;
                width=&#34;760&#34;
                height=&#34;538&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;

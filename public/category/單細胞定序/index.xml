@@ -2,21 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>單細胞定序 | DLit-Hub</title>
-    <link>http://localhost:51145/category/%E5%96%AE%E7%B4%B0%E8%83%9E%E5%AE%9A%E5%BA%8F/</link>
-      <atom:link href="http://localhost:51145/category/%E5%96%AE%E7%B4%B0%E8%83%9E%E5%AE%9A%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:62526/category/%E5%96%AE%E7%B4%B0%E8%83%9E%E5%AE%9A%E5%BA%8F/</link>
+      <atom:link href="http://localhost:62526/category/%E5%96%AE%E7%B4%B0%E8%83%9E%E5%AE%9A%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
     <description>單細胞定序</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 03 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 09 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:51145/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:62526/media/icon_hu15379254428347791189.png</url>
       <title>單細胞定序</title>
-      <link>http://localhost:51145/category/%E5%96%AE%E7%B4%B0%E8%83%9E%E5%AE%9A%E5%BA%8F/</link>
+      <link>http://localhost:62526/category/%E5%96%AE%E7%B4%B0%E8%83%9E%E5%AE%9A%E5%BA%8F/</link>
     </image>
     
     <item>
+      <title>初探單細胞定序</title>
+      <link>http://localhost:62526/post/scrna_guide/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62526/post/scrna_guide/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;單細胞定序已經在近年成為各大實驗室不可或缺的關鍵技術之一，讓我們從過去將組織混雜在一起的bulk RNA-seq精細化到單細胞的解析度，也讓我們可以針對一顆腫瘤做細部的分類，、甚至推測細胞分化的路徑，今天我們要讀的&lt;a href=&#34;https://www.nature.com/articles/s41596-018-0073-y&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;算是比較舊的nature protocol review article (2018)，但針對我們想要做單細胞定序分析的人來說是很推薦的入門讀物之一。&lt;/p&gt;
+&lt;h2 id=&#34;scrna-seq-席捲科學界&#34;&gt;scRNA-seq 席捲科學界&lt;/h2&gt;
+&lt;p&gt;scRNA-seq 顯著增加了我們對組織、器官和細胞之間複雜性的交互作用。隨著自動化處理流程的演進與微流體（microfluidic）技術的發明，scRNA-seq的延展性（scalability）大幅的提升。&lt;/p&gt;
+&lt;p&gt;過往的實驗設計通常是基於某一個假說或是&lt;code&gt;假設（hypothesis）&lt;/code&gt;，但若是這個假設錯誤或是不成立，就要花額外的時間從另外一個假設著手，這種&lt;code&gt;hypothesis-driven&lt;/code&gt;的方式比較費時。自從有了scRNA-seq後，我們可以一探每一顆細胞的全基因組、蛋白質組甚至是表觀遺傳基因組，從hypothesis-driven過渡到&lt;code&gt;data-driven&lt;/code&gt;的實驗設計，大幅降低bulk狀態下帶來的&lt;code&gt;biased analysis&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;但因為scRNA-seq的研究太專一化，不同的樣本有截然不同的處理步驟，而數據分析也依據不同的需求而有所不同，因此在研究設計上無法將一套準則套用在所有的實驗上，但也因為這個限制，近年有層出不窮的protocol、tools或是網頁工具出現，試圖來優化及改善整條從樣本製備到數據分析的過程 (圖一)。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖一-單細胞定序流程&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig1&#34; srcset=&#34;
+               /post/scrna_guide/fig1_hu14124066935992599659.webp 400w,
+               /post/scrna_guide/fig1_hu5529388127368685634.webp 760w,
+               /post/scrna_guide/fig1_hu16839371025272671103.webp 1200w&#34;
+               src=&#34;http://localhost:62526/post/scrna_guide/fig1_hu14124066935992599659.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;507&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖一 單細胞定序流程
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;樣本製備&#34;&gt;樣本製備&lt;/h2&gt;
+&lt;p&gt;樣本本身的品質對整個scRNA-seq的流程是最重要的，雖然先前大部分都需要新鮮活的細胞，但實務上如果要在取出每個腫瘤後立即分解成單細胞懸浮液其實頗具挑戰性，因此目前有不少protocol是允許使用固定後腫瘤或細胞，也允許冷凍後仍完整的細胞核RNA，一來可以讓我們可以好好計畫樣本製備的流程，二來也不影響後續數據的分析，可以參考目前10X Genomics釋出的&lt;a href=&#34;https://www.10xgenomics.com/support/single-cell-gene-expression-flex/documentation/steps/library-prep/gem-x-flex-gene-expression-reagent-kit-for-multiplex-samples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GEM-X FLEX protocol&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;其他一些注意事項如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用&lt;code&gt;無核酸酶&lt;/code&gt;試劑和耗材。&lt;/li&gt;
+&lt;li&gt;減少樣本溶液的&lt;code&gt;轉移&lt;/code&gt;與&lt;code&gt;離心&lt;/code&gt;操作以避免細胞損傷。&lt;/li&gt;
+&lt;li&gt;篩選較大的細胞團塊和細胞死亡後的雜質與碎片。最好在&lt;code&gt;30分鐘內&lt;/code&gt;用酵素分解細胞團塊，避免團塊聚集。&lt;/li&gt;
+&lt;li&gt;適合的懸浮液緩衝液組成：&lt;code&gt;無鈣、鎂的PBS&lt;/code&gt;。含牛血清白蛋白以減少聚集。比較敏感的細胞、幹細胞可能需要其他的緩衝液來增加存活。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;細胞懸浮液的製備&#34;&gt;細胞懸浮液的製備&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
       <title>10X Genomics 推出GEM-X Flex</title>
-      <link>http://localhost:51145/tech/tech1/</link>
+      <link>http://localhost:62526/tech/tech1/</link>
       <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51145/tech/tech1/</guid>
+      <guid>http://localhost:62526/tech/tech1/</guid>
       <description>&lt;p&gt;10x Genomics 推出的Single Cell GEM-X技術為單細胞分析開創了嶄新的可能性，提供前所未有的效能提升。基於這項創新，10x Genomics進一步推出了&lt;a href=&#34;%28https://www.10xgenomics.com/support/single-cell-gene-expression-flex/documentation/steps/library-prep/gem-x-flex-gene-expression-reagent-kit-for-multiplex-samples%29&#34;&gt;GEM-X Flex&lt;/a&gt;和，為研究者提供更靈活、高效且經濟的實驗設計選擇，跟先前的Flex protocol相比，GEM-X Flex可以在花費較少的情況下，用較少的細胞數量，得到品質更好的數據。&lt;/p&gt;
 </description>
     </item>

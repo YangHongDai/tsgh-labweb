@@ -1,5 +1,5 @@
 ---
-title: 計算生物學聊聊：Hidden Markov Chain
+title: 計算生物學聊聊：Hidden Markov Chain (上)
 date: 2024-12-09
 authors: ["戴揚紘", ""]
 commentable: true

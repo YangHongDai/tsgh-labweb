@@ -2,37 +2,377 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Science | DLit-Hub</title>
-    <link>http://localhost:51145/tag/data-science/</link>
-      <atom:link href="http://localhost:51145/tag/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:62526/tag/data-science/</link>
+      <atom:link href="http://localhost:62526/tag/data-science/index.xml" rel="self" type="application/rss+xml" />
     <description>Data Science</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 05 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 09 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:51145/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:62526/media/icon_hu15379254428347791189.png</url>
       <title>Data Science</title>
-      <link>http://localhost:51145/tag/data-science/</link>
+      <link>http://localhost:62526/tag/data-science/</link>
     </image>
     
     <item>
+      <title>初探單細胞定序</title>
+      <link>http://localhost:62526/post/scrna_guide/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62526/post/scrna_guide/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;單細胞定序已經在近年成為各大實驗室不可或缺的關鍵技術之一，讓我們從過去將組織混雜在一起的bulk RNA-seq精細化到單細胞的解析度，也讓我們可以針對一顆腫瘤做細部的分類，、甚至推測細胞分化的路徑，今天我們要讀的&lt;a href=&#34;https://www.nature.com/articles/s41596-018-0073-y&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;算是比較舊的nature protocol review article (2018)，但針對我們想要做單細胞定序分析的人來說是很推薦的入門讀物之一。&lt;/p&gt;
+&lt;h2 id=&#34;scrna-seq-席捲科學界&#34;&gt;scRNA-seq 席捲科學界&lt;/h2&gt;
+&lt;p&gt;scRNA-seq 顯著增加了我們對組織、器官和細胞之間複雜性的交互作用。隨著自動化處理流程的演進與微流體（microfluidic）技術的發明，scRNA-seq的延展性（scalability）大幅的提升。&lt;/p&gt;
+&lt;p&gt;過往的實驗設計通常是基於某一個假說或是&lt;code&gt;假設（hypothesis）&lt;/code&gt;，但若是這個假設錯誤或是不成立，就要花額外的時間從另外一個假設著手，這種&lt;code&gt;hypothesis-driven&lt;/code&gt;的方式比較費時。自從有了scRNA-seq後，我們可以一探每一顆細胞的全基因組、蛋白質組甚至是表觀遺傳基因組，從hypothesis-driven過渡到&lt;code&gt;data-driven&lt;/code&gt;的實驗設計，大幅降低bulk狀態下帶來的&lt;code&gt;biased analysis&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;但因為scRNA-seq的研究太專一化，不同的樣本有截然不同的處理步驟，而數據分析也依據不同的需求而有所不同，因此在研究設計上無法將一套準則套用在所有的實驗上，但也因為這個限制，近年有層出不窮的protocol、tools或是網頁工具出現，試圖來優化及改善整條從樣本製備到數據分析的過程 (圖一)。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖一-單細胞定序流程&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig1&#34; srcset=&#34;
+               /post/scrna_guide/fig1_hu14124066935992599659.webp 400w,
+               /post/scrna_guide/fig1_hu5529388127368685634.webp 760w,
+               /post/scrna_guide/fig1_hu16839371025272671103.webp 1200w&#34;
+               src=&#34;http://localhost:62526/post/scrna_guide/fig1_hu14124066935992599659.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;507&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖一 單細胞定序流程
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;樣本製備&#34;&gt;樣本製備&lt;/h2&gt;
+&lt;p&gt;樣本本身的品質對整個scRNA-seq的流程是最重要的，雖然先前大部分都需要新鮮活的細胞，但實務上如果要在取出每個腫瘤後立即分解成單細胞懸浮液其實頗具挑戰性，因此目前有不少protocol是允許使用固定後腫瘤或細胞，也允許冷凍後仍完整的細胞核RNA，一來可以讓我們可以好好計畫樣本製備的流程，二來也不影響後續數據的分析，可以參考目前10X Genomics釋出的&lt;a href=&#34;https://www.10xgenomics.com/support/single-cell-gene-expression-flex/documentation/steps/library-prep/gem-x-flex-gene-expression-reagent-kit-for-multiplex-samples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GEM-X FLEX protocol&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;其他一些注意事項如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用&lt;code&gt;無核酸酶&lt;/code&gt;試劑和耗材。&lt;/li&gt;
+&lt;li&gt;減少樣本溶液的&lt;code&gt;轉移&lt;/code&gt;與&lt;code&gt;離心&lt;/code&gt;操作以避免細胞損傷。&lt;/li&gt;
+&lt;li&gt;篩選較大的細胞團塊和細胞死亡後的雜質與碎片。最好在&lt;code&gt;30分鐘內&lt;/code&gt;用酵素分解細胞團塊，避免團塊聚集。&lt;/li&gt;
+&lt;li&gt;適合的懸浮液緩衝液組成：&lt;code&gt;無鈣、鎂的PBS&lt;/code&gt;。含牛血清白蛋白以減少聚集。比較敏感的細胞、幹細胞可能需要其他的緩衝液來增加存活。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;細胞懸浮液的製備&#34;&gt;細胞懸浮液的製備&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
       <title>計算生物學聊聊：Hidden Markov Chain</title>
-      <link>http://localhost:51145/post/markov/</link>
-      <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51145/post/markov/</guid>
+      <link>http://localhost:62526/post/markov/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62526/post/markov/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;Hidden Markov Chain(HMM)&lt;/code&gt;是計算生物學中一個重要的數學模型，廣泛應用於DNA序列分析和蛋白質結構預測等領域。HMM的核心概念是用&lt;code&gt;隱藏的狀態&lt;/code&gt;來建立模型，並解釋觀察到的數據，通過&lt;code&gt;轉移機率&lt;/code&gt;和&lt;code&gt;觀察機率&lt;/code&gt;來描述系統的動態行為。&lt;/p&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;markov-chain&#34;&gt;Markov chain&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;Markov chain&lt;/code&gt;是一種數學模型，用於描述一個系統在&lt;code&gt;離散&lt;/code&gt;時間內的&lt;code&gt;狀態轉移過程&lt;/code&gt;。它的核心特點是 &lt;code&gt;&amp;quot;無記憶性&amp;quot;&lt;/code&gt;，即下一個狀態&lt;code&gt;僅取決於當前狀態&lt;/code&gt;，而與過去的狀態無關。&lt;/p&gt;
+&lt;h2 id=&#34;基本定義&#34;&gt;基本定義&lt;/h2&gt;
+&lt;p&gt;Markov chain 的所有可能狀態的集合，通常表示為：&lt;/p&gt;
 &lt;div style=&#34;overflow-x: scroll;&#34;&gt;
 $$
-Pij​\=P(Xt+1​\=sj​∣Xt​\=si​)
+S={s1​,s2​,…,sn​}
 $$
-&lt;/div&gt;</description>
+&lt;/div&gt;
+&lt;h2 id=&#34;轉移概率transition-probability&#34;&gt;轉移概率（Transition Probability）&lt;/h2&gt;
+&lt;p&gt;從當前狀態&lt;em&gt;Si&lt;/em&gt; 到下一個狀態&lt;em&gt;Sj&lt;/em&gt;，記為&lt;em&gt;Pij&lt;/em&gt;:&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+Pij=P(Xt+1​=Sj​∣Xt​=Si​)
+$$
+&lt;/div&gt;
+&lt;p&gt;其中，&lt;em&gt;Xt&lt;/em&gt; 表示時間&lt;em&gt;t&lt;/em&gt; 時系統的狀態&lt;/p&gt;
+&lt;h2 id=&#34;轉移矩陣transition-matrix&#34;&gt;轉移矩陣（Transition Matrix）&lt;/h2&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+P = 
+\begin{bmatrix}
+P_{11} &amp; P_{12} &amp; \ldots &amp; P_{1n} \\
+P_{21} &amp; P_{22} &amp; \ldots &amp; P_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+P_{n1} &amp; P_{n2} &amp; \ldots &amp; P_{nn}
+\end{bmatrix}
+$$
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;每一列的概率總和為 1&lt;/code&gt;：&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+\sum_{j}Pij​=1
+$$
+&lt;/div&gt;
+&lt;h2 id=&#34;初始分佈initial-distribution&#34;&gt;初始分佈（Initial Distribution）&lt;/h2&gt;
+&lt;p&gt;系統初始時處於每個狀態的概率，記為向量 π:&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+π=[π_1​,π_2​,…,π_n​],\sum_{i=1}π_i​=1
+$$
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;markov-chain的性質&#34;&gt;Markov chain的性質&lt;/h2&gt;
+&lt;h2 id=&#34;無記憶性markov-property&#34;&gt;無記憶性（Markov Property）&lt;/h2&gt;
+&lt;p&gt;下一狀態的分佈僅取決於當前狀態：&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+P(Xt+1​=Sj​∣Xt​=Si​,Xt−1​,…,X1​)=P(Xt+1​=Sj​∣Xt​=Si​)
+$$
+&lt;/div&gt;
+&lt;h2 id=&#34;穩態分佈stationary-distribution&#34;&gt;穩態分佈（Stationary Distribution）&lt;/h2&gt;
+&lt;p&gt;當Markov chain運行足夠長時間後，系統的狀態分佈趨於穩定，滿足：&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+π = πP
+$$
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;markov-chain-實例&#34;&gt;Markov chain 實例&lt;/h2&gt;
+&lt;p&gt;假設我們有一個系統，代表每天的天氣狀態，狀態空間為：&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+S = [晴天, 雨天]
+$$
+&lt;/div&gt;
+&lt;p&gt;轉移概率如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;晴天後下一天仍是晴天的概率為 0.8; 變為雨天的概率為
+0.2。&lt;/li&gt;
+&lt;li&gt;雨天後下一天變為晴天的概率為 0.6，仍是雨天的概率為 0.4。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;轉移矩陣可以表示為：&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+P = 
+\begin{bmatrix}
+0.8 &amp; 0.2 \\
+0.6 &amp; 0.4
+\end{bmatrix}
+$$
+&lt;/div&gt;
+&lt;p&gt;初始分佈：&lt;/p&gt;
+&lt;p&gt;假設第一天是晴天：&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+π=[1,0]
+$$
+&lt;/div&gt;
+運行Markov chain可以計算未來任一天的天氣分佈。
+&lt;hr&gt;
+&lt;h2 id=&#34;hmm&#34;&gt;HMM&lt;/h2&gt;
+&lt;p&gt;HMM常用於分析序列數據或時序數據，尤其是當觀察數據（顯性數據）與內部狀態（隱藏狀態）之間存在間接關係時。HMM 是一種生成式模型 (generative model)，通過隱藏狀態的轉移和觀察狀態的生成來描述數據行為。&lt;/p&gt;
+&lt;p&gt;類似於Markov chain，HMM除了有觀察狀態之外，還包含了隱藏狀態 (hidden state)，隱藏狀態是一組未直接觀察到的狀態，用來描述系統的內部狀態。如投擲硬幣時，我們只會&lt;code&gt;觀察&lt;/code&gt;到正面和反面，但是硬幣是真硬幣還是假硬幣是被隱藏起來的，而隱藏狀態之間的轉移由&lt;code&gt;轉移機率&lt;/code&gt;矩陣來描述。而隱藏狀態生成觀察狀態的機率用觀察機率矩陣 (emission probability matrix) 來描述：&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+B={b_jk​},b_jk​=P(ok​∣Sj​)
+$$
+&lt;/div&gt;
+&lt;h2 id=&#34;hmm-性質&#34;&gt;HMM 性質&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;隱藏狀態與觀察數據的關係
+隱藏狀態 &lt;em&gt;S&lt;/em&gt; 影響觀察數據 &lt;em&gt;O&lt;/em&gt;，但隱藏狀態本身無法直接觀測。
+每一個觀察 &lt;em&gt;Ot&lt;/em&gt; 僅與當前隱藏狀態 &lt;em&gt;St&lt;/em&gt; 相關。&lt;/li&gt;
+&lt;li&gt;隱藏狀態之間的轉移滿足Markov chain property，未來的狀態僅依賴&lt;code&gt;當前&lt;/code&gt;狀態，與過去狀態無關。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;範例&#34;&gt;範例&lt;/h2&gt;
+&lt;p&gt;接下來我來看一個簡單的例子：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖一&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig1&#34; srcset=&#34;
+               /post/markov/fig1_hu8822840645180452515.webp 400w,
+               /post/markov/fig1_hu2316656150060041621.webp 760w,
+               /post/markov/fig1_hu8691795879731039526.webp 1200w&#34;
+               src=&#34;http://localhost:62526/post/markov/fig1_hu8822840645180452515.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;348&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖一
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;這張圖是一個兩狀態HMM，其中隱藏狀態代表&lt;code&gt;公平硬幣&lt;/code&gt;（Fair Coin,
+F) 與&lt;code&gt;偏斜硬幣&lt;/code&gt;（Biased Coin, B)，並包含以下數學定義：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;初始狀態分佈:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+πF​=0.4,πB​=0.6
+$$
+&lt;/div&gt;
+這表示系統初始時處於公平硬幣狀態的機率為 0.4，而偏斜硬幣狀態的機率為 0.6。
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;轉移機率矩陣 (隱藏狀態的轉移機率):&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+A =
+\begin{bmatrix}
+P(F \to F) &amp; P(F \to B) \\
+P(B \to F) &amp; P(B \to B)
+\end{bmatrix}
+=
+\begin{bmatrix}
+0.9 &amp; 0.1 \\
+0.3 &amp; 0.7
+\end{bmatrix}
+$$
+&lt;/div&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;觀察機率矩陣:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;每個隱藏狀態對應不同的觀察機率分佈。&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+B =
+\begin{bmatrix}
+P(H \mid F) &amp; P(T \mid F) \\
+P(H \mid B) &amp; P(T \mid B)
+\end{bmatrix}
+=
+\begin{bmatrix}
+0.5 &amp; 0.5 \\
+0.8 &amp; 0.2
+\end{bmatrix}  
+$$
+&lt;/div&gt;
+&lt;p&gt;上面的數學描述基本上告訴我們:&lt;/p&gt;
+&lt;p&gt;當處於某一隱藏狀態 &lt;em&gt;St&lt;/em&gt; 時，根據對應的觀察機率矩陣 &lt;em&gt;B&lt;/em&gt; 生成觀察 &lt;em&gt;Ot&lt;/em&gt;。例如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;若 &lt;em&gt;St&lt;/em&gt; = F，則生成 &lt;em&gt;H&lt;/em&gt; 或 &lt;em&gt;T&lt;/em&gt; 的機率皆為0.5。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;若 &lt;em&gt;St&lt;/em&gt; = B，則生成 &lt;em&gt;H&lt;/em&gt; 的機率為0.8，生成 &lt;em&gt;T&lt;/em&gt; 的機率為0.2。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;機率計算
+對於給定的觀察序列&lt;em&gt;O&lt;/em&gt; = {&lt;em&gt;H&lt;/em&gt;, &lt;em&gt;T&lt;/em&gt;, &lt;em&gt;H&lt;/em&gt;}，我們可以計算總機率：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+P(O∣λ)
+$$
+&lt;/div&gt;
+&lt;p&gt;然而，上面的總機率必須考慮所有&lt;code&gt;隱藏狀態的序列&lt;/code&gt;，即便是 &lt;em&gt;H&lt;/em&gt;，有可能 fair coin或是biased coin擲出，而這兩種狀態都必須考慮進來，然後加總。所以一旦序列很長，計算的&lt;code&gt;複雜度&lt;/code&gt;會變得很大，導致在計算上無法順利執行，為了解決個問題，接下來會介紹一些常見的HMM演算法來解決這個問題。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;forward-procedure&#34;&gt;Forward procedure&lt;/h2&gt;
+&lt;p&gt;前向算法&lt;code&gt;（Forward Algorithm）&lt;/code&gt; 是 HMM 中用於計算觀察序列的總機率 P(O∣λ) 的一種高效動態規劃方法。這個機率表示給定模型參數 λ = (A,B,π) 時，生成觀察序列 O= {o1,o2,…,oT} 的機率。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖二&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig2&#34; srcset=&#34;
+               /post/markov/fig2_hu4390774657599844428.webp 400w,
+               /post/markov/fig2_hu9501806590322226021.webp 760w,
+               /post/markov/fig2_hu16811126276551008659.webp 1200w&#34;
+               src=&#34;http://localhost:62526/post/markov/fig2_hu4390774657599844428.webp&#34;
+               width=&#34;708&#34;
+               height=&#34;408&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖二
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;如圖二所示，我今天要來計算硬幣投擲序列的總機率，對於HMM來說，當下的隱藏態具有Markov chain property，亦即只依賴前一個隱藏態的分佈與轉移。&lt;/p&gt;
+&lt;p&gt;當t=1時，我們看到觀測值為 T，而T的出現機率由初始的隱藏狀態F和B來決定，而F與B分別有一個emission probability，表示由隱藏態映射到觀察值的機率，所以如果一開始投擲硬幣時使用到fair coin的機率為0.6，而&lt;code&gt;使用此硬幣&lt;/code&gt;，也就是此&lt;code&gt;狀態&lt;/code&gt;投出 T 的機率為0.5，那麼出現 T 的機率為 α1(F) = 0.6 * 0.5 = 0.3。&lt;/p&gt;
+&lt;p&gt;但是這還不夠，因為我們必須要考慮所有可能出現的狀態，因此還要考慮biased coin投擲時的情況，如果在biased coin 投擲下出現 T 機率為0.4 * 0.2 = 0.08， 那麼在 t=1 時出現 T 的機率就等於 α1(B) = 0.3 + 0.08 = 0.38。&lt;/p&gt;
+&lt;p&gt;我們可以把兩個隱藏狀態映射出來的機率結果當成一個&lt;code&gt;節點&lt;/code&gt; （圖二中紅色的點），而這個節點儲存了隱藏狀態運算的結果，而我們可以把個運算結果傳到下一個觀察時間點，也就是下一次的投擲。&lt;/p&gt;
+&lt;p&gt;而這邊有一個很重要的概念就是，下一個觀察值取決於當下的隱藏狀態，而當下的隱藏狀態取決於前一個隱藏態，而非觀察值的結果，因為觀察值是已知，不像隱藏狀態有機率分佈，在了解了這個區別之後，接下來我們要進行下一次的硬幣投擲。
+第二次投擲的結果為H，所以&lt;code&gt;累積到第二次投擲&lt;/code&gt;，O = {&lt;em&gt;T&lt;/em&gt;, &lt;em&gt;H&lt;/em&gt;} 的機率為以下所有情況的加總：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;前一個狀態為 F，這次狀態為 F: α1(F) * αFF * bFH&lt;/li&gt;
+&lt;li&gt;前一個狀態為 B，這次狀態為 F: α1(B) * αBF * bFH&lt;/li&gt;
+&lt;li&gt;前一個狀態為 F，這次狀態為 B: α1(F) * αFB * bBH&lt;/li&gt;
+&lt;li&gt;前一個狀態為 B，這次狀態為 B: α1(B) * αBB * bBH&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意α1(F)及α1(B)已經記憶了前一個狀態的結果，所以再往後的運算，更前面的數據結果都可以拋棄，節省記憶體。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;上面的過程可以用以下的數學式來描述：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;初始化：
+對於時間 t=1：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+α_1​(i) =π_i​ \cdot b_i​(O_1​),1≤i≤N
+$$
+&lt;/div&gt;
+&lt;p&gt;其中，&lt;em&gt;πi&lt;/em&gt; 是初始狀態分佈，&lt;em&gt;bi(O1)&lt;/em&gt; 是狀態 &lt;em&gt;si&lt;/em&gt; 下產生觀察 &lt;em&gt;O1&lt;/em&gt; 的機率。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;遞推（時間 t&amp;gt;1）:
+對於每個時間步t = 2,3,4,5&amp;hellip;T，計算每個隱藏狀態的 αt​(i)：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+\alpha_t(i) = \left( \sum_{j=1}^N \alpha_{t-1}(j) \cdot a_{ji} \right) \cdot b_i(o_t), \quad 1 \leq i \leq N
+$$
+&lt;/div&gt;
+其中，
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;αt-1(j)&lt;/em&gt;: 表示前一個時刻在狀態 &lt;em&gt;sj&lt;/em&gt; 的機率。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;αji&lt;/em&gt;: 表示從狀態 &lt;em&gt;sj&lt;/em&gt; 轉移到 &lt;em&gt;si&lt;/em&gt; 的機率。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;bi(Ot)&lt;/em&gt;: 表示在狀態 &lt;em&gt;si&lt;/em&gt; 下生成觀察 &lt;em&gt;Ot&lt;/em&gt; 的機率。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;用上面的例子來說明，&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;αt-1(j)&lt;/em&gt; 為 α1(F): 表示前一個狀態為fair coin下的機率結果=0.3。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;aji&lt;/em&gt; 為 αFF 及 αBF。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;bi(Ot)&lt;/em&gt; 為 bFH 及 bBH。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
+&lt;p&gt;HMM 是在 Markov chain 上的擴展，允許狀態是隱藏的（hidden），而我們只能觀察到通過這些狀態生成的觀察值。它由三個主要部分構成：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;隱藏狀態（Hidden States）：如公平硬幣（Fair Coin）或偏斜硬幣（Biased Coin）。&lt;/li&gt;
+&lt;li&gt;轉移機率（Transition Probabilities）：描述隱藏狀態之間的轉移。&lt;/li&gt;
+&lt;li&gt;觀察機率（Emission Probabilities）：描述隱藏狀態生成觀察值的可能性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;之後的文章我會探討針對其他演算法及HMM在生物資訊學中的運用。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>生資硬核技術：公開癌症基因數據下載及操作</title>
-      <link>http://localhost:51145/post/ucscxenatool/</link>
+      <link>http://localhost:62526/post/ucscxenatool/</link>
       <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51145/post/ucscxenatool/</guid>
+      <guid>http://localhost:62526/post/ucscxenatool/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;數年前我還是住院醫師的時候是直接在UCSC Xena&lt;a href=&#34;https://xenabrowser.net&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;平台&lt;/a&gt;下載癌症數據，但整個過程很難流程化， 而2019年發表的UCSCXenaTools解決了這個問題，也讓我在前年分析公開數據時方便許多。
 UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。該平台集成了多個公開數據庫(如分析癌症數據一定要知道的TCGA、ICGC、TARGET、GTEx等），提供處理過的數據，便於我們進行數據的篩選、連結、探索及下載。UCSCXenaTools的功能強大且操作簡單，在我們先前的&lt;a href=&#34;https://www.biorxiv.org/content/10.1101/2024.07.21.604474v1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;preprint&lt;/a&gt;發表我也是利用這個套件做TCGA數據的處理，所以這邊就簡單分享我是如何用這個套件來進行分析的。&lt;/p&gt;
@@ -171,9 +511,9 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
     
     <item>
       <title>數據科學技術盤點:主成分分析？</title>
-      <link>http://localhost:51145/post/data_pca/</link>
+      <link>http://localhost:62526/post/data_pca/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51145/post/data_pca/</guid>
+      <guid>http://localhost:62526/post/data_pca/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;主成分分析（Principal component analysis, PCA）是一種強大且直觀的數據降維技術，被廣泛應用於臨床研究與醫學數據分析中。作為醫師，在日常工作中，我們經常面對大量的病患數據，例如基因表達數據、影像數據、實驗室檢驗值等。PCA能夠幫助我們提取數據的關鍵特徵，將高維度的資料轉換成易於解釋的低維度數據，從而揭示潛在的生物學意義。&lt;/p&gt;
 &lt;ul&gt;
@@ -350,7 +690,7 @@ $$
                /post/data_pca/fig1_hu15827159032189168353.webp 400w,
                /post/data_pca/fig1_hu4818452470569895218.webp 760w,
                /post/data_pca/fig1_hu7070961658534383816.webp 1200w&#34;
-               src=&#34;http://localhost:51145/post/data_pca/fig1_hu15827159032189168353.webp&#34;
+               src=&#34;http://localhost:62526/post/data_pca/fig1_hu15827159032189168353.webp&#34;
                width=&#34;760&#34;
                height=&#34;656&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;

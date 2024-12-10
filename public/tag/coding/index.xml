@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Coding | DLit-Hub</title>
-    <link>http://localhost:51145/tag/coding/</link>
-      <atom:link href="http://localhost:51145/tag/coding/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:62526/tag/coding/</link>
+      <atom:link href="http://localhost:62526/tag/coding/index.xml" rel="self" type="application/rss+xml" />
     <description>Coding</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 08 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:51145/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:62526/media/icon_hu15379254428347791189.png</url>
       <title>Coding</title>
-      <link>http://localhost:51145/tag/coding/</link>
+      <link>http://localhost:62526/tag/coding/</link>
     </image>
     
     <item>
       <title>迷你課程:R語言-3~list, matrix與array的子集提取</title>
-      <link>http://localhost:51145/post/minicourse_r3/</link>
+      <link>http://localhost:62526/post/minicourse_r3/</link>
       <pubDate>Sun, 08 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51145/post/minicourse_r3/</guid>
+      <guid>http://localhost:62526/post/minicourse_r3/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;今天介紹R中如何對 List、Matrix和Array（陣列）進行子集提取（Subsetting）的操作，包含：&lt;/p&gt;
 &lt;ol&gt;
@@ -215,9 +215,9 @@
     
     <item>
       <title>迷你課程:R語言-2~Dataframe與tibble</title>
-      <link>http://localhost:51145/post/minicourse_r2/</link>
+      <link>http://localhost:62526/post/minicourse_r2/</link>
       <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51145/post/minicourse_r2/</guid>
+      <guid>http://localhost:62526/post/minicourse_r2/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;今天介紹R的兩種重要資料結構：&lt;/p&gt;
 &lt;ol&gt;
@@ -401,9 +401,9 @@
     
     <item>
       <title>迷你課程:R語言-1~R的資本資料型態</title>
-      <link>http://localhost:51145/post/minicourse_r1/</link>
+      <link>http://localhost:62526/post/minicourse_r1/</link>
       <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51145/post/minicourse_r1/</guid>
+      <guid>http://localhost:62526/post/minicourse_r1/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;今天介紹R的data type:&lt;/p&gt;
 &lt;ol&gt;

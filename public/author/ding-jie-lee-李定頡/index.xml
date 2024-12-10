@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ding-Jie Lee 李定頡 | DLit-Hub</title>
-    <link>http://localhost:51145/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/</link>
-      <atom:link href="http://localhost:51145/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:62526/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/</link>
+      <atom:link href="http://localhost:62526/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/index.xml" rel="self" type="application/rss+xml" />
     <description>Ding-Jie Lee 李定頡</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 29 Nov 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:51145/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/avatar_hu14417156126863153076.jpg</url>
+      <url>http://localhost:62526/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/avatar_hu14417156126863153076.jpg</url>
       <title>Ding-Jie Lee 李定頡</title>
-      <link>http://localhost:51145/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/</link>
+      <link>http://localhost:62526/author/ding-jie-lee-%E6%9D%8E%E5%AE%9A%E9%A0%A1/</link>
     </image>
     
     <item>
       <title>IgA腎病變：現況與挑戰</title>
-      <link>http://localhost:51145/post/iga_nephropathy/</link>
+      <link>http://localhost:62526/post/iga_nephropathy/</link>
       <pubDate>Fri, 29 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51145/post/iga_nephropathy/</guid>
+      <guid>http://localhost:62526/post/iga_nephropathy/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;IgA腎病變(IgA nephropathy, IgAN)&lt;/code&gt;是一種常見的原發性腎絲球腎炎，雖然進程緩慢，但仍有不少患者在會一生中面臨腎衰竭或是洗腎的風險。該疾病的致病機轉主要來自於黏膜免疫系統中衍生的缺半乳糖化IgA1在血液中濃度升高，且和特異性IgG和IgA抗體結合，形成免疫複合物沉積於腎小球內，導致發炎、補體活化及腎損傷。儘管現有的治療選擇有限，但不同類型的療法正在快速發展，本篇針對最新發表在nature review nephrology的&lt;a href=&#34;https://www.nature.com/articles/s41581-024-00885-3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;，深入探討IgAN的病生理機制與治療前景。&lt;/p&gt;
 &lt;h1 id=&#34;前情提要&#34;&gt;前情提要&lt;/h1&gt;
@@ -50,7 +50,7 @@
                /post/iga_nephropathy/fig1_hu8477814647956072909.webp 400w,
                /post/iga_nephropathy/fig1_hu2347947302523353437.webp 760w,
                /post/iga_nephropathy/fig1_hu16276878206001251811.webp 1200w&#34;
-               src=&#34;http://localhost:51145/post/iga_nephropathy/fig1_hu8477814647956072909.webp&#34;
+               src=&#34;http://localhost:62526/post/iga_nephropathy/fig1_hu8477814647956072909.webp&#34;
                width=&#34;760&#34;
                height=&#34;390&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -89,7 +89,7 @@
                /post/iga_nephropathy/fig2_hu9214946873256410068.webp 400w,
                /post/iga_nephropathy/fig2_hu8460772400180790820.webp 760w,
                /post/iga_nephropathy/fig2_hu1227887210895014429.webp 1200w&#34;
-               src=&#34;http://localhost:51145/post/iga_nephropathy/fig2_hu9214946873256410068.webp&#34;
+               src=&#34;http://localhost:62526/post/iga_nephropathy/fig2_hu9214946873256410068.webp&#34;
                width=&#34;760&#34;
                height=&#34;322&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -141,7 +141,7 @@
                /post/iga_nephropathy/fig3_hu17316065617603901825.webp 400w,
                /post/iga_nephropathy/fig3_hu3953366864811020813.webp 760w,
                /post/iga_nephropathy/fig3_hu2584949262212506169.webp 1200w&#34;
-               src=&#34;http://localhost:51145/post/iga_nephropathy/fig3_hu17316065617603901825.webp&#34;
+               src=&#34;http://localhost:62526/post/iga_nephropathy/fig3_hu17316065617603901825.webp&#34;
                width=&#34;760&#34;
                height=&#34;586&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -182,7 +182,7 @@
                /post/iga_nephropathy/fig4_hu16834576376985772938.webp 400w,
                /post/iga_nephropathy/fig4_hu10351183366052398372.webp 760w,
                /post/iga_nephropathy/fig4_hu12702964302490181733.webp 1200w&#34;
-               src=&#34;http://localhost:51145/post/iga_nephropathy/fig4_hu16834576376985772938.webp&#34;
+               src=&#34;http://localhost:62526/post/iga_nephropathy/fig4_hu16834576376985772938.webp&#34;
                width=&#34;760&#34;
                height=&#34;436&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -241,9 +241,9 @@
     
     <item>
       <title>新文章發表於 European Urology</title>
-      <link>http://localhost:51145/event/meta_publish/</link>
+      <link>http://localhost:62526/event/meta_publish/</link>
       <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51145/event/meta_publish/</guid>
+      <guid>http://localhost:62526/event/meta_publish/</guid>
       <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
 &lt;p&gt;A Meta-Analysis and Meta-Regression of the Efficacy, Toxicity, and Quality of Life Outcomes Following Prostate-Specific Membrane Antigen Radioligand Therapy Utilising Lutetium-177 and Actinium- 225 in Metastatic Prostate Cancer&lt;/p&gt;
 &lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
@@ -259,9 +259,9 @@ Our findings suggest an association between PRLT and reductions in PSA levels, a
     
     <item>
       <title>腎臟科國考複習</title>
-      <link>http://localhost:51145/event/example/</link>
+      <link>http://localhost:62526/event/example/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51145/event/example/</guid>
+      <guid>http://localhost:62526/event/example/</guid>
       <description>
 
     
@@ -275,9 +275,9 @@ Our findings suggest an association between PRLT and reductions in PSA levels, a
     
     <item>
       <title>新文章發表於Journal of Translational Medicine</title>
-      <link>http://localhost:51145/event/lupus/</link>
+      <link>http://localhost:62526/event/lupus/</link>
       <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:51145/event/lupus/</guid>
+      <guid>http://localhost:62526/event/lupus/</guid>
       <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
 &lt;p&gt;Incorporating knowledge of disease-defining hub genes and regulatory network into a machine learning-based model for predicting treatment response in lupus nephritis after the first renal flare&lt;/p&gt;
 &lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
