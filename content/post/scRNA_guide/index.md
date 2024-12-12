@@ -51,4 +51,10 @@ scRNA-seq 顯著增加了我們對組織、器官和細胞之間複雜性的交�
 後面兩個技術為high-throughput，可以有效率的捕獲大量的單細胞。FACS 帶有特定螢光的細胞`挑`出來，並收集到微孔板（microtiter plate）中；而microfluidics 是利用integrated fluidic circuits (IFC)、油滴或是奈米板（nanowell）、來同時收集及處理細胞，`減少試劑的使用`。有些時候為了降低背景噪音及最大化定序的表現，可以在使用microfluidic 系統前先用FACS或`MACS（magnetic-activated cell sorting`）來移除死細胞或是雜質。
 
 ## 樣本大小與組成
+雖然取得unbiased 細胞組成很重要，但有時候太大或太小的細胞反而會卡在微流體系統或是被FACS忽略，因此有時候研究反而會針對某些特定的細胞群體，如免疫細胞去做富集，或是去掉血球細胞（CD45+）。
 
+FACS的技術可以藉由螢光強度或細胞大小（FACS可以提供的訊息）來對細胞做編列（indexing），讓我們可以知道細胞在sorting時的位置與螢光強度，讓後續做transcriptomic profiling 時可以追蹤細胞標記。
+
+除了FACS系統，[CITE-seq](https://cite-seq.com)(圖三)利用
+
+![fig3](fig3.png '圖三 CITE-seq 流程')

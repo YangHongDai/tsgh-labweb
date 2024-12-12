@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Single Cell Sequencing | DLit-Hub</title>
-    <link>http://localhost:62526/tag/single-cell-sequencing/</link>
-      <atom:link href="http://localhost:62526/tag/single-cell-sequencing/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/tag/single-cell-sequencing/</link>
+      <atom:link href="http://localhost:1313/tag/single-cell-sequencing/index.xml" rel="self" type="application/rss+xml" />
     <description>Single Cell Sequencing</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 03 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:62526/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>Single Cell Sequencing</title>
-      <link>http://localhost:62526/tag/single-cell-sequencing/</link>
+      <link>http://localhost:1313/tag/single-cell-sequencing/</link>
     </image>
     
     <item>
       <title>10X Genomics 推出GEM-X Flex</title>
-      <link>http://localhost:62526/tech/tech1/</link>
+      <link>http://localhost:1313/tech/tech1/</link>
       <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:62526/tech/tech1/</guid>
+      <guid>http://localhost:1313/tech/tech1/</guid>
       <description>&lt;p&gt;10x Genomics 推出的Single Cell GEM-X技術為單細胞分析開創了嶄新的可能性，提供前所未有的效能提升。基於這項創新，10x Genomics進一步推出了&lt;a href=&#34;%28https://www.10xgenomics.com/support/single-cell-gene-expression-flex/documentation/steps/library-prep/gem-x-flex-gene-expression-reagent-kit-for-multiplex-samples%29&#34;&gt;GEM-X Flex&lt;/a&gt;和，為研究者提供更靈活、高效且經濟的實驗設計選擇，跟先前的Flex protocol相比，GEM-X Flex可以在花費較少的情況下，用較少的細胞數量，得到品質更好的數據。&lt;/p&gt;
 </description>
     </item>
