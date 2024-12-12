@@ -55,6 +55,24 @@ scRNA-seq 顯著增加了我們對組織、器官和細胞之間複雜性的交�
 
 FACS的技術可以藉由螢光強度或細胞大小（FACS可以提供的訊息）來對細胞做編列（indexing），讓我們可以知道細胞在sorting時的位置與螢光強度，讓後續做transcriptomic profiling 時可以追蹤細胞標記。
 
-除了FACS系統，[CITE-seq](https://cite-seq.com)(圖三)利用
+除了FACS系統，[CITE-seq](https://cite-seq.com)(圖三)利用oligonucleotide標記的抗體辨識細胞表面的記號（epitope），這個抗體專一性oligonucleotide sequence 會被接上poly(A) tail 及特殊條碼，讓我們在scRNA-seq library construction時可以追蹤epitope。
 
 ![fig3](fig3.png '圖三 CITE-seq 流程')
+
+## 細胞數量
+另外實驗的細胞數量需要多少也是很重要的參數，須要考慮`樣本的異質性`與感興趣細胞的`出現頻率`，一般來說，有兩種情況需要較多的細胞：
+1. 樣本異質性高，所以需要較多的細胞數量來解構所有的次群體。
+2. 感興趣的細胞很罕見，所以需要較多的細胞數量來增加他出現的次數。
+
+針對同質性高的樣本並不是說細胞數量可以減到很少，因為足夠的細胞數量才能增加統計效力。
+
+目前也有工具可以幫我們估計我們需要多少細胞數量，如Satija 教授開發的網路工具[howmanycell](https://satijalab.org/howmanycells/)。
+
+> 針對目前GEM-X FLEX 提供的protocol，因為是基於探針來偵測基因的表現，所以最多只能提供50萬個細胞的探針，更多的細胞會被浪費掉，所以在實際操作的時候需要詳細閱讀protocol。
+
+## 樣本保存
+過去大部分scRNA-seq的步驟都要求取得新鮮的活細胞來做定序，但是取得腫瘤後立即處理樣本其實頗具挑戰性，也很吃人力和時間成本，如果又沒有FACS的專門的儀器，會變得相當尷尬。
+
+此外，雖然可以在不同天處理腫瘤，但是我們都知道這樣會引入`Batch effect`，因此同一天處理樣本是最理想的狀況，想當然底下的研究助理會想哭吧...。
+
+有鑑於此，不少的冷凍保存（cryopreservation）技術也開發出來，讓我們可以使用冷凍後的樣本做處理。

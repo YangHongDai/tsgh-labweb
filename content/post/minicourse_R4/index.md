@@ -6,7 +6,7 @@ commentable: true
 categories: [R語言迷你課程]
 tags: [R,coding]
 isCJKLanguage: true
-draft: false
+draft: true
 ---
 <!--more-->
 ## Quick look
