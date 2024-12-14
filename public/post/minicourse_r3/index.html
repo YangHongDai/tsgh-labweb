@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: December 12, 2024 --><html lang="en-us" >
+<!-- Last Published: December 14, 2024 --><html lang="en-us" >
 
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
@@ -858,7 +858,8 @@
 </span></span><span class="line"><span class="cl">[1,]    1    4    7
 </span></span><span class="line"><span class="cl">[2,]    2    5    8
 </span></span><span class="line"><span class="cl">[3,]    3    6    9
-</span></span></code></pre></div><h2 id="提取list的元素">提取list的元素:</h2>
+</span></span></code></pre></div><hr>
+<h2 id="提取list的元素">提取list的元素:</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 使用名稱提取</span>
 </span></span><span class="line"><span class="cl"><span class="n">my_list</span><span class="o">$</span><span class="n">Name</span>  <span class="c1"># &#34;Yang-Hong&#34;</span>
 </span></span><span class="line"><span class="cl">
@@ -869,11 +870,13 @@
 </span></span><span class="line"><span class="cl"><span class="n">my_list[[3]]</span>  <span class="c1"># [85.5 90.2 78.9]</span>
 </span></span></code></pre></div><p>注意上面數字索引的部分需要用<code>[[]]</code>才能完整將元素取出，如果只用<code>[]</code>也可以取出來物件，但是會帶有list的結構。
 同理名稱索引也會有一樣的情況。</p>
+<hr>
 <h2 id="提取子列表">提取子列表</h2>
 <p>但若是要提取一個子列表，就可以用數字加上<code>[]</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 提取一個子列表，提取第一個與第二個元素，返回結構仍是一個list</span>
 </span></span><span class="line"><span class="cl"><span class="n">sub_list</span> <span class="o">&lt;-</span> <span class="n">my_list[1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span>
-</span></span></code></pre></div><h2 id="鑲嵌提取">鑲嵌提取</h2>
+</span></span></code></pre></div><hr>
+<h2 id="鑲嵌提取">鑲嵌提取</h2>
 <p>如果列表中的元素是更複雜的數據結構，可以進行鑲嵌提取：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 提取 Matrix 中的第一列</span>
 </span></span><span class="line"><span class="cl"><span class="n">my_list</span><span class="o">$</span><span class="n">Matrix[1</span><span class="p">,</span> <span class="n">]</span>  <span class="c1"># [1 4 7]</span>
@@ -896,16 +899,19 @@
 </span></span><span class="line"><span class="cl">[1,]    1    2    3
 </span></span><span class="line"><span class="cl">[2,]    4    5    6
 </span></span><span class="line"><span class="cl">[3,]    7    8    9
-</span></span></code></pre></div><h2 id="提取單個元素">提取單個元素</h2>
+</span></span></code></pre></div><hr>
+<h2 id="提取單個元素">提取單個元素</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 提取第一行第一列的元素</span>
 </span></span><span class="line"><span class="cl"><span class="n">mat[1</span><span class="p">,</span> <span class="m">1</span><span class="n">]</span>  <span class="c1"># [1]</span>
-</span></span></code></pre></div><h2 id="提取整行或整列">提取整行或整列</h2>
+</span></span></code></pre></div><hr>
+<h2 id="提取整行或整列">提取整行或整列</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 提取第二列</span>
 </span></span><span class="line"><span class="cl"><span class="n">mat[2</span><span class="p">,</span> <span class="n">]</span>  <span class="c1"># [4 5 6]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 提取第三行</span>
 </span></span><span class="line"><span class="cl"><span class="n">mat[</span><span class="p">,</span> <span class="m">3</span><span class="n">]</span>  <span class="c1"># [3 6 9]</span>
-</span></span></code></pre></div><h2 id="提取子矩陣">提取子矩陣</h2>
+</span></span></code></pre></div><hr>
+<h2 id="提取子矩陣">提取子矩陣</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 提取第一到第二行，第二到第三列的子矩陣</span>
 </span></span><span class="line"><span class="cl"><span class="n">sub_mat</span> <span class="o">&lt;-</span> <span class="n">mat[1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="n">]</span>
 </span></span></code></pre></div><p>得到：</p>
@@ -913,7 +919,8 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> [2 3]
 </span></span><span class="line"><span class="cl"> [5 6]
-</span></span></code></pre></div><h2 id="保持matrix結構">保持matrix結構</h2>
+</span></span></code></pre></div><hr>
+<h2 id="保持matrix結構">保持matrix結構</h2>
 <p>一般直接取出matrix的整列或整行會得到<code>atomic vector</code>，但若要維持matrix的結構，可以加上參數<code>drop=FALSE</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">mat[</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">FALSE</span><span class="n">]</span> 
 </span></span></code></pre></div><p>得到：</p>
@@ -922,14 +929,16 @@
 </span></span><span class="line"><span class="cl">[1,]    3
 </span></span><span class="line"><span class="cl">[2,]    6
 </span></span><span class="line"><span class="cl">[3,]    9
-</span></span></code></pre></div><h2 id="邏輯條件提取">邏輯條件提取</h2>
+</span></span></code></pre></div><hr>
+<h2 id="邏輯條件提取">邏輯條件提取</h2>
 <p>可以使用<code>邏輯條件</code>篩選矩陣中的特定元素：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 找出矩陣中大於5的元素</span>
 </span></span><span class="line"><span class="cl"><span class="n">mat[mat</span> <span class="o">&gt;</span> <span class="m">5</span><span class="n">]</span>  <span class="c1"># [7 8 6 9]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 設定條件篩選</span>
 </span></span><span class="line"><span class="cl"><span class="n">selected</span> <span class="o">&lt;-</span> <span class="n">mat[mat</span> <span class="o">%%</span> <span class="m">2</span> <span class="o">==</span> <span class="m">0</span><span class="n">]</span>  <span class="c1"># 提取偶數</span>
-</span></span></code></pre></div><h2 id="搭配which">搭配which()</h2>
+</span></span></code></pre></div><hr>
+<h2 id="搭配which">搭配which()</h2>
 <p>使用<code>which()</code>可以得到符合邏輯條件的元素位置在哪。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">which</span><span class="p">(</span><span class="n">mat</span><span class="o">&gt;</span><span class="m">5</span><span class="p">)</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#&gt;
@@ -975,26 +984,31 @@
 </span></span><span class="line"><span class="cl"> [1,]   10   13   16
 </span></span><span class="line"><span class="cl"> [2,]   11   14   17
 </span></span><span class="line"><span class="cl"> [3,]   12   15   18
-</span></span></code></pre></div><h2 id="提取單個元素-1">提取單個元素</h2>
+</span></span></code></pre></div><hr>
+<h2 id="提取單個元素-1">提取單個元素</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 提取第一層第一行第二列的元素</span>
 </span></span><span class="line"><span class="cl"><span class="n">arr[1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="n">]</span>  <span class="c1"># [4]</span>
-</span></span></code></pre></div><h2 id="提取整列或整行">提取整列或整行</h2>
+</span></span></code></pre></div><hr>
+<h2 id="提取整列或整行">提取整列或整行</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 提取第二層的第三行</span>
 </span></span><span class="line"><span class="cl"><span class="n">arr[</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">2</span><span class="n">]</span>  <span class="c1"># [16 17 18]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 提取第一層的第二列</span>
 </span></span><span class="line"><span class="cl"><span class="n">arr[2</span><span class="p">,</span> <span class="p">,</span> <span class="m">1</span><span class="n">]</span>  <span class="c1"># [2 5 8]</span>
-</span></span></code></pre></div><h2 id="提取特定切片">提取特定切片</h2>
+</span></span></code></pre></div><hr>
+<h2 id="提取特定切片">提取特定切片</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 提取第一層的所有數據</span>
 </span></span><span class="line"><span class="cl"><span class="n">slice</span> <span class="o">&lt;-</span> <span class="n">arr[</span><span class="p">,</span> <span class="p">,</span> <span class="m">1</span><span class="n">]</span>
-</span></span></code></pre></div><h2 id="邏輯條件提取-1">邏輯條件提取</h2>
+</span></span></code></pre></div><hr>
+<h2 id="邏輯條件提取-1">邏輯條件提取</h2>
 <p>array也可以進行邏輯條件選取。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 找出所有大於10的元素</span>
 </span></span><span class="line"><span class="cl"><span class="n">arr[arr</span> <span class="o">&gt;</span> <span class="m">10</span><span class="n">]</span>  <span class="c1"># [11 12 13 14 15 16 17 18]</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 選擇特定條件的子陣列</span>
 </span></span><span class="line"><span class="cl"><span class="n">selected</span> <span class="o">&lt;-</span> <span class="n">arr[arr</span> <span class="o">%%</span> <span class="m">3</span> <span class="o">==</span> <span class="m">0</span><span class="n">]</span>
-</span></span></code></pre></div><h2 id="課程摘要">課程摘要</h2>
+</span></span></code></pre></div><hr>
+<h2 id="課程小結">課程小結</h2>
 <table>
   <thead>
       <tr>

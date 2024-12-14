@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: December 12, 2024 --><html lang="en-us" >
+<!-- Last Published: December 14, 2024 --><html lang="en-us" >
 
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
@@ -302,18 +302,17 @@
 
 
   
-  
 
 
 
 
 
 
-<meta property="twitter:card" content="summary" />
+<meta property="twitter:card" content="summary_large_image" />
 
   <meta property="twitter:site" content="@GetResearchDev" />
   <meta property="twitter:creator" content="@GetResearchDev" />
-<meta property="twitter:image" content="http://localhost:1313/media/icon_hu15379254428347791189.png" />
+<meta property="twitter:image" content="http://localhost:1313/post/minicourse_r4/featured.jpeg" />
 
 
 
@@ -322,17 +321,17 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="DLit-Hub" />
 <meta property="og:url" content="http://localhost:1313/post/minicourse_r4/" />
-<meta property="og:title" content="迷你課程:R語言-4~Function | DLit-Hub" />
-<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:1313/media/icon_hu15379254428347791189.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:title" content="迷你課程:R語言-4~Function的定義與運用 | DLit-Hub" />
+<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:1313/post/minicourse_r4/featured.jpeg" /><meta property="og:locale" content="en-us" />
 
   
     <meta
       property="article:published_time"
-      content="2024-12-05T00:00:00&#43;00:00"
+      content="2024-12-14T00:00:00&#43;00:00"
     />
   
   
-    <meta property="article:modified_time" content="2024-12-05T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2024-12-14T00:00:00&#43;00:00">
   
 
 
@@ -360,10 +359,14 @@
     "@type": "WebPage",
     "@id": "http://localhost:1313/post/minicourse_r4/"
   },
-  "headline": "迷你課程:R語言-4~Function",
+  "headline": "迷你課程:R語言-4~Function的定義與運用",
   
-  "datePublished": "2024-12-05T00:00:00Z",
-  "dateModified": "2024-12-05T00:00:00Z",
+  "image": [
+    "http://localhost:1313/post/minicourse_r4/featured.jpeg"
+  ],
+  
+  "datePublished": "2024-12-14T00:00:00Z",
+  "dateModified": "2024-12-14T00:00:00Z",
   
   "author": {
     "@type": "Person",
@@ -400,7 +403,7 @@
 
 
   
-  <title>迷你課程:R語言-4~Function | DLit-Hub</title>
+  <title>迷你課程:R語言-4~Function的定義與運用 | DLit-Hub</title>
 
   
   
@@ -730,18 +733,26 @@
 
 
 
-  
+
+
+
+
+
+
+
+
 
   
   
-  
+
+
+
 <div class="article-container pt-3">
-  <h1>迷你課程:R語言-4~Function</h1>
+  <h1>迷你課程:R語言-4~Function的定義與運用</h1>
 
   
 
   
-    
 
 
 <div class="article-metadata">
@@ -765,7 +776,7 @@
     
       
     
-    Dec 5, 2024
+    Dec 14, 2024
   </span>
   
 
@@ -774,7 +785,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    4 min read
   </span>
   
 
@@ -795,13 +806,20 @@
 
 </div>
 
-    
-
-
-
-
-
   
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 225px; max-height: 225px;">
+  <div style="position: relative">
+    <img src="/post/minicourse_r4/featured_hu870526075801613790.webp" width="225" height="225" alt="" class="featured-image">
+    
+  </div>
 </div>
 
 
@@ -846,6 +864,7 @@
 </span></span><span class="line"><span class="cl"><span class="n">x^2</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>如此一來square(3)就會自動印出9，同樣的結果，但是少了<code>assignment</code>與<code>return</code>兩個操作。</p>
+<hr>
 <h2 id="默認值">默認值</h2>
 <p>R 允許在定義函數時設定參數的默認值，這樣就不用在運算時每次都要把全部參數寫出來：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">my_function</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span> <span class="p">{</span>
@@ -854,7 +873,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nf">my_function</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="c1"># 返回 15，因為 arg2 默認為 10</span>
-</span></span></code></pre></div><h2 id="不定數量參數">不定數量參數</h2>
+</span></span></code></pre></div><hr>
+<h2 id="不定數量參數">不定數量參數</h2>
 <p>R 允許定義不定數量的參數：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">my_function</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="kc">...</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="n">args</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="kc">...</span><span class="p">)</span>
@@ -872,14 +892,16 @@
 </span></span></code></pre></div><p>因為可以讓使用者輸入任意數量的數字，然後再轉換成向量，增加函式的彈性。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#&gt;
 </span></span><span class="line"><span class="cl">[1] -22.5  -2.5   7.5  17.5
-</span></span></code></pre></div><h2 id="避免重複代碼">避免重複代碼</h2>
+</span></span></code></pre></div><hr>
+<h2 id="避免重複代碼">避免重複代碼</h2>
 <p>將常用函數放到函數裡，以減少重複代碼：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">normalize</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nf">normalize</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">))</span> 
-</span></span></code></pre></div><h2 id="加入錯誤處理">加入錯誤處理</h2>
+</span></span></code></pre></div><hr>
+<h2 id="加入錯誤處理">加入錯誤處理</h2>
 <p>使用 stop() 來對函數輸入進行檢查：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">safe_divide</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kr">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span> <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;分母不能為 0&#34;</span><span class="p">)</span>
@@ -888,7 +910,8 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nf">safe_divide</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="c1"># 返回 5</span>
 </span></span><span class="line"><span class="cl"><span class="nf">safe_divide</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span> <span class="c1"># 結束執行並出現錯誤訊息</span>
-</span></span></code></pre></div><h2 id="搭配docall">搭配do.call()</h2>
+</span></span></code></pre></div><hr>
+<h2 id="搭配docall">搭配do.call()</h2>
 <p>使用 <code>do.call()</code> 來加強函數的呼叫：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sum_values</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="kc">...</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nf">sum</span><span class="p">(</span><span class="kc">...</span><span class="p">)</span>
@@ -905,28 +928,129 @@
 </span></span><span class="line"><span class="cl"><span class="nf">do.call</span><span class="p">(</span><span class="n">paste</span><span class="p">,</span> <span class="nf">list</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;A&#34;</span><span class="p">,</span> <span class="s">&#34;B&#34;</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;C&#34;</span><span class="p">,</span> <span class="s">&#34;D&#34;</span><span class="p">),</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;-&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 等同於 paste(&#34;A&#34;, &#34;C&#34;, sep = &#34;-&#34;) 和 paste(&#34;B&#34;, &#34;D&#34;, sep = &#34;-&#34;)</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 結果是 &#34;A-C&#34; 和 &#34;B-D&#34;</span>
-</span></span></code></pre></div><p>如果還記得data frame 是list的集合，所以我們可以將data frame 當成參數。如果要新增一欄list做處理，需要用c():</p>
+</span></span></code></pre></div><p>如果還記得data frame 是list的集合，所以我們可以將data frame 當成參數。如果要新增一欄list做處理，需要用<code>c()</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">first</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span>
 </span></span><span class="line"><span class="cl">                 <span class="n">second</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">6</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="nf">do.call</span><span class="p">(</span><span class="n">paste</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="s">&#39;+&#39;</span><span class="p">))</span>
 </span></span></code></pre></div><p>會得到：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#&gt;
 </span></span><span class="line"><span class="cl">[1] &#34;1 2 +&#34; &#34;2 4 +&#34; &#34;3 6 +&#34;
-</span></span></code></pre></div><h2 id="使用重要套件">使用重要套件</h2>
+</span></span></code></pre></div><hr>
+<h2 id="使用重要套件">使用重要套件</h2>
 <p>和 purrr 套件配合：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">purrr</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">square</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">x^2</span>
 </span></span><span class="line"><span class="cl"><span class="nf">map</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">),</span> <span class="n">square</span><span class="p">)</span> <span class="c1"># 返回 1, 4, 9, 16</span>
-</span></span></code></pre></div><h2 id="輸入驗證">輸入驗證</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">assertthat</span><span class="o">::</span><span class="nf">assert_that</span><span class="p">()</span> 允許檢查初始條件。
-</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">assertthat</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>map為purrr套件中的好用函式，之後會專門討論。</p>
+</blockquote>
+<hr>
+<h2 id="輸入驗證">輸入驗證</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">assertthat</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nf">assert_that</span><span class="p">(</span><span class="nf">is.numeric</span><span class="p">(</span><span class="m">10</span><span class="p">))</span> <span class="c1"># 通過</span>
-</span></span></code></pre></div><h2 id="接合與對齊">接合與對齊</h2>
-<p>mapply() 與 apply() 來辨別多欄。</p>
+</span></span></code></pre></div><hr>
+<h2 id="接合與對齊">接合與對齊</h2>
+<p>使用<code>mapply()</code> 與 <code>apply()</code> 。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">mapply</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="o">:</span><span class="m">6</span><span class="p">)</span> <span class="c1"># 返回 5, 7, 9</span>
-</span></span></code></pre></div><h2 id="清理的輸出">清理的輸出</h2>
-<p>cat() 與 paste() 用於格式化輸出。</p>
+</span></span></code></pre></div><p><code>mapply()</code> 是一個向量化函數，適用於對<code>多個向量</code>或<code>列表</code>同時應用一個函數。它的功能相當於對多個<code>對應元素進行逐一計算</code>。</p>
+<p>其實不難發現，上面的運算等同於：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">do.call</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="nf">list</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">)))</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">mat</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">apply</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">sum</span><span class="p">)</span>  <span class="c1"># 對每一列求和</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output: c(9, 12)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">apply</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">sum</span><span class="p">)</span>  <span class="c1"># 對每一欄求和</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Output: c(3, 7, 11)</span>
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>功能</th>
+          <th><code>mapply()</code></th>
+          <th><code>apply()</code></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>適用場景</td>
+          <td>對多個向量或列表逐一操作</td>
+          <td>對矩陣或數據框的行或列進行批量操作</td>
+      </tr>
+      <tr>
+          <td>輸入數據類型</td>
+          <td>向量、列表</td>
+          <td>矩陣、數據框</td>
+      </tr>
+      <tr>
+          <td>返回值</td>
+          <td>簡化後的向量或列表</td>
+          <td>矩陣、數據框，或者簡化後的向量</td>
+      </tr>
+      <tr>
+          <td>常見應用</td>
+          <td>處理多組向量對應元素的計算</td>
+          <td>操作數據的每一行或每一列</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="課程小結">課程小結</h2>
+<table>
+  <thead>
+      <tr>
+          <th>主題</th>
+          <th>特性</th>
+          <th>範例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>函數定義</td>
+          <td>使用 <code>function()</code> 定義帶有參數和返回值的函數</td>
+          <td><code>my_function &lt;- function(x, y) x + y</code></td>
+      </tr>
+      <tr>
+          <td>默認值</td>
+          <td>可為函數參數設定默認值</td>
+          <td><code>my_function &lt;- function(x, y = 10)</code></td>
+      </tr>
+      <tr>
+          <td>不定數量參數</td>
+          <td>使用 <code>...</code> 接收任意數量的輸入參數</td>
+          <td><code>my_function &lt;- function(...) sum(...)</code></td>
+      </tr>
+      <tr>
+          <td>重複代碼優化</td>
+          <td>通過函數封裝常用邏輯來減少重複代碼</td>
+          <td><code>normalize &lt;- function(x) (x - min(x)) / (max(x) - min(x))</code></td>
+      </tr>
+      <tr>
+          <td>錯誤處理</td>
+          <td>使用 <code>stop()</code> 進行輸入檢查與報錯</td>
+          <td><code>safe_divide &lt;- function(a, b) if (b == 0) stop(&quot;分母不能為 0&quot;)</code></td>
+      </tr>
+      <tr>
+          <td><code>do.call()</code></td>
+          <td>將列表解構為函數參數</td>
+          <td><code>do.call(sum, list(1, 2, 3, 4))</code></td>
+      </tr>
+      <tr>
+          <td>搭配 purrr 套件</td>
+          <td>使用 <code>map()</code> 對向量逐一應用函數</td>
+          <td><code>map(c(1, 2, 3), ~ .x^2)</code></td>
+      </tr>
+      <tr>
+          <td>向量化運算</td>
+          <td>使用 <code>mapply()</code> 處理多組向量</td>
+          <td><code>mapply(function(x, y) x + y, 1:3, 4:6)</code></td>
+      </tr>
+      <tr>
+          <td>行列操作</td>
+          <td>使用 <code>apply()</code> 處理矩陣行或列的計算</td>
+          <td><code>apply(matrix(1:6, nrow = 2), 1, sum)</code></td>
+      </tr>
+  </tbody>
+</table>
     </div>
 
     
@@ -960,7 +1084,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicourse_r4%2F&amp;text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-4~Function" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicourse_r4%2F&amp;text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-4~Function%E7%9A%84%E5%AE%9A%E7%BE%A9%E8%88%87%E9%81%8B%E7%94%A8" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -977,7 +1101,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicourse_r4%2F&amp;t=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-4~Function" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicourse_r4%2F&amp;t=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-4~Function%E7%9A%84%E5%AE%9A%E7%BE%A9%E8%88%87%E9%81%8B%E7%94%A8" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -996,7 +1120,7 @@
         
       
       <li>
-        <a href="mailto:?subject=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-4~Function&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicourse_r4%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-4~Function%E7%9A%84%E5%AE%9A%E7%BE%A9%E8%88%87%E9%81%8B%E7%94%A8&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicourse_r4%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -1013,7 +1137,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicourse_r4%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-4~Function" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicourse_r4%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-4~Function%E7%9A%84%E5%AE%9A%E7%BE%A9%E8%88%87%E9%81%8B%E7%94%A8" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -1030,7 +1154,7 @@
       
       
       <li>
-        <a href="whatsapp://send?text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-4~Function%20http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicourse_r4%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+        <a href="whatsapp://send?text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-4~Function%E7%9A%84%E5%AE%9A%E7%BE%A9%E8%88%87%E9%81%8B%E7%94%A8%20http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicourse_r4%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1047,7 +1171,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicourse_r4%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-4~Function" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicourse_r4%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3AR%E8%AA%9E%E8%A8%80-4~Function%E7%9A%84%E5%AE%9A%E7%BE%A9%E8%88%87%E9%81%8B%E7%94%A8" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>

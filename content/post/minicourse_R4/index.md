@@ -1,12 +1,12 @@
 ---
-title: 迷你課程:R語言-4~Function
-date: 2024-12-05
+title: 迷你課程:R語言-4~Function的定義與運用
+date: 2024-12-14
 authors: ["戴揚紘", ""]
 commentable: true
 categories: [R語言迷你課程]
 tags: [R,coding]
 isCJKLanguage: true
-draft: true
+draft: false
 ---
 <!--more-->
 ## Quick look
@@ -49,6 +49,8 @@ x^2
 ```
 如此一來square(3)就會自動印出9，同樣的結果，但是少了`assignment`與`return`兩個操作。
 
+---
+
 ## 默認值
 R 允許在定義函數時設定參數的默認值，這樣就不用在運算時每次都要把全部參數寫出來：
 ```r
@@ -59,6 +61,8 @@ my_function <- function(arg1, arg2 = 10) {
 
 my_function(5) # 返回 15，因為 arg2 默認為 10
 ```
+
+---
 
 ## 不定數量參數
 R 允許定義不定數量的參數：
@@ -84,7 +88,7 @@ fun(10,30,40,50)
 #>
 [1] -22.5  -2.5   7.5  17.5
 ```
-
+---
 ## 避免重複代碼
 將常用函數放到函數裡，以減少重複代碼：
 ```r
@@ -94,7 +98,7 @@ normalize <- function(x) {
 
 normalize(c(1, 2, 3, 4, 5)) 
 ```
-
+---
 ## 加入錯誤處理
 使用 stop() 來對函數輸入進行檢查：
 ```r
@@ -106,7 +110,7 @@ safe_divide <- function(a, b) {
 safe_divide(10, 2) # 返回 5
 safe_divide(10, 0) # 結束執行並出現錯誤訊息
 ```
-
+---
 ## 搭配do.call()
 使用 `do.call()` 來加強函數的呼叫：
 ```r
@@ -128,7 +132,7 @@ do.call(paste, list(c("A", "B"), c("C", "D"), sep = "-"))
 # 結果是 "A-C" 和 "B-D"
 ```
 
-如果還記得data frame 是list的集合，所以我們可以將data frame 當成參數。如果要新增一欄list做處理，需要用c():
+如果還記得data frame 是list的集合，所以我們可以將data frame 當成參數。如果要新增一欄list做處理，需要用`c()`:
 ```r
 df <- data.frame(first = c(1,2,3),
                  second = c(2,4,6))
@@ -139,7 +143,7 @@ do.call(paste, c(df,'+'))
 #>
 [1] "1 2 +" "2 4 +" "3 6 +"
 ```
-
+---
 ## 使用重要套件
 和 purrr 套件配合：
 ```r
@@ -148,19 +152,55 @@ library(purrr)
 square <- function(x) x^2
 map(c(1, 2, 3, 4), square) # 返回 1, 4, 9, 16
 ```
+> map為purrr套件中的好用函式，之後會專門討論。
 
+---
 ## 輸入驗證
 ```r
-assertthat::assert_that() 允許檢查初始條件。
 library(assertthat)
 assert_that(is.numeric(10)) # 通過
 ```
 
+---
 ## 接合與對齊
-mapply() 與 apply() 來辨別多欄。
+使用`mapply()` 與 `apply()` 。
 ```r
 mapply(function(x, y) x + y, 1:3, 4:6) # 返回 5, 7, 9
 ```
+`mapply()` 是一個向量化函數，適用於對`多個向量`或`列表`同時應用一個函數。它的功能相當於對多個`對應元素進行逐一計算`。
 
-## 清理的輸出
-cat() 與 paste() 用於格式化輸出。
+其實不難發現，上面的運算等同於：
+```r
+do.call(function(x, y) x + y, list(c(1,2,3), c(4,5,6)))
+```
+
+```r
+mat <- matrix(1:6, nrow = 2)
+apply(mat, 1, sum)  # 對每一列求和
+# Output: c(9, 12)
+
+apply(mat, 2, sum)  # 對每一欄求和
+# Output: c(3, 7, 11)
+```
+
+| 功能         | `mapply()`                     | `apply()`                                   |
+|--------------|---------------------------------|---------------------------------------------|
+| 適用場景     | 對多個向量或列表逐一操作       | 對矩陣或數據框的行或列進行批量操作          |
+| 輸入數據類型 | 向量、列表                     | 矩陣、數據框                                |
+| 返回值       | 簡化後的向量或列表             | 矩陣、數據框，或者簡化後的向量              |
+| 常見應用     | 處理多組向量對應元素的計算     | 操作數據的每一行或每一列     
+
+---
+
+## 課程小結
+| 主題             | 特性                                  | 範例                                       |
+|------------------|---------------------------------------|--------------------------------------------|
+| 函數定義         | 使用 `function()` 定義帶有參數和返回值的函數 | `my_function <- function(x, y) x + y`      |
+| 默認值           | 可為函數參數設定默認值                | `my_function <- function(x, y = 10)`       |
+| 不定數量參數     | 使用 `...` 接收任意數量的輸入參數       | `my_function <- function(...) sum(...)`    |
+| 重複代碼優化     | 通過函數封裝常用邏輯來減少重複代碼     | `normalize <- function(x) (x - min(x)) / (max(x) - min(x))` |
+| 錯誤處理         | 使用 `stop()` 進行輸入檢查與報錯       | `safe_divide <- function(a, b) if (b == 0) stop("分母不能為 0")` |
+| `do.call()`       | 將列表解構為函數參數                  | `do.call(sum, list(1, 2, 3, 4))`           |
+| 搭配 purrr 套件  | 使用 `map()` 對向量逐一應用函數         | `map(c(1, 2, 3), ~ .x^2)`                 |
+| 向量化運算       | 使用 `mapply()` 處理多組向量            | `mapply(function(x, y) x + y, 1:3, 4:6)`   |
+| 行列操作         | 使用 `apply()` 處理矩陣行或列的計算      | `apply(matrix(1:6, nrow = 2), 1, sum)`     |
