@@ -6,7 +6,7 @@ commentable: true
 categories: [Python迷你課程]
 tags: [Python,coding]
 isCJKLanguage: true
-draft: false
+draft: true
 ---
 <!--more-->
 ## Quick look
