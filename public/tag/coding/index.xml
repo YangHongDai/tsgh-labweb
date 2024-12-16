@@ -5,12 +5,20 @@
     <link>http://localhost:1313/tag/coding/</link>
       <atom:link href="http://localhost:1313/tag/coding/index.xml" rel="self" type="application/rss+xml" />
     <description>Coding</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 14 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>Coding</title>
       <link>http://localhost:1313/tag/coding/</link>
     </image>
+    
+    <item>
+      <title>迷你課程:Python-1~</title>
+      <link>http://localhost:1313/post/minicoursepython1/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/minicoursepython1/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;</description>
+    </item>
     
     <item>
       <title>迷你課程:R語言-4~Function的定義與運用</title>

@@ -12,6 +12,7 @@ draft: true
 ## Quick look
 單細胞定序已經在近年成為各大實驗室不可或缺的關鍵技術之一，讓我們從過去將組織混雜在一起的bulk RNA-seq精細化到單細胞的解析度，也讓我們可以針對一顆腫瘤做細部的分類，、甚至推測細胞分化的路徑，今天我們要讀的[文章](https://www.nature.com/articles/s41596-018-0073-y)算是比較舊的nature protocol review article (2018)，但針對我們想要做單細胞定序分析的人來說是很推薦的入門讀物之一。
 
+---
 ## scRNA-seq 席捲科學界
 scRNA-seq 顯著增加了我們對組織、器官和細胞之間複雜性的交互作用。隨著自動化處理流程的演進與微流體（microfluidic）技術的發明，scRNA-seq的延展性（scalability）大幅的提升。
 
@@ -21,6 +22,7 @@ scRNA-seq 顯著增加了我們對組織、器官和細胞之間複雜性的交�
 
 ![fig1](fig1.png '圖一 單細胞定序流程')
 
+---
 ## 樣本製備
 樣本本身的品質對整個scRNA-seq的流程是最重要的，雖然先前大部分都需要新鮮活的細胞，但實務上如果要在取出每個腫瘤後立即分解成單細胞懸浮液其實頗具挑戰性，因此目前有不少protocol是允許使用固定後腫瘤或細胞，也允許冷凍後仍完整的細胞核RNA，一來可以讓我們可以好好計畫樣本製備的流程，二來也不影響後續數據的分析，可以參考目前10X Genomics釋出的[GEM-X FLEX protocol](https://www.10xgenomics.com/support/single-cell-gene-expression-flex/documentation/steps/library-prep/gem-x-flex-gene-expression-reagent-kit-for-multiplex-samples)。
 
@@ -30,6 +32,7 @@ scRNA-seq 顯著增加了我們對組織、器官和細胞之間複雜性的交�
 3. 篩選較大的細胞團塊和細胞死亡後的雜質與碎片。最好在`30分鐘內`用酵素分解細胞團塊，避免團塊聚集。
 4. 適合的懸浮液緩衝液組成：`無鈣、鎂的PBS`。含牛血清白蛋白以減少聚集。比較敏感的細胞、幹細胞可能需要其他的緩衝液來增加存活。
 
+---
 ## 細胞懸浮液的製備
 血液樣本可以用密度梯度離心（density centrifugation）的方式來分離，例如Ficoll-Paque 或 Histopaque-1077 的方式來捕捉特定單細胞，但是實體組織必須要利用機械（mechanical）或是酵素來分解組織塊來取得單細胞懸浮液。
 1. 機械方式：可以用剪刀或是剃刀將組織切成小碎塊，通常約大小 1mm x 1mm x 1mm，才能增加與酵素接觸的表面積。
@@ -41,6 +44,7 @@ scRNA-seq 顯著增加了我們對組織、器官和細胞之間複雜性的交�
 
 另外就是針對像神經元所在的組織中，神經元彼此之間交聯的程度有可能會導致細胞分離的過程不完全。針對這個問題可以考慮破壞細胞膜的方式來取得完整的細胞核做分析，而用細胞核內部的RNA做分析雖然會降低每顆細胞最終的解析度，但是已能提供足夠訊息來解析細胞態 （cell type deconvolution）。
 
+---
 ## 單細胞捕獲
 目前許多不同的方式來達成單細胞的捕獲：
 1. Microdissection
@@ -50,6 +54,7 @@ scRNA-seq 顯著增加了我們對組織、器官和細胞之間複雜性的交�
 
 後面兩個技術為high-throughput，可以有效率的捕獲大量的單細胞。FACS 帶有特定螢光的細胞`挑`出來，並收集到微孔板（microtiter plate）中；而microfluidics 是利用integrated fluidic circuits (IFC)、油滴或是奈米板（nanowell）、來同時收集及處理細胞，`減少試劑的使用`。有些時候為了降低背景噪音及最大化定序的表現，可以在使用microfluidic 系統前先用FACS或`MACS（magnetic-activated cell sorting`）來移除死細胞或是雜質。
 
+---
 ## 樣本大小與組成
 雖然取得unbiased 細胞組成很重要，但有時候太大或太小的細胞反而會卡在微流體系統或是被FACS忽略，因此有時候研究反而會針對某些特定的細胞群體，如免疫細胞去做富集，或是去掉血球細胞（CD45+）。
 
@@ -59,6 +64,7 @@ FACS的技術可以藉由螢光強度或細胞大小（FACS可以提供的訊息
 
 ![fig3](fig3.png '圖三 CITE-seq 流程')
 
+---
 ## 細胞數量
 另外實驗的細胞數量需要多少也是很重要的參數，須要考慮`樣本的異質性`與感興趣細胞的`出現頻率`，一般來說，有兩種情況需要較多的細胞：
 1. 樣本異質性高，所以需要較多的細胞數量來解構所有的次群體。
@@ -70,6 +76,7 @@ FACS的技術可以藉由螢光強度或細胞大小（FACS可以提供的訊息
 
 > 針對目前GEM-X FLEX 提供的protocol，因為是基於探針來偵測基因的表現，所以最多只能提供50萬個細胞的探針，更多的細胞會被浪費掉，所以在實際操作的時候需要詳細閱讀protocol。
 
+---
 ## 樣本保存
 過去大部分scRNA-seq的步驟都要求取得新鮮的活細胞來做定序，但是取得腫瘤後立即處理樣本其實頗具挑戰性，也很吃人力和時間成本，如果又沒有FACS的專門的儀器，會變得相當尷尬。
 
@@ -77,4 +84,93 @@ FACS的技術可以藉由螢光強度或細胞大小（FACS可以提供的訊息
 
 有鑑於此，不少的冷凍保存（cryopreservation）技術也開發出來，讓我們可以使用冷凍後的樣本做處理。而研究顯示，在-80度或是液態氮保存的樣本在解凍後，仍然保有完整的RNA與基因表現，但目前仍不建議對樣本進行反覆的冷凍與解凍。 
 
-而針對急速冷凍（snap-freeze）的樣本，只能利用nuclei 
+而針對急速冷凍（snap-freeze）的樣本，因為`冰凍（crystal）的結晶`會破壞細胞膜，多數細胞並不完整，只能利用`nuclei` 來取得scRNA-seq。
+
+---
+## 單細胞定序
+單細胞定序主要有`四`個步驟：
+1. RNA分子的捕獲（capture）
+2. 放大（transcriptome amplification）
+3. 建立定序庫（sequencing library）
+4. 定序（sequencing）
+
+### RNA molecule capture, reverse transcription and transcriptomics amplification for sequencing library construction
+大多的單細胞的RNA分子捕獲使用`poly(A)-tailed RNA`來辨識mRNA，針對total RNA 也有其他特殊的方式，但比較少用。
+所以我們只要設計一段`poly(T) oligonucleotide`就可以收集所有mRNA，但是必然會忽略掉數量也很多的rRNA與tRNA，在捕獲之後，RNA片段會被反轉綠成`cDNA`，接續進行放大與定序庫的建立。
+在設計oligonucleotide的時候，會插入專一的`單細胞編碼（single cell barcode）`，讓後續在定序時，可以做`pooling`與`multiplex`。
+除了cell barcode外，還會插入約12的核苷酸的`unique molecular identifier (UMI)`，用來去除後續cDNA擴增後帶來的擴增噪音，是單細胞分析裡面很關鍵的技術。關於UMI如何作用，可以參考這個[網站](https://hbctraining.github.io/scRNA-seq_online/lessons/02_SC_generation_of_count_matrix.html)。
+
+而針對cDNA的擴增，基本上有兩種方式：
+1. PCR：所需步驟較少，但是對RNA的定量會引入較多的擴增偏差。
+2. `In vitro transcription （IVT）`:利用線性擴增，因此引入的擴增偏差較少，但需要的後續步驟較多。
+
+圖四為各種平台的技術概況：
+![fig4](fig4.png '圖四 單細胞平台技術概況')
+
+### Full length vs 3' or 5' transcript sequencing
+轉錄的過程可以分為全長（full length）或是針對5'/3'端來做定量（digital counting），這兩個方式的差別在於：
+1. `Full length`: mRNA的整段都可以解碼出來，因此適合用於須要了解`splice variant` 或是 `alternative splicing`的研究。T與B細胞的受體genotype 也可以藉由full length sequencing 來還原。 然而這種技術因為並沒有在處理得初期插入UMI，所以並不能做indexing，因此實驗成本會較高。
+2. `3'/5' sequencing`: 因為PCR先天的限制，在mRNA的尾端無法完整進行下去，因此會喪失掉尾端的訊息，但如果只在乎`基因的表現量`，這樣的限制並不會影響實驗的目的。此外，因為在處理的過程中可以加入cell barcodes，所以有利於indexing與multiplex，減少成本。
+
+---
+## scRNA-seq methodology
+這邊僅針對目前最常用的微流體系統來做描述，想了解其他方法，如microtiter plate-based 或split-pool barcoding-based的可以另外搜尋文獻。
+
+---
+## Microfluidic system-based approaches
+微流體系統的優勢在於可以高通量的針對單細胞做處理，具有很高的技術延展性（scalability），彌補microtiter-based 方法的不足，同時增加了cDNA的產量。
+
+最初用來做scRNA-seq的微流體系統使用拋棄式微流體晶片，完成單細胞裂解、核酸純化、反轉錄作用和擴增放大流程，最後將單細胞之終產物存放至獨立槽中，進行後續分析，這項技術為 `Fluidigm C1`所使用，其中所使用的方法是修改後的`Smart-seq2 protocol`。但早期的IFC只有96個細胞捕獲位點，後來新的技術`（C1 HT-IFC）`增加到了800個位點，並允許早期編碼（early-indexing），讓細胞可以混合在一起做後續分析，大幅降低了成本。
+
+
+為了進一步增加捕獲的細胞數量，微流體技術發展為更具擴展性的開放式奈米孔系統。例如，`STRT-seq-2i`運用具有9600個位點的奈米孔平台，通過限制性稀釋或特殊的FACS技術排序並加載細胞。此外，奈米孔陣列的形式允許我們透過造影來排除一個孔裡面出現兩個以上的細胞。
+
+另一個奈米孔技術為`Seq-Well`，可在捕獲高達86000個細胞並進行反應，原理是將帶有條碼的珠子先裝到奈米孔中，然後細胞通過`限制性稀釋`進入捕獲位點。隨後陣列被密封以進行細胞裂解和RNA的捕獲，最後將固定的分子集中製備3'端library。然而，儘管可以通過顯微鏡監測細胞，但帶有條碼的珠子因為隨機分佈的特性使得影像的整合困難，此外也需要經驗豐富的使用者以保證結果的重現性和品質。
+
+雖然IFC和奈米孔方法在高通量方面具有擴展性，但它們的反應位點數量還是很有限。液滴系統通過將細胞封裝在奈米級微反應器液滴中克服了這一限制。此方法可以捕獲的細胞數量隨著使用的`乳液（emulsion）`體積的上升而上升，並且能高速生成大量液滴，適用於大規模scRNA-seq實驗。此外，可以調整液滴大小以減少細胞捕獲過程中的引入的潛在偏差。由於條碼隨也是隨機導入液滴中，因此該方法也無法將條形碼用影像來偵測捕獲細胞的即時狀況。
+
+目前有兩種液滴技術：
+1. `inDrops`利用`水凝膠珠（hydrogel bead）`，上面帶有poly(T)引子與特殊細胞編碼，在捕獲細胞後，通過光來釋放引子提高分子捕獲效率並啟動液滴內的反轉錄反應，這項技術可以有大於75%的細胞捕獲率，因此很適合細胞數量較少的樣本。目前使用這種技術的廠商有：`1CellBio`。
+2. `Drop-seq`方法則使用但有隨機條碼的珠子，在細胞裂解和RNA捕獲後，液滴破裂並且合成cDNA，接著進行3'端文庫製備。相比inDrops，Drop-seq因採用`雙重限制稀釋`，細胞捕獲效率較`低`，目前採用Drop-seq系統的為`Dolomite Bio`與`Illumina（ddSEQ）`。
+
+我們來看一下一個比較表([圖五](https://prelights.biologists.com/highlights/comparative-analysis-droplet-based-ultra-high-throughput-single-cell-rna-seq-systems/))
+
+![fig5](fig5.png 圖五 液滴系統比較)
+不難發現10x Genomics系統比較類似Drop-seq，但10X Genomics使用可溶解的beads，
+可溶解beads的的優點：
+1. 當beads溶解後，引子均勻地釋放到液滴中，提供了一個更加均一的反應環境。這能夠提高條形碼與mRNA分子的結合效率，從而提升cDNA合成的成功率
+2. 條碼在液滴中釋放後，分佈更均勻，減少了因beads表面接觸限制而導致的偏差，使得mRNA條形碼標記的均勻性更高。
+3. 利用同步分配技術（例如微流體設備中的精準控制），可實現更高的單細胞分離效率，降低雙細胞（doublet）的比例。
+4. 可溶解beads設計可減少環境RNA的污染，因為在釋放條形碼後，RNA分子更快地被捕獲並固定。
+
+---
+## Library 的準備與定序
+在短序列片段`（short-read sequencing）`的應用中，擴增後的cDNA（經由PCR）或RNA（經由IVT）會在加入`sequencing adaptor` 之前先進行片段化。片段化可透過`酵素（如tagmentase或DNase）`、化學方法（如使用鋅、醋酸鉀或醋酸鎂）或機械（如超聲波）來達成。接著，基於3'或5'的文庫會使用針對轉錄起點或終點的引子進行擴增。在此步驟中，可以加入一個pool-specific index，所以可以進行`multiplexing`。
+
+Full-length的方法僅在片段化之後才引入細胞專一的barcode，這會阻礙細胞在處理的早期階段進行混合。除了`STRT-seq`外，scRNA-seq文庫需要使用paired end sequencing，其中一端提供轉錄信息，另一個端則讀取single cell barcode與UMI。STRT-seq則將cell barcode與UMI嵌入到`5'轉錄末端`，因此序列之間並沒有被poly(T) oligonucleotides分隔開，這使得單一端點即可同時獲取細胞、分子與轉錄的相關信息。
+
+> 10X Genomics 的UMI與cell barcode與olgo(dT)都在同一端（5' end），捕獲mRNA後，transcript information往3' end延伸，所以光sequence 5' end 只能得到barcode與UMI訊息。
+
+微流體的實驗因為捕獲的細胞數量較大（RNA分子捕獲率相對較低），通常進行`較淺的定序深度（<100,000 reads/每細胞）`，而較高的定序深度`（~500,000 reads/每細胞）`則適用於microtiter plate。然而，雖然增加定序深度可以提高解析度（檢測更多基因及低表現的基因），我們`通常不會將單細胞文庫定序到飽和的程度`。Full-length轉錄組的splice variant需要更深度的定序，才能更準確地解析轉錄體的變異。
+
+
+---
+## 其他技術考量      
+### Cell doublets
+大多數基於微流體的方法有一個潛在的問題：每個反應位點（奈米孔或液滴）可能同時捕捉兩個細胞，這導致它們擁有相同的barcode，這種現象稱為`doublet`，而`doublet rate`可以透過物種混合實驗（species-mixture）來估算。
+
+Doublet的產生源於細胞在反應位點中的隨機分佈，其發生率與細胞懸浮液的濃度有關。對於Chromium系統，在每個液滴通道最多建議的10,000個細胞裝載量下，doublet rate呈線性關係（符合Poisson分佈），其推算的doublet rate範圍為2%（2,500個細胞）至8%（10,000個細胞）。其他微流體方法的doublet rate也類似：Drop-seq的雙胞率為0.36–11.3%（每微升12.5–100個細胞），InDrops為4%，Seq-Well則為1.6%。
+
+在`較高稀釋條件下`，doublet rate會降低，但這也表示每個實驗捕捉的總細胞數減少，進而提高每個細胞的試劑成本。研究人員可以部分克服這個問題，方法是同時捕捉來自不同個體的樣本，透過`基因型差異`來區分來源，從而可靠地識別doublet。具體而言，可以利用RNA定序讀段中的單核苷酸多樣性（SNP）來判斷細胞的供體來源，並區分在同一個batch中處理的樣本。然而，這種流程僅在實驗設計中涉及不同人類個體或具有明顯遺傳背景差異的時候才可行。
+
+目前，尚無能夠可靠辨識doublet的計算方法，因此必須透過實驗設計來將doublet rate降至最低。Doublet可能對數據解釋產生顯著影響，因為混合在一起的轉錄組可能被誤解為`中間的細胞狀態`，影響判讀。
+
+
+
+### Cell capture efficiency
+
+### Cost
+
+---
+
+## 數據處理
