@@ -3,7 +3,7 @@ title: 計算生物學聊聊：藥物開發的現況與挑戰
 date: 2024-12-15
 authors: ["戴揚紘", ""]
 commentable: true
-categories: [計算生物學,深度學習]
+categories: [計算生物學]
 tags: [Computational biology, Drug development]
 isCJKLanguage: true
 draft: false
