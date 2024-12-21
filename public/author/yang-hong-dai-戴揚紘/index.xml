@@ -5,7 +5,7 @@
     <link>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</link>
       <atom:link href="http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/index.xml" rel="self" type="application/rss+xml" />
     <description>Yang-Hong Dai 戴揚紘</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/avatar_hu9497666732678154168.jpg</url>
       <title>Yang-Hong Dai 戴揚紘</title>
@@ -13,9 +13,25 @@
     </image>
     
     <item>
+      <title>Sequence modeling and design from molecular to genome scale with Evo</title>
+      <link>http://localhost:1313/tech/tech3/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tech/tech3/</guid>
+      <description>&lt;p&gt;近期發表於《科學》期刊的研究介紹了Evo，一種具備7億參數的基因組基礎模型 (Foundation model)，能夠從單個核苷酸到整個基因組進行序列建模和設計。 Evo使用&lt;code&gt;StripedHyena&lt;/code&gt;架構，能夠以接近線性的計算和記憶體擴展來處理長序列，實現&lt;code&gt;單核苷酸&lt;/code&gt;級別的解析度。
+該模型在&lt;code&gt;OpenGenome&lt;/code&gt;資料集上進行訓練，該資料集包含約270萬個原核生物和噬菌體基因組序列，總計約3000億個標記。 Evo在DNA、RNA和蛋白質等多種生物模式下的&lt;code&gt;零樣本 (Zero shot)&lt;/code&gt;功能預測任務中表現出色，並能夠生成功能性生物系統，如CRISPR-Cas複合物和轉座子。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;架構：採用了 StripedHyena，這是一種&lt;code&gt;混合注意力-卷積架構&lt;/code&gt;，能夠以單核苷酸級別的解析度高效處理長序列數據。&lt;/li&gt;
+&lt;li&gt;訓練：基於 270 萬個基因組進行訓練，支持最長 131kb 的上下文長度。&lt;/li&gt;
+&lt;li&gt;應用：在突變效應的零樣本預測，以及操縱子、CRISPR 系統和大型基因組序列的生成方面有著出色表現。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;何謂zero-shot&#34;&gt;何謂Zero shot?&lt;/h2&gt;
+&lt;p&gt;Zero-shot prediction 指的是一種機器學習模型能夠在從未見過或未特別訓練過的任務上進行推斷和預測的能力。這種方法的核心理念是利用模型的泛化能力，讓模型在沒有明確針對目標任務的標訓練數據下，依賴其先前學到的知識完成新任務。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Yang-Hong Dai 戴揚紘</title>
       <link>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</link>
-      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/author/yang-hong-dai-%E6%88%B4%E6%8F%9A%E7%B4%98/</guid>
       <description>&lt;p&gt;我是一位專注於腫瘤學與免疫治療的放射腫瘤科醫師，致力於透過創新技術和研究推進癌症治療的發展。
 除了體外放射治療的研究，目前我正在深入研究標靶核種藥物(targeted radionuclide)的潛力，特別是針對 Lutetium-177-prostate specific membrane antigen(PSMA)治療。我也在探討這種治療是否能刺激免疫系統對抗癌細胞的潛力。我的研究不僅在優化治療策略，還希望透過大數據分析來探討各種癌症治療模式與免疫機制間的關係。&lt;/p&gt;
@@ -23,7 +39,216 @@
     </item>
     
     <item>
-      <title>計算生物學聊聊：藥物開發</title>
+      <title>迷你課程:Python-1~Python 字串操作與格式化</title>
+      <link>http://localhost:1313/post/minicoursepython1/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/minicoursepython1/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;在 Python 中，字串 (string) 是最常用的資料類型之一。掌握字串的基本操作和進階技巧，不僅能讓你的程式碼更簡潔，也能提升程式設計的靈活性。本文將基於範例程式碼進一步詳細講解，並延伸至更多實用的字串操作和格式化方法。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;輸出&#34;&gt;輸出&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這是 Python 中最基本的輸出語句，用於在terminal (終端) 顯示文字。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;字串格式化&#34;&gt;字串格式化&lt;/h2&gt;
+&lt;p&gt;Python 3.6 版之後引入&lt;code&gt;f-string&lt;/code&gt;的格式化方式，語法簡潔易懂。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Micha&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;格式化數字&#34;&gt;格式化數字&lt;/h2&gt;
+&lt;p&gt;可以針對一串數字中間加逗號，對一些需要這樣處理的數字很方便。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1234567&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: 1,234,567&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;保留小數位數&#34;&gt;保留小數位數&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1234.56789&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;.2f&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: 1234.57&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;跳脫字符&#34;&gt;跳脫字符&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;She said, &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;Hello!&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 使用 \\ 處理雙引號&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;She said, &amp;#34;Hello!&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;活用print&#34;&gt;活用print()&lt;/h2&gt;
+&lt;p&gt;要輸出的字可以在print()內用&lt;code&gt;+&lt;/code&gt;號來結合：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Micha&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HelloMicha
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但我們發現到兩個字串連在一起，這是因為&lt;code&gt;+&lt;/code&gt;會默認中間沒有空格，所以這樣的情況下應該要：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello &amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Micha&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果不要用&lt;code&gt;+&lt;/code&gt;，可以直接使用&lt;code&gt;,&lt;/code&gt;，這樣就不會默認中間沒有空格：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Micha&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;##輸出Hello Micha&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;當然，我們可以在print()內修改參數，讓上面的輸出沒有空格：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Micha&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sep&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;##輸出HelloMicha&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這是因為print() default中設定sep=&amp;rsquo; &amp;lsquo;，所以平時用逗號分割時中間會有空格。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;換行&#34;&gt;換行&lt;/h2&gt;
+&lt;p&gt;如果我們希望Micha出現在下一行該怎麼做？
+第一種最簡單的做法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Micha&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這是因為print() default 會有一個參數&lt;code&gt;end = &#39;\n&#39;&lt;/code&gt;，所以只要每一行都輸入print()，輸出就會分行。但這樣會增加代碼的行數，如果我們想要縮成一行該怎麼做？可以在中間插入&lt;code&gt;\n&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;Micha&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#輸出會跟上面一樣&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;使用者輸入&#34;&gt;使用者輸入&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;input()&lt;/code&gt; 函數接受使用者輸入：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;s your name? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;萬一使用者不小心輸入多餘的空格，我們可以用&lt;code&gt;strip()&lt;/code&gt;來處理：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 去除前後空白&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;輸入字母大寫&#34;&gt;輸入字母大寫&lt;/h2&gt;
+&lt;p&gt;可以針對輸入的字串做大寫轉換：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;micha&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;capitalize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#輸出Micha&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但如果想要輸入的多個字串都大小開頭，需要使用&lt;code&gt;title()&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;micha wu&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#輸出Micha Wu&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;整合處理&#34;&gt;整合處理&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;s your name? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;自串分割&#34;&gt;自串分割&lt;/h2&gt;
+&lt;p&gt;分割字串： 使用 &lt;code&gt;split()&lt;/code&gt; 方法將字串分割為多個部分：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Micha Wu&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;split&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: Micha&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;# 輸出: Wu&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;合併字串&#34;&gt;合併字串&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;join() &lt;/code&gt;方法將列表中的元素合併為字串：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;words&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;World&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sentence&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;join&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;words&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sentence&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: Hello World&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;替換字串&#34;&gt;替換字串&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;I love Micha!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;replace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Micha&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Red Bean&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: I love Red Bean!&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;搜尋字串&#34;&gt;搜尋字串&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;I love Micha!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;find&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Micha&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: 7 (Micha 的起始位置)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;其他搭配&#34;&gt;其他搭配&lt;/h2&gt;
+&lt;p&gt;字串的操作還可以搭配&lt;code&gt;isdigit()&lt;/code&gt;、&lt;code&gt;isalpha()&lt;/code&gt;、&lt;code&gt;isspace()&lt;/code&gt;等，讓字串的操作更為靈活。&lt;/p&gt;
+&lt;h2 id=&#34;小結&#34;&gt;小結&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;strong&gt;功能&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;操作方法&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;範例&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;輸出&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;基本輸出&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;print()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;print(&amp;quot;Hello, World!&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Hello, World!&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;格式化字串&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;f-string&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;name = &amp;quot;Micha&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(f&amp;quot;Hello, {name}!&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Hello, Micha!&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;數字加逗號&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;f-string 加千分位分隔符&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;z = 1234567&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(f&amp;quot;{z:,}&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;1,234,567&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;保留小數位數&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;f-string 保留小數點後兩位&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;z = 1234.56789&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(f&amp;quot;{z:.2f}&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;1234.57&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;跳脫字符&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;使用 &lt;code&gt;\&lt;/code&gt; 處理特殊字符&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;print(&amp;quot;She said, \&amp;quot;Hello!\&amp;quot;&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;She said, &amp;quot;Hello!&amp;quot;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;字串拼接&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;+&lt;/code&gt; 或 &lt;code&gt;,&lt;/code&gt; 進行字串拼接&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;print(&#39;Hello &#39;+&#39;Micha&#39;)&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(&#39;Hello&#39;, &#39;Micha&#39;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Hello Micha&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;字串合併&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;join()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;words = [&amp;quot;Hello&amp;quot;, &amp;quot;World&amp;quot;]&lt;/code&gt;&lt;br&gt;&lt;code&gt;sentence = &amp;quot; &amp;quot;.join(words)&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(sentence)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Hello World&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;換行輸出&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\n&lt;/code&gt; 或多次 &lt;code&gt;print()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;print(&#39;Hello \nMicha&#39;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Hello&lt;/code&gt;&lt;br&gt;&lt;code&gt;Micha&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;用戶輸入&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;input()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;name = input(&amp;quot;What&#39;s your name? &amp;quot;)&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(f&amp;quot;Hello, {name}!&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;根據使用者輸入&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;去除空白&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;strip()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;name = &amp;quot; Micha &amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(name.strip())&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Micha&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;首字母大寫&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;capitalize()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;name = &amp;quot;micha&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(name.capitalize())&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Micha&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;標題格式化&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;title()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;name = &amp;quot;micha wu&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(name.title())&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Micha Wu&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;分割字串&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;split()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;full_name = &amp;quot;Micha Wu&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;first, last = full_name.split(&amp;quot; &amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Micha&lt;/code&gt; 和 &lt;code&gt;Wu&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;替換字串&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;replace()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;text = &amp;quot;I love Micha!&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(text.replace(&amp;quot;Micha&amp;quot;, &amp;quot;Red Bean&amp;quot;))&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;I love Red Bean!&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;搜尋字串&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;find()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;text = &amp;quot;I love Micha!&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(text.find(&amp;quot;Micha&amp;quot;))&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;7&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;檢查字串內容&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;isdigit()&lt;/code&gt;, &lt;code&gt;isalpha()&lt;/code&gt;, &lt;code&gt;isspace()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;s = &amp;quot;12345&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(s.isdigit())&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;True&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;整合處理&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;strip() + title()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;name = input(&amp;quot;What&#39;s your name? &amp;quot;).strip().title()&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(f&amp;quot;Hello, {name}!&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;格式化的用戶輸入結果&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
+    
+    <item>
+      <title>計算生物學聊聊：藥物開發的現況與挑戰</title>
       <link>http://localhost:1313/post/compbio_drug/</link>
       <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/compbio_drug/</guid>
@@ -31,60 +256,63 @@
 &lt;p&gt;本篇介紹藥物開發的現況，筆記出自於美國麻省理工學院的計算生物學課程MLCB24。
 課程影片請看&lt;a href=&#34;https://www.youtube.com/watch?v=m_R_6ItR-qY&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;這裡&lt;/a&gt;。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;什麼是藥物&#34;&gt;什麼是藥物？&lt;/h2&gt;
-&lt;p&gt;為了有效了解藥物的開發過程，我們必須從定義藥物的資格開始，並了解它如何融入醫學科學的整體框架中。今天，藥物是經過廣泛測試和法規審查的物質，經批准後可用於治療用途。讓我們來探討什麼定義了藥物的技術細節、它的歷史背景以及從概念到市場的常見途徑。&lt;/p&gt;
-&lt;hr&gt;
 &lt;h2 id=&#34;藥物的定義&#34;&gt;藥物的定義&lt;/h2&gt;
-&lt;p&gt;從技術角度來說，藥物被定義為由官方藥典或配方手冊所認可的物質。它必須符合嚴格的標準，包括其成分、製造過程及純度等方面的詳細要求。這一定義的關鍵方面包括：&lt;/p&gt;
-&lt;p&gt;用途：藥物必須旨在用於診斷、治療、緩解、治癒或預防疾病。這一用途將它與其他物質或化合物區分開來。
-法規區分：藥物在法規上與食品和醫療器材分開進行管理。儘管存在像醫療食品這樣專為特定疾病的飲食需求而設計的特殊分類，但這些並未被歸類為藥物。此外，醫療器材雖然對醫療非常重要，但它們遵循獨立的法規。
-藥物主要分為兩大類：&lt;/p&gt;
-&lt;p&gt;小分子藥物：這些是化學合成的化合物，傳統上是製藥研究的重點，通常以口服或注射形式服用。
-生物製劑：這些是由活細胞或生物體生產的較大且更複雜的分子，包括抗體、疫苗和基因療法。生物製劑通常需要更複雜的製造過程及傳遞系統。
-藥物在人類歷史中的角色
-藥物的使用與發展深深植根於人類歷史，幾乎每個文化都探索過藥用物質。從歷史上看，早期的藥物發現通常來自天然來源，尤其是植物，並受到傳統知識的指導。以下是一些現代常見藥物起源於這些古代實踐的例子：&lt;/p&gt;
-&lt;p&gt;罌粟萃取物：歷史上用於止痛，罌粟萃取物促成了鴉片類藥物（例如嗎啡和可待因）的發現，這些藥物至今仍是疼痛管理的重要工具。
-柳樹皮：傳統上用於退燒，後來從中分離出水楊酸，成為阿司匹靈的基礎——這是最廣泛使用的抗炎和止痛藥之一。
-青蒿（Artemisia，甜艾草）：在中國醫學中被用於治療發燒，後來提供了強效抗瘧藥物青蒿素。
-這些例子說明了天然產物如何成為藥物發現的起點，而這一趨勢至今仍在持續。然而，現代的藥物開發方式已經大大進化，呈現出更加複雜的科學、法規和技術框架。&lt;/p&gt;
+&lt;p&gt;從技術角度來說，藥物被定義為由藥典或藥物配方手冊所認可的物質。它必須符合嚴格的標準，包括其成分、製造過程及純度等方面的要求。詳細的定義包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用途：藥物旨在用於診斷、治療、緩解、治癒或預防疾病。這一用途將它與其他物質或化合物區分開來。&lt;/li&gt;
+&lt;li&gt;法規：藥物在法規上與食品和醫療器材分開進行管理。儘管存在像醫療食品這樣專為特定疾病的飲食需求而設計的特殊分類，但這些並未被歸類為藥物。此外，醫療器材雖然對醫療非常重要，但它們遵循獨立的法規。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;藥物主要分為兩大類：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;小分子藥物：這些是&lt;code&gt;化學合成&lt;/code&gt;的化合物，傳統上是製藥研究的重點，通常以&lt;code&gt;口服&lt;/code&gt;或注射形式服用。&lt;/li&gt;
+&lt;li&gt;生物製劑：這些是由&lt;code&gt;活細胞&lt;/code&gt;或&lt;code&gt;生物體生產&lt;/code&gt;的較大且更複雜的分子，包括抗體、疫苗和基因療法。生物製劑通常需要更複雜的製造過程及保存系統。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;現代藥物發現與開發的框架&#34;&gt;現代藥物發現與開發的框架&lt;/h2&gt;
-&lt;p&gt;現代藥物開發過程是一個多層次且高度受法規約束的路徑，涵蓋了從初步發現到臨床測試和市場批准的各個階段。與傳統的試錯方法不同，今天的藥物發現受到化學、生物學及計算技術進步所驅動，並基於嚴謹的科學方法。這一現代框架確保了藥物不僅有效，而且對人體安全。&lt;/p&gt;
-&lt;p&gt;雖然我們將在未來的討論中深入探討機器學習和深度學習對此過程的貢獻，但理解藥物從構想到商品化的全過程，是認識其中複雜性和挑戰的關鍵基礎。&lt;/p&gt;
-&lt;p&gt;這一基礎為我們進一步探索現代工具（包括人工智慧）如何變革藥物發現，並更高效地解決未滿足的治療需求奠定了基礎。&lt;/p&gt;
+&lt;h2 id=&#34;藥物在人類歷史中的角色&#34;&gt;藥物在人類歷史中的角色&lt;/h2&gt;
+&lt;p&gt;藥物的使用與發展深深植根於人類歷史，幾乎每個文化都探索過藥用物質。從歷史上看，早期的藥物發現通常來自於大自然，尤其是植物，並受到傳統知識的傳承。以下是一些常見起源於古代的藥物：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;罌粟萃取物&lt;/code&gt;：歷史上用於止痛，罌粟萃取物促成了鴉片類藥物（例如嗎啡和可待因）的發現，這些藥物至今仍是疼痛管理的重要工具。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;柳樹皮&lt;/code&gt;：傳統上用於退燒，後來從中分離出水楊酸，成為阿司匹靈的基礎——這是最廣泛使用的抗炎和止痛藥之一。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;青蒿（Artemisia，甜艾草）&lt;/code&gt;：在中國醫學中被用於治療發燒，後來提供了強效抗瘧藥物青蒿素。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;這些例子說明了天然產物如何成為藥物發現的起點，而這一趨勢至今仍在持續。然而，現代的藥物開發方式已經大大進化，呈現出更加複雜的科學、法規和技術框架。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;現代藥物發現的框架&#34;&gt;現代藥物發現的框架&lt;/h2&gt;
-&lt;p&gt;現代藥物發現的框架是一個結構化、目標導向且跨學科的過程，其目的是將最初的科學見解轉化為具有商業價值的藥物。與傳統依賴機遇或簡單試錯的方法不同，現代藥物發現基於對分子途徑、疾病機制和目標治療設計的深入理解。&lt;/p&gt;
+&lt;p&gt;現代藥物發現的框架是一個&lt;code&gt;結構化&lt;/code&gt;、&lt;code&gt;目標導向&lt;/code&gt;且&lt;code&gt;跨學科&lt;/code&gt;的過程，其目的是將最初的科學研究轉化為具有商業價值的藥物。與傳統依賴運氣或簡單試錯的方法不同，現代藥物發現基於對分子途徑、疾病機制和目標治療設計的深入理解。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;從基礎科學到治療劑&#34;&gt;從基礎科學到治療劑&lt;/h2&gt;
+&lt;h2 id=&#34;從基礎科學到藥物治療&#34;&gt;從基礎科學到藥物治療&lt;/h2&gt;
 &lt;p&gt;藥物發現的過程始於對疾病相關分子途徑的科學研究。研究人員會找出疾病的靶點——一個對疾病病理至關重要的蛋白質、基因或細胞機制。通過理解這些靶點如何運作，他們可以有針對性地尋找能與靶點相互作用的治療劑，藉此改變或抑制其功能以產生有益效果。這些治療劑可以是小分子、生物製劑（如抗體）甚至是具有生物活性的天然產物。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;藥物發現的跨學科性&#34;&gt;藥物發現的跨學科性&lt;/h2&gt;
 &lt;p&gt;這個過程極具跨學科特性，需要以下專家的貢獻：&lt;/p&gt;
-&lt;p&gt;生物學家和化學家：理解疾病機制並設計具有預期特性的分子。
-工程師與生物資訊學專家：優化遞送系統和預測藥物行為的計算模型。
-計算生物學家：利用生物資訊工具分析複雜的生物數據，選擇有潛力的靶點並研究分子間的相互作用。
-商業與法務專家：確保過程符合法規標準並具有商業價值，處理知識產權（IP）與市場策略。
-現代藥物發現的協作特性需要數以千計的人員參與，並可能為單一藥物耗資超過10億美元。這種高成本部分源於像美國食品藥品監督管理局（FDA）等法規機構制定的嚴格標準，這些標準要求提供藥物有效性與安全性的廣泛證據。雖然這些標準保護患者安全，但同時大幅增加了開發過程的時間、複雜性及成本。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;生物學家和化學家&lt;/code&gt;：理解疾病機制並設計具有預期特性的分子。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;工程師與生物資訊學專家&lt;/code&gt;：優化配送系統和預測藥物行為的計算模型。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;計算生物學家&lt;/code&gt;：利用生物資訊工具分析複雜的生物數據，選擇有潛力的靶點並研究分子間的相互作用。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;商業與法務專家&lt;/code&gt;：確保過程符合法規標準並具有商業價值，處理知識產權（IP）與市場策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;現代藥物發現的協作特性需要數以千計的人員參與，並可能為單一藥物耗資超過10億美元。這種高成本部分源於像美國食品藥品監督管理局（FDA）等法規機構制定的嚴格標準，這些標準要求提供藥物有效性與安全性的證據。雖然這些標準保護患者安全，但同時大幅增加了開發過程的時間、複雜性及成本。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;商業模式在藥物開發中的角色&#34;&gt;商業模式在藥物開發中的角色&lt;/h2&gt;
-&lt;p&gt;製藥公司之所以願意投入藥物開發，是因為專利藥物的高利潤。然而，這種激勵旨在推動創新，但有時可能與治療需求相衝突。理想情況下，治療需求與市場激勵是一致的；然而，特別是在商業模式無法支持低市場吸引力領域的開發時，這種一致性並非總是存在。&lt;/p&gt;
-&lt;p&gt;例如，抗生素的開發便是一個獨特的案例。隨著抗生素耐藥性的增加，對新型抗生素的需求也愈發迫切，但開發它們的商業激勵卻非常薄弱。如果一家製藥公司開發了一種新抗生素，可以有效對抗耐藥細菌，最佳的使用策略可能是限制其在醫院或是社區的使用，以保持其效力並減少耐藥性的產生。然而，有限的使用會降低銷售量，使這種產品的利潤遠低於需要定期、長期使用的藥物。結果，儘管抗生素對全球健康至關重要，但過去幾十年裡新抗生素的投資卻很少。&lt;/p&gt;
+&lt;p&gt;製藥公司之所以願意投入藥物開發，是因為專利藥物的&lt;code&gt;高利潤&lt;/code&gt;。然而，這種激勵旨在推動創新，但有時可能與治療需求相衝突。理想情況下，治療需求與市場激勵是一致的；然而，特別是在商業模式無法支持低市場吸引力領域的開發時，這種一致性並非總是存在。&lt;/p&gt;
+&lt;p&gt;例如，&lt;code&gt;抗生素&lt;/code&gt;的開發便是一個獨特的案例。隨著抗生素耐藥性的增加，對新型抗生素的需求也愈發迫切，但開發它們的商業激勵卻非常薄弱。如果一家製藥公司開發了一種新抗生素，可以有效對抗耐藥細菌，最佳的使用策略可能是限制其在醫院或是社區的使用，以保持其效力並減少耐藥性的產生。然而，有限的使用會降低銷售量，使這種產品的利潤遠低於需要定期、長期使用的藥物。結果，儘管抗生素對全球健康至關重要，但過去幾十年裡新抗生素的投資卻很少。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;調整商業與治療需求的新模式&#34;&gt;調整商業與治療需求的新模式&lt;/h2&gt;
-&lt;p&gt;針對像抗生素這樣的案例，商業模式與公共健康需求之間的不匹配促使研究人員和政策制定者探索替代模式，包括：&lt;/p&gt;
-&lt;p&gt;政府資金和補貼：用於分攤開發成本並鼓勵對低市場回報領域的研究。
-訂閱模式：醫療系統支付固定金額以獲取抗生素，而不取決於其實際使用頻率，這樣可以讓公司有動機投資抗生素開發。
-專利延長與市場專有權：提供更長的專有期，以增加投資回報的可能性。
-現代藥物發現框架因此不僅是一個科學和技術的工程，也是一個法規和經濟的挑戰。&lt;/p&gt;
+&lt;p&gt;針對像抗生素這樣的案例，商業模式與公共衛生需求之間的不匹配促使研究人員和政策制定者探索替代模式，包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;政府資金和補貼&lt;/code&gt;：用於分攤開發成本並鼓勵對低市場回報領域的研究。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;訂閱模式&lt;/code&gt;：醫療系統支付固定金額以獲取抗生素，而不取決於其實際使用頻率，這樣可以讓公司有動機投資抗生素開發。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;專利延長與市場專有權（exclusivity）&lt;/code&gt;：提供更長的專有權，以增加投資回報的可能性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;現代藥物發現框架因此不僅是一個科學和技術的工程，也是一個法規和經濟的挑戰。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;藥物的類型&#34;&gt;藥物的類型&lt;/h2&gt;
 &lt;p&gt;在現代醫學中，藥物可以大致分為小分子藥物和生物製劑兩大類，每種類型都有獨特的特性、製造需求和法規途徑。除此之外，還有一些創新的藥物類別，例如活性生物治療劑與細胞療法，這些類別代表了治療開發的新前沿。&lt;/p&gt;
 &lt;h3 id=&#34;小分子藥物&#34;&gt;小分子藥物&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;小分子藥物&lt;/code&gt;是低分子量化合物（通常小於900 daltons），一般通過化學合成製備。這些藥物常從天然來源中提取的化合物進行優化，其分子小的特性使它們可以&lt;code&gt;穿透細胞膜&lt;/code&gt;，有效針對細胞內的蛋白質目標。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;合成方式：通常為化學合成，初期可能基於天然產物的結構改造。&lt;/li&gt;
-&lt;li&gt;給藥方式：多為口服，但有時會使用局部塗抹或注射方式。
+&lt;li&gt;&lt;code&gt;合成方式&lt;/code&gt;：通常為化學合成，初期可能基於天然產物的結構改造。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;給藥方式&lt;/code&gt;：多為口服，但有時會使用局部塗抹或注射方式。
 例子：阿司匹靈（aspirin）、二甲雙胍（metformin）及他汀類藥物（statins）。
 生物製劑&lt;/li&gt;
 &lt;li&gt;優點：口服、製備與分配簡易、製造成本較低。&lt;/li&gt;
@@ -104,166 +332,237 @@
 &lt;p&gt;細胞療法使用活細胞（通常是患者或捐贈者的細胞）來治療疾病，例如CAR-T細胞療法用於癌症治療，幹細胞療法則用於組織再生。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;藥物動力學pharmacokinetics-pk人體如何處理藥物&#34;&gt;藥物動力學（Pharmacokinetics, PK）：人體如何處理藥物&lt;/h2&gt;
-&lt;p&gt;藥物動力學是藥物開發中的核心概念，研究藥物進入人體後的作用過程。相對地，**藥效學（Pharmacodynamics, PD）**則專注於藥物對人體的作用。藥物動力學對於劑量設計、給藥方式、生物利用度和潛在副作用的評估至關重要。PK研究主要涉及四個階段：吸收、分布、代謝和排泄（ADME）。&lt;/p&gt;
-&lt;h3 id=&#34;吸收&#34;&gt;吸收&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;藥物動力學&lt;/code&gt;是藥物開發中的核心概念，研究藥物&lt;code&gt;進入人體後的作用過程&lt;/code&gt;。相對地，&lt;code&gt;藥效學（Pharmacodynamics, PD）&lt;/code&gt;則專注於藥物&lt;code&gt;對人體的作用&lt;/code&gt;。藥物動力學對於劑量設計、給藥方式、生物利用度和潛在副作用的評估非常重要。PK研究主要涉及四個階段：吸收、分布、代謝和排泄（縮寫：ADME）。&lt;/p&gt;
+&lt;h3 id=&#34;吸收absorption&#34;&gt;吸收（Absorption）&lt;/h3&gt;
 &lt;p&gt;吸收是藥物進入血液或作用部位的過程。影響吸收的因素包括：&lt;/p&gt;
-&lt;p&gt;給藥途徑：例如口服、靜脈注射或吸入。某些途徑能更快或更直接地實現吸收。
-藥物的化學特性：如親水性（溶於水）或疏水性（溶於脂肪）。
-環境條件：例如吸收部位的血流量與pH值，這些因素會增強或抑制藥物穿越細胞膜的能力。
-藥物的吸收效率決定了其生物利用度（bioavailability），即進入系統循環且以活性形式存在的藥物比例。&lt;/p&gt;
-&lt;h3 id=&#34;分布&#34;&gt;分布&lt;/h3&gt;
-&lt;p&gt;分布是指藥物從血液移動到身體不同組織和區隔的過程。關鍵考量包括：&lt;/p&gt;
-&lt;p&gt;血流量：高血流量的器官（如心臟和肝臟）通常更快接收藥物。
-蛋白質結合：藥物可能與血液中的血漿蛋白結合，從而限制了可自由發揮療效的藥物量。
-跨越選擇性屏障的能力：例如血腦屏障（BBB）。
-分布的一個關鍵指標是分布容積（Vd），它反映了藥物在身體中相對於血液中濃度的分散程度。&lt;/p&gt;
-&lt;h3 id=&#34;血腦屏障bbb&#34;&gt;血腦屏障（BBB）&lt;/h3&gt;
-&lt;p&gt;血腦屏障是分隔血液與大腦細胞外液的選擇性半透屏障。這一緊密結合的內皮細胞結構只允許特定分子通過，從而保護大腦免受潛在有害物質的侵害。然而，對於治療中樞神經系統疾病的藥物，血腦屏障會帶來挑戰：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;給藥途徑&lt;/code&gt;：例如口服、靜脈注射或吸入。某些途徑能更快或更直接地實現吸收。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;藥物的化學特性&lt;/code&gt;：如親水性（溶於水）或疏水性（溶於脂肪）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;環境條件&lt;/code&gt;：例如吸收部位的血流量與pH值，這些因素會增強或抑制藥物穿越細胞膜的能力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;藥物的吸收效率決定了其生物利用度（bioavailability），即進入系統循環且以活性形式存在的藥物比例。&lt;/p&gt;
+&lt;h3 id=&#34;分布-distribution&#34;&gt;分布 (Distribution)&lt;/h3&gt;
+&lt;p&gt;分布是指藥物從血液移動到身體不同組織的過程。關鍵考量包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;血流量&lt;/code&gt;：高血流量的器官（如心臟和肝臟）通常更快接收藥物。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;蛋白質結合&lt;/code&gt;：藥物可能與血液中的血漿蛋白結合，從而&lt;code&gt;限制&lt;/code&gt;了可自由發揮療效的藥物量。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;跨越選擇性屏障的能力&lt;/code&gt;：例如&lt;code&gt;血腦屏障（BBB）&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;分布的一個關鍵指標是&lt;code&gt;分布容積（Vd）&lt;/code&gt;，它反映了藥物在身體中相對於血液中濃度的分散程度。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;血腦屏障&lt;/code&gt;是分隔血液與大腦細胞外液的選擇性半透屏障。這一緊密結合的&lt;code&gt;內皮細胞結構&lt;/code&gt;只允許特定分子通過，從而保護大腦免受潛在有害物質的侵害。然而，對於治療中樞神經系統疾病的藥物，血腦屏障會帶來挑戰：&lt;/p&gt;
 &lt;p&gt;大分子或親水性分子難以穿透血腦屏障。
-解決策略：
-設計具有更高血腦屏障穿透性的藥物。
-使用納米粒子傳遞系統幫助藥物穿越屏障。
-鼻腔給藥，通過鼻腔直接進入神經通路繞過血腦屏障。&lt;/p&gt;
-&lt;h3 id=&#34;代謝&#34;&gt;代謝&lt;/h3&gt;
+解決策略：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;設計具有更高血腦屏障穿透性的藥物。&lt;/li&gt;
+&lt;li&gt;使用奈米粒子傳輸系統幫助藥物穿越屏障。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;鼻腔給藥&lt;/code&gt;：通過鼻腔直接進入神經通路繞過血腦屏障，但是如果想要藥物在腦中有&lt;code&gt;較高&lt;/code&gt;的劑量，這種方式效果較差。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;代謝-metabolism&#34;&gt;代謝 (Metabolism)&lt;/h3&gt;
 &lt;p&gt;代謝將藥物轉化為更易於排泄的水溶性形式，主要在肝臟中進行，分為兩個階段：&lt;/p&gt;
-&lt;p&gt;修飾（Phase I）：包括酶（如細胞色素P450家族）的氧化或還原作用，使藥物變得更具反應性。
-結合（Phase II）：增加極性基團（如葡萄糖醛酸化），提升藥物的溶解性，便於排泄。
-代謝可能激活藥物、將其轉化為不活躍的代謝產物，或者在某些情況下產生有毒的中間產物。例如，對乙醯氨基酚（acetaminophen）在高劑量下會生成一種有毒中間產物，可能導致肝損傷。&lt;/p&gt;
-&lt;h3 id=&#34;排泄&#34;&gt;排泄&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;修飾（Phase I）&lt;/code&gt;：包括酶（如細胞色素P450家族）的氧化或還原作用，使藥物變得更具&lt;code&gt;反應性&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;結合（Phase II）&lt;/code&gt;：增加極性基團（如葡萄糖醛酸化），提升藥物的溶解性，便於排泄。
+代謝可能活化藥物、將其轉化為不活躍的代謝產物，或者在某些情況下產生有毒的中間產物。例如，對乙醯氨基酚（acetaminophen）在高劑量下會生成一種&lt;code&gt;有毒中間產物&lt;/code&gt;，可能導致肝損傷。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;排泄-excretion&#34;&gt;排泄 (Excretion)&lt;/h3&gt;
 &lt;p&gt;排泄是將藥物及其代謝物從體內移除的過程。常見途徑包括：&lt;/p&gt;
-&lt;p&gt;腎臟（尿液）：最常見的排泄方式，處理水溶性代謝物。
-肝臟（膽汁）：某些代謝物通過膽汁分泌，最終經糞便排泄。
-其他途徑：如汗液、呼吸和母乳，但這些途徑的貢獻較小。
-排泄的效率影響藥物的半衰期（half-life），這對於確定劑量頻率以維持治療水平而不引起毒性非常重要。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;腎臟（尿液）&lt;/code&gt;：最常見的排泄方式，處理水溶性代謝物。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;肝臟（膽汁）&lt;/code&gt;：某些代謝物通過膽汁分泌，最終經糞便排泄。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;其他途徑&lt;/code&gt;：如汗液、呼吸和母乳，但這些途徑的貢獻較小。
+排泄的效率影響藥物的半衰期（half-life），這對於確定給藥頻率以維持治療濃度且不引起毒性非常重要 (圖一)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖一&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig1&#34; srcset=&#34;
+               /post/compbio_drug/fig1_hu14414697526844801796.webp 400w,
+               /post/compbio_drug/fig1_hu5525642444733473667.webp 760w,
+               /post/compbio_drug/fig1_hu11859840641213679159.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_drug/fig1_hu14414697526844801796.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;499&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖一
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;modelling-of-pk&#34;&gt;Modelling of PK&lt;/h3&gt;
+&lt;p&gt;有兩種方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;One component model&lt;/code&gt;：假設人體是一個單一的均勻區室，藥物在進入人體後立即均勻分布整個區室，並隨時間經由代謝或排泄而逐漸被清除。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Two component model&lt;/code&gt;：描述藥物在體內分佈（Distribution phase）與排除（Elimination phase）的過程，分成中央區室與周邊區室，比單一區室的模型更為準確。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;藥效學pharmacodynamics-pd藥物對人體的作用&#34;&gt;藥效學（Pharmacodynamics, PD）：藥物對人體的作用&lt;/h2&gt;
 &lt;p&gt;藥效學研究藥物如何與受體、酶或其他細胞靶點作用以產生生物學反應，重點包括藥物作用機制、劑量-反應關係以及治療效果與毒性效應的區分。深入了解藥效學有助於設計療效最大化、副作用最小化的藥物。&lt;/p&gt;
 &lt;h3 id=&#34;藥物與受體的相互作用&#34;&gt;藥物與受體的相互作用&lt;/h3&gt;
 &lt;p&gt;大多數小分子藥物通過與特定受體（通常是細胞信號通路或酶作用相關的蛋白質）結合來發揮作用。主要的交互方式包括：&lt;/p&gt;
-&lt;p&gt;激動劑（Agonists）：激活目標受體以產生生物反應。
-拮抗劑（Antagonists）：與受體結合但阻止其激活，有效抑制反應。
-部分激動劑（Partial Agonists）：與受體結合並激活受體，但反應較全激動劑弱。
-親和力與效價&lt;/p&gt;
-&lt;p&gt;親和力（Affinity）：描述藥物與受體的結合強度。高親和力的藥物更容易結合，且效果更持久。
-效價（Potency）：通常用半最大有效濃度（EC50）衡量，即藥物達到50%最大效果所需的濃度。
-劑量-反應關係&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;活化劑（Agonists&lt;/code&gt;）：活化目標受體以產生生物反應。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;拮抗劑（Antagonists）&lt;/code&gt;：與受體結合但阻止其活化，有效抑制反應。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;部分活化劑（Partial Agonists）&lt;/code&gt;：與受體結合並活化受體，但反應較全活化劑弱。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;親和力與效價&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;親和力（Affinity）&lt;/code&gt;：描述藥物與受體的結合強度。高親和力的藥物更容易結合，且效果更持久。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;效價（Potency）&lt;/code&gt;：通常用半最大有效濃度（EC50）衡量，即藥物達到50%最大效果所需的濃度。&lt;/li&gt;
+&lt;li&gt;劑量-反應關係&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;劑量-反應曲線顯示藥物劑量與生物效應的關係。關鍵指標包括：&lt;/p&gt;
-&lt;p&gt;最大效應（Emax）：藥物能產生的最大效果。
-治療窗（Therapeutic Window）：能夠產生治療效果而不引起毒性的劑量範圍。
-接下來我會繼續翻譯 藥物開發過程（54:15） 和後續段落。請稍候！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;最大效應（Emax）&lt;/code&gt;：藥物能產生的最大效果，無關劑量。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;藥效（Efficacy）&lt;/code&gt;：藥物能達到的藥效，在合理劑量內。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;治療窗（Therapeutic Window）&lt;/code&gt;：能夠產生治療效果而不引起毒性的劑量範圍。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;藥物毒理學toxicology評估藥物的安全性與副作用&#34;&gt;藥物毒理學（Toxicology）：評估藥物的安全性與副作用&lt;/h2&gt;
+&lt;p&gt;毒理學是研究藥物潛在不良反應的學科，在藥物被批准使用之前，確保其安全性是非常重要的。這一領域評估藥物在各種系統與情境下中毒的風險，確保藥物在達成治療目標的同時，不會對健康造成不可接受的影響。&lt;/p&gt;
+&lt;p&gt;毒理學研究涵蓋藥物安全性的多個面向，包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;急性毒性&lt;/code&gt;：觀察藥物給藥後的即時反應，幫助識別早期副作用或毒性反應。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DNA損傷&lt;/code&gt;：測試藥物是否會導致基因毒性效應，如突變或致癌風險。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;生殖健康&lt;/code&gt;：評估藥物對生育能力、胎兒發育及後代健康的影響，這對於針對育齡人群的藥物尤為重要。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;致癌性&lt;/code&gt;：研究長期暴露於藥物是否會增加癌症風險。這類研究通常耗時且成本高，需進行長期觀察。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;此外，還會針對特定器官進行毒性研究，例如中樞神經系統、呼吸系統和心血管系統。這些研究通常在動物模型中進行，以確保在人類試驗之前，不會出現嚴重器官損害。&lt;/p&gt;
+&lt;h3 id=&#34;治療指數therapeutic-index-ti與其重要性&#34;&gt;治療指數（Therapeutic Index, TI）與其重要性&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;治療指數（TI&lt;/code&gt;）是衡量藥物安全性的重要指標，反映藥物的有效劑量與毒性劑量之間的差距：&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+TI = TD50/ED50
+$$
+&lt;/div&gt;
+TD50: 導致一半群體產生毒性的劑量。
+ED50: 一半群體產生治療效果的劑量。
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;高TI&lt;/code&gt;：顯示有效劑量與毒性劑量之間有較大空間，使用起來更&lt;code&gt;安全&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;低TI&lt;/code&gt;：表示有效劑量與毒性劑量相距較近，用藥時需要更加謹慎。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如，抗凝血藥物華法林（warfarin）具有窄治療指數（narrow TI）。劑量過低無法有效防止血栓，劑量過高則可能導致危險的出血。此外，腸道菌群對華法林的代謝因人而異，進一步增加了劑量調整的挑戰。&lt;/p&gt;
+&lt;h3 id=&#34;藥物交互作用&#34;&gt;藥物交互作用&lt;/h3&gt;
+&lt;p&gt;藥物可能通過以下方式相互作用，增強或減弱其作用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;協同作用（Synergistic Interactions）&lt;/code&gt;：兩種藥物的聯合作用超過單獨使用的總和。例如，酒精與鎮靜劑都會抑制中樞神經系統，聯合使用可能導致危險的過度鎮靜效應。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;拮抗作用（Antagonistic Interactions）&lt;/code&gt;：一種藥物可能阻斷或抵消另一種藥物的作用。例如，納洛酮（naloxone）通過與鴉片受體結合阻止鴉片類藥物的作用，因此被用作鴉片過量的解毒劑。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;加和效應（Additive Effects）&lt;/code&gt;：某些藥物的聯合作用僅是其單獨作用的總和。例如，降壓藥聯合使用可能更有效地降低血壓，但需謹慎避免過度降壓。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;藥物開發的步驟&#34;&gt;藥物開發的步驟&lt;/h2&gt;
 &lt;p&gt;藥物開發是一個高度結構化、多階段的過程，從針對疾病的初步構想到可上市的藥物，期間經歷了大量科學驗證、候選化合物的優化及安全性和有效性的廣泛測試。以下是這一過程的主要階段：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;靶點識別（Target Identification）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;第一步是識別一個靶點——通常是一個與疾病機制密切相關的蛋白質或基因。靶點選擇基於生物資訊學、基因組學和蛋白質組學，並常使用高通量篩選技術或生物資訊工具。關鍵考量包括：&lt;/p&gt;
-&lt;p&gt;與疾病的關聯性：該靶點在疾病中有多重要？
-可藥性（Druggability）：小分子或生物製劑是否能有效地與該靶點結合？
-結構可用性：是否存在靶點的結構數據或預測（如使用AlphaFold）來指導分子結合設計？
-靶點通常包括酶、受體或疾病機制中關鍵的信號蛋白。然而，一些靶點可能具有挑戰性，例如無穩定結合位點的無序蛋白或大的平面結構的轉錄因子。&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;靶點驗證（Target Validation）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;在靶點識別之後，靶點驗證旨在確認其在疾病中具有因果作用。常見的驗證技術包括：&lt;/p&gt;
-&lt;p&gt;CRISPR篩選與基因過表達研究：操控基因活性並觀察結果。
-動物模型：模擬疾病狀態。
-生物標誌物分析：在人類樣本中驗證疾病相關性，提供早期治療效果的線索。
-靶點驗證對於確認調節該靶點是否能帶來治療效果至關重要，避免將無效或無關的靶點列為研究對象。&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;命中化合物識別（Hit Identification）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;在確認靶點後，下一步是識別與靶點相互作用的潛在化合物（命中化合物）。方法包括：&lt;/p&gt;
-&lt;p&gt;高通量篩選（HTS）：使用生化或細胞篩選方法對大量化學庫進行篩選以找到初步活性化合物。
-片段篩選：使用較小的化學片段高濃度結合靶點，然後擴展為更有效的化合物。
-虛擬篩選：使用計算方法基於靶點結構預測化合物的結合能力，利用分子對接與機器學習技術。
-命中化合物識別是一個篩選過程，通常從數百萬個化合物中選出少量具有良好結合特性的化合物。&lt;/p&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;命中到先導優化（Hit-to-Lead Optimization）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;選定命中化合物後，進一步優化其結構並研究結構活性關係（SAR），以提升結合親和力、特異性和藥物動力學特性：&lt;/p&gt;
-&lt;p&gt;對化學結構進行迭代修改，提升療效、減少脫靶效應，並改進穩定性和溶解度。
-初步進行藥物動力學評估（如吸收、分布、代謝、排泄）。
-這一步驟旨在將具有潛力的命中化合物轉化為先導化合物，為後續深入研究做好準備。&lt;/p&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;先導化合物優化（Lead Optimization）&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&#34;靶點識別target-identification&#34;&gt;靶點識別（Target Identification）&lt;/h3&gt;
+&lt;p&gt;第一步是識別一個靶點——通常是一個與疾病機制密切相關的蛋白質或基因。靶點選擇基於&lt;code&gt;生物資訊學&lt;/code&gt;、&lt;code&gt;基因組學&lt;/code&gt;和&lt;code&gt;蛋白質組學&lt;/code&gt;，並常使用高通量篩選技術或生物資訊工具。關鍵考量包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;與疾病的關聯性&lt;/code&gt;：該靶點在疾病中有多重要？&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;可藥性（Druggability&lt;/code&gt;）：小分子或生物製劑是否能有效地與該靶點結合？&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;結構可用性&lt;/code&gt;：是否存在靶點的結構數據或預測（如使用AlphaFold）來指導分子結合設計？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;靶點通常包括酶、受體或疾病機制中關鍵的信號蛋白。然而，一些靶點可能具有挑戰性，例如&lt;code&gt;無穩定結合位點的無序蛋白&lt;/code&gt;或&lt;code&gt;大的平面結構的轉錄因子&lt;/code&gt;。這種情況下，可以考慮生物製劑（單株抗體）或是基因治療（利用CRISPR）。&lt;/p&gt;
+&lt;h3 id=&#34;靶點驗證target-validation&#34;&gt;靶點驗證（Target Validation）&lt;/h3&gt;
+&lt;p&gt;在靶點識別之後，靶點驗證旨在確認其在疾病中真的具有療效。常見的驗證技術包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;CRISPR篩選&lt;/code&gt;與基因過表達研究：操控基因活性並觀察結果。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;動物模型&lt;/code&gt;：模擬疾病狀態。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;生物標誌物分析&lt;/code&gt;：在人類樣本中驗證疾病相關性，提供早期治療效果的線索。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;靶點驗證對於確認調節該靶點是否能帶來治療效果非常重要，避免將無效或無關的靶點列為研究對象。&lt;/p&gt;
+&lt;h3 id=&#34;命中化合物識別hit-identification&#34;&gt;命中化合物識別（Hit Identification）&lt;/h3&gt;
+&lt;p&gt;在確認靶點後，下一步是識別與靶點相互作用的潛在化合物（hits）。方法包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;高通量篩選（HTS）&lt;/code&gt;：使用&lt;code&gt;生化&lt;/code&gt;或&lt;code&gt;細胞篩選&lt;/code&gt;方法對大量化學庫進行篩選以找到初步活性化合物。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;片段篩選&lt;/code&gt;：使用&lt;code&gt;較小的化學片段 (fragment-based)&lt;/code&gt;結合靶點，然後擴展為更有效的化合物。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;虛擬篩選&lt;/code&gt;：使用計算方法基於靶點結構預測化合物的結合能力，利用&lt;code&gt;分子對接&lt;/code&gt;與&lt;code&gt;機器學習技術&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;命中化合物識別是一個篩選過程，通常從數百萬個化合物中選出少量具有良好結合特性的化合物。&lt;/p&gt;
+&lt;h3 id=&#34;命中到先導優化hit-to-lead-optimization&#34;&gt;命中到先導優化（Hit-to-Lead Optimization）&lt;/h3&gt;
+&lt;p&gt;選定命中化合物後，進一步優化其結構並研究結構活性關係（&lt;code&gt;structure-activity relationship, SAR）&lt;/code&gt;，以提升結合親和力、特異性和藥物動力學特性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;對化學結構進行迭代修改&lt;/code&gt;，提升療效、減少脫靶效應，並改進穩定性和溶解度。一些方式包含：fuctional group modification、chain length alteration、ring modification、isosteric replacement、QSAR等。&lt;/li&gt;
+&lt;li&gt;初步進行藥物動力學評估（如吸收、分布、代謝、排泄）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;這一步驟旨在將具有潛力的命中化合物轉化為先導化合物，為後續深入研究做好準備。&lt;/p&gt;
+&lt;h3 id=&#34;先導化合物優化lead-optimization&#34;&gt;先導化合物優化（Lead Optimization）&lt;/h3&gt;
 &lt;p&gt;在這一階段，對先導化合物進行深入的化學與生物物理研究，進一步優化：&lt;/p&gt;
-&lt;p&gt;提升結合親和力：提高藥效。
-減少脫靶效應：降低毒性風險。
-優化藥物動力學特性：改進半衰期與生物利用度。
-在疾病模型中的療效：確保早期測試中的療效在更複雜的模型中同樣適用。
-最終選出的候選化合物將平衡治療效力與安全性，為臨床前與臨床研究鋪平道路。&lt;/p&gt;
-&lt;p&gt;關鍵概念&lt;/p&gt;
-&lt;p&gt;結構活性關係（SAR）：分子結構與生物活性之間的關係，指導化學修改以提升活性或降低副作用。
-可藥性：靶點能否被藥物有效調節，受靶點結構特性影響。
-高通量篩選（HTS）：快速測試大量化合物是否對靶點具有活性。
-總結&lt;/p&gt;
-&lt;p&gt;藥物開發是一個漸進的多階段過程，包括深度的生物學驗證、化學優化和早期藥理測試。每一階段都對候選化合物進行篩選與改進，從數千個可能性中精選出少數精心設計的化合物。到進入臨床試驗時，候選藥物已經過嚴格測試與優化，確保其在目標疾病中的成功可能性最大化。&lt;/p&gt;
-&lt;h2 id=&#34;藥物毒理學toxicology評估藥物的安全性與副作用&#34;&gt;藥物毒理學（Toxicology）：評估藥物的安全性與副作用&lt;/h2&gt;
-&lt;p&gt;毒理學是研究藥物潛在不良反應的學科，在藥物被批准使用之前，確保其安全性是至關重要的。這一領域評估藥物在各種系統與情境下的毒性風險，確保藥物在達成治療目標的同時，不會對健康造成不可接受的風險。&lt;/p&gt;
-&lt;p&gt;毒理學研究的類型&lt;/p&gt;
-&lt;p&gt;毒理學研究涵蓋藥物安全性的多個維度，包括：&lt;/p&gt;
-&lt;p&gt;急性毒性：觀察藥物給藥後的即時反應，幫助識別早期副作用或毒性反應。
-DNA損傷：測試藥物是否會導致基因毒性效應，如突變或致癌風險。
-生殖健康：評估藥物對生育能力、胎兒發育及後代健康的影響，這對於針對育齡人群的藥物尤為重要。
-致癌性：研究長期暴露於藥物是否會增加癌症風險。這類研究通常耗時且成本高，需進行長期觀察。
-此外，還會針對特定器官進行毒性研究，例如中樞神經系統、呼吸系統和心血管系統。這些研究通常在動物模型中進行，以確保在人類試驗之前，不會出現嚴重器官損害。&lt;/p&gt;
-&lt;p&gt;治療指數（Therapeutic Index, TI）與其重要性&lt;/p&gt;
-&lt;p&gt;治療指數（TI）是衡量藥物安全性的重要指標，反映藥物的有效劑量與毒性劑量之間的差距：&lt;/p&gt;
-&lt;p&gt;高TI：顯示有效劑量與毒性劑量之間有較大空間，使用起來更安全。
-低TI：表示有效劑量與毒性劑量相距較近，用藥時需要更加謹慎。
-例如，抗凝血藥物華法林（warfarin）具有窄治療指數（narrow TI）。劑量過低無法有效防止血栓，劑量過高則可能導致危險的出血。此外，腸道菌群對華法林的代謝因人而異，進一步增加了劑量調整的挑戰。&lt;/p&gt;
-&lt;p&gt;藥物交互作用&lt;/p&gt;
-&lt;p&gt;藥物可能通過以下方式相互作用，增強或減弱其作用：&lt;/p&gt;
-&lt;p&gt;協同作用（Synergistic Interactions）：兩種藥物的聯合作用超過單獨使用的總和。例如，酒精與鎮靜劑都會抑制中樞神經系統，聯合使用可能導致危險的過度鎮靜效應。
-拮抗作用（Antagonistic Interactions）：一種藥物可能阻斷或抵消另一種藥物的作用。例如，納洛酮（naloxone）通過與鴉片受體結合阻止鴉片類藥物的作用，因此被用作鴉片過量的解毒劑。
-加和效應（Additive Effects）：某些藥物的聯合作用僅是其單獨作用的總和。例如，降壓藥聯合使用可能更有效地降低血壓，但需謹慎避免過度降壓。
-結論&lt;/p&gt;
-&lt;p&gt;毒理學提供了藥物使用可能風險的全貌，從急性反應到長期對基因穩定性與器官健康的影響。高治療指數與謹慎評估藥物交互作用是確保藥物在多樣化患者群體中安全使用的核心。通過這些研究，毒理學確保藥物能夠提供最大療效的同時，將風險降至最低。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;提升結合親和力&lt;/code&gt;：提高藥效。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;減少脫靶效應&lt;/code&gt;：降低毒性風險。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;優化藥物動力學特性&lt;/code&gt;：改進半衰期與生物利用度。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;在疾病模型中的療效&lt;/code&gt;：確保早期測試中的療效在更複雜的模型中同樣適用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最終選出的候選化合物將平衡治療效力與安全性，為臨床前與臨床研究鋪平道路。&lt;/p&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;藥物開發的時間線&#34;&gt;藥物開發的時間線&lt;/h2&gt;
-&lt;p&gt;藥物開發時間線漫長且嚴格，反映出高標準要求以確保療效與安全性。從初始的藥物發現到獲批上市，這一過程通常耗時數十年，涵蓋多個階段，每個階段都面臨顯著挑戰與法規監督。&lt;/p&gt;
-&lt;p&gt;藥物發現階段&lt;/p&gt;
+&lt;p&gt;藥物開發時間線漫長且嚴格，反映出高標準要求以確保療效與安全性。從初始的藥物發現到獲批上市，這一過程通常耗時數十年，涵蓋多個階段，每個階段都面臨顯著挑戰與法規的監督。&lt;/p&gt;
+&lt;h3 id=&#34;藥物發現階段&#34;&gt;藥物發現階段&lt;/h3&gt;
 &lt;p&gt;這一階段可能耗時數年甚至數十年，包括靶點識別、命中化合物發現及先導化合物的早期優化。
-許多初始候選化合物因缺乏療效或安全性問題而被淘汰，只有少數進入下一階段。
-臨床前測試&lt;/p&gt;
+許多初始候選化合物因缺乏療效或安全性問題而被淘汰，只有少數進入下一階段。&lt;/p&gt;
+&lt;h3 id=&#34;臨床前測試&#34;&gt;臨床前測試&lt;/h3&gt;
 &lt;p&gt;一旦確定了有潛力的先導化合物，便進行臨床前測試，主要在細胞培養和動物模型中進行。
-這一階段評估藥物的基礎療效、毒性、藥物動力學（PK）和藥效學（PD）。
-研究結果用於支持提交給FDA的新藥臨床試驗申請（IND）。
-IND申請&lt;/p&gt;
+這一階段評估藥物的基礎療效、毒性、藥物動力學和藥效學。
+研究結果用於支持提交給FDA的新藥臨床試驗申請（IND）。&lt;/p&gt;
+&lt;h3 id=&#34;ind申請&#34;&gt;IND申請&lt;/h3&gt;
 &lt;p&gt;提交IND申請是臨床試驗開始前的關鍵步驟。該申請包含安全性數據、製造信息以及擬定的臨床試驗計劃。
-如果FDA在指定時間內無異議，藥物開發方即可進行I期臨床試驗。
-臨床試驗階段&lt;/p&gt;
+如果FDA在指定時間內無異議，藥物開發方即可進行I期臨床試驗。&lt;/p&gt;
+&lt;h3 id=&#34;臨床試驗階段&#34;&gt;臨床試驗階段&lt;/h3&gt;
 &lt;p&gt;臨床試驗分為三個主要階段，每個階段回答關於藥物的特定問題：&lt;/p&gt;
-&lt;p&gt;I期：安全性與劑量
-在20-80名健康志願者或患者中進行，主要評估安全性並確定適當的劑量範圍。
-目標是建立初步的PK/PD特性，並識別潛在副作用。
-II期：療效與副作用
-包括數十到數百名患有目標疾病的患者。
-著重於劑量方案的優化，並檢測早期療效。
-該階段為決定是否進一步投入昂貴的III期試驗提供關鍵數據。
-III期：大規模測試
-涉及數百到數千名患者，提供獲得法規批准所需的全面數據。
-該階段確認療效，監測副作用，並收集廣泛患者群體的綜合安全數據。
-上市後監測（IV期）&lt;/p&gt;
-&lt;p&gt;獲批後的IV期研究或上市後監測，持續觀察藥物在普通人群中的表現。
-此階段評估長期安全性，可能揭示在臨床試驗中未觀察到的罕見副作用。
-成功率與淘汰率&lt;/p&gt;
-&lt;p&gt;整個過程中藥物的淘汰率極高，進入臨床試驗的藥物中僅約14%最終獲批。
-例如，癌症藥物的成功率更低，從I期至上市的成功率僅約3%。
-財務影響&lt;/p&gt;
-&lt;p&gt;藥物開發成本極高，單一藥物平均耗資約10億美元。
-成本涵蓋了成功藥物與失敗試驗的總和，FDA批准過程本身也涉及高昂的行業費用，例如IND和新藥申請（NDA）的提交費用。
-結論&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;I期&lt;/code&gt;：安全性與劑量~在20-80名健康志願者或患者中進行，主要評估&lt;code&gt;安全性&lt;/code&gt;並確定&lt;code&gt;適當的劑量範圍&lt;/code&gt;。目標是建立初步的PK/PD特性，並找出潛在&lt;code&gt;副作用&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;II期&lt;/code&gt;：療效與副作用~包括數十到數百名患有目標疾病的患者。著重於&lt;code&gt;劑量方案的優化&lt;/code&gt;，並&lt;code&gt;檢測早期療效&lt;/code&gt;。該階段為決定&lt;code&gt;是否進一步投入昂貴的III期試驗&lt;/code&gt;提供關鍵數據。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;III期&lt;/code&gt;：大規模測試~涉及&lt;code&gt;數百到數千名患者&lt;/code&gt;，提供獲得法規批准所需的全面數據。該階段&lt;code&gt;確認療效&lt;/code&gt;，監測副作用，並收集患者群體的綜合安全數據。&lt;/li&gt;
+&lt;li&gt;上市後監測（IV期）~獲批後的IV期研究或上市後監測，持續觀察藥物在普通人群中的表現。此階段評估長期安全性，可能揭示在臨床試驗中未觀察到的罕見副作用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;成功率與淘汰率&#34;&gt;成功率與淘汰率&lt;/h3&gt;
+&lt;p&gt;整個過程中藥物的淘汰率極高，進入臨床試驗的藥物中僅約14%得以批准上市。例如，&lt;code&gt;癌症藥物的成功率更低&lt;/code&gt;，從I期至上市的成功率僅約&lt;code&gt;3%&lt;/code&gt;（圖二）。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖二-第二期試驗的成功率最低&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig2&#34; srcset=&#34;
+               /post/compbio_drug/fig2_hu16441939913604798509.webp 400w,
+               /post/compbio_drug/fig2_hu890291919401304658.webp 760w,
+               /post/compbio_drug/fig2_hu14679296414677028875.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_drug/fig2_hu16441939913604798509.webp&#34;
+               width=&#34;644&#34;
+               height=&#34;636&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖二 第二期試驗的成功率最低
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;財務影響&#34;&gt;財務影響&lt;/h3&gt;
+&lt;p&gt;藥物開發成本極高，單一藥物平均耗資約10億美元。成本涵蓋了成功藥物與失敗試驗的總和，FDA批准過程本身也涉及高昂的行業費用，例如IND和新藥申請（NDA）的提交費用。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
 &lt;p&gt;藥物開發是一個複雜、多階段的過程，需耗費大量時間、資源與法規合規性。這一漫長的時間線和高淘汰率凸顯了開發安全有效藥物的困難與昂貴，強調了精準與創新的重要性。未來，我們將進一步探索現代計算技術如何縮短藥物開發時間線，提高成功率並降低總成本。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>迷你課程:Python-1~</title>
-      <link>http://localhost:1313/post/minicoursepython1/</link>
-      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/minicoursepython1/</guid>
-      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;</description>
     </item>
     
     <item>
@@ -757,9 +1056,47 @@ III期：大規模測試
 &lt;p&gt;在&lt;code&gt;較高稀釋條件下&lt;/code&gt;，doublet rate會降低，但這也表示每個實驗捕捉的總細胞數減少，進而提高每個細胞的試劑成本。研究人員可以部分克服這個問題，方法是同時捕捉來自不同個體的樣本，透過&lt;code&gt;基因型差異&lt;/code&gt;來區分來源，從而可靠地識別doublet。具體而言，可以利用RNA定序讀段中的單核苷酸多樣性（SNP）來判斷細胞的供體來源，並區分在同一個batch中處理的樣本。然而，這種流程僅在實驗設計中涉及不同人類個體或具有明顯遺傳背景差異的時候才可行。&lt;/p&gt;
 &lt;p&gt;目前，尚無能夠可靠辨識doublet的計算方法，因此必須透過實驗設計來將doublet rate降至最低。Doublet可能對數據解釋產生顯著影響，因為混合在一起的轉錄組可能被誤解為&lt;code&gt;中間的細胞狀態&lt;/code&gt;，影響判讀。&lt;/p&gt;
 &lt;h3 id=&#34;cell-capture-efficiency&#34;&gt;Cell capture efficiency&lt;/h3&gt;
+&lt;p&gt;細胞捕獲效率是實驗中一個重要的考量因素，特別是在涉及primary cell或rare samples的實驗中。而獲得條碼的細胞數量與進入下游分析的樣本比例直接相關。&lt;/p&gt;
+&lt;p&gt;FACS方法的捕獲效率受限於設備在不同孔之間移動所需的時間。為了最大化FACS方法的捕獲率，可以稀釋並以低速率（例如每秒100個細胞）對細胞懸浮液進行sorting。&lt;/p&gt;
+&lt;p&gt;微流體技術在捕獲效率上與FACS有明顯的差異，主要取決於細胞和珠子的裝載機制。HT-IFC系統最多能從6,000個注入的細胞中捕獲800個細胞。&lt;/p&gt;
+&lt;p&gt;而在奈米孔系統中，細胞通過極限稀釋法進行裝載（無需分選），細胞靠&lt;code&gt;重力&lt;/code&gt;進入反應位點，通常具有較高的效率。例如，在&lt;code&gt;Seq-Well&lt;/code&gt;系統中，將10,000個細胞加入到陣列表面後，約有3,000個細胞能被捕獲。&lt;/p&gt;
+&lt;p&gt;對於液滴式系統，細胞進入分析的速率與珠子的裝載效率直接相關。當大多數液滴中含有條碼珠時，細胞捕獲效率最佳（例如inDrops系統）。相反，如果珠子和細胞通過極限稀釋進行封裝，大部分細胞無法進入含有珠子的液滴中，導致較低的捕獲效率（例如Drop-seq系統）。&lt;/p&gt;
 &lt;h3 id=&#34;cost&#34;&gt;Cost&lt;/h3&gt;
+&lt;p&gt;scRNA-seq實驗的總成本主要由三個部分決定：&lt;code&gt;設備&lt;/code&gt;、&lt;code&gt;試劑&lt;/code&gt;和&lt;code&gt;測序&lt;/code&gt;。對於大多數方法而言，scRNA-seq文庫製備的成本隨著細胞數量呈線性增加；然而，自製液滴法是個例外。各種方法和不同研究機構之間，每個細胞的實際成本差異很大。微流體系統的成本通常較低（每個細胞低於0.30美元），而early indexing plate-based的3&amp;rsquo;端digital counting的方式成本較高（約每個細胞1–2美元）。而late indexing plate-based的full-length轉錄組分析成本更高，即便反應體積較小，每個細胞仍需約8–12美元。&lt;/p&gt;
+&lt;p&gt;然而，透過使用&lt;code&gt;非商業化的tagmentase&lt;/code&gt;或最小化反應體積，並針對plate-based採用自動化工作流程，可以有效降低成本。此外，微孔板可進行運輸和儲存，這使得樣本採集地點可以與scRNA-seq流程分離，從而將昂貴的設備集中於核心實驗室，實現最佳的資源管理。&lt;/p&gt;
+&lt;p&gt;儘管文庫製備的成本正在迅速下降，&lt;code&gt;測序成本&lt;/code&gt;卻逐漸成為主要因素。具有更高分子捕獲效率的方法能夠產生更複雜的測序文庫，因此即便在較低的測序深度下也能提供豐富的資訊。因此，更高效的scRNA-seq方法雖然增加了文庫製備的成本，但可以&lt;code&gt;透過降低整體測序成本來進行彌補&lt;/code&gt;。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;數據處理&#34;&gt;數據處理&lt;/h2&gt;</description>
+&lt;h2 id=&#34;數據處理&#34;&gt;數據處理&lt;/h2&gt;
+&lt;p&gt;資料處理包括將原始測序轉換為基因表達矩陣的所有步驟，這些工作流程與傳統bulk RNA-seq的處理流程類似。當生成FASTQ檔案並使用工具，如&lt;a href=&#34;http://www.bioinformatics.babraham.ac.uk/projects/fastqc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;FastQC&lt;/a&gt;進行quality control後，下一個重要步驟是使用&lt;code&gt;細胞條碼&lt;/code&gt;對reads進行&lt;code&gt;去重複索引（de-multiplexing)&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;去重複索引後的reads會使用比對工具（如&lt;code&gt;TopHat&lt;/code&gt;和&lt;code&gt;STAR&lt;/code&gt;）與參考基因組進行比對，其中STAR已被證實準確性優異，對splice variant的辨識也相當靈敏。近年來的新型比對工具經過優化，能在不損失準確性的前提下，快速處理大規模數據集。例如，&lt;code&gt;Kallisto&lt;/code&gt;透過&lt;code&gt;pseudo-alignment&lt;/code&gt;，而非逐個鹼基的比對，大幅縮短了比對時間，快上兩個量級。&lt;/p&gt;
+&lt;p&gt;在最終的處理步驟中，經比對的reads在定量後會轉成基因表達矩陣。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;RSEM&lt;/code&gt;、&lt;code&gt;Cufflinks&lt;/code&gt; 和 &lt;code&gt;HTSeq&lt;/code&gt; 適用於full-length轉錄組數據的定量。
+而對於UMI標記數據類型，如考慮&lt;code&gt;UMI序列中出現的測序錯誤&lt;/code&gt;，則可以使用UMI-tools。
+除了專門處理各個步驟的工具之外，還有整合的單細胞數據處理工作流程，這些流程結合了比對和定量步驟，並包含對reads和細胞的quality control。例如，&lt;code&gt;Ilicic&lt;/code&gt; 等人開發的一個支援多種比對和定量工具，並包括過濾低質量細胞的模組。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Scater&lt;/code&gt; 提供了一個的組織化的工作流程，將原始測序reads轉換為&lt;code&gt;單細胞表達集合（SCESet）&lt;/code&gt;類別 (class)，這是一種&lt;code&gt;數據結構&lt;/code&gt;，有助於數據的處理和分析。&lt;/p&gt;
+&lt;p&gt;此外，還有其他工作流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;zUMI&lt;/code&gt;、&lt;code&gt;scPIPE&lt;/code&gt; 和 &lt;code&gt;SEQC&lt;/code&gt; 適用於UMI數據，這些流程是基於特定protocol設計的。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Cell Ranger&lt;/code&gt; 則是專為Chromium系統設計的流程。&lt;/li&gt;
+&lt;li&gt;最後，&lt;a href=&#34;http://www.scRNA-tools.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;scRNA-tools資料庫&lt;/a&gt;提供了一個完整的清單，列出用於數據處理和分析的計算工具。這些方法根據&lt;code&gt;分析任務&lt;/code&gt;進行分類，研究人員可以根據所需的分析類型選擇合適的工具。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;normalization&#34;&gt;Normalization&lt;/h3&gt;
+&lt;p&gt;scRNA-seq數據存在不少噪音與變異性，來源包括技術處理流程、如dropout events、biased amplification與不完整的文庫建立。技術性變異也包含不同的樣本處理時機、時間點與儀器等因素。除此之外，生物因素也佔了不小因素，導致分析上的複雜度增加，如不同的細胞大小、RNA內容物、不同的細胞週期與性別差異等。因此，數據的標準化是產生有意義數據前最重要的一環。&lt;/p&gt;
+&lt;p&gt;過去真對bulk RNA-seq開發的標準化方法，如log-expression、trimmed mean M-values與upper-quartiles可以拿來用在scRNA-seq的分析上，但近期也針對這種特殊的數據出現的不少的標準化方法，如&lt;code&gt;SCnorm&lt;/code&gt;與&lt;code&gt;SCRAN&lt;/code&gt;，可以針對組間與細胞因素做標準化。&lt;/p&gt;
+&lt;p&gt;然而，對大規模的數據變異來源，直接建立模型是比較標準的做法，例如將干擾因素（confounding factor）當作變數納入回歸模型，來校正數據的分佈。&lt;/p&gt;
+&lt;p&gt;例外對batch effect來說，通常是用視覺化的方式如PCA來偵測，而&lt;code&gt;kBET&lt;/code&gt;利用&lt;code&gt;k nearest neighbors&lt;/code&gt;，量化&lt;code&gt;組內&lt;/code&gt;與&lt;code&gt;組間&lt;/code&gt;的batch effect，發現結合&lt;code&gt;(log normalization或SCRAN pooling)&lt;/code&gt;與&lt;code&gt;(ComBat或是limma)&lt;/code&gt;等可以提供最佳的校正後數據，同時保存生物學意義。&lt;/p&gt;
+&lt;p&gt;如果數據收集時間的不同、不同個體、或是來自不同的scRNA-seq的技術都會導致數據出現嚴重的batch effect。Haghverdi等人提出基於&lt;code&gt;mutual nearest neighbors的方式&lt;/code&gt;，利用共同的subset population來校正不同實驗間的batch effect。此外，&lt;code&gt;Biscuit （Bayesian inference for single-cell clustering and imputing）&lt;/code&gt;利用基因表現相似性與共表達特徵來推論細胞群集，藉此校正細胞間的技術性變異。&lt;/p&gt;
+&lt;p&gt;常用來處理單細胞數據的Seurat也有針對常見變異來源做校正與整合，也推出新的方法來找出不同數據集共同的細胞族群及進行 &lt;code&gt;比較性分析&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;imputation-and-gene-selection&#34;&gt;Imputation and gene selection&lt;/h3&gt;
+&lt;p&gt;因為scRNA-seq的數據集非常&lt;code&gt;稀疏 (sparse)&lt;/code&gt;，會影響細胞表型的辨別與判讀，例如很多沒有表現的基因或是&lt;code&gt;dropout events&lt;/code&gt;會導致數據矩陣出現很多&lt;code&gt;0&lt;/code&gt;。為了降低矩陣的稀疏性，缺失的transcripts可以用估計的方式來補足，例如&lt;code&gt;MAGIC&lt;/code&gt;使用&lt;code&gt;diffusion map&lt;/code&gt; 來還原缺失的數據。而&lt;code&gt;scImpute&lt;/code&gt;利用擬合一個混合模型來學習基因的dropout 機率，並使用相似的細胞來推論可能的dropout events。&lt;/p&gt;
+&lt;p&gt;針對樣本的&lt;code&gt;異質性&lt;/code&gt;，常見的方式是分析&lt;code&gt;不同數據集&lt;/code&gt;之間高表達變異度的基因，先完整的用&lt;code&gt;特徵選取&lt;/code&gt;來移除噪音較多的基因不僅可以增加訊號與雜訊的比例，也可以降低計算的複雜度。常用的策略是探討&lt;code&gt;mean transcript abundance&lt;/code&gt;與數據的離散程度 (dispersion)、負二項分佈 (negative binomial distribution)的離散參數 (dispersion parameter) 或是總變異 (total variability) 比例之間的關係。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;高變異度的基因，在去除技術性外在因素之後，可以用來解釋生物性上的差異與生物異質性。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;data-analysis&#34;&gt;Data analysis&lt;/h3&gt;
+&lt;p&gt;scRNA-seq實驗的許多目的是評估樣本的異質性及找出&lt;code&gt;新的細胞類型與狀態&lt;/code&gt;。我們通常可以利用&lt;code&gt;共表達矩陣&lt;/code&gt;與&lt;code&gt;細胞相似性的clustering&lt;/code&gt;來達成。細胞的聚集可以用&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;</description>
     </item>
     
     <item>
@@ -1465,6 +1802,186 @@ $$
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;</description>
+    </item>
+    
+    <item>
+      <title>迷你課程:R語言-2~R的字串操作</title>
+      <link>http://localhost:1313/post/minicourser5/</link>
+      <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/minicourser5/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;本次課程將介紹 R 語言中與&lt;strong&gt;字串&lt;/strong&gt;相關的各種操作方法，包括字串的建立、分割、拼接、取子字串、查找與替換，以及字串的轉換與處理。&lt;/p&gt;
+&lt;p&gt;R 中的字串屬於 &lt;code&gt;character&lt;/code&gt; 類型，是一種重要的資料結構，特別是在文字處理、資料清理與分析中經常使用。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;字串的建立&#34;&gt;字串的建立&lt;/h2&gt;
+&lt;p&gt;在 R 中，字串用雙引號 &lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt; 或單引號 &lt;code&gt;&#39;&#39;&lt;/code&gt; 建立：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 建立字串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;R is powerful!&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看字串類型&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;str1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;character&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;若需包含雙引號或單引號，可以用反斜槓 &lt;code&gt;\&lt;/code&gt; 進行轉義：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;He said, \&amp;#34;R is amazing!\&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;str3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 輸出: He said, &amp;#34;R is amazing!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;字串的基本操作&#34;&gt;字串的基本操作&lt;/h2&gt;
+&lt;h3 id=&#34;1-拼接字串&#34;&gt;1. &lt;strong&gt;拼接字串&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;paste()&lt;/code&gt; 和 &lt;code&gt;paste0()&lt;/code&gt; 函數來拼接字串：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;paste()&lt;/code&gt;: 會自動加入分隔符（預設為空格）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;paste0()&lt;/code&gt;: 不加入任何分隔符&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 拼接字串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;first_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;James&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;last_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;paste&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;first_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;James Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 無分隔符拼接&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;full_name_no_space&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;paste0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;first_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name_no_space&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;JamesDai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-字串長度&#34;&gt;2. &lt;strong&gt;字串長度&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;nchar()&lt;/code&gt; 函數計算字串的長度：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;nchar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: 9&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-取子字串&#34;&gt;3. &lt;strong&gt;取子字串&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;substr()&lt;/code&gt; 和 &lt;code&gt;substring()&lt;/code&gt; 提取字串的特定部分：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 提取子字串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;substr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 從第1個字元到第5個字元&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;James&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# substring 的用法&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;substring&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 從第7個字元開始到結尾&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;字串的分割&#34;&gt;字串的分割&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;strsplit()&lt;/code&gt; 函數根據指定分隔符分割字串：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 分割字串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sentence&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;apple,banana,cherry&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;words&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;strsplit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sentence&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;,&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;words[[1]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;apple&amp;#34; &amp;#34;banana&amp;#34; &amp;#34;cherry&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;注意：&lt;code&gt;strsplit()&lt;/code&gt; 返回的是一個列表，因此要用 &lt;code&gt;[[1]]&lt;/code&gt; 提取結果。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;使用-tidyverse-的-separate-分割資料框中的字串&#34;&gt;使用 &lt;code&gt;tidyverse&lt;/code&gt; 的 &lt;code&gt;separate()&lt;/code&gt; 分割資料框中的字串&lt;/h3&gt;
+&lt;p&gt;如果有多筆名字資料，&lt;code&gt;tidyverse&lt;/code&gt; 提供了一個方便的函數 &lt;code&gt;separate()&lt;/code&gt; 來分割字串，並將其拆分成多個欄位：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tidyverse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 建立資料框&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name_data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;tibble&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;James Dai&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Anna Smith&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;John Doe&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 使用 separate 分割 full_name 欄位&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name_data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name_data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;separate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;into&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;first_name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;last_name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sep&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看結果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name_data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;輸出結果&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# A tibble: 3 x 2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  first_name last_name
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1 James      Dai      
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2 Anna       Smith    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3 John       Doe      
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;字串的查找與替換&#34;&gt;字串的查找與替換&lt;/h2&gt;
+&lt;h3 id=&#34;1-查找特定字串&#34;&gt;1. &lt;strong&gt;查找特定字串&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;grep()&lt;/code&gt; 或 &lt;code&gt;grepl()&lt;/code&gt; 來查找字串：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;grep()&lt;/code&gt;: 返回匹配的索引位置&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grepl()&lt;/code&gt;: 返回布林值向量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查找字串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;fruits&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;apple&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;banana&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;cherry&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;grep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;apple&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fruits&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: 1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;contains_apple&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;grepl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;apple&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fruits&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;contains_apple&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: TRUE FALSE FALSE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-替換字串&#34;&gt;2. &lt;strong&gt;替換字串&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;gsub()&lt;/code&gt; 和 &lt;code&gt;sub()&lt;/code&gt; 進行字串替換：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;gsub()&lt;/code&gt;: 替換所有匹配的字串&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sub()&lt;/code&gt;: 只替換第一個匹配的字串&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 替換字串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;I love R. R is amazing!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;new_text&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;gsub&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;R&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Python&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;new_text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;I love Python. Python is amazing!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;字串的類型轉換-coercion&#34;&gt;字串的類型轉換 (Coercion)&lt;/h2&gt;
+&lt;p&gt;在 R 中，當不同類型的資料組合時，R 會自動進行 &lt;code&gt;coercion&lt;/code&gt;（類型強制轉換）。字串會被視為&lt;strong&gt;最高類型&lt;/strong&gt;，並將其他資料類型轉換成 &lt;code&gt;character&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 自動轉換&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;mixed_vec&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;R&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mixed_vec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;R&amp;#34; &amp;#34;1&amp;#34; &amp;#34;TRUE&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 手動轉換&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;num_to_char&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;as.character&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;123&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num_to_char&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;123&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;char_to_num&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;as.numeric&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;123&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;char_to_num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: 123&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;字串與-s4-物件的轉換&#34;&gt;字串與 S4 物件的轉換&lt;/h2&gt;
+&lt;p&gt;對於複雜結構的物件，可以使用 &lt;code&gt;as()&lt;/code&gt; 進行轉換：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 使用 as 進行轉換&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;s4_object&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;x&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;y&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;z&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;character&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s4_object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;x&amp;#34; &amp;#34;y&amp;#34; &amp;#34;z&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;課程小結&#34;&gt;課程小結&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;操作類型&lt;/th&gt;
+          &lt;th&gt;函數名稱&lt;/th&gt;
+          &lt;th&gt;範例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;字串拼接&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;paste()&lt;/code&gt;, &lt;code&gt;paste0()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;paste(&amp;quot;James&amp;quot;, &amp;quot;Dai&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;取字串長度&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;nchar()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;nchar(&amp;quot;James&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;提取子字串&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;substr()&lt;/code&gt;, &lt;code&gt;substring()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;substr(&amp;quot;James&amp;quot;, 1, 3)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;分割字串&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;strsplit()&lt;/code&gt;, &lt;code&gt;separate()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;strsplit(&amp;quot;a,b,c&amp;quot;, &amp;quot;,&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查找字串&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;grep()&lt;/code&gt;, &lt;code&gt;grepl()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;grep(&amp;quot;apple&amp;quot;, fruits)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;替換字串&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;gsub()&lt;/code&gt;, &lt;code&gt;sub()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;gsub(&amp;quot;R&amp;quot;, &amp;quot;Python&amp;quot;, text)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;類型轉換&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;as.character()&lt;/code&gt;, &lt;code&gt;as.numeric()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;as.character(123)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;掌握這些字串操作技巧，將能有效地處理各種文字資料，並在資料分析、清洗與視覺化過程中發揮重要作用！&lt;/p&gt;</description>
     </item>
     
     <item>

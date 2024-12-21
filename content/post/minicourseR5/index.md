@@ -1,10 +1,10 @@
 ---
-title: 迷你課程:R語言-2~R的字串操作
-date: 2024-12-05
+title: 迷你課程:R語言-5~R的字串操作
+date: 2024-12-15
 authors: ["戴揚紘", ""]
 commentable: true
 categories: [R語言迷你課程]
-tags: [R, coding, 字串操作]
+tags: [R, coding]
 isCJKLanguage: true
 draft: false
 ---
@@ -29,7 +29,7 @@ str2 <- 'R is powerful!'
 class(str1)  # 輸出: "character"
 ```
 
-若需包含雙引號或單引號，可以用反斜槓 `\` 進行轉義：
+若需包含雙引號或單引號，可以用反斜槓 `\` 進行跳脫：
 ```r
 str3 <- "He said, \"R is amazing!\""
 print(str3)

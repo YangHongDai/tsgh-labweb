@@ -5,12 +5,222 @@
     <link>http://localhost:1313/post/</link>
       <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     <description>精選文章</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>精選文章</title>
       <link>http://localhost:1313/post/</link>
     </image>
+    
+    <item>
+      <title>迷你課程:Python-1~字串操作與格式化</title>
+      <link>http://localhost:1313/post/minicoursepython1/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/minicoursepython1/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;在 Python 中，字串 (string) 是最常用的資料類型之一。掌握字串的基本操作和進階技巧，不僅能讓你的程式碼更簡潔，也能提升程式設計的靈活性。本文將基於範例程式碼進一步詳細講解，並延伸至更多實用的字串操作和格式化方法。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;輸出&#34;&gt;輸出&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這是 Python 中最基本的輸出語句，用於在terminal (終端) 顯示文字。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;字串格式化&#34;&gt;字串格式化&lt;/h2&gt;
+&lt;p&gt;Python 3.6 版之後引入&lt;code&gt;f-string&lt;/code&gt;的格式化方式，語法簡潔易懂。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Micha&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;格式化數字&#34;&gt;格式化數字&lt;/h2&gt;
+&lt;p&gt;可以針對一串數字中間加逗號，對一些需要這樣處理的數字很方便。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1234567&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: 1,234,567&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;保留小數位數&#34;&gt;保留小數位數&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;1234.56789&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;z&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;.2f&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: 1234.57&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;跳脫字符&#34;&gt;跳脫字符&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;She said, &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;Hello!&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 使用 \\ 處理雙引號&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;She said, &amp;#34;Hello!&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;活用print&#34;&gt;活用print()&lt;/h2&gt;
+&lt;p&gt;要輸出的字可以在print()內用&lt;code&gt;+&lt;/code&gt;號來結合：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Micha&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HelloMicha
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但我們發現到兩個字串連在一起，這是因為&lt;code&gt;+&lt;/code&gt;會默認中間沒有空格，所以這樣的情況下應該要：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello &amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Micha&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果不要用&lt;code&gt;+&lt;/code&gt;，可以直接使用&lt;code&gt;,&lt;/code&gt;，這樣就不會默認中間沒有空格：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Micha&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;##輸出Hello Micha&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;當然，我們可以在print()內修改參數，讓上面的輸出沒有空格：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Micha&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sep&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;##輸出HelloMicha&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這是因為print() default中設定sep=&amp;rsquo; &amp;lsquo;，所以平時用逗號分割時中間會有空格。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;換行&#34;&gt;換行&lt;/h2&gt;
+&lt;p&gt;如果我們希望Micha出現在下一行該怎麼做？
+第一種最簡單的做法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Micha&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這是因為print() default 會有一個參數&lt;code&gt;end = &#39;\n&#39;&lt;/code&gt;，所以只要每一行都輸入print()，輸出就會分行。但這樣會增加代碼的行數，如果我們想要縮成一行該怎麼做？可以在中間插入&lt;code&gt;\n&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;Micha&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#輸出會跟上面一樣&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;使用者輸入&#34;&gt;使用者輸入&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;input()&lt;/code&gt; 函數接受使用者輸入：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;s your name? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;萬一使用者不小心輸入多餘的空格，我們可以用&lt;code&gt;strip()&lt;/code&gt;來處理：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 去除前後空白&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;輸入字母大寫&#34;&gt;輸入字母大寫&lt;/h2&gt;
+&lt;p&gt;可以針對輸入的字串做大寫轉換：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;micha&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;capitalize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#輸出Micha&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但如果想要輸入的多個字串都大小開頭，需要使用&lt;code&gt;title()&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;micha wu&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#輸出Micha Wu&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;整合處理&#34;&gt;整合處理&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;s your name? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;自串分割&#34;&gt;自串分割&lt;/h2&gt;
+&lt;p&gt;分割字串： 使用 &lt;code&gt;split()&lt;/code&gt; 方法將字串分割為多個部分：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Micha Wu&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;split&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: Micha&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;# 輸出: Wu&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;合併字串&#34;&gt;合併字串&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;join() &lt;/code&gt;方法將列表中的元素合併為字串：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;words&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;World&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sentence&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;join&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;words&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sentence&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: Hello World&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;替換字串&#34;&gt;替換字串&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;I love Micha!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;replace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Micha&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Red Bean&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: I love Red Bean!&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;搜尋字串&#34;&gt;搜尋字串&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;I love Micha!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;find&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Micha&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: 7 (Micha 的起始位置)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;其他搭配&#34;&gt;其他搭配&lt;/h2&gt;
+&lt;p&gt;字串的操作還可以搭配&lt;code&gt;isdigit()&lt;/code&gt;、&lt;code&gt;isalpha()&lt;/code&gt;、&lt;code&gt;isspace()&lt;/code&gt;等，讓字串的操作更為靈活。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;課程小結&#34;&gt;課程小結&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;strong&gt;功能&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;操作方法&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;範例&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;輸出&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;基本輸出&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;print()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;print(&amp;quot;Hello, World!&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Hello, World!&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;格式化字串&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;f-string&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;name = &amp;quot;Micha&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(f&amp;quot;Hello, {name}!&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Hello, Micha!&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;數字加逗號&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;f-string 加千分位分隔符&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;z = 1234567&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(f&amp;quot;{z:,}&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;1,234,567&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;保留小數位數&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;f-string 保留小數點後兩位&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;z = 1234.56789&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(f&amp;quot;{z:.2f}&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;1234.57&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;跳脫字符&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;使用 &lt;code&gt;\&lt;/code&gt; 處理特殊字符&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;print(&amp;quot;She said, \&amp;quot;Hello!\&amp;quot;&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;She said, &amp;quot;Hello!&amp;quot;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;字串拼接&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;+&lt;/code&gt; 或 &lt;code&gt;,&lt;/code&gt; 進行字串拼接&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;print(&#39;Hello &#39;+&#39;Micha&#39;)&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(&#39;Hello&#39;, &#39;Micha&#39;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Hello Micha&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;字串合併&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;join()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;words = [&amp;quot;Hello&amp;quot;, &amp;quot;World&amp;quot;]&lt;/code&gt;&lt;br&gt;&lt;code&gt;sentence = &amp;quot; &amp;quot;.join(words)&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(sentence)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Hello World&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;換行輸出&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\n&lt;/code&gt; 或多次 &lt;code&gt;print()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;print(&#39;Hello \nMicha&#39;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Hello&lt;/code&gt;&lt;br&gt;&lt;code&gt;Micha&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;用戶輸入&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;input()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;name = input(&amp;quot;What&#39;s your name? &amp;quot;)&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(f&amp;quot;Hello, {name}!&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;根據使用者輸入&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;去除空白&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;strip()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;name = &amp;quot; Micha &amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(name.strip())&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Micha&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;首字母大寫&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;capitalize()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;name = &amp;quot;micha&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(name.capitalize())&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Micha&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;標題格式化&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;title()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;name = &amp;quot;micha wu&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(name.title())&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Micha Wu&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;分割字串&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;split()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;full_name = &amp;quot;Micha Wu&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;first, last = full_name.split(&amp;quot; &amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;Micha&lt;/code&gt; 和 &lt;code&gt;Wu&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;替換字串&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;replace()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;text = &amp;quot;I love Micha!&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(text.replace(&amp;quot;Micha&amp;quot;, &amp;quot;Red Bean&amp;quot;))&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;I love Red Bean!&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;搜尋字串&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;find()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;text = &amp;quot;I love Micha!&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(text.find(&amp;quot;Micha&amp;quot;))&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;7&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;檢查字串內容&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;isdigit()&lt;/code&gt;, &lt;code&gt;isalpha()&lt;/code&gt;, &lt;code&gt;isspace()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;s = &amp;quot;12345&amp;quot;&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(s.isdigit())&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;True&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;整合處理&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;strip() + title()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;name = input(&amp;quot;What&#39;s your name? &amp;quot;).strip().title()&lt;/code&gt;&lt;br&gt;&lt;code&gt;print(f&amp;quot;Hello, {name}!&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;格式化的用戶輸入結果&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
     
     <item>
       <title>計算生物學聊聊：藥物開發的現況與挑戰</title>
@@ -331,11 +541,183 @@ ED50: 一半群體產生治療效果的劑量。
     </item>
     
     <item>
-      <title>迷你課程:Python-1~</title>
-      <link>http://localhost:1313/post/minicoursepython1/</link>
+      <title>迷你課程:R語言-5~R的字串操作</title>
+      <link>http://localhost:1313/post/minicourser5/</link>
       <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/minicoursepython1/</guid>
-      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;</description>
+      <guid>http://localhost:1313/post/minicourser5/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;本次課程將介紹 R 語言中與&lt;strong&gt;字串&lt;/strong&gt;相關的各種操作方法，包括字串的建立、分割、拼接、取子字串、查找與替換，以及字串的轉換與處理。&lt;/p&gt;
+&lt;p&gt;R 中的字串屬於 &lt;code&gt;character&lt;/code&gt; 類型，是一種重要的資料結構，特別是在文字處理、資料清理與分析中經常使用。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;字串的建立&#34;&gt;字串的建立&lt;/h2&gt;
+&lt;p&gt;在 R 中，字串用雙引號 &lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt; 或單引號 &lt;code&gt;&#39;&#39;&lt;/code&gt; 建立：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 建立字串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;R is powerful!&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看字串類型&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;str1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;character&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;若需包含雙引號或單引號，可以用反斜槓 &lt;code&gt;\&lt;/code&gt; 進行跳脫：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;He said, \&amp;#34;R is amazing!\&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;str3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 輸出: He said, &amp;#34;R is amazing!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;字串的基本操作&#34;&gt;字串的基本操作&lt;/h2&gt;
+&lt;h3 id=&#34;1-拼接字串&#34;&gt;1. &lt;strong&gt;拼接字串&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;paste()&lt;/code&gt; 和 &lt;code&gt;paste0()&lt;/code&gt; 函數來拼接字串：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;paste()&lt;/code&gt;: 會自動加入分隔符（預設為空格）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;paste0()&lt;/code&gt;: 不加入任何分隔符&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 拼接字串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;first_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;James&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;last_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;paste&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;first_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;James Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 無分隔符拼接&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;full_name_no_space&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;paste0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;first_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name_no_space&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;JamesDai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-字串長度&#34;&gt;2. &lt;strong&gt;字串長度&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;nchar()&lt;/code&gt; 函數計算字串的長度：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;nchar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: 9&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-取子字串&#34;&gt;3. &lt;strong&gt;取子字串&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;substr()&lt;/code&gt; 和 &lt;code&gt;substring()&lt;/code&gt; 提取字串的特定部分：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 提取子字串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;substr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 從第1個字元到第5個字元&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;James&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# substring 的用法&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;substring&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 從第7個字元開始到結尾&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;字串的分割&#34;&gt;字串的分割&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;strsplit()&lt;/code&gt; 函數根據指定分隔符分割字串：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 分割字串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sentence&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;apple,banana,cherry&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;words&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;strsplit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sentence&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;,&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;words[[1]]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;apple&amp;#34; &amp;#34;banana&amp;#34; &amp;#34;cherry&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;注意：&lt;code&gt;strsplit()&lt;/code&gt; 返回的是一個列表，因此要用 &lt;code&gt;[[1]]&lt;/code&gt; 提取結果。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;使用-tidyverse-的-separate-分割資料框中的字串&#34;&gt;使用 &lt;code&gt;tidyverse&lt;/code&gt; 的 &lt;code&gt;separate()&lt;/code&gt; 分割資料框中的字串&lt;/h3&gt;
+&lt;p&gt;如果有多筆名字資料，&lt;code&gt;tidyverse&lt;/code&gt; 提供了一個方便的函數 &lt;code&gt;separate()&lt;/code&gt; 來分割字串，並將其拆分成多個欄位：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;tidyverse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 建立資料框&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name_data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;tibble&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;James Dai&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Anna Smith&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;John Doe&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 使用 separate 分割 full_name 欄位&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;name_data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name_data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;separate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;full_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;into&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;first_name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;last_name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sep&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看結果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name_data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;輸出結果&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# A tibble: 3 x 2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  first_name last_name
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1 James      Dai      
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2 Anna       Smith    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3 John       Doe      
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;字串的查找與替換&#34;&gt;字串的查找與替換&lt;/h2&gt;
+&lt;h3 id=&#34;1-查找特定字串&#34;&gt;1. &lt;strong&gt;查找特定字串&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;grep()&lt;/code&gt; 或 &lt;code&gt;grepl()&lt;/code&gt; 來查找字串：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;grep()&lt;/code&gt;: 返回匹配的索引位置&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grepl()&lt;/code&gt;: 返回布林值向量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查找字串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;fruits&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;apple&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;banana&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;cherry&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;grep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;apple&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fruits&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: 1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;contains_apple&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;grepl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;apple&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fruits&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;contains_apple&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: TRUE FALSE FALSE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-替換字串&#34;&gt;2. &lt;strong&gt;替換字串&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;gsub()&lt;/code&gt; 和 &lt;code&gt;sub()&lt;/code&gt; 進行字串替換：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;gsub()&lt;/code&gt;: 替換所有匹配的字串&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sub()&lt;/code&gt;: 只替換第一個匹配的字串&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 替換字串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;I love R. R is amazing!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;new_text&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;gsub&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;R&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Python&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;new_text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;I love Python. Python is amazing!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;字串的類型轉換-coercion&#34;&gt;字串的類型轉換 (Coercion)&lt;/h2&gt;
+&lt;p&gt;在 R 中，當不同類型的資料組合時，R 會自動進行 &lt;code&gt;coercion&lt;/code&gt;（類型強制轉換）。字串會被視為&lt;strong&gt;最高類型&lt;/strong&gt;，並將其他資料類型轉換成 &lt;code&gt;character&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 自動轉換&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;mixed_vec&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;R&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mixed_vec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;R&amp;#34; &amp;#34;1&amp;#34; &amp;#34;TRUE&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 手動轉換&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;num_to_char&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;as.character&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;123&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num_to_char&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;123&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;char_to_num&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;as.numeric&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;123&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;char_to_num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 輸出: 123&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;字串與-s4-物件的轉換&#34;&gt;字串與 S4 物件的轉換&lt;/h2&gt;
+&lt;p&gt;對於複雜結構的物件，可以使用 &lt;code&gt;as()&lt;/code&gt; 進行轉換：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 使用 as 進行轉換&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;s4_object&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;x&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;y&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;z&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;character&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s4_object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 輸出: &amp;#34;x&amp;#34; &amp;#34;y&amp;#34; &amp;#34;z&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;課程小結&#34;&gt;課程小結&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;操作類型&lt;/th&gt;
+          &lt;th&gt;函數名稱&lt;/th&gt;
+          &lt;th&gt;範例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;字串拼接&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;paste()&lt;/code&gt;, &lt;code&gt;paste0()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;paste(&amp;quot;James&amp;quot;, &amp;quot;Dai&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;取字串長度&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;nchar()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;nchar(&amp;quot;James&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;提取子字串&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;substr()&lt;/code&gt;, &lt;code&gt;substring()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;substr(&amp;quot;James&amp;quot;, 1, 3)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;分割字串&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;strsplit()&lt;/code&gt;, &lt;code&gt;separate()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;strsplit(&amp;quot;a,b,c&amp;quot;, &amp;quot;,&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查找字串&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;grep()&lt;/code&gt;, &lt;code&gt;grepl()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;grep(&amp;quot;apple&amp;quot;, fruits)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;替換字串&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;gsub()&lt;/code&gt;, &lt;code&gt;sub()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;gsub(&amp;quot;R&amp;quot;, &amp;quot;Python&amp;quot;, text)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;類型轉換&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;as.character()&lt;/code&gt;, &lt;code&gt;as.numeric()&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;as.character(123)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;掌握這些字串操作技巧，將能有效地處理各種文字資料，並在資料分析、清洗與視覺化過程中發揮重要作用！&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -820,9 +1202,47 @@ ED50: 一半群體產生治療效果的劑量。
 &lt;p&gt;在&lt;code&gt;較高稀釋條件下&lt;/code&gt;，doublet rate會降低，但這也表示每個實驗捕捉的總細胞數減少，進而提高每個細胞的試劑成本。研究人員可以部分克服這個問題，方法是同時捕捉來自不同個體的樣本，透過&lt;code&gt;基因型差異&lt;/code&gt;來區分來源，從而可靠地識別doublet。具體而言，可以利用RNA定序讀段中的單核苷酸多樣性（SNP）來判斷細胞的供體來源，並區分在同一個batch中處理的樣本。然而，這種流程僅在實驗設計中涉及不同人類個體或具有明顯遺傳背景差異的時候才可行。&lt;/p&gt;
 &lt;p&gt;目前，尚無能夠可靠辨識doublet的計算方法，因此必須透過實驗設計來將doublet rate降至最低。Doublet可能對數據解釋產生顯著影響，因為混合在一起的轉錄組可能被誤解為&lt;code&gt;中間的細胞狀態&lt;/code&gt;，影響判讀。&lt;/p&gt;
 &lt;h3 id=&#34;cell-capture-efficiency&#34;&gt;Cell capture efficiency&lt;/h3&gt;
+&lt;p&gt;細胞捕獲效率是實驗中一個重要的考量因素，特別是在涉及primary cell或rare samples的實驗中。而獲得條碼的細胞數量與進入下游分析的樣本比例直接相關。&lt;/p&gt;
+&lt;p&gt;FACS方法的捕獲效率受限於設備在不同孔之間移動所需的時間。為了最大化FACS方法的捕獲率，可以稀釋並以低速率（例如每秒100個細胞）對細胞懸浮液進行sorting。&lt;/p&gt;
+&lt;p&gt;微流體技術在捕獲效率上與FACS有明顯的差異，主要取決於細胞和珠子的裝載機制。HT-IFC系統最多能從6,000個注入的細胞中捕獲800個細胞。&lt;/p&gt;
+&lt;p&gt;而在奈米孔系統中，細胞通過極限稀釋法進行裝載（無需分選），細胞靠&lt;code&gt;重力&lt;/code&gt;進入反應位點，通常具有較高的效率。例如，在&lt;code&gt;Seq-Well&lt;/code&gt;系統中，將10,000個細胞加入到陣列表面後，約有3,000個細胞能被捕獲。&lt;/p&gt;
+&lt;p&gt;對於液滴式系統，細胞進入分析的速率與珠子的裝載效率直接相關。當大多數液滴中含有條碼珠時，細胞捕獲效率最佳（例如inDrops系統）。相反，如果珠子和細胞通過極限稀釋進行封裝，大部分細胞無法進入含有珠子的液滴中，導致較低的捕獲效率（例如Drop-seq系統）。&lt;/p&gt;
 &lt;h3 id=&#34;cost&#34;&gt;Cost&lt;/h3&gt;
+&lt;p&gt;scRNA-seq實驗的總成本主要由三個部分決定：&lt;code&gt;設備&lt;/code&gt;、&lt;code&gt;試劑&lt;/code&gt;和&lt;code&gt;測序&lt;/code&gt;。對於大多數方法而言，scRNA-seq文庫製備的成本隨著細胞數量呈線性增加；然而，自製液滴法是個例外。各種方法和不同研究機構之間，每個細胞的實際成本差異很大。微流體系統的成本通常較低（每個細胞低於0.30美元），而early indexing plate-based的3&amp;rsquo;端digital counting的方式成本較高（約每個細胞1–2美元）。而late indexing plate-based的full-length轉錄組分析成本更高，即便反應體積較小，每個細胞仍需約8–12美元。&lt;/p&gt;
+&lt;p&gt;然而，透過使用&lt;code&gt;非商業化的tagmentase&lt;/code&gt;或最小化反應體積，並針對plate-based採用自動化工作流程，可以有效降低成本。此外，微孔板可進行運輸和儲存，這使得樣本採集地點可以與scRNA-seq流程分離，從而將昂貴的設備集中於核心實驗室，實現最佳的資源管理。&lt;/p&gt;
+&lt;p&gt;儘管文庫製備的成本正在迅速下降，&lt;code&gt;測序成本&lt;/code&gt;卻逐漸成為主要因素。具有更高分子捕獲效率的方法能夠產生更複雜的測序文庫，因此即便在較低的測序深度下也能提供豐富的資訊。因此，更高效的scRNA-seq方法雖然增加了文庫製備的成本，但可以&lt;code&gt;透過降低整體測序成本來進行彌補&lt;/code&gt;。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;數據處理&#34;&gt;數據處理&lt;/h2&gt;</description>
+&lt;h2 id=&#34;數據處理&#34;&gt;數據處理&lt;/h2&gt;
+&lt;p&gt;資料處理包括將原始測序轉換為基因表達矩陣的所有步驟，這些工作流程與傳統bulk RNA-seq的處理流程類似。當生成FASTQ檔案並使用工具，如&lt;a href=&#34;http://www.bioinformatics.babraham.ac.uk/projects/fastqc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;FastQC&lt;/a&gt;進行quality control後，下一個重要步驟是使用&lt;code&gt;細胞條碼&lt;/code&gt;對reads進行&lt;code&gt;去重複索引（de-multiplexing)&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;去重複索引後的reads會使用比對工具（如&lt;code&gt;TopHat&lt;/code&gt;和&lt;code&gt;STAR&lt;/code&gt;）與參考基因組進行比對，其中STAR已被證實準確性優異，對splice variant的辨識也相當靈敏。近年來的新型比對工具經過優化，能在不損失準確性的前提下，快速處理大規模數據集。例如，&lt;code&gt;Kallisto&lt;/code&gt;透過&lt;code&gt;pseudo-alignment&lt;/code&gt;，而非逐個鹼基的比對，大幅縮短了比對時間，快上兩個量級。&lt;/p&gt;
+&lt;p&gt;在最終的處理步驟中，經比對的reads在定量後會轉成基因表達矩陣。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;RSEM&lt;/code&gt;、&lt;code&gt;Cufflinks&lt;/code&gt; 和 &lt;code&gt;HTSeq&lt;/code&gt; 適用於full-length轉錄組數據的定量。
+而對於UMI標記數據類型，如考慮&lt;code&gt;UMI序列中出現的測序錯誤&lt;/code&gt;，則可以使用UMI-tools。
+除了專門處理各個步驟的工具之外，還有整合的單細胞數據處理工作流程，這些流程結合了比對和定量步驟，並包含對reads和細胞的quality control。例如，&lt;code&gt;Ilicic&lt;/code&gt; 等人開發的一個支援多種比對和定量工具，並包括過濾低質量細胞的模組。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Scater&lt;/code&gt; 提供了一個的組織化的工作流程，將原始測序reads轉換為&lt;code&gt;單細胞表達集合（SCESet）&lt;/code&gt;類別 (class)，這是一種&lt;code&gt;數據結構&lt;/code&gt;，有助於數據的處理和分析。&lt;/p&gt;
+&lt;p&gt;此外，還有其他工作流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;zUMI&lt;/code&gt;、&lt;code&gt;scPIPE&lt;/code&gt; 和 &lt;code&gt;SEQC&lt;/code&gt; 適用於UMI數據，這些流程是基於特定protocol設計的。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Cell Ranger&lt;/code&gt; 則是專為Chromium系統設計的流程。&lt;/li&gt;
+&lt;li&gt;最後，&lt;a href=&#34;http://www.scRNA-tools.org&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;scRNA-tools資料庫&lt;/a&gt;提供了一個完整的清單，列出用於數據處理和分析的計算工具。這些方法根據&lt;code&gt;分析任務&lt;/code&gt;進行分類，研究人員可以根據所需的分析類型選擇合適的工具。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;normalization&#34;&gt;Normalization&lt;/h3&gt;
+&lt;p&gt;scRNA-seq數據存在不少噪音與變異性，來源包括技術處理流程、如dropout events、biased amplification與不完整的文庫建立。技術性變異也包含不同的樣本處理時機、時間點與儀器等因素。除此之外，生物因素也佔了不小因素，導致分析上的複雜度增加，如不同的細胞大小、RNA內容物、不同的細胞週期與性別差異等。因此，數據的標準化是產生有意義數據前最重要的一環。&lt;/p&gt;
+&lt;p&gt;過去真對bulk RNA-seq開發的標準化方法，如log-expression、trimmed mean M-values與upper-quartiles可以拿來用在scRNA-seq的分析上，但近期也針對這種特殊的數據出現的不少的標準化方法，如&lt;code&gt;SCnorm&lt;/code&gt;與&lt;code&gt;SCRAN&lt;/code&gt;，可以針對組間與細胞因素做標準化。&lt;/p&gt;
+&lt;p&gt;然而，對大規模的數據變異來源，直接建立模型是比較標準的做法，例如將干擾因素（confounding factor）當作變數納入回歸模型，來校正數據的分佈。&lt;/p&gt;
+&lt;p&gt;例外對batch effect來說，通常是用視覺化的方式如PCA來偵測，而&lt;code&gt;kBET&lt;/code&gt;利用&lt;code&gt;k nearest neighbors&lt;/code&gt;，量化&lt;code&gt;組內&lt;/code&gt;與&lt;code&gt;組間&lt;/code&gt;的batch effect，發現結合&lt;code&gt;(log normalization或SCRAN pooling)&lt;/code&gt;與&lt;code&gt;(ComBat或是limma)&lt;/code&gt;等可以提供最佳的校正後數據，同時保存生物學意義。&lt;/p&gt;
+&lt;p&gt;如果數據收集時間的不同、不同個體、或是來自不同的scRNA-seq的技術都會導致數據出現嚴重的batch effect。Haghverdi等人提出基於&lt;code&gt;mutual nearest neighbors的方式&lt;/code&gt;，利用共同的subset population來校正不同實驗間的batch effect。此外，&lt;code&gt;Biscuit （Bayesian inference for single-cell clustering and imputing）&lt;/code&gt;利用基因表現相似性與共表達特徵來推論細胞群集，藉此校正細胞間的技術性變異。&lt;/p&gt;
+&lt;p&gt;常用來處理單細胞數據的Seurat也有針對常見變異來源做校正與整合，也推出新的方法來找出不同數據集共同的細胞族群及進行 &lt;code&gt;比較性分析&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;imputation-and-gene-selection&#34;&gt;Imputation and gene selection&lt;/h3&gt;
+&lt;p&gt;因為scRNA-seq的數據集非常&lt;code&gt;稀疏 (sparse)&lt;/code&gt;，會影響細胞表型的辨別與判讀，例如很多沒有表現的基因或是&lt;code&gt;dropout events&lt;/code&gt;會導致數據矩陣出現很多&lt;code&gt;0&lt;/code&gt;。為了降低矩陣的稀疏性，缺失的transcripts可以用估計的方式來補足，例如&lt;code&gt;MAGIC&lt;/code&gt;使用&lt;code&gt;diffusion map&lt;/code&gt; 來還原缺失的數據。而&lt;code&gt;scImpute&lt;/code&gt;利用擬合一個混合模型來學習基因的dropout 機率，並使用相似的細胞來推論可能的dropout events。&lt;/p&gt;
+&lt;p&gt;針對樣本的&lt;code&gt;異質性&lt;/code&gt;，常見的方式是分析&lt;code&gt;不同數據集&lt;/code&gt;之間高表達變異度的基因，先完整的用&lt;code&gt;特徵選取&lt;/code&gt;來移除噪音較多的基因不僅可以增加訊號與雜訊的比例，也可以降低計算的複雜度。常用的策略是探討&lt;code&gt;mean transcript abundance&lt;/code&gt;與數據的離散程度 (dispersion)、負二項分佈 (negative binomial distribution)的離散參數 (dispersion parameter) 或是總變異 (total variability) 比例之間的關係。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;高變異度的基因，在去除技術性外在因素之後，可以用來解釋生物性上的差異與生物異質性。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;data-analysis&#34;&gt;Data analysis&lt;/h3&gt;
+&lt;p&gt;scRNA-seq實驗的許多目的是評估樣本的異質性及找出&lt;code&gt;新的細胞類型與狀態&lt;/code&gt;。我們通常可以利用&lt;code&gt;共表達矩陣&lt;/code&gt;與&lt;code&gt;細胞相似性的clustering&lt;/code&gt;來達成。細胞的聚集可以用&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;</description>
     </item>
     
     <item>
