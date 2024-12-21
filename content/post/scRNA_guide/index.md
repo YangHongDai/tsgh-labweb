@@ -166,11 +166,67 @@ Doublet的產生源於細胞在反應位點中的隨機分佈，其發生率與�
 目前，尚無能夠可靠辨識doublet的計算方法，因此必須透過實驗設計來將doublet rate降至最低。Doublet可能對數據解釋產生顯著影響，因為混合在一起的轉錄組可能被誤解為`中間的細胞狀態`，影響判讀。
 
 
-
 ### Cell capture efficiency
+細胞捕獲效率是實驗中一個重要的考量因素，特別是在涉及primary cell或rare samples的實驗中。而獲得條碼的細胞數量與進入下游分析的樣本比例直接相關。
+
+FACS方法的捕獲效率受限於設備在不同孔之間移動所需的時間。為了最大化FACS方法的捕獲率，可以稀釋並以低速率（例如每秒100個細胞）對細胞懸浮液進行sorting。
+
+微流體技術在捕獲效率上與FACS有明顯的差異，主要取決於細胞和珠子的裝載機制。HT-IFC系統最多能從6,000個注入的細胞中捕獲800個細胞。
+
+而在奈米孔系統中，細胞通過極限稀釋法進行裝載（無需分選），細胞靠`重力`進入反應位點，通常具有較高的效率。例如，在`Seq-Well`系統中，將10,000個細胞加入到陣列表面後，約有3,000個細胞能被捕獲。
+
+對於液滴式系統，細胞進入分析的速率與珠子的裝載效率直接相關。當大多數液滴中含有條碼珠時，細胞捕獲效率最佳（例如inDrops系統）。相反，如果珠子和細胞通過極限稀釋進行封裝，大部分細胞無法進入含有珠子的液滴中，導致較低的捕獲效率（例如Drop-seq系統）。
 
 ### Cost
+scRNA-seq實驗的總成本主要由三個部分決定：`設備`、`試劑`和`測序`。對於大多數方法而言，scRNA-seq文庫製備的成本隨著細胞數量呈線性增加；然而，自製液滴法是個例外。各種方法和不同研究機構之間，每個細胞的實際成本差異很大。微流體系統的成本通常較低（每個細胞低於0.30美元），而early indexing plate-based的3'端digital counting的方式成本較高（約每個細胞1–2美元）。而late indexing plate-based的full-length轉錄組分析成本更高，即便反應體積較小，每個細胞仍需約8–12美元。
+
+然而，透過使用`非商業化的tagmentase`或最小化反應體積，並針對plate-based採用自動化工作流程，可以有效降低成本。此外，微孔板可進行運輸和儲存，這使得樣本採集地點可以與scRNA-seq流程分離，從而將昂貴的設備集中於核心實驗室，實現最佳的資源管理。
+
+儘管文庫製備的成本正在迅速下降，`測序成本`卻逐漸成為主要因素。具有更高分子捕獲效率的方法能夠產生更複雜的測序文庫，因此即便在較低的測序深度下也能提供豐富的資訊。因此，更高效的scRNA-seq方法雖然增加了文庫製備的成本，但可以`透過降低整體測序成本來進行彌補`。
 
 ---
-
 ## 數據處理
+資料處理包括將原始測序轉換為基因表達矩陣的所有步驟，這些工作流程與傳統bulk RNA-seq的處理流程類似。當生成FASTQ檔案並使用工具，如[FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)進行quality control後，下一個重要步驟是使用`細胞條碼`對reads進行`去重複索引（de-multiplexing)`。
+
+去重複索引後的reads會使用比對工具（如`TopHat`和`STAR`）與參考基因組進行比對，其中STAR已被證實準確性優異，對splice variant的辨識也相當靈敏。近年來的新型比對工具經過優化，能在不損失準確性的前提下，快速處理大規模數據集。例如，`Kallisto`透過`pseudo-alignment`，而非逐個鹼基的比對，大幅縮短了比對時間，快上兩個量級。
+
+在最終的處理步驟中，經比對的reads在定量後會轉成基因表達矩陣。
+
+`RSEM`、`Cufflinks` 和 `HTSeq` 適用於full-length轉錄組數據的定量。
+而對於UMI標記數據類型，如考慮`UMI序列中出現的測序錯誤`，則可以使用UMI-tools。
+除了專門處理各個步驟的工具之外，還有整合的單細胞數據處理工作流程，這些流程結合了比對和定量步驟，並包含對reads和細胞的quality control。例如，`Ilicic` 等人開發的一個支援多種比對和定量工具，並包括過濾低質量細胞的模組。
+
+`Scater` 提供了一個的組織化的工作流程，將原始測序reads轉換為`單細胞表達集合（SCESet）`類別 (class)，這是一種`數據結構`，有助於數據的處理和分析。
+
+此外，還有其他工作流程：
+1. `zUMI`、`scPIPE` 和 `SEQC` 適用於UMI數據，這些流程是基於特定protocol設計的。
+2. `Cell Ranger` 則是專為Chromium系統設計的流程。
+3. 最後，[scRNA-tools資料庫](http://www.scRNA-tools.org)提供了一個完整的清單，列出用於數據處理和分析的計算工具。這些方法根據`分析任務`進行分類，研究人員可以根據所需的分析類型選擇合適的工具。
+
+### Normalization
+scRNA-seq數據存在不少噪音與變異性，來源包括技術處理流程、如dropout events、biased amplification與不完整的文庫建立。技術性變異也包含不同的樣本處理時機、時間點與儀器等因素。除此之外，生物因素也佔了不小因素，導致分析上的複雜度增加，如不同的細胞大小、RNA內容物、不同的細胞週期與性別差異等。因此，數據的標準化是產生有意義數據前最重要的一環。
+
+過去真對bulk RNA-seq開發的標準化方法，如log-expression、trimmed mean M-values與upper-quartiles可以拿來用在scRNA-seq的分析上，但近期也針對這種特殊的數據出現的不少的標準化方法，如`SCnorm`與`SCRAN`，可以針對組間與細胞因素做標準化。
+
+然而，對大規模的數據變異來源，直接建立模型是比較標準的做法，例如將干擾因素（confounding factor）當作變數納入回歸模型，來校正數據的分佈。
+
+例外對batch effect來說，通常是用視覺化的方式如PCA來偵測，而`kBET`利用`k nearest neighbors`，量化`組內`與`組間`的batch effect，發現結合`(log normalization或SCRAN pooling)`與`(ComBat或是limma)`等可以提供最佳的校正後數據，同時保存生物學意義。
+
+如果數據收集時間的不同、不同個體、或是來自不同的scRNA-seq的技術都會導致數據出現嚴重的batch effect。Haghverdi等人提出基於`mutual nearest neighbors的方式`，利用共同的subset population來校正不同實驗間的batch effect。此外，`Biscuit （Bayesian inference for single-cell clustering and imputing）`利用基因表現相似性與共表達特徵來推論細胞群集，藉此校正細胞間的技術性變異。
+
+常用來處理單細胞數據的Seurat也有針對常見變異來源做校正與整合，也推出新的方法來找出不同數據集共同的細胞族群及進行 `比較性分析`。
+
+
+### Imputation and gene selection
+
+### Data analysis
+
+---
+## 結論
+
+1: scrna pilot sequencing
+2: process all samples
+3: get data and do preliminary analysis
+4: full set of official data
+5-10: exp design and further analysis
+third year: more extensive analysis 
