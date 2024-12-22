@@ -301,9 +301,28 @@
 &lt;p&gt;高變異度的基因，在去除技術性外在因素之後，可以用來解釋生物性上的差異與生物異質性。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;data-analysis&#34;&gt;Data analysis&lt;/h3&gt;
-&lt;p&gt;scRNA-seq實驗的許多目的是評估樣本的異質性及找出&lt;code&gt;新的細胞類型與狀態&lt;/code&gt;。我們通常可以利用&lt;code&gt;共表達矩陣&lt;/code&gt;與&lt;code&gt;細胞相似性的clustering&lt;/code&gt;來達成。細胞的聚集可以用&lt;/p&gt;
+&lt;p&gt;scRNA-seq實驗的許多目的是評估樣本的異質性及找出&lt;code&gt;新的細胞類型與狀態&lt;/code&gt;。我們通常可以利用&lt;code&gt;共表達矩陣&lt;/code&gt;與&lt;code&gt;細胞相似性的clustering&lt;/code&gt;來達成。而後續細胞的聚集可以用空間降維的方式如PCA或t-SNE來投影與解讀，另一個近年常用的UMAP克服了前面兩種方法的限制，保存了整體的數據結構與細胞的pseudo-temporal ordering，而且速度更快。即使這些降維方式可以輔助初期的數據判讀，但是需要更強大的聚類演算法來定義細胞的次群體（subpopulation）。&lt;/p&gt;
+&lt;p&gt;雖然監督式演算法（如Monocle2）可以利用先驗假設和細胞的典型標記來聚類，但在大多數情況下，若能使用無假設（hypothesis-free）的非監督式聚類通常是更好的選擇。一種常用的非監督式演算法是階層聚類（hierarchical clustering），該方法在&lt;code&gt;沒有預設聚類數量&lt;/code&gt;的情況下提供一致的結果。階層聚類可以採用聚合式（bottom-up）或分裂式（top-down）的方式進行，分別通過連續的合併或分裂群集來完成。層次聚類的工具有 PAGODA、SINCERA 和 bigSCale。此外。&lt;/p&gt;
+&lt;p&gt;另一種適合的非監督式聚類算法是 &lt;code&gt;k-means&lt;/code&gt;，其基本原理如下：
+設定k個聚類中心（centroids），將每個細胞分配到最接近的聚類中心，根據每個聚類群內的細胞均值重新計算聚類中心。
+不斷重複這些步驟，直到聚類穩定。例如，&lt;code&gt;SC3&lt;/code&gt; 工具結合了 k-means 和層次聚類，能夠為細胞提供準確且穩健的聚類結果。&lt;/p&gt;
+&lt;p&gt;其他非監督式聚類方法（如 &lt;code&gt;SNN-Cliq&lt;/code&gt; 和 &lt;code&gt;Seurat&lt;/code&gt;）則使用基於圖的聚類（&lt;code&gt;graph-based clustering&lt;/code&gt;）。該方法通過&lt;code&gt;構建圖形&lt;/code&gt;，&lt;code&gt;將細胞作為節點&lt;/code&gt;，並根據&lt;code&gt;表達相似性建立邊&lt;/code&gt;，然後將圖形分割成相互連接的&lt;code&gt;準團塊（quasi-cliques）&lt;/code&gt;或&lt;code&gt;社群（communities）&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;聚類可以直接基於基因表達值或更為處理過的數據類型（如主成分或相似性矩陣）來進行。其中，相似性矩陣在聚類分離上具有更好的效果。&lt;/p&gt;
+&lt;p&gt;而群集穩定性可以通過以下方式來測量：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;重抽樣方法（如 bootstrapping）。&lt;/li&gt;
+&lt;li&gt;基於群集內細胞相似性（如 silhouette index）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而為了支持群集結果的&lt;code&gt;再現性（replicability）&lt;/code&gt;，可以使用調整後的 &lt;code&gt;Rand 指數（adjusted Rand index）&lt;/code&gt;來比較不同的演算法。最後，可以將群集使用降維（DR）演算法（如 PCA、t-SNE）投影到二維或三維空間中，並通過顏色編碼來表示不同的群集。&lt;/p&gt;
+&lt;p&gt;可以通過對群集進行差異基因表達分析（differential gene expression analysis）來識別能夠區分細胞亞群的&lt;code&gt;標誌基因（marker genes）&lt;/code&gt;。例如，可以使用&lt;code&gt;模型&lt;/code&gt;的方法，如 &lt;code&gt;SCDE&lt;/code&gt;、&lt;code&gt;MAST&lt;/code&gt; 和 &lt;code&gt;scDD&lt;/code&gt;，這些方法通過&lt;code&gt;混合模型&lt;/code&gt;處理數據的&lt;code&gt;雙模性（bimodality）&lt;/code&gt;。針對個別基因，可以評估它們是否能作為細胞身份的&lt;code&gt;二元分類器（binary classifiers）&lt;/code&gt;。常用的方法包括基於&lt;code&gt;零膨脹數據（zero-inflated data）&lt;/code&gt;的 &lt;code&gt;ROC（Receiver Operating Characteristic）&lt;/code&gt; 或 &lt;code&gt;LRT（Likelihood Ratio Test）&lt;/code&gt; 測試。&lt;/p&gt;
+&lt;p&gt;另一個scRNA-seq的重要應用是軌跡推斷（trajectory inference），該方法通過預測的分化路徑（pseudotime）對細胞進行排序，以估計動態過程。常用的算法包括&lt;code&gt;反向圖嵌入（reversed graph embedding，例如 Monocle2）&lt;/code&gt;和&lt;code&gt;最小生成樹（minimum spanning tree，例如 TSCAN）&lt;/code&gt;。為進一步促進結果的解釋性，可以使用工具如&lt;code&gt;SCENIC&lt;/code&gt;，該工具可以讓我們了解胞亞群中的&lt;code&gt;活性調控網絡&lt;/code&gt;。這種分析能幫助識別活躍的轉錄因子，最終找出造成細胞異質性的細胞機制。&lt;/p&gt;
+&lt;p&gt;對於&lt;code&gt;群集註解（cluster annotation）&lt;/code&gt;，工具如&lt;code&gt;scmap&lt;/code&gt; 可以通過將一個數據集中的細胞投影到另一個 scRNA-seq 實驗的細胞類型或個別細胞上，來實現&lt;code&gt;跨實驗&lt;/code&gt;的數據比較。而使用如 &lt;code&gt;bigSCale&lt;/code&gt; 這樣的&lt;code&gt;細胞卷積工具&lt;/code&gt;，scRNA-seq 分析的規模可以擴展到數百萬細胞。&lt;/p&gt;
+&lt;p&gt;最後，單細胞數據可以通過實驗方法來呼應組織的空間分佈，或者通過細胞的&lt;code&gt;擬空間排序（pseudo-spatial ordering）&lt;/code&gt;來進行分析和解釋。&lt;/p&gt;
+&lt;p&gt;為了使scRNA-seq數據公開讓大家使用，可使用專門的數據存儲和共享庫。&lt;a href=&#34;https://www.ncbi.nlm.nih.gov/geo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Gene Expression Omnibus（GEO)&lt;/a&gt;是常用的數據存取平台，用於提供原始數據和經過進一步處理的數據格式，例如基因表達定量矩陣。一些大型項目（例如&lt;code&gt;人類細胞圖譜（Human Cell Atlas）&lt;/code&gt;）建立了專門的數據協調平台，進一步簡化了數據查詢和調用的過程。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;</description>
+&lt;h2 id=&#34;未來方向&#34;&gt;未來方向&lt;/h2&gt;
+&lt;p&gt;scRNA-seq正在快速發展。每次實驗可以分析的細胞數量已經增加到數十萬以上，顯著提升了罕見或是過度型態細胞的檢測能力和解析度。然而，高通量技術的代價是分子捕獲率降低，因此未來的方法需要在細胞數量和細胞解析度之間實現更好的平衡。&lt;/p&gt;
+&lt;p&gt;目前，組織和整體生物體級別的項目通常採用&lt;code&gt;跳傘式（sky-dive）&lt;/code&gt;的實驗策略，意即先通過數千個細胞來建立低解析度的圖譜，估算樣本的異質性，然後利用高效的 scRNA-seq 方法對&lt;code&gt;目標細胞類型&lt;/code&gt;進行深入分析，以獲得&lt;code&gt;更高的單細胞解析度&lt;/code&gt;。未來，高解析度的圖譜將允許研究者在現有數據中進行&lt;code&gt;放大&lt;/code&gt;，從而避免昂貴且耗時的樣本重處理。&lt;/p&gt;</description>
     </item>
     
   </channel>
