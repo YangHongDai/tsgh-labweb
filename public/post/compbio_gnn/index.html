@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: December 29, 2024 --><html lang="en-us" >
+<!-- Last Published: December 30, 2024 --><html lang="en-us" >
 
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=56953&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=49383&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -278,8 +278,8 @@
 
 
 
-<link rel="alternate" hreflang="en-us" href="http://localhost:56953/post/compbio_gnn/" />
-<link rel="canonical" href="http://localhost:56953/post/compbio_gnn/" />
+<link rel="alternate" hreflang="en-us" href="http://localhost:49383/post/compbio_gnn/" />
+<link rel="canonical" href="http://localhost:49383/post/compbio_gnn/" />
 
 
 
@@ -313,7 +313,7 @@
 
   <meta property="twitter:site" content="@GetResearchDev" />
   <meta property="twitter:creator" content="@GetResearchDev" />
-<meta property="twitter:image" content="http://localhost:56953/media/icon_hu15379254428347791189.png" />
+<meta property="twitter:image" content="http://localhost:49383/media/icon_hu15379254428347791189.png" />
 
 
 
@@ -321,9 +321,9 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="DLit-Hub" />
-<meta property="og:url" content="http://localhost:56953/post/compbio_gnn/" />
+<meta property="og:url" content="http://localhost:49383/post/compbio_gnn/" />
 <meta property="og:title" content="計算生物學聊聊：圖神經網路與分子圖形 | DLit-Hub" />
-<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:56953/media/icon_hu15379254428347791189.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:49383/media/icon_hu15379254428347791189.png" /><meta property="og:locale" content="en-us" />
 
   
     <meta
@@ -358,7 +358,7 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:56953/post/compbio_gnn/"
+    "@id": "http://localhost:49383/post/compbio_gnn/"
   },
   "headline": "計算生物學聊聊：圖神經網路與分子圖形",
   
@@ -375,7 +375,7 @@
     "name": "DLit-Hub",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:56953/media/icon_hu1636988907106955456.png"
+      "url": "http://localhost:49383/media/icon_hu1636988907106955456.png"
     }
   },
   "description": ""
@@ -1012,10 +1012,10 @@
 <figure  id="figure-圖三-morgan-fingerprinthttpstowardsdatasciencecoma-practical-introduction-to-the-use-of-molecular-fingerprints-in-drug-discovery-7f15021be2b1">
   <div class="d-flex justify-content-center">
     <div class="w-100" ><img alt="fig3" srcset="
-               /post/compbio_gnn/fig3_hu1197880589999034936.webp 400w,
+               /post/compbio_gnn/fig3_hu1804110335273990854.webp 400w,
                /post/compbio_gnn/fig3_hu17041954323525736801.webp 760w,
                /post/compbio_gnn/fig3_hu9009013187830519231.webp 1200w"
-               src="/post/compbio_gnn/fig3_hu1197880589999034936.webp"
+               src="/post/compbio_gnn/fig3_hu1804110335273990854.webp"
                width="760"
                height="171"
                loading="lazy" data-zoomable /></div>
@@ -1069,39 +1069,33 @@
 </ol>
 <hr>
 <h2 id="分子圖化學結構的進階表示">分子圖：化學結構的進階表示</h2>
-<p>分子圖是一種靈活且精細的方式，能夠以數學形式表示分子，特別是在指紋無法捕捉足夠結構細節時尤為有用。與比特向量指紋不同，分子圖提供了分子結構的直接映射，將每個原子作為節點，每條鍵作為邊。這種基於結構的表示允許更高的特異性和數據的豐富性，使其成為圖神經網絡（Graph Neural Networks, GNNs）的理想輸入，尤其適用於需要深入關係建模的任務，例如定量結構-活性關係（QSAR）和基於結構的藥物設計。</p>
-<p>分子圖的結構</p>
-<p>節點與邊：在分子圖中，每個節點表示一個原子，每條邊表示一條化學鍵。這種結構捕捉了分子內的原子類型及鍵類型（單鍵、雙鍵、三鍵或芳香鍵），能夠詳細描述化學關係。
-標籤與特徵：
-節點標籤：每個節點可以攜帶標籤或類型（例如，碳用 C 表示，氮用 N 表示），以區分不同的原子類型。
-邊標籤：邊可以標示鍵的類型（如單鍵、雙鍵、三鍵等）。這在分子圖中尤為重要，因為鍵類型對分子的化學行為和特性有著重要影響。
-有向與無向圖：
-在大多數情況下，分子圖是無向的，因為化學鍵通常沒有方向性。
-但在某些情境下，如化學反應網絡中，可以使用有向圖來表示從反應物到產物的轉化流程。
-加權圖：雖然在基本分子圖中不常使用，但可以引入加權邊以指示鍵強度、相互作用強度或其他結構行為的先驗知識。
-分子圖的表示方法</p>
-<p>鄰接矩陣：
-鄰接矩陣提供了一種表格式的圖表示，其中每個單元格表示原子之間是否存在鍵（或鍵的類型）。例如，若原子
-i
-i 和
-j
-j 之間存在鍵，則矩陣中
-(
-i
-,
-j
-)
-(i,j) 的值為 1（或表示鍵類型的整數）；否則為 0。
-對稱性：對於無向圖，鄰接矩陣是對稱的；對於有向圖，則是非對稱的，反映每條邊的方向性。
-鄰接清單：
-在處理大型圖（如社交網絡或大規模數據集）時，鄰接清單比矩陣更高效。每個原子只保存與其直接相連的原子清單，大大減少稀疏網絡中的存儲需求。
-稀疏矩陣表示：
-另一種選擇是使用稀疏矩陣，只存儲非零值（即存在鍵的原子對），進一步降低內存使用量。
-圖的可視化：
-分子圖也可以被可視化，提供直觀的方式來檢查分子結構、理解其複雜性並排查表示中的問題。
+<p>分子圖是一種靈活且精細的方式，能夠以數學形式表示分子，特別是在指紋<code>無法捕捉足夠結構細節</code>時尤其有用。與比特向量指紋不同，分子圖提供了分子結構的<code>直接映射</code>，將每個原子作為<code>節點 (node)</code>，每條鍵作為<code>邊 (edge)</code>。這種基於結構的表示允許更高的<code>特異性</code>和數據的豐富性，使其成為<code>圖神經網絡（Graph Neural Networks, GNNs）</code>的最佳輸入，尤其適用於需要深入探索原子間的關係時，例如定量QSAR和藥物設計。</p>
+<h4 id="分子圖的結構">分子圖的結構</h4>
+<ol>
+<li><code>節點與邊</code>：在分子圖中，每個<code>節點表示一個原子</code>，每條<code>邊表示一條化學鍵</code>。這種結構捕捉了分子內的原子類型及鍵類型（單鍵、雙鍵、三鍵或芳香鍵），能夠詳細描述化學關係。</li>
+<li><code>節點標籤</code>：每個節點可以攜帶標籤或類型（例如，碳用 C 表示，氮用 N 表示），以區分不同的原子類型。</li>
+<li><code>邊標籤</code>：邊可以標示鍵的類型（如單鍵、雙鍵、三鍵等）。這在分子圖中尤為重要，因為鍵類型對分子的化學行為和特性有著重要影響。</li>
+</ol>
+<h4 id="圖的種類">圖的種類</h4>
+<ol>
+<li><code>方向性</code>：在大多數情況下，分子圖是<code>無向 (undirected)</code>的，因為<code>化學鍵通常沒有方向性</code>。但在某些情境下，如<code>化學反應</code>網絡中，可以使用<code>有向圖 (directed)</code>來表示從反應物到產物的轉化流程。</li>
+<li><code>圖標籤</code>：原子和鍵都被標示，說明原子和鍵的類型，在對於需要化學分子細節的探討中很重要。</li>
+<li><code>加權圖</code>：雖然在基本分子圖中不常使用，但可以引入<code>加權邊</code>以指示<code>鍵強度</code>、相互作用強度或其他結構行為的<code>先驗知識</code>。</li>
+</ol>
+<h4 id="分子圖的表示方法">分子圖的表示方法</h4>
+<h4 id="鄰接矩陣">鄰接矩陣：</h4>
+<p>鄰接矩陣提供了一種表格式的圖表示，其中每個單元格表示原子之間是否存在鍵（或鍵的類型）。例如，若原子</p>
+<p>(i,j) 的值為 1（或表示鍵類型的整數）；否則為 0。</p>
+<h4 id="對稱性對於無向圖鄰接矩陣是對稱的對於有向圖則是非對稱的反映每條邊的方向性">對稱性：對於無向圖，鄰接矩陣是對稱的；對於有向圖，則是非對稱的，反映每條邊的方向性。</h4>
+<p>鄰接清單：
+在處理大型圖（如社交網絡或大規模數據集）時，鄰接清單比矩陣更高效。每個原子只保存與其直接相連的原子清單，大大減少稀疏網絡中的存儲需求。</p>
+<h4 id="稀疏矩陣表示">稀疏矩陣表示：</h4>
+<p>另一種選擇是使用稀疏矩陣，只存儲非零值（即存在鍵的原子對），進一步降低內存使用量。</p>
+<h4 id="圖的可視化">圖的可視化：</h4>
+<p>分子圖也可以被可視化，提供直觀的方式來檢查分子結構、理解其複雜性並排查表示中的問題。
 分子圖的應用與優勢</p>
-<p>完整的結構編碼：分子圖保留了分子的完整拓撲結構，允許對其特性和相互作用進行更深入的檢查。
-與圖神經網絡（GNNs）的兼容性：分子圖可以與 GNNs 無縫集成，後者專門設計用於處理圖結構數據。
+<h4 id="完整的結構編碼分子圖保留了分子的完整拓撲結構允許對其特性和相互作用進行更深入的檢查">完整的結構編碼：分子圖保留了分子的完整拓撲結構，允許對其特性和相互作用進行更深入的檢查。</h4>
+<p>與圖神經網絡（GNNs）的兼容性：分子圖可以與 GNNs 無縫集成，後者專門設計用於處理圖結構數據。
 增強的預測建模：基於分子圖構建的 GNN 模型能夠更準確地預測分子的各種特性，如生物活性、毒性、溶解度和結合親和力。
 圖神經網絡（GNNs）在分子建模中的應用</p>
 <p>消息傳遞：在 GNN 中，每個節點通過一種稱為消息傳遞的迭代過程與其鄰居進行通信。這允許每個節點聚合鄰近節點的信息，有效地捕捉其分子環境的影響。
@@ -1400,7 +1394,7 @@ GNN 最終輸出的應用
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A56953%2Fpost%2Fcompbio_gnn%2F&amp;text=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fcompbio_gnn%2F&amp;text=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -1417,7 +1411,7 @@ GNN 最終輸出的應用
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A56953%2Fpost%2Fcompbio_gnn%2F&amp;t=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fcompbio_gnn%2F&amp;t=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -1436,7 +1430,7 @@ GNN 最終輸出的應用
         
       
       <li>
-        <a href="mailto:?subject=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2&amp;body=http%3A%2F%2Flocalhost%3A56953%2Fpost%2Fcompbio_gnn%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2&amp;body=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fcompbio_gnn%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -1453,7 +1447,7 @@ GNN 最終輸出的應用
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A56953%2Fpost%2Fcompbio_gnn%2F&amp;title=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fcompbio_gnn%2F&amp;title=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -1470,7 +1464,7 @@ GNN 最終輸出的應用
       
       
       <li>
-        <a href="whatsapp://send?text=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2%20http%3A%2F%2Flocalhost%3A56953%2Fpost%2Fcompbio_gnn%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+        <a href="whatsapp://send?text=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2%20http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fcompbio_gnn%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1487,7 +1481,7 @@ GNN 最終輸出的應用
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A56953%2Fpost%2Fcompbio_gnn%2F&amp;title=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fcompbio_gnn%2F&amp;title=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>

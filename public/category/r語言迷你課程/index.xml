@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R語言迷你課程 | DLit-Hub</title>
-    <link>http://localhost:56953/category/r%E8%AA%9E%E8%A8%80%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B/</link>
-      <atom:link href="http://localhost:56953/category/r%E8%AA%9E%E8%A8%80%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:49383/category/r%E8%AA%9E%E8%A8%80%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B/</link>
+      <atom:link href="http://localhost:49383/category/r%E8%AA%9E%E8%A8%80%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <description>R語言迷你課程</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:56953/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:49383/media/icon_hu15379254428347791189.png</url>
       <title>R語言迷你課程</title>
-      <link>http://localhost:56953/category/r%E8%AA%9E%E8%A8%80%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B/</link>
+      <link>http://localhost:49383/category/r%E8%AA%9E%E8%A8%80%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B/</link>
     </image>
     
     <item>
       <title>迷你課程:R語言-5~R的字串操作</title>
-      <link>http://localhost:56953/post/minicourser5/</link>
+      <link>http://localhost:49383/post/minicourser5/</link>
       <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/minicourser5/</guid>
+      <guid>http://localhost:49383/post/minicourser5/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;本次課程將介紹 R 語言中與&lt;strong&gt;字串&lt;/strong&gt;相關的各種操作方法，包括字串的建立、分割、拼接、取子字串、查找與替換，以及字串的轉換與處理。&lt;/p&gt;
 &lt;p&gt;R 中的字串屬於 &lt;code&gt;character&lt;/code&gt; 類型，是一種重要的資料結構，特別是在文字處理、資料清理與分析中經常使用。&lt;/p&gt;
@@ -194,9 +194,9 @@
     
     <item>
       <title>迷你課程:R語言-4~Function的定義與運用</title>
-      <link>http://localhost:56953/post/minicourse_r4/</link>
+      <link>http://localhost:49383/post/minicourse_r4/</link>
       <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/minicourse_r4/</guid>
+      <guid>http://localhost:49383/post/minicourse_r4/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;在 R 語言中，函數能夠幫助我們培養重複使用和結構化程式的能力。本篇文章將介紹：&lt;/p&gt;
 &lt;ol&gt;
@@ -425,9 +425,9 @@
     
     <item>
       <title>迷你課程:R語言-3~list, matrix與array的子集提取</title>
-      <link>http://localhost:56953/post/minicourse_r3/</link>
+      <link>http://localhost:49383/post/minicourse_r3/</link>
       <pubDate>Sun, 08 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/minicourse_r3/</guid>
+      <guid>http://localhost:49383/post/minicourse_r3/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;今天介紹R中如何對 List、Matrix和Array（陣列）進行子集提取（Subsetting）的操作，包含：&lt;/p&gt;
 &lt;ol&gt;
@@ -640,9 +640,9 @@
     
     <item>
       <title>迷你課程:R語言-2~Dataframe與tibble</title>
-      <link>http://localhost:56953/post/minicourse_r2/</link>
+      <link>http://localhost:49383/post/minicourse_r2/</link>
       <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/minicourse_r2/</guid>
+      <guid>http://localhost:49383/post/minicourse_r2/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;今天介紹R的兩種重要資料結構：&lt;/p&gt;
 &lt;ol&gt;
@@ -827,9 +827,9 @@
     
     <item>
       <title>迷你課程:R語言-1~R的資本資料型態</title>
-      <link>http://localhost:56953/post/minicourse_r1/</link>
+      <link>http://localhost:49383/post/minicourse_r1/</link>
       <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/minicourse_r1/</guid>
+      <guid>http://localhost:49383/post/minicourse_r1/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;今天介紹R的data type:&lt;/p&gt;
 &lt;ol&gt;

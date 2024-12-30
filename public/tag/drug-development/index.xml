@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Drug Development | DLit-Hub</title>
-    <link>http://localhost:56953/tag/drug-development/</link>
-      <atom:link href="http://localhost:56953/tag/drug-development/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:49383/tag/drug-development/</link>
+      <atom:link href="http://localhost:49383/tag/drug-development/index.xml" rel="self" type="application/rss+xml" />
     <description>Drug Development</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:56953/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:49383/media/icon_hu15379254428347791189.png</url>
       <title>Drug Development</title>
-      <link>http://localhost:56953/tag/drug-development/</link>
+      <link>http://localhost:49383/tag/drug-development/</link>
     </image>
     
     <item>
       <title>計算生物學聊聊：藥物開發的現況與挑戰</title>
-      <link>http://localhost:56953/post/compbio_drug/</link>
+      <link>http://localhost:49383/post/compbio_drug/</link>
       <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/compbio_drug/</guid>
+      <guid>http://localhost:49383/post/compbio_drug/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;本篇介紹藥物開發的現況，筆記出自於美國麻省理工學院的計算生物學課程MLCB24。
 課程影片請看&lt;a href=&#34;https://www.youtube.com/watch?v=m_R_6ItR-qY&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;這裡&lt;/a&gt;。&lt;/p&gt;
@@ -159,7 +159,7 @@
                /post/compbio_drug/fig1_hu14414697526844801796.webp 400w,
                /post/compbio_drug/fig1_hu5525642444733473667.webp 760w,
                /post/compbio_drug/fig1_hu11859840641213679159.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/compbio_drug/fig1_hu14414697526844801796.webp&#34;
+               src=&#34;http://localhost:49383/post/compbio_drug/fig1_hu14414697526844801796.webp&#34;
                width=&#34;760&#34;
                height=&#34;499&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -315,7 +315,7 @@ ED50: 一半群體產生治療效果的劑量。
                /post/compbio_drug/fig2_hu16441939913604798509.webp 400w,
                /post/compbio_drug/fig2_hu890291919401304658.webp 760w,
                /post/compbio_drug/fig2_hu14679296414677028875.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/compbio_drug/fig2_hu16441939913604798509.webp&#34;
+               src=&#34;http://localhost:49383/post/compbio_drug/fig2_hu16441939913604798509.webp&#34;
                width=&#34;644&#34;
                height=&#34;636&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;

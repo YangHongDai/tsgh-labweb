@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Graph Nueral Network | DLit-Hub</title>
-    <link>http://localhost:56953/tag/graph-nueral-network/</link>
-      <atom:link href="http://localhost:56953/tag/graph-nueral-network/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:49383/tag/graph-nueral-network/</link>
+      <atom:link href="http://localhost:49383/tag/graph-nueral-network/index.xml" rel="self" type="application/rss+xml" />
     <description>Graph Nueral Network</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:56953/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:49383/media/icon_hu15379254428347791189.png</url>
       <title>Graph Nueral Network</title>
-      <link>http://localhost:56953/tag/graph-nueral-network/</link>
+      <link>http://localhost:49383/tag/graph-nueral-network/</link>
     </image>
     
     <item>
       <title>計算生物學聊聊：圖神經網路與分子圖形</title>
-      <link>http://localhost:56953/post/compbio_gnn/</link>
+      <link>http://localhost:49383/post/compbio_gnn/</link>
       <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/compbio_gnn/</guid>
+      <guid>http://localhost:49383/post/compbio_gnn/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;分子表示法（molecular representation）在計算化學中扮演重要的角色，它使化學家和數據科學家能夠將複雜的化學結構轉換成機器可理解的形式，用於數據存儲和計算分析。這些表示法在格式、易用性和應用場景上存在顯著的差異，每種表示法在特定類型的分析中具有其獨特的優勢和局限性，透過建構圖神經網路（Graph neural network）來預測分子的特性，這些表示法的差異會更為顯著。&lt;/p&gt;
 &lt;p&gt;本篇筆記出自於美國麻省理工學院的計算生物學課程MLCB24。課程影片請看&lt;a href=&#34;https://www.youtube.com/watch?v=6gkIjo4Jb4E&amp;amp;t=220s&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;這裡&lt;/a&gt;。&lt;/p&gt;
@@ -99,7 +99,7 @@
                /post/compbio_gnn/fig1_hu3479184427380367237.webp 400w,
                /post/compbio_gnn/fig1_hu2261907717937882707.webp 760w,
                /post/compbio_gnn/fig1_hu11170528079376645331.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/compbio_gnn/fig1_hu3479184427380367237.webp&#34;
+               src=&#34;http://localhost:49383/post/compbio_gnn/fig1_hu3479184427380367237.webp&#34;
                width=&#34;760&#34;
                height=&#34;540&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -155,7 +155,7 @@
                /post/compbio_gnn/fig2_hu10946339939307287139.webp 400w,
                /post/compbio_gnn/fig2_hu13962839815580817115.webp 760w,
                /post/compbio_gnn/fig2_hu7996518131002891555.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/compbio_gnn/fig2_hu10946339939307287139.webp&#34;
+               src=&#34;http://localhost:49383/post/compbio_gnn/fig2_hu10946339939307287139.webp&#34;
                width=&#34;292&#34;
                height=&#34;204&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -220,10 +220,10 @@
 &lt;figure  id=&#34;figure-圖三-morgan-fingerprinthttpstowardsdatasciencecoma-practical-introduction-to-the-use-of-molecular-fingerprints-in-drug-discovery-7f15021be2b1&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig3&#34; srcset=&#34;
-               /post/compbio_gnn/fig3_hu1197880589999034936.webp 400w,
+               /post/compbio_gnn/fig3_hu1804110335273990854.webp 400w,
                /post/compbio_gnn/fig3_hu17041954323525736801.webp 760w,
                /post/compbio_gnn/fig3_hu9009013187830519231.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/compbio_gnn/fig3_hu1197880589999034936.webp&#34;
+               src=&#34;http://localhost:49383/post/compbio_gnn/fig3_hu1804110335273990854.webp&#34;
                width=&#34;760&#34;
                height=&#34;171&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -238,18 +238,20 @@
 &lt;li&gt;第三步：使用Hash table來將子結構轉換成獨特的比特編號。&lt;/li&gt;
 &lt;li&gt;第四步：針對每一個原子完成以上步驟，產生一個二元分子指紋，表示整個分子。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h4 id=&#34;以乙醇cco為例&#34;&gt;以乙醇（CCO）為例：&lt;/h4&gt;
-&lt;p&gt;每個碳和氧原子作為中心點，評估其半徑 2 內的子結構。
-這將產生以下信息：
-原子 1：第一個碳及其鄰居（第二個碳和氧）。
-原子 2：第二個碳及其鄰居（第一個碳和氧）。
-原子 3：氧及其鄰近的碳。
-每個原子和子結構會映射到指紋中，形成唯一表示乙醇結構的比特向量。&lt;/p&gt;
-&lt;h4 id=&#34;morgan-指紋的優點&#34;&gt;Morgan 指紋的優點：&lt;/h4&gt;
+&lt;h4 id=&#34;以乙醇cco為例&#34;&gt;以乙醇（CCO）為例&lt;/h4&gt;
+&lt;p&gt;每個碳和氧原子作為中心點，評估其半徑 2 內的子結構。&lt;/p&gt;
+&lt;p&gt;這將產生以下信息：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;原子 1：第一個碳及其鄰居（第二個碳和氧）。&lt;/li&gt;
+&lt;li&gt;原子 2：第二個碳及其鄰居（第一個碳和氧）。&lt;/li&gt;
+&lt;li&gt;原子 3：氧及其鄰近的碳。
+每個原子和子結構會映射到指紋中，形成唯一表示乙醇結構的比特向量。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;morgan-指紋的優點&#34;&gt;Morgan 指紋的優點&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;對結構改變非常敏感，結構的些微修飾都可以被捕捉。&lt;/li&gt;
 &lt;li&gt;效率高。&lt;/li&gt;
-&lt;li&gt;廣泛使用於常見化學資訊學的工具中，如RDKit與QSAR，也常用在視覺篩選與相似性搜索中。&lt;/li&gt;
+&lt;li&gt;廣泛使用於常見化學資訊學的工具中，如&lt;code&gt;RDKit&lt;/code&gt;，也常用在視覺篩選與相似性搜索中。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;半徑與比特向量長度的平衡&#34;&gt;半徑與比特向量長度的平衡&lt;/h4&gt;
 &lt;p&gt;半徑增加的影響：&lt;/p&gt;
@@ -258,7 +260,7 @@
 &lt;li&gt;半徑 2 提供了適度的細節，廣泛用於化學資訊學。&lt;/li&gt;
 &lt;li&gt;半徑 3 或更大通常僅在需要非常細粒度結構細節時使用，但會顯著增加計算需求和複雜性。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h4 id=&#34;向量長度&#34;&gt;向量長度：&lt;/h4&gt;
+&lt;h4 id=&#34;向量長度&#34;&gt;向量長度&lt;/h4&gt;
 &lt;p&gt;常用長度為 1024 或 2048 比特。更大的向量幫助減少哈希碰撞，但在數據集較小時可能導致稀疏性問題。&lt;/p&gt;
 &lt;h4 id=&#34;在機器學習中的解釋與應用&#34;&gt;在機器學習中的解釋與應用&lt;/h4&gt;
 &lt;p&gt;Morgan 指紋將複雜的分子結構轉換為向量空間表示，其中具有相似拓撲特徵的分子具有相似的指紋。結果向量可用於以下機器學習模型：&lt;/p&gt;
@@ -269,45 +271,39 @@
 &lt;/ol&gt;
 &lt;h4 id=&#34;限制與考量&#34;&gt;限制與考量&lt;/h4&gt;
 &lt;ol&gt;
-&lt;li&gt;不可逆：指紋無法反向解碼為原始分子。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;不可逆&lt;/code&gt;：指紋無法反向解碼為原始分子。&lt;/li&gt;
 &lt;li&gt;碰撞問題：不同的分子結構可能映射到相同的比特位置，尤其是在&lt;code&gt;較小的比特向量&lt;/code&gt;或&lt;code&gt;大分子&lt;/code&gt;時。&lt;/li&gt;
 &lt;li&gt;不適用於大生物分子：對於&lt;code&gt;非常大的生物分子（如蛋白質）&lt;/code&gt;，Morgan 指紋可能不適用，因為結構的複雜性超出了其表達能力。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;分子圖化學結構的進階表示&#34;&gt;分子圖：化學結構的進階表示&lt;/h2&gt;
-&lt;p&gt;分子圖是一種靈活且精細的方式，能夠以數學形式表示分子，特別是在指紋無法捕捉足夠結構細節時尤為有用。與比特向量指紋不同，分子圖提供了分子結構的直接映射，將每個原子作為節點，每條鍵作為邊。這種基於結構的表示允許更高的特異性和數據的豐富性，使其成為圖神經網絡（Graph Neural Networks, GNNs）的理想輸入，尤其適用於需要深入關係建模的任務，例如定量結構-活性關係（QSAR）和基於結構的藥物設計。&lt;/p&gt;
-&lt;p&gt;分子圖的結構&lt;/p&gt;
-&lt;p&gt;節點與邊：在分子圖中，每個節點表示一個原子，每條邊表示一條化學鍵。這種結構捕捉了分子內的原子類型及鍵類型（單鍵、雙鍵、三鍵或芳香鍵），能夠詳細描述化學關係。
-標籤與特徵：
-節點標籤：每個節點可以攜帶標籤或類型（例如，碳用 C 表示，氮用 N 表示），以區分不同的原子類型。
-邊標籤：邊可以標示鍵的類型（如單鍵、雙鍵、三鍵等）。這在分子圖中尤為重要，因為鍵類型對分子的化學行為和特性有著重要影響。
-有向與無向圖：
-在大多數情況下，分子圖是無向的，因為化學鍵通常沒有方向性。
-但在某些情境下，如化學反應網絡中，可以使用有向圖來表示從反應物到產物的轉化流程。
-加權圖：雖然在基本分子圖中不常使用，但可以引入加權邊以指示鍵強度、相互作用強度或其他結構行為的先驗知識。
-分子圖的表示方法&lt;/p&gt;
-&lt;p&gt;鄰接矩陣：
-鄰接矩陣提供了一種表格式的圖表示，其中每個單元格表示原子之間是否存在鍵（或鍵的類型）。例如，若原子
-i
-i 和
-j
-j 之間存在鍵，則矩陣中
-(
-i
-,
-j
-)
-(i,j) 的值為 1（或表示鍵類型的整數）；否則為 0。
-對稱性：對於無向圖，鄰接矩陣是對稱的；對於有向圖，則是非對稱的，反映每條邊的方向性。
-鄰接清單：
-在處理大型圖（如社交網絡或大規模數據集）時，鄰接清單比矩陣更高效。每個原子只保存與其直接相連的原子清單，大大減少稀疏網絡中的存儲需求。
-稀疏矩陣表示：
-另一種選擇是使用稀疏矩陣，只存儲非零值（即存在鍵的原子對），進一步降低內存使用量。
-圖的可視化：
-分子圖也可以被可視化，提供直觀的方式來檢查分子結構、理解其複雜性並排查表示中的問題。
+&lt;p&gt;分子圖是一種靈活且精細的方式，能夠以數學形式表示分子，特別是在指紋&lt;code&gt;無法捕捉足夠結構細節&lt;/code&gt;時尤其有用。與比特向量指紋不同，分子圖提供了分子結構的&lt;code&gt;直接映射&lt;/code&gt;，將每個原子作為&lt;code&gt;節點 (node)&lt;/code&gt;，每條鍵作為&lt;code&gt;邊 (edge)&lt;/code&gt;。這種基於結構的表示允許更高的&lt;code&gt;特異性&lt;/code&gt;和數據的豐富性，使其成為&lt;code&gt;圖神經網絡（Graph Neural Networks, GNNs）&lt;/code&gt;的最佳輸入，尤其適用於需要深入探索原子間的關係時，例如定量QSAR和藥物設計。&lt;/p&gt;
+&lt;h4 id=&#34;分子圖的結構&#34;&gt;分子圖的結構&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;節點與邊&lt;/code&gt;：在分子圖中，每個&lt;code&gt;節點表示一個原子&lt;/code&gt;，每條&lt;code&gt;邊表示一條化學鍵&lt;/code&gt;。這種結構捕捉了分子內的原子類型及鍵類型（單鍵、雙鍵、三鍵或芳香鍵），能夠詳細描述化學關係。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;節點標籤&lt;/code&gt;：每個節點可以攜帶標籤或類型（例如，碳用 C 表示，氮用 N 表示），以區分不同的原子類型。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;邊標籤&lt;/code&gt;：邊可以標示鍵的類型（如單鍵、雙鍵、三鍵等）。這在分子圖中尤為重要，因為鍵類型對分子的化學行為和特性有著重要影響。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;圖的種類&#34;&gt;圖的種類&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;方向性&lt;/code&gt;：在大多數情況下，分子圖是&lt;code&gt;無向 (undirected)&lt;/code&gt;的，因為&lt;code&gt;化學鍵通常沒有方向性&lt;/code&gt;。但在某些情境下，如&lt;code&gt;化學反應&lt;/code&gt;網絡中，可以使用&lt;code&gt;有向圖 (directed)&lt;/code&gt;來表示從反應物到產物的轉化流程。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;圖標籤&lt;/code&gt;：原子和鍵都被標示，說明原子和鍵的類型，在對於需要化學分子細節的探討中很重要。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;加權圖&lt;/code&gt;：雖然在基本分子圖中不常使用，但可以引入&lt;code&gt;加權邊&lt;/code&gt;以指示&lt;code&gt;鍵強度&lt;/code&gt;、相互作用強度或其他結構行為的&lt;code&gt;先驗知識&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;分子圖的表示方法&#34;&gt;分子圖的表示方法&lt;/h4&gt;
+&lt;h4 id=&#34;鄰接矩陣&#34;&gt;鄰接矩陣：&lt;/h4&gt;
+&lt;p&gt;鄰接矩陣提供了一種表格式的圖表示，其中每個單元格表示原子之間是否存在鍵（或鍵的類型）。例如，若原子&lt;/p&gt;
+&lt;p&gt;(i,j) 的值為 1（或表示鍵類型的整數）；否則為 0。&lt;/p&gt;
+&lt;h4 id=&#34;對稱性對於無向圖鄰接矩陣是對稱的對於有向圖則是非對稱的反映每條邊的方向性&#34;&gt;對稱性：對於無向圖，鄰接矩陣是對稱的；對於有向圖，則是非對稱的，反映每條邊的方向性。&lt;/h4&gt;
+&lt;p&gt;鄰接清單：
+在處理大型圖（如社交網絡或大規模數據集）時，鄰接清單比矩陣更高效。每個原子只保存與其直接相連的原子清單，大大減少稀疏網絡中的存儲需求。&lt;/p&gt;
+&lt;h4 id=&#34;稀疏矩陣表示&#34;&gt;稀疏矩陣表示：&lt;/h4&gt;
+&lt;p&gt;另一種選擇是使用稀疏矩陣，只存儲非零值（即存在鍵的原子對），進一步降低內存使用量。&lt;/p&gt;
+&lt;h4 id=&#34;圖的可視化&#34;&gt;圖的可視化：&lt;/h4&gt;
+&lt;p&gt;分子圖也可以被可視化，提供直觀的方式來檢查分子結構、理解其複雜性並排查表示中的問題。
 分子圖的應用與優勢&lt;/p&gt;
-&lt;p&gt;完整的結構編碼：分子圖保留了分子的完整拓撲結構，允許對其特性和相互作用進行更深入的檢查。
-與圖神經網絡（GNNs）的兼容性：分子圖可以與 GNNs 無縫集成，後者專門設計用於處理圖結構數據。
+&lt;h4 id=&#34;完整的結構編碼分子圖保留了分子的完整拓撲結構允許對其特性和相互作用進行更深入的檢查&#34;&gt;完整的結構編碼：分子圖保留了分子的完整拓撲結構，允許對其特性和相互作用進行更深入的檢查。&lt;/h4&gt;
+&lt;p&gt;與圖神經網絡（GNNs）的兼容性：分子圖可以與 GNNs 無縫集成，後者專門設計用於處理圖結構數據。
 增強的預測建模：基於分子圖構建的 GNN 模型能夠更準確地預測分子的各種特性，如生物活性、毒性、溶解度和結合親和力。
 圖神經網絡（GNNs）在分子建模中的應用&lt;/p&gt;
 &lt;p&gt;消息傳遞：在 GNN 中，每個節點通過一種稱為消息傳遞的迭代過程與其鄰居進行通信。這允許每個節點聚合鄰近節點的信息，有效地捕捉其分子環境的影響。

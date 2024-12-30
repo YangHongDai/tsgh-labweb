@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Science | DLit-Hub</title>
-    <link>http://localhost:56953/tag/data-science/</link>
-      <atom:link href="http://localhost:56953/tag/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:49383/tag/data-science/</link>
+      <atom:link href="http://localhost:49383/tag/data-science/index.xml" rel="self" type="application/rss+xml" />
     <description>Data Science</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:56953/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:49383/media/icon_hu15379254428347791189.png</url>
       <title>Data Science</title>
-      <link>http://localhost:56953/tag/data-science/</link>
+      <link>http://localhost:49383/tag/data-science/</link>
     </image>
     
     <item>
       <title>初探單細胞定序</title>
-      <link>http://localhost:56953/post/scrna_guide/</link>
+      <link>http://localhost:49383/post/scrna_guide/</link>
       <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/scrna_guide/</guid>
+      <guid>http://localhost:49383/post/scrna_guide/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;單細胞定序已經在近年成為各大實驗室不可或缺的關鍵技術之一，讓我們從過去將組織混雜在一起的bulk RNA-seq精細化到單細胞的解析度，也讓我們可以針對一顆腫瘤做細部的分類，、甚至推測細胞分化的路徑，今天我們要讀的&lt;a href=&#34;https://www.nature.com/articles/s41596-018-0073-y&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;算是比較舊的nature protocol review article (2018)，但針對我們想要做單細胞定序分析的人來說是很推薦的入門讀物之一。&lt;/p&gt;
 &lt;hr&gt;
@@ -46,7 +46,7 @@
                /post/scrna_guide/fig1_hu11001555330395581792.webp 400w,
                /post/scrna_guide/fig1_hu5703038883069733888.webp 760w,
                /post/scrna_guide/fig1_hu16839371025272671103.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/scrna_guide/fig1_hu11001555330395581792.webp&#34;
+               src=&#34;http://localhost:49383/post/scrna_guide/fig1_hu11001555330395581792.webp&#34;
                width=&#34;760&#34;
                height=&#34;507&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -93,7 +93,7 @@
                /post/scrna_guide/fig2_hu15864937964798351048.webp 400w,
                /post/scrna_guide/fig2_hu13454636650653327452.webp 760w,
                /post/scrna_guide/fig2_hu2848814858266748199.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/scrna_guide/fig2_hu15864937964798351048.webp&#34;
+               src=&#34;http://localhost:49383/post/scrna_guide/fig2_hu15864937964798351048.webp&#34;
                width=&#34;760&#34;
                height=&#34;593&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -140,7 +140,7 @@
                /post/scrna_guide/fig3_hu13695154641875346659.webp 400w,
                /post/scrna_guide/fig3_hu8573096409683843575.webp 760w,
                /post/scrna_guide/fig3_hu16898922341218008701.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/scrna_guide/fig3_hu13695154641875346659.webp&#34;
+               src=&#34;http://localhost:49383/post/scrna_guide/fig3_hu13695154641875346659.webp&#34;
                width=&#34;700&#34;
                height=&#34;527&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -209,7 +209,7 @@
                /post/scrna_guide/fig4_hu17683730018688549645.webp 400w,
                /post/scrna_guide/fig4_hu15397314574738147101.webp 760w,
                /post/scrna_guide/fig4_hu6232023545738136439.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/scrna_guide/fig4_hu17683730018688549645.webp&#34;
+               src=&#34;http://localhost:49383/post/scrna_guide/fig4_hu17683730018688549645.webp&#34;
                width=&#34;760&#34;
                height=&#34;387&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -261,7 +261,7 @@
                /post/scrna_guide/fig5_hu16640274865221918418.webp 400w,
                /post/scrna_guide/fig5_hu16751551510422201417.webp 760w,
                /post/scrna_guide/fig5_hu7910360859258366755.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/scrna_guide/fig5_hu16640274865221918418.webp&#34;
+               src=&#34;http://localhost:49383/post/scrna_guide/fig5_hu16640274865221918418.webp&#34;
                width=&#34;760&#34;
                height=&#34;668&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -358,9 +358,9 @@
     
     <item>
       <title>數據科學聊聊：支持向量機（Support vector machine）</title>
-      <link>http://localhost:56953/post/svm/</link>
+      <link>http://localhost:49383/post/svm/</link>
       <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/svm/</guid>
+      <guid>http://localhost:49383/post/svm/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;支持向量機（SVM）是一種強大的監督式學習模型，廣泛應用於分類和回歸分析中。SVM 以其獨特的數學基礎和幾何直觀性，在高維數據空間中具有出色的性能，尤其適合處理少量數據和非線性問題。&lt;/p&gt;
 &lt;hr&gt;
@@ -431,9 +431,9 @@ SVM 可應用於回歸分析（SVR, Support Vector Regression），用於預測�
     
     <item>
       <title>計算生物學聊聊：Hidden Markov Chain (上)</title>
-      <link>http://localhost:56953/post/markov/</link>
+      <link>http://localhost:49383/post/markov/</link>
       <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/markov/</guid>
+      <guid>http://localhost:49383/post/markov/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;Hidden Markov Chain(HMM)&lt;/code&gt;是計算生物學中一個重要的數學模型，廣泛應用於DNA序列分析和蛋白質結構預測等領域。HMM的核心概念是用&lt;code&gt;隱藏的狀態&lt;/code&gt;來建立模型，並解釋觀察到的數據，通過&lt;code&gt;轉移機率&lt;/code&gt;和&lt;code&gt;觀察機率&lt;/code&gt;來描述系統的動態行為。&lt;/p&gt;
 &lt;hr&gt;
@@ -567,7 +567,7 @@ $$
                /post/markov/fig1_hu8822840645180452515.webp 400w,
                /post/markov/fig1_hu2316656150060041621.webp 760w,
                /post/markov/fig1_hu8691795879731039526.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/markov/fig1_hu8822840645180452515.webp&#34;
+               src=&#34;http://localhost:49383/post/markov/fig1_hu8822840645180452515.webp&#34;
                width=&#34;760&#34;
                height=&#34;348&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -666,7 +666,7 @@ $$
                /post/markov/fig2_hu4390774657599844428.webp 400w,
                /post/markov/fig2_hu9501806590322226021.webp 760w,
                /post/markov/fig2_hu16811126276551008659.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/markov/fig2_hu4390774657599844428.webp&#34;
+               src=&#34;http://localhost:49383/post/markov/fig2_hu4390774657599844428.webp&#34;
                width=&#34;708&#34;
                height=&#34;408&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -734,9 +734,9 @@ $$
     
     <item>
       <title>生資硬核技術：公開癌症基因數據下載及操作</title>
-      <link>http://localhost:56953/post/ucscxenatool/</link>
+      <link>http://localhost:49383/post/ucscxenatool/</link>
       <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/ucscxenatool/</guid>
+      <guid>http://localhost:49383/post/ucscxenatool/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;數年前我還是住院醫師的時候是直接在UCSC Xena&lt;a href=&#34;https://xenabrowser.net&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;平台&lt;/a&gt;下載癌症數據，但整個過程很難流程化， 而2019年發表的UCSCXenaTools解決了這個問題，也讓我在前年分析公開數據時方便許多。
 UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。該平台集成了多個公開數據庫(如分析癌症數據一定要知道的TCGA、ICGC、TARGET、GTEx等），提供處理過的數據，便於我們進行數據的篩選、連結、探索及下載。UCSCXenaTools的功能強大且操作簡單，在我們先前的&lt;a href=&#34;https://www.biorxiv.org/content/10.1101/2024.07.21.604474v1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;preprint&lt;/a&gt;發表我也是利用這個套件做TCGA數據的處理，所以這邊就簡單分享我是如何用這個套件來進行分析的。&lt;/p&gt;
@@ -875,9 +875,9 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
     
     <item>
       <title>數據科學技術盤點:主成分分析？</title>
-      <link>http://localhost:56953/post/data_pca/</link>
+      <link>http://localhost:49383/post/data_pca/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/data_pca/</guid>
+      <guid>http://localhost:49383/post/data_pca/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;主成分分析（Principal component analysis, PCA）是一種強大且直觀的數據降維技術，被廣泛應用於臨床研究與醫學數據分析中。作為醫師，在日常工作中，我們經常面對大量的病患數據，例如基因表達數據、影像數據、實驗室檢驗值等。PCA能夠幫助我們提取數據的關鍵特徵，將高維度的資料轉換成易於解釋的低維度數據，從而揭示潛在的生物學意義。&lt;/p&gt;
 &lt;ul&gt;
@@ -1054,7 +1054,7 @@ $$
                /post/data_pca/fig1_hu15827159032189168353.webp 400w,
                /post/data_pca/fig1_hu4818452470569895218.webp 760w,
                /post/data_pca/fig1_hu7070961658534383816.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/data_pca/fig1_hu15827159032189168353.webp&#34;
+               src=&#34;http://localhost:49383/post/data_pca/fig1_hu15827159032189168353.webp&#34;
                width=&#34;760&#34;
                height=&#34;656&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;

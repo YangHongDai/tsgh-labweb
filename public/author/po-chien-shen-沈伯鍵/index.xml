@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Po-Chien Shen 沈伯鍵 | DLit-Hub</title>
-    <link>http://localhost:56953/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</link>
-      <atom:link href="http://localhost:56953/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:49383/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</link>
+      <atom:link href="http://localhost:49383/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/index.xml" rel="self" type="application/rss+xml" />
     <description>Po-Chien Shen 沈伯鍵</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 21 Jul 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:56953/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/avatar_hu508877709439512294.png</url>
+      <url>http://localhost:49383/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/avatar_hu508877709439512294.png</url>
       <title>Po-Chien Shen 沈伯鍵</title>
-      <link>http://localhost:56953/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</link>
+      <link>http://localhost:49383/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</link>
     </image>
     
     <item>
       <title>Po-Chien Shen 沈伯鍵</title>
-      <link>http://localhost:56953/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</link>
+      <link>http://localhost:49383/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</link>
       <pubDate>Sun, 21 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</guid>
+      <guid>http://localhost:49383/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</guid>
       <description>&lt;p&gt;我是放射腫瘤科醫師，在臨床工作之餘，專注研究透過資料科學分析臨床數據，推動放射治療的個人化發展。我的研究核心在於結合影像組學，探討如何預測患者的放療副作用及預後。期望在現行治療指引的基礎上，進一步針對個別患者的風險，量身優化放射治療的劑量或照野，提升治療的精準性與效果。&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>新 Preprint 發表於 biorxiv</title>
-      <link>http://localhost:56953/event/driveromics/</link>
+      <link>http://localhost:49383/event/driveromics/</link>
       <pubDate>Sun, 21 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/event/driveromics/</guid>
+      <guid>http://localhost:49383/event/driveromics/</guid>
       <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
 &lt;p&gt;DriverOmicsNet-An Integrated Graph Convolutional Network for Multi-Omics Exploration of Cancer Driver Genes&lt;/p&gt;
 &lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;

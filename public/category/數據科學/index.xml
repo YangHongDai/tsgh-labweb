@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>數據科學 | DLit-Hub</title>
-    <link>http://localhost:56953/category/%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8/</link>
-      <atom:link href="http://localhost:56953/category/%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:49383/category/%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8/</link>
+      <atom:link href="http://localhost:49383/category/%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
     <description>數據科學</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:56953/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:49383/media/icon_hu15379254428347791189.png</url>
       <title>數據科學</title>
-      <link>http://localhost:56953/category/%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8/</link>
+      <link>http://localhost:49383/category/%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8/</link>
     </image>
     
     <item>
       <title>數據科學聊聊：支持向量機（Support vector machine）</title>
-      <link>http://localhost:56953/post/svm/</link>
+      <link>http://localhost:49383/post/svm/</link>
       <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/svm/</guid>
+      <guid>http://localhost:49383/post/svm/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;支持向量機（SVM）是一種強大的監督式學習模型，廣泛應用於分類和回歸分析中。SVM 以其獨特的數學基礎和幾何直觀性，在高維數據空間中具有出色的性能，尤其適合處理少量數據和非線性問題。&lt;/p&gt;
 &lt;hr&gt;
@@ -87,9 +87,9 @@ SVM 可應用於回歸分析（SVR, Support Vector Regression），用於預測�
     
     <item>
       <title>數據科學技術盤點:主成分分析？</title>
-      <link>http://localhost:56953/post/data_pca/</link>
+      <link>http://localhost:49383/post/data_pca/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:56953/post/data_pca/</guid>
+      <guid>http://localhost:49383/post/data_pca/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;主成分分析（Principal component analysis, PCA）是一種強大且直觀的數據降維技術，被廣泛應用於臨床研究與醫學數據分析中。作為醫師，在日常工作中，我們經常面對大量的病患數據，例如基因表達數據、影像數據、實驗室檢驗值等。PCA能夠幫助我們提取數據的關鍵特徵，將高維度的資料轉換成易於解釋的低維度數據，從而揭示潛在的生物學意義。&lt;/p&gt;
 &lt;ul&gt;
@@ -266,7 +266,7 @@ $$
                /post/data_pca/fig1_hu15827159032189168353.webp 400w,
                /post/data_pca/fig1_hu4818452470569895218.webp 760w,
                /post/data_pca/fig1_hu7070961658534383816.webp 1200w&#34;
-               src=&#34;http://localhost:56953/post/data_pca/fig1_hu15827159032189168353.webp&#34;
+               src=&#34;http://localhost:49383/post/data_pca/fig1_hu15827159032189168353.webp&#34;
                width=&#34;760&#34;
                height=&#34;656&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
