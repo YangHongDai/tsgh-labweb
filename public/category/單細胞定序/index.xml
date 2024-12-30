@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>單細胞定序 | DLit-Hub</title>
-    <link>http://localhost:1313/category/%E5%96%AE%E7%B4%B0%E8%83%9E%E5%AE%9A%E5%BA%8F/</link>
-      <atom:link href="http://localhost:1313/category/%E5%96%AE%E7%B4%B0%E8%83%9E%E5%AE%9A%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:56953/category/%E5%96%AE%E7%B4%B0%E8%83%9E%E5%AE%9A%E5%BA%8F/</link>
+      <atom:link href="http://localhost:56953/category/%E5%96%AE%E7%B4%B0%E8%83%9E%E5%AE%9A%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
     <description>單細胞定序</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 09 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:56953/media/icon_hu15379254428347791189.png</url>
       <title>單細胞定序</title>
-      <link>http://localhost:1313/category/%E5%96%AE%E7%B4%B0%E8%83%9E%E5%AE%9A%E5%BA%8F/</link>
+      <link>http://localhost:56953/category/%E5%96%AE%E7%B4%B0%E8%83%9E%E5%AE%9A%E5%BA%8F/</link>
     </image>
     
     <item>
       <title>初探單細胞定序</title>
-      <link>http://localhost:1313/post/scrna_guide/</link>
-      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/scrna_guide/</guid>
+      <link>http://localhost:56953/post/scrna_guide/</link>
+      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:56953/post/scrna_guide/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;單細胞定序已經在近年成為各大實驗室不可或缺的關鍵技術之一，讓我們從過去將組織混雜在一起的bulk RNA-seq精細化到單細胞的解析度，也讓我們可以針對一顆腫瘤做細部的分類，、甚至推測細胞分化的路徑，今天我們要讀的&lt;a href=&#34;https://www.nature.com/articles/s41596-018-0073-y&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;算是比較舊的nature protocol review article (2018)，但針對我們想要做單細胞定序分析的人來說是很推薦的入門讀物之一。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;scrna-seq-席捲科學界&#34;&gt;scRNA-seq 席捲科學界&lt;/h2&gt;
-&lt;p&gt;scRNA-seq 顯著增加了我們對組織、器官和細胞之間複雜性的交互作用。隨著自動化處理流程的演進與微流體（microfluidic）技術的發明，scRNA-seq的延展性（scalability）大幅的提升。&lt;/p&gt;
-&lt;p&gt;過往的實驗設計通常是基於某一個假說或是&lt;code&gt;假設（hypothesis）&lt;/code&gt;，但若是這個假設錯誤或是不成立，就要花額外的時間從另外一個假設著手，這種&lt;code&gt;hypothesis-driven&lt;/code&gt;的方式比較費時。自從有了scRNA-seq後，我們可以一探每一顆細胞的全基因組、蛋白質組甚至是表觀遺傳基因組，從hypothesis-driven過渡到&lt;code&gt;data-driven&lt;/code&gt;的實驗設計，大幅降低bulk狀態下帶來的&lt;code&gt;biased analysis&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;但因為scRNA-seq的研究太專一化，不同的樣本有截然不同的處理步驟，而數據分析也依據不同的需求而有所不同，因此在研究設計上無法將一套準則套用在所有的實驗上，但也因為這個限制，近年有層出不窮的protocol、tools或是網頁工具出現，試圖來優化及改善整條從樣本製備到數據分析的過程 (圖一)。&lt;/p&gt;
+&lt;p&gt;scRNA-seq 顯著增加了我們對組織、器官和細胞之間複雜交互作用的了解。隨著自動化處理流程的演進與微流體（microfluidic）技術的發明，scRNA-seq的延展性（scalability）才能大幅的提升。&lt;/p&gt;
+&lt;p&gt;過往的實驗設計通常是基於某一個假說或是&lt;code&gt;假設（hypothesis）&lt;/code&gt;，但若是這個假設錯誤或是不成立，就要花額外的時間從另外一個假設著手，這種&lt;code&gt;hypothesis-driven&lt;/code&gt;的方式比較費時。自從有了scRNA-seq後，我們可以一探每一顆細胞的全基因組、蛋白質組甚至是表觀遺傳基因組，從hypothesis-driven過渡到&lt;code&gt;data-driven&lt;/code&gt;的實驗設計，大幅降低&lt;code&gt;bulk&lt;/code&gt;情形下帶來的&lt;code&gt;biased analysis&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;但因為scRNA-seq的研究太專一化，不同的樣本有截然不同的處理步驟，而數據分析也依據不同的需求而有所不同，因此在研究設計上無法將一套準則套用在所有的實驗上，但也因為這個限制，近年有層出不窮的protocols、tools或是網頁工具出現，試圖來優化及改善整條從樣本製備到數據分析的過程 (圖一)。&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -46,7 +46,7 @@
                /post/scrna_guide/fig1_hu11001555330395581792.webp 400w,
                /post/scrna_guide/fig1_hu5703038883069733888.webp 760w,
                /post/scrna_guide/fig1_hu16839371025272671103.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_guide/fig1_hu11001555330395581792.webp&#34;
+               src=&#34;http://localhost:56953/post/scrna_guide/fig1_hu11001555330395581792.webp&#34;
                width=&#34;760&#34;
                height=&#34;507&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -56,7 +56,7 @@
 &lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;樣本製備&#34;&gt;樣本製備&lt;/h2&gt;
-&lt;p&gt;樣本本身的品質對整個scRNA-seq的流程是最重要的，雖然先前大部分都需要新鮮活的細胞，但實務上如果要在取出每個腫瘤後立即分解成單細胞懸浮液其實頗具挑戰性，因此目前有不少protocol是允許使用固定後腫瘤或細胞，也允許冷凍後仍完整的細胞核RNA，一來可以讓我們可以好好計畫樣本製備的流程，二來也不影響後續數據的分析，可以參考目前10X Genomics釋出的&lt;a href=&#34;https://www.10xgenomics.com/support/single-cell-gene-expression-flex/documentation/steps/library-prep/gem-x-flex-gene-expression-reagent-kit-for-multiplex-samples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GEM-X FLEX protocol&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;樣本本身的品質對整個scRNA-seq的成敗是最關鍵的。在過去，大部分都要求使用新鮮的活細胞，但實務上如果要在取出每個腫瘤後立即分解成單細胞懸浮液其實頗具挑戰性，因此目前有不少protocol是允許使用固定後的腫瘤或細胞，也允許冷凍後仍完整的細胞核RNA，一來可以讓我們可以好好計畫樣本製備的流程，二來也不影響後續數據的分析，可以參考目前10X Genomics釋出的&lt;a href=&#34;https://www.10xgenomics.com/support/single-cell-gene-expression-flex/documentation/steps/library-prep/gem-x-flex-gene-expression-reagent-kit-for-multiplex-samples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GEM-X FLEX protocol&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;其他一些注意事項如下：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;使用&lt;code&gt;無核酸酶&lt;/code&gt;試劑和耗材。&lt;/li&gt;
@@ -68,8 +68,8 @@
 &lt;h2 id=&#34;細胞懸浮液的製備&#34;&gt;細胞懸浮液的製備&lt;/h2&gt;
 &lt;p&gt;血液樣本可以用密度梯度離心（density centrifugation）的方式來分離，例如Ficoll-Paque 或 Histopaque-1077 的方式來捕捉特定單細胞，但是實體組織必須要利用機械（mechanical）或是酵素來分解組織塊來取得單細胞懸浮液。&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;機械方式：可以用剪刀或是剃刀將組織切成小碎塊，通常約大小 1mm x 1mm x 1mm，才能增加與酵素接觸的表面積。&lt;/li&gt;
-&lt;li&gt;酵素分解：切成小塊後，要接著用酵素做分解，針對不同的組織有不同的酵素組合，可以參考圖二。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;機械方式&lt;/code&gt;：可以用剪刀或是剃刀將組織切成小碎塊，通常約大小 1mm x 1mm x 1mm，才能增加與酵素接觸的表面積。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;酵素分解&lt;/code&gt;：切成小塊後，要接著用酵素做分解，針對不同的組織有不同的酵素組合，可以參考圖二。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;
 
@@ -93,7 +93,7 @@
                /post/scrna_guide/fig2_hu15864937964798351048.webp 400w,
                /post/scrna_guide/fig2_hu13454636650653327452.webp 760w,
                /post/scrna_guide/fig2_hu2848814858266748199.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_guide/fig2_hu15864937964798351048.webp&#34;
+               src=&#34;http://localhost:56953/post/scrna_guide/fig2_hu15864937964798351048.webp&#34;
                width=&#34;760&#34;
                height=&#34;593&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -101,23 +101,23 @@
       圖二 不同組織所建議的分解酵素
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;p&gt;值得注意的是，在樣本製備的過程中，活的細胞有可能會因為過程中遭遇的stress而導致某些反應性基因的表現改變，因此過程中需要盡可能地減少stress。&lt;/p&gt;
-&lt;p&gt;另外就是針對像神經元所在的組織中，神經元彼此之間交聯的程度有可能會導致細胞分離的過程不完全。針對這個問題可以考慮破壞細胞膜的方式來取得完整的細胞核做分析，而用細胞核內部的RNA做分析雖然會降低每顆細胞最終的解析度，但是已能提供足夠訊息來解析細胞態 （cell type deconvolution）。&lt;/p&gt;
+&lt;p&gt;值得注意的是，在樣本製備的過程中，活的細胞有可能會因為過程中遭遇的&lt;code&gt;stress&lt;/code&gt;而導致某些反應性基因的表現改變，因此過程中需要盡可能地減少stress。&lt;/p&gt;
+&lt;p&gt;另外就是針對像神經元所在的組織中，神經元彼此之間交聯的程度有可能會導致細胞分離的過程不完全。針對這個問題可以考慮破壞細胞膜的方式來取得完整的&lt;code&gt;細胞核&lt;/code&gt;做分析，而用細胞核內部的RNA做分析雖然會降低每顆細胞最終的解析度，但是已能提供足夠訊息來解析細胞態 （cell type deconvolution）。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;單細胞捕獲&#34;&gt;單細胞捕獲&lt;/h2&gt;
-&lt;p&gt;目前許多不同的方式來達成單細胞的捕獲：&lt;/p&gt;
+&lt;p&gt;做單細胞定序前，當然需要想辦法捕捉到單顆細胞，而目前有許多不同的方式：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Microdissection&lt;/li&gt;
 &lt;li&gt;Pipetting&lt;/li&gt;
 &lt;li&gt;Fluorescence-activated cell sorting (FACS)&lt;/li&gt;
 &lt;li&gt;Microfluidics&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;後面兩個技術為high-throughput，可以有效率的捕獲大量的單細胞。FACS 帶有特定螢光的細胞&lt;code&gt;挑&lt;/code&gt;出來，並收集到微孔板（microtiter plate）中；而microfluidics 是利用integrated fluidic circuits (IFC)、油滴或是奈米板（nanowell）、來同時收集及處理細胞，&lt;code&gt;減少試劑的使用&lt;/code&gt;。有些時候為了降低背景噪音及最大化定序的表現，可以在使用microfluidic 系統前先用FACS或&lt;code&gt;MACS（magnetic-activated cell sorting&lt;/code&gt;）來移除死細胞或是雜質。&lt;/p&gt;
+&lt;p&gt;後面兩個技術為high-throughput，可以有效率的捕獲大量的單細胞。FACS 可以將帶有特定螢光的細胞&lt;code&gt;挑&lt;/code&gt;出來，並收集到微孔板（microtiter plate）中；而microfluidics 是利用integrated fluidic circuits (IFC)、油滴或是奈米板（nanowell）、來同時收集及處理細胞，&lt;code&gt;減少試劑的使用&lt;/code&gt;。有些時候為了降低背景噪音及優化定序的表現，可以在使用microfluidic 系統前先用FACS或&lt;code&gt;MACS（magnetic-activated cell sorting&lt;/code&gt;）來移除死細胞或是雜質。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;樣本大小與組成&#34;&gt;樣本大小與組成&lt;/h2&gt;
-&lt;p&gt;雖然取得unbiased 細胞組成很重要，但有時候太大或太小的細胞反而會卡在微流體系統或是被FACS忽略，因此有時候研究反而會針對某些特定的細胞群體，如免疫細胞去做富集，或是去掉血球細胞（CD45+）。&lt;/p&gt;
+&lt;p&gt;雖然取得unbiased 細胞組成（盡可能捕捉到全部）很重要，但有時候太大或太小的細胞反而會卡在微流體系統或是被FACS忽略，因此有時候研究反而會針對某些特定的細胞群體，如免疫細胞去做富集，或是去掉血球細胞（CD45+）。&lt;/p&gt;
 &lt;p&gt;FACS的技術可以藉由螢光強度或細胞大小（FACS可以提供的訊息）來對細胞做編列（indexing），讓我們可以知道細胞在sorting時的位置與螢光強度，讓後續做transcriptomic profiling 時可以追蹤細胞標記。&lt;/p&gt;
-&lt;p&gt;除了FACS系統，&lt;a href=&#34;https://cite-seq.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CITE-seq&lt;/a&gt;(圖三)利用oligonucleotide標記的抗體辨識細胞表面的記號（epitope），這個抗體專一性oligonucleotide sequence 會被接上poly(A) tail 及特殊條碼，讓我們在scRNA-seq library construction時可以追蹤epitope。&lt;/p&gt;
+&lt;p&gt;除了FACS系統，&lt;a href=&#34;https://cite-seq.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CITE-seq&lt;/a&gt;(圖三)利用oligonucleotide標記的抗體辨識細胞表面的記號（epitope），這個抗體專一性oligonucleotide sequence 接上了一條poly(A) tail 及一段特殊條碼，讓我們在scRNA-seq library construction時可以追蹤epitope。&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -140,7 +140,7 @@
                /post/scrna_guide/fig3_hu13695154641875346659.webp 400w,
                /post/scrna_guide/fig3_hu8573096409683843575.webp 760w,
                /post/scrna_guide/fig3_hu16898922341218008701.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_guide/fig3_hu13695154641875346659.webp&#34;
+               src=&#34;http://localhost:56953/post/scrna_guide/fig3_hu13695154641875346659.webp&#34;
                width=&#34;700&#34;
                height=&#34;527&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -152,8 +152,8 @@
 &lt;h2 id=&#34;細胞數量&#34;&gt;細胞數量&lt;/h2&gt;
 &lt;p&gt;另外實驗的細胞數量需要多少也是很重要的參數，須要考慮&lt;code&gt;樣本的異質性&lt;/code&gt;與感興趣細胞的&lt;code&gt;出現頻率&lt;/code&gt;，一般來說，有兩種情況需要較多的細胞：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;樣本異質性高，所以需要較多的細胞數量來解構所有的次群體。&lt;/li&gt;
-&lt;li&gt;感興趣的細胞很罕見，所以需要較多的細胞數量來增加他出現的次數。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;樣本異質性高&lt;/code&gt;: 所以需要較多的細胞數量來解構所有的次群體。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;感興趣的細胞很罕見&lt;/code&gt;: 所以需要較多的細胞數量來增加他出現的次數。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;針對同質性高的樣本並不是說細胞數量可以減到很少，因為足夠的細胞數量才能增加統計效力。&lt;/p&gt;
 &lt;p&gt;目前也有工具可以幫我們估計我們需要多少細胞數量，如Satija 教授開發的網路工具&lt;a href=&#34;https://satijalab.org/howmanycells/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;howmanycell&lt;/a&gt;。&lt;/p&gt;
@@ -165,25 +165,26 @@
 &lt;p&gt;過去大部分scRNA-seq的步驟都要求取得新鮮的活細胞來做定序，但是取得腫瘤後立即處理樣本其實頗具挑戰性，也很吃人力和時間成本，如果又沒有FACS的專門的儀器，會變得相當尷尬。&lt;/p&gt;
 &lt;p&gt;此外，雖然可以在不同天處理腫瘤，但是我們都知道這樣會引入&lt;code&gt;Batch effect&lt;/code&gt;，因此同一天處理樣本是最理想的狀況，想當然底下的研究助理會想哭吧&amp;hellip;。&lt;/p&gt;
 &lt;p&gt;有鑑於此，不少的冷凍保存（cryopreservation）技術也開發出來，讓我們可以使用冷凍後的樣本做處理。而研究顯示，在-80度或是液態氮保存的樣本在解凍後，仍然保有完整的RNA與基因表現，但目前仍不建議對樣本進行反覆的冷凍與解凍。&lt;/p&gt;
-&lt;p&gt;而針對急速冷凍（snap-freeze）的樣本，因為&lt;code&gt;冰凍（crystal）的結晶&lt;/code&gt;會破壞細胞膜，多數細胞並不完整，只能利用&lt;code&gt;nuclei&lt;/code&gt; 來取得scRNA-seq。&lt;/p&gt;
+&lt;p&gt;而針對急速冷凍（snap-freeze）的樣本，因為&lt;code&gt;冰晶（crystal）&lt;/code&gt;會破壞細胞膜，多數細胞並不完整，只能利用&lt;code&gt;nuclei&lt;/code&gt; 來取得scRNA-seq。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;單細胞定序&#34;&gt;單細胞定序&lt;/h2&gt;
 &lt;p&gt;單細胞定序主要有&lt;code&gt;四&lt;/code&gt;個步驟：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;RNA分子的捕獲（capture）&lt;/li&gt;
-&lt;li&gt;放大（transcriptome amplification）&lt;/li&gt;
-&lt;li&gt;建立定序庫（sequencing library）&lt;/li&gt;
-&lt;li&gt;定序（sequencing）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RNA分子的捕獲（capture）&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;放大（transcriptome amplification）&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;建立定序庫（sequencing library）&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;定序（sequencing）&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;hr&gt;
 &lt;h3 id=&#34;rna-molecule-capture-reverse-transcription-and-transcriptomics-amplification-for-sequencing-library-construction&#34;&gt;RNA molecule capture, reverse transcription and transcriptomics amplification for sequencing library construction&lt;/h3&gt;
-&lt;p&gt;大多的單細胞的RNA分子捕獲使用&lt;code&gt;poly(A)-tailed RNA&lt;/code&gt;來辨識mRNA，針對total RNA 也有其他特殊的方式，但比較少用。
+&lt;p&gt;大多的單細胞的RNA分子捕獲利用&lt;code&gt;poly(A)-tailed RNA&lt;/code&gt;來辨識mRNA，針對total RNA 也有其他特殊的方式，但比較少用。
 所以我們只要設計一段&lt;code&gt;poly(T) oligonucleotide&lt;/code&gt;就可以收集所有mRNA，但是必然會忽略掉數量也很多的rRNA與tRNA，在捕獲之後，RNA片段會被反轉綠成&lt;code&gt;cDNA&lt;/code&gt;，接續進行放大與定序庫的建立。
 在設計oligonucleotide的時候，會插入專一的&lt;code&gt;單細胞編碼（single cell barcode）&lt;/code&gt;，讓後續在定序時，可以做&lt;code&gt;pooling&lt;/code&gt;與&lt;code&gt;multiplex&lt;/code&gt;。
 除了cell barcode外，還會插入約12的核苷酸的&lt;code&gt;unique molecular identifier (UMI)&lt;/code&gt;，用來去除後續cDNA擴增後帶來的擴增噪音，是單細胞分析裡面很關鍵的技術。關於UMI如何作用，可以參考這個&lt;a href=&#34;https://hbctraining.github.io/scRNA-seq_online/lessons/02_SC_generation_of_count_matrix.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;網站&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;而針對cDNA的擴增，基本上有兩種方式：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;PCR：所需步驟較少，但是對RNA的定量會引入較多的擴增偏差。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;In vitro transcription （IVT）&lt;/code&gt;:利用線性擴增，因此引入的擴增偏差較少，但需要的後續步驟較多。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;In vitro transcription （IVT）&lt;/code&gt;：利用線性擴增，因此引入的擴增偏差較少，但需要的後續步驟較多。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;圖四為各種平台的技術概況：
 
@@ -208,7 +209,7 @@
                /post/scrna_guide/fig4_hu17683730018688549645.webp 400w,
                /post/scrna_guide/fig4_hu15397314574738147101.webp 760w,
                /post/scrna_guide/fig4_hu6232023545738136439.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_guide/fig4_hu17683730018688549645.webp&#34;
+               src=&#34;http://localhost:56953/post/scrna_guide/fig4_hu17683730018688549645.webp&#34;
                width=&#34;760&#34;
                height=&#34;387&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -219,7 +220,7 @@
 &lt;h3 id=&#34;full-length-vs-3-or-5-transcript-sequencing&#34;&gt;Full length vs 3&amp;rsquo; or 5&amp;rsquo; transcript sequencing&lt;/h3&gt;
 &lt;p&gt;轉錄的過程可以分為全長（full length）或是針對5&amp;rsquo;/3&amp;rsquo;端來做定量（digital counting），這兩個方式的差別在於：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;Full length&lt;/code&gt;: mRNA的整段都可以解碼出來，因此適合用於須要了解&lt;code&gt;splice variant&lt;/code&gt; 或是 &lt;code&gt;alternative splicing&lt;/code&gt;的研究。T與B細胞的受體genotype 也可以藉由full length sequencing 來還原。 然而這種技術因為並沒有在處理得初期插入UMI，所以並不能做indexing，因此實驗成本會較高。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Full length&lt;/code&gt;: mRNA的整段都可以解碼出來，因此適合用於須要了解&lt;code&gt;splice variant&lt;/code&gt; 或是 &lt;code&gt;alternative splicing&lt;/code&gt;的研究。T與B細胞的受體genotype 也可以藉由full length sequencing 來還原。 然而這種技術因為並沒有在處理初期插入UMI，所以並不能做indexing，因此實驗成本會較高。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;3&#39;/5&#39; sequencing&lt;/code&gt;: 因為PCR先天的限制，在mRNA的尾端無法完整進行下去，因此會喪失掉尾端的訊息，但如果只在乎&lt;code&gt;基因的表現量&lt;/code&gt;，這樣的限制並不會影響實驗的目的。此外，因為在處理的過程中可以加入cell barcodes，所以有利於indexing與multiplex，減少成本。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
@@ -228,29 +229,59 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;microfluidic-system-based-approaches&#34;&gt;Microfluidic system-based approaches&lt;/h2&gt;
 &lt;p&gt;微流體系統的優勢在於可以高通量的針對單細胞做處理，具有很高的技術延展性（scalability），彌補microtiter-based 方法的不足，同時增加了cDNA的產量。&lt;/p&gt;
-&lt;p&gt;最初用來做scRNA-seq的微流體系統使用拋棄式微流體晶片，完成單細胞裂解、核酸純化、反轉錄作用和擴增放大流程，最後將單細胞之終產物存放至獨立槽中，進行後續分析，這項技術為 &lt;code&gt;Fluidigm C1&lt;/code&gt;所使用，其中所使用的方法是修改後的&lt;code&gt;Smart-seq2 protocol&lt;/code&gt;。但早期的IFC只有96個細胞捕獲位點，後來新的技術&lt;code&gt;（C1 HT-IFC）&lt;/code&gt;增加到了800個位點，並允許早期編碼（early-indexing），讓細胞可以混合在一起做後續分析，大幅降低了成本。&lt;/p&gt;
-&lt;p&gt;為了進一步增加捕獲的細胞數量，微流體技術發展為更具擴展性的開放式奈米孔系統。例如，&lt;code&gt;STRT-seq-2i&lt;/code&gt;運用具有9600個位點的奈米孔平台，通過限制性稀釋或特殊的FACS技術排序並加載細胞。此外，奈米孔陣列的形式允許我們透過造影來排除一個孔裡面出現兩個以上的細胞。&lt;/p&gt;
-&lt;p&gt;另一個奈米孔技術為&lt;code&gt;Seq-Well&lt;/code&gt;，可在捕獲高達86000個細胞並進行反應，原理是將帶有條碼的珠子先裝到奈米孔中，然後細胞通過&lt;code&gt;限制性稀釋&lt;/code&gt;進入捕獲位點。隨後陣列被密封以進行細胞裂解和RNA的捕獲，最後將固定的分子集中製備3&amp;rsquo;端library。然而，儘管可以通過顯微鏡監測細胞，但帶有條碼的珠子因為隨機分佈的特性使得影像的整合困難，此外也需要經驗豐富的使用者以保證結果的重現性和品質。&lt;/p&gt;
-&lt;p&gt;雖然IFC和奈米孔方法在高通量方面具有擴展性，但它們的反應位點數量還是很有限。液滴系統通過將細胞封裝在奈米級微反應器液滴中克服了這一限制。此方法可以捕獲的細胞數量隨著使用的&lt;code&gt;乳液（emulsion）&lt;/code&gt;體積的上升而上升，並且能高速生成大量液滴，適用於大規模scRNA-seq實驗。此外，可以調整液滴大小以減少細胞捕獲過程中的引入的潛在偏差。由於條碼隨也是隨機導入液滴中，因此該方法也無法將條形碼用影像來偵測捕獲細胞的即時狀況。&lt;/p&gt;
-&lt;p&gt;目前有兩種液滴技術：&lt;/p&gt;
+&lt;p&gt;最初用來做scRNA-seq的微流體系統使用拋棄式微流體晶片，完成單細胞裂解、核酸純化、反轉錄作用和擴增放大流程，最後將單細胞之終產物存放至獨立槽中，進行後續分析，&lt;code&gt;Fluidigm C1&lt;/code&gt;就是使用這種方式。但早期的晶片只有96個細胞捕獲位點，後來新的技術&lt;code&gt;（C1 HT-IFC）&lt;/code&gt;才增加到了800個位點，並允許早期編碼（early-indexing），讓細胞可以混合在一起做後續分析，大幅降低了成本。&lt;/p&gt;
+&lt;p&gt;為了進一步增加捕獲的細胞數量，微流體技術發展為更具擴展性的開放式奈米孔系統。例如，&lt;code&gt;STRT-seq-2i&lt;/code&gt;運用具有9600個位點的奈米孔平台，通過&lt;code&gt;限制性稀釋&lt;/code&gt;或特殊的FACS技術排序並加載細胞。此外，奈米孔陣列的形式允許我們透過影像來觀察一個孔裡面是否有出現兩個以上的細胞（doublet）。&lt;/p&gt;
+&lt;p&gt;另一個奈米孔技術為&lt;code&gt;Seq-Well&lt;/code&gt;，可在捕獲高達86000個細胞並進行反應，原理是將帶有條碼的珠子先裝到奈米孔中，然後細胞通過&lt;code&gt;限制性稀釋&lt;/code&gt;進入捕獲位點。隨後陣列被密封以進行細胞裂解和RNA的捕獲，最後將固定的RNA分子集中製備3&amp;rsquo;端library。然而，儘管這種技術可以通過顯微鏡監測細胞，但帶有條碼的珠子因為隨機分佈的特性使得影像的整合困難，此外也需要經驗豐富的使用者以保證結果的重現性和品質。&lt;/p&gt;
+&lt;p&gt;雖然IFC和奈米孔方法在高通量方面具有擴展性，但它們的反應位點數量還是很有限。液滴系統通過將細胞封裝在液滴中克服了這一限制。此方法可以捕獲的細胞數量隨著使用的&lt;code&gt;乳液（emulsion）&lt;/code&gt;體積的上升而上升，並且能高速生成大量液滴，適用於大規模scRNA-seq實驗。此外，可以調整液滴大小以減少細胞捕獲過程中的引入的潛在偏差。由於條碼隨也是隨機導入液滴中，因此該方法也無法透過影像來偵測捕獲的即時狀況。&lt;/p&gt;
+&lt;p&gt;關於液滴技術目前有兩種：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;inDrops&lt;/code&gt;利用&lt;code&gt;水凝膠珠（hydrogel bead）&lt;/code&gt;，上面帶有poly(T)引子與特殊細胞編碼，在捕獲細胞後，通過光來釋放引子提高分子捕獲效率並啟動液滴內的反轉錄反應，這項技術可以有大於75%的細胞捕獲率，因此很適合細胞數量較少的樣本。目前使用這種技術的廠商有：&lt;code&gt;1CellBio&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Drop-seq&lt;/code&gt;方法則使用但有隨機條碼的珠子，在細胞裂解和RNA捕獲後，液滴破裂並且合成cDNA，接著進行3&amp;rsquo;端文庫製備。相比inDrops，Drop-seq因採用&lt;code&gt;雙重限制稀釋&lt;/code&gt;，細胞捕獲效率較&lt;code&gt;低&lt;/code&gt;，目前採用Drop-seq系統的為&lt;code&gt;Dolomite Bio&lt;/code&gt;與&lt;code&gt;Illumina（ddSEQ）&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Drop-seq&lt;/code&gt;方法則使用帶有隨機條碼的珠子，在細胞裂解和RNA捕獲後，液滴破裂並且合成cDNA，接著進行3&amp;rsquo;端文庫製備。相比inDrops，Drop-seq因採用&lt;code&gt;雙重限制稀釋&lt;/code&gt;，細胞捕獲效率較&lt;code&gt;低&lt;/code&gt;，目前採用Drop-seq系統的為&lt;code&gt;Dolomite Bio&lt;/code&gt;與&lt;code&gt;Illumina（ddSEQ）&lt;/code&gt;。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;我們來看一下一個比較表(&lt;a href=&#34;https://prelights.biologists.com/highlights/comparative-analysis-droplet-based-ultra-high-throughput-single-cell-rna-seq-systems/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;圖五&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;![fig5](fig5.png 圖五 液滴系統比較)
-不難發現10x Genomics系統比較類似Drop-seq，但10X Genomics使用可溶解的beads，
-可溶解beads的的優點：&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖五-液滴系統比較&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig5&#34; srcset=&#34;
+               /post/scrna_guide/fig5_hu16640274865221918418.webp 400w,
+               /post/scrna_guide/fig5_hu16751551510422201417.webp 760w,
+               /post/scrna_guide/fig5_hu7910360859258366755.webp 1200w&#34;
+               src=&#34;http://localhost:56953/post/scrna_guide/fig5_hu16640274865221918418.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;668&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖五 液滴系統比較
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不難發現10x Genomics系統比較類似Drop-seq，但10X Genomics使用可溶解的beads，而可溶解beads的的優點：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;當beads溶解後，引子均勻地釋放到液滴中，提供了一個更加均一的反應環境。這能夠提高條形碼與mRNA分子的結合效率，從而提升cDNA合成的成功率&lt;/li&gt;
 &lt;li&gt;條碼在液滴中釋放後，分佈更均勻，減少了因beads表面接觸限制而導致的偏差，使得mRNA條形碼標記的均勻性更高。&lt;/li&gt;
 &lt;li&gt;利用同步分配技術（例如微流體設備中的精準控制），可實現更高的單細胞分離效率，降低雙細胞（doublet）的比例。&lt;/li&gt;
 &lt;li&gt;可溶解beads設計可減少環境RNA的污染，因為在釋放條形碼後，RNA分子更快地被捕獲並固定。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;library-的準備與定序&#34;&gt;Library 的準備與定序&lt;/h2&gt;
 &lt;p&gt;在短序列片段&lt;code&gt;（short-read sequencing）&lt;/code&gt;的應用中，擴增後的cDNA（經由PCR）或RNA（經由IVT）會在加入&lt;code&gt;sequencing adaptor&lt;/code&gt; 之前先進行片段化。片段化可透過&lt;code&gt;酵素（如tagmentase或DNase）&lt;/code&gt;、化學方法（如使用鋅、醋酸鉀或醋酸鎂）或機械（如超聲波）來達成。接著，基於3&amp;rsquo;或5&amp;rsquo;的文庫會使用針對轉錄起點或終點的引子進行擴增。在此步驟中，可以加入一個pool-specific index，所以可以進行&lt;code&gt;multiplexing&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;Full-length的方法僅在片段化之後才引入細胞專一的barcode，這會阻礙細胞在處理的早期階段進行混合。除了&lt;code&gt;STRT-seq&lt;/code&gt;外，scRNA-seq文庫需要使用paired end sequencing，其中一端提供轉錄信息，另一個端則讀取single cell barcode與UMI。STRT-seq則將cell barcode與UMI嵌入到&lt;code&gt;5&#39;轉錄末端&lt;/code&gt;，因此序列之間並沒有被poly(T) oligonucleotides分隔開，這使得單一端點即可同時獲取細胞、分子與轉錄的相關信息。&lt;/p&gt;
+&lt;p&gt;Full-length的方法僅在&lt;code&gt;片段化之後&lt;/code&gt;才引入細胞專一的barcode，這會阻礙細胞在處理的早期階段進行混合。除了&lt;code&gt;STRT-seq&lt;/code&gt;外，scRNA-seq文庫需要使用paired end sequencing，其中一端提供轉錄信息，另一個端則讀取single cell barcode與UMI。STRT-seq則將cell barcode與UMI嵌入到&lt;code&gt;5&#39;轉錄末端&lt;/code&gt;，因此序列之間並沒有被poly(T) oligonucleotides分隔開，這使得單一端點即可同時獲取細胞、分子與轉錄的相關信息。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;10X Genomics 的UMI與cell barcode與olgo(dT)都在同一端（5&amp;rsquo; end），捕獲mRNA後，transcript information往3&amp;rsquo; end延伸，所以光sequence 5&amp;rsquo; end 只能得到barcode與UMI訊息。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -258,9 +289,9 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;其他技術考量&#34;&gt;其他技術考量&lt;/h2&gt;
 &lt;h3 id=&#34;cell-doublets&#34;&gt;Cell doublets&lt;/h3&gt;
-&lt;p&gt;大多數基於微流體的方法有一個潛在的問題：每個反應位點（奈米孔或液滴）可能同時捕捉兩個細胞，這導致它們擁有相同的barcode，這種現象稱為&lt;code&gt;doublet&lt;/code&gt;，而&lt;code&gt;doublet rate&lt;/code&gt;可以透過物種混合實驗（species-mixture）來估算。&lt;/p&gt;
-&lt;p&gt;Doublet的產生源於細胞在反應位點中的隨機分佈，其發生率與細胞懸浮液的濃度有關。對於Chromium系統，在每個液滴通道最多建議的10,000個細胞裝載量下，doublet rate呈線性關係（符合Poisson分佈），其推算的doublet rate範圍為2%（2,500個細胞）至8%（10,000個細胞）。其他微流體方法的doublet rate也類似：Drop-seq的雙胞率為0.36–11.3%（每微升12.5–100個細胞），InDrops為4%，Seq-Well則為1.6%。&lt;/p&gt;
-&lt;p&gt;在&lt;code&gt;較高稀釋條件下&lt;/code&gt;，doublet rate會降低，但這也表示每個實驗捕捉的總細胞數減少，進而提高每個細胞的試劑成本。研究人員可以部分克服這個問題，方法是同時捕捉來自不同個體的樣本，透過&lt;code&gt;基因型差異&lt;/code&gt;來區分來源，從而可靠地識別doublet。具體而言，可以利用RNA定序讀段中的單核苷酸多樣性（SNP）來判斷細胞的供體來源，並區分在同一個batch中處理的樣本。然而，這種流程僅在實驗設計中涉及不同人類個體或具有明顯遺傳背景差異的時候才可行。&lt;/p&gt;
+&lt;p&gt;大多數基於微流體的方法有一個潛在的問題：每個反應位點（奈米孔或液滴）可能同時捕捉到兩個細胞，這導致它們擁有相同的barcode，這種現象稱為&lt;code&gt;doublet&lt;/code&gt;，而&lt;code&gt;doublet rate&lt;/code&gt;可以透過物種混合實驗（species-mixture）來估算。&lt;/p&gt;
+&lt;p&gt;Doublet的產生源於細胞在反應位點中的隨機分佈，其發生率與細胞懸浮液的濃度有關。對於Chromium系統，在每個液滴通道最多建議的10,000個細胞裝載量下，doublet rate呈線性關係（符合Poisson分佈），其推算的doublet rate範圍為2%（2,500個細胞）至8%（10,000個細胞）。其他微流體方法的doublet rate也類似：Drop-seq的doublet rate為0.36–11.3%（每微升12.5–100個細胞），InDrops為4%，Seq-Well則為1.6%。&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;較高稀釋條件下&lt;/code&gt;，doublet rate會降低，但這也表示每個實驗捕捉的總細胞數減少，進而提高每個細胞的試劑成本。研究人員可以部分克服這個問題，方法是同時捕捉來自不同個體的樣本，透過&lt;code&gt;基因型差異&lt;/code&gt;來區分來源，從而識別doublet個別的來源。具體而言，可以利用RNA定序reads中的單核苷酸多樣性（SNP）來判斷細胞的來源，並區分在同一個batch中處理的樣本。然而，這種流程僅在實驗設計中涉及不同人類個體或具有明顯遺傳背景差異的時候才可行。&lt;/p&gt;
 &lt;p&gt;目前，尚無能夠可靠辨識doublet的計算方法，因此必須透過實驗設計來將doublet rate降至最低。Doublet可能對數據解釋產生顯著影響，因為混合在一起的轉錄組可能被誤解為&lt;code&gt;中間的細胞狀態&lt;/code&gt;，影響判讀。&lt;/p&gt;
 &lt;h3 id=&#34;cell-capture-efficiency&#34;&gt;Cell capture efficiency&lt;/h3&gt;
 &lt;p&gt;細胞捕獲效率是實驗中一個重要的考量因素，特別是在涉及primary cell或rare samples的實驗中。而獲得條碼的細胞數量與進入下游分析的樣本比例直接相關。&lt;/p&gt;
@@ -270,12 +301,12 @@
 &lt;p&gt;對於液滴式系統，細胞進入分析的速率與珠子的裝載效率直接相關。當大多數液滴中含有條碼珠時，細胞捕獲效率最佳（例如inDrops系統）。相反，如果珠子和細胞通過極限稀釋進行封裝，大部分細胞無法進入含有珠子的液滴中，導致較低的捕獲效率（例如Drop-seq系統）。&lt;/p&gt;
 &lt;h3 id=&#34;cost&#34;&gt;Cost&lt;/h3&gt;
 &lt;p&gt;scRNA-seq實驗的總成本主要由三個部分決定：&lt;code&gt;設備&lt;/code&gt;、&lt;code&gt;試劑&lt;/code&gt;和&lt;code&gt;測序&lt;/code&gt;。對於大多數方法而言，scRNA-seq文庫製備的成本隨著細胞數量呈線性增加；然而，自製液滴法是個例外。各種方法和不同研究機構之間，每個細胞的實際成本差異很大。微流體系統的成本通常較低（每個細胞低於0.30美元），而early indexing plate-based的3&amp;rsquo;端digital counting的方式成本較高（約每個細胞1–2美元）。而late indexing plate-based的full-length轉錄組分析成本更高，即便反應體積較小，每個細胞仍需約8–12美元。&lt;/p&gt;
-&lt;p&gt;然而，透過使用&lt;code&gt;非商業化的tagmentase&lt;/code&gt;或最小化反應體積，並針對plate-based採用自動化工作流程，可以有效降低成本。此外，微孔板可進行運輸和儲存，這使得樣本採集地點可以與scRNA-seq流程分離，從而將昂貴的設備集中於核心實驗室，實現最佳的資源管理。&lt;/p&gt;
+&lt;p&gt;然而，透過使用&lt;code&gt;非商業化的tagmentase&lt;/code&gt;或最小化反應體積，並針對plate-based方法採用自動化工作流程，可以有效降低成本。此外，微孔板可進行運輸和儲存，這使得樣本採集地點可以與scRNA-seq流程分離，從而將昂貴的設備集中於核心實驗室，實現最佳的資源管理。&lt;/p&gt;
 &lt;p&gt;儘管文庫製備的成本正在迅速下降，&lt;code&gt;測序成本&lt;/code&gt;卻逐漸成為主要因素。具有更高分子捕獲效率的方法能夠產生更複雜的測序文庫，因此即便在較低的測序深度下也能提供豐富的資訊。因此，更高效的scRNA-seq方法雖然增加了文庫製備的成本，但可以&lt;code&gt;透過降低整體測序成本來進行彌補&lt;/code&gt;。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;數據處理&#34;&gt;數據處理&lt;/h2&gt;
-&lt;p&gt;資料處理包括將原始測序轉換為基因表達矩陣的所有步驟，這些工作流程與傳統bulk RNA-seq的處理流程類似。當生成FASTQ檔案並使用工具，如&lt;a href=&#34;http://www.bioinformatics.babraham.ac.uk/projects/fastqc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;FastQC&lt;/a&gt;進行quality control後，下一個重要步驟是使用&lt;code&gt;細胞條碼&lt;/code&gt;對reads進行&lt;code&gt;去重複索引（de-multiplexing)&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;去重複索引後的reads會使用比對工具（如&lt;code&gt;TopHat&lt;/code&gt;和&lt;code&gt;STAR&lt;/code&gt;）與參考基因組進行比對，其中STAR已被證實準確性優異，對splice variant的辨識也相當靈敏。近年來的新型比對工具經過優化，能在不損失準確性的前提下，快速處理大規模數據集。例如，&lt;code&gt;Kallisto&lt;/code&gt;透過&lt;code&gt;pseudo-alignment&lt;/code&gt;，而非逐個鹼基的比對，大幅縮短了比對時間，快上兩個量級。&lt;/p&gt;
+&lt;p&gt;資料處理包括將原始測序轉換為基因表達矩陣的所有步驟，這些工作流程與傳統bulk RNA-seq的處理流程類似。當生成FASTQ檔案並使用工具如&lt;a href=&#34;http://www.bioinformatics.babraham.ac.uk/projects/fastqc/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;FastQC&lt;/a&gt;進行quality control後，下一個重要步驟是使用&lt;code&gt;細胞條碼&lt;/code&gt;對reads進行&lt;code&gt;去重複索引（de-multiplexing)&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;去重複索引後的reads會使用比對工具（如&lt;code&gt;TopHat&lt;/code&gt;和&lt;code&gt;STAR&lt;/code&gt;）與參考基因組進行比對，其中STAR準確性優異，對splice variant的辨識也相當靈敏。近年來的新型比對工具經過優化，能在不損失準確性的前提下，快速處理大規模數據集。例如，&lt;code&gt;Kallisto&lt;/code&gt;透過&lt;code&gt;pseudo-alignment&lt;/code&gt;，而非逐個鹼基的比對，大幅縮短了比對時間，快上兩個量級。&lt;/p&gt;
 &lt;p&gt;在最終的處理步驟中，經比對的reads在定量後會轉成基因表達矩陣。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;RSEM&lt;/code&gt;、&lt;code&gt;Cufflinks&lt;/code&gt; 和 &lt;code&gt;HTSeq&lt;/code&gt; 適用於full-length轉錄組數據的定量。
 而對於UMI標記數據類型，如考慮&lt;code&gt;UMI序列中出現的測序錯誤&lt;/code&gt;，則可以使用UMI-tools。
@@ -293,7 +324,7 @@
 &lt;p&gt;然而，對大規模的數據變異來源，直接建立模型是比較標準的做法，例如將干擾因素（confounding factor）當作變數納入回歸模型，來校正數據的分佈。&lt;/p&gt;
 &lt;p&gt;例外對batch effect來說，通常是用視覺化的方式如PCA來偵測，而&lt;code&gt;kBET&lt;/code&gt;利用&lt;code&gt;k nearest neighbors&lt;/code&gt;，量化&lt;code&gt;組內&lt;/code&gt;與&lt;code&gt;組間&lt;/code&gt;的batch effect，發現結合&lt;code&gt;(log normalization或SCRAN pooling)&lt;/code&gt;與&lt;code&gt;(ComBat或是limma)&lt;/code&gt;等可以提供最佳的校正後數據，同時保存生物學意義。&lt;/p&gt;
 &lt;p&gt;如果數據收集時間的不同、不同個體、或是來自不同的scRNA-seq的技術都會導致數據出現嚴重的batch effect。Haghverdi等人提出基於&lt;code&gt;mutual nearest neighbors的方式&lt;/code&gt;，利用共同的subset population來校正不同實驗間的batch effect。此外，&lt;code&gt;Biscuit （Bayesian inference for single-cell clustering and imputing）&lt;/code&gt;利用基因表現相似性與共表達特徵來推論細胞群集，藉此校正細胞間的技術性變異。&lt;/p&gt;
-&lt;p&gt;常用來處理單細胞數據的Seurat也有針對常見變異來源做校正與整合，也推出新的方法來找出不同數據集共同的細胞族群及進行 &lt;code&gt;比較性分析&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;常用來處理單細胞數據的&lt;code&gt;Seurat&lt;/code&gt;也有針對常見變異來源做校正與整合，也推出新的方法來找出不同數據集共同的細胞族群及進行 &lt;code&gt;比較性分析&lt;/code&gt;。&lt;/p&gt;
 &lt;h3 id=&#34;imputation-and-gene-selection&#34;&gt;Imputation and gene selection&lt;/h3&gt;
 &lt;p&gt;因為scRNA-seq的數據集非常&lt;code&gt;稀疏 (sparse)&lt;/code&gt;，會影響細胞表型的辨別與判讀，例如很多沒有表現的基因或是&lt;code&gt;dropout events&lt;/code&gt;會導致數據矩陣出現很多&lt;code&gt;0&lt;/code&gt;。為了降低矩陣的稀疏性，缺失的transcripts可以用估計的方式來補足，例如&lt;code&gt;MAGIC&lt;/code&gt;使用&lt;code&gt;diffusion map&lt;/code&gt; 來還原缺失的數據。而&lt;code&gt;scImpute&lt;/code&gt;利用擬合一個混合模型來學習基因的dropout 機率，並使用相似的細胞來推論可能的dropout events。&lt;/p&gt;
 &lt;p&gt;針對樣本的&lt;code&gt;異質性&lt;/code&gt;，常見的方式是分析&lt;code&gt;不同數據集&lt;/code&gt;之間高表達變異度的基因，先完整的用&lt;code&gt;特徵選取&lt;/code&gt;來移除噪音較多的基因不僅可以增加訊號與雜訊的比例，也可以降低計算的複雜度。常用的策略是探討&lt;code&gt;mean transcript abundance&lt;/code&gt;與數據的離散程度 (dispersion)、負二項分佈 (negative binomial distribution)的離散參數 (dispersion parameter) 或是總變異 (total variability) 比例之間的關係。&lt;/p&gt;
@@ -327,9 +358,9 @@
     
     <item>
       <title>10X Genomics 推出GEM-X Flex</title>
-      <link>http://localhost:1313/tech/tech1/</link>
+      <link>http://localhost:56953/tech/tech1/</link>
       <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tech/tech1/</guid>
+      <guid>http://localhost:56953/tech/tech1/</guid>
       <description>&lt;p&gt;10x Genomics 推出的Single Cell GEM-X技術為單細胞分析開創了嶄新的可能性，提供前所未有的效能提升。基於這項創新，10x Genomics進一步推出了&lt;a href=&#34;%28https://www.10xgenomics.com/support/single-cell-gene-expression-flex/documentation/steps/library-prep/gem-x-flex-gene-expression-reagent-kit-for-multiplex-samples%29&#34;&gt;GEM-X Flex&lt;/a&gt;和，為研究者提供更靈活、高效且經濟的實驗設計選擇，跟先前的Flex protocol相比，GEM-X Flex可以在花費較少的情況下，用較少的細胞數量，得到品質更好的數據。&lt;/p&gt;
 </description>
     </item>
