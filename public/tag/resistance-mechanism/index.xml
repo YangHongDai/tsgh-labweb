@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Resistance Mechanism | DLit-Hub</title>
-    <link>http://localhost:49383/tag/resistance-mechanism/</link>
-      <atom:link href="http://localhost:49383/tag/resistance-mechanism/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/tag/resistance-mechanism/</link>
+      <atom:link href="http://localhost:1313/tag/resistance-mechanism/index.xml" rel="self" type="application/rss+xml" />
     <description>Resistance Mechanism</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 23 Nov 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:49383/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>Resistance Mechanism</title>
-      <link>http://localhost:49383/tag/resistance-mechanism/</link>
+      <link>http://localhost:1313/tag/resistance-mechanism/</link>
     </image>
     
     <item>
       <title>黑色素瘤如何對免疫治療產生抗藥性？</title>
-      <link>http://localhost:49383/post/paperr1/</link>
+      <link>http://localhost:1313/post/paperr1/</link>
       <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/paperr1/</guid>
+      <guid>http://localhost:1313/post/paperr1/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;這篇&lt;a href=&#34;https://www.nature.com/articles/s41467-023-36979-y&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;研究了Immune checkpoint inhibitor（ICI）療法在黑色素瘤中(melanoma)的抗藥性機制。通過分析來自患者的短期腫瘤細胞系(short term cell line))和匹配的腫瘤樣本，作者發現了三種不同的抗藥性機制，分別涉及抗原表達的喪失、抗原呈現的破壞，以及與PTEN缺失相關的免疫細胞排斥。這些抗藥性機制揭示了可能的救援性治療策略，例如恢復MHC的表達、促進先天免疫反應、以及重新刺激抗原的呈現。&lt;/p&gt;
 &lt;h1 id=&#34;簡介&#34;&gt;簡介&lt;/h1&gt;
@@ -48,7 +48,7 @@
                /post/paperr1/fig1_hu9654123225570833926.webp 400w,
                /post/paperr1/fig1_hu9312653373427227540.webp 760w,
                /post/paperr1/fig1_hu15333842250656839342.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/paperr1/fig1_hu9654123225570833926.webp&#34;
+               src=&#34;http://localhost:1313/post/paperr1/fig1_hu9654123225570833926.webp&#34;
                width=&#34;760&#34;
                height=&#34;407&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -84,7 +84,7 @@
                /post/paperr1/fig2_hu14716284260067820646.webp 400w,
                /post/paperr1/fig2_hu3714876771964191745.webp 760w,
                /post/paperr1/fig2_hu13053414200563141755.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/paperr1/fig2_hu14716284260067820646.webp&#34;
+               src=&#34;http://localhost:1313/post/paperr1/fig2_hu14716284260067820646.webp&#34;
                width=&#34;760&#34;
                height=&#34;629&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -116,7 +116,7 @@
                /post/paperr1/fig3_hu15511228375094572697.webp 400w,
                /post/paperr1/fig3_hu17629593433813472757.webp 760w,
                /post/paperr1/fig3_hu17722807213131398297.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/paperr1/fig3_hu15511228375094572697.webp&#34;
+               src=&#34;http://localhost:1313/post/paperr1/fig3_hu15511228375094572697.webp&#34;
                width=&#34;760&#34;
                height=&#34;538&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;

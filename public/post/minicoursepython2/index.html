@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: December 30, 2024 --><html lang="en-us" >
+<!-- Last Published: January 4, 2025 --><html lang="en-us" >
 
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=49383&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -278,8 +278,8 @@
 
 
 
-<link rel="alternate" hreflang="en-us" href="http://localhost:49383/post/minicoursepython2/" />
-<link rel="canonical" href="http://localhost:49383/post/minicoursepython2/" />
+<link rel="alternate" hreflang="en-us" href="http://localhost:1313/post/minicoursepython2/" />
+<link rel="canonical" href="http://localhost:1313/post/minicoursepython2/" />
 
 
 
@@ -312,7 +312,7 @@
 
   <meta property="twitter:site" content="@GetResearchDev" />
   <meta property="twitter:creator" content="@GetResearchDev" />
-<meta property="twitter:image" content="http://localhost:49383/post/minicoursepython2/featured.png" />
+<meta property="twitter:image" content="http://localhost:1313/post/minicoursepython2/featured.png" />
 
 
 
@@ -320,9 +320,9 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="DLit-Hub" />
-<meta property="og:url" content="http://localhost:49383/post/minicoursepython2/" />
+<meta property="og:url" content="http://localhost:1313/post/minicoursepython2/" />
 <meta property="og:title" content="迷你課程:Python-2~函數邏輯與迴圈 | DLit-Hub" />
-<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:49383/post/minicoursepython2/featured.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:1313/post/minicoursepython2/featured.png" /><meta property="og:locale" content="en-us" />
 
   
     <meta
@@ -357,12 +357,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:49383/post/minicoursepython2/"
+    "@id": "http://localhost:1313/post/minicoursepython2/"
   },
   "headline": "迷你課程:Python-2~函數邏輯與迴圈",
   
   "image": [
-    "http://localhost:49383/post/minicoursepython2/featured.png"
+    "http://localhost:1313/post/minicoursepython2/featured.png"
   ],
   
   "datePublished": "2024-12-30T00:00:00Z",
@@ -378,7 +378,7 @@
     "name": "DLit-Hub",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:49383/media/icon_hu1636988907106955456.png"
+      "url": "http://localhost:1313/media/icon_hu1636988907106955456.png"
     }
   },
   "description": ""
@@ -849,7 +849,7 @@
 </span></span><span class="line"><span class="cl">      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is larger than y&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is equal to y&#39;</span><span class="p">)</span>
-</span></span></code></pre></div><p>但上面的寫法會讓程式評估<code>3次 if</code>，如果是小程式倒還好，但如果是複雜的程式就會影響效能，有沒有更好的方法呢？其實我們可以使用<code>elif</code>，這樣只有當if的結果是False時，程式才會往<code>elif</code>去運算，因此從上面的3次運算，減少到。</p>
+</span></span></code></pre></div><p>但上面的寫法會讓程式評估<code>3次 if</code>，如果是小程式倒還好，但如果是複雜的程式就會影響效能，有沒有更好的方法呢？其實我們可以使用<code>elif</code>，這樣只有當if的結果是False時，程式才會往<code>elif</code>去運算，因此如果<code>x&lt;y</code>為真，就只要運算一次即可。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is less than y&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span>
@@ -1102,7 +1102,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fminicoursepython2%2F&amp;text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-2~%E5%87%BD%E6%95%B8%E9%82%8F%E8%BC%AF%E8%88%87%E8%BF%B4%E5%9C%88" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython2%2F&amp;text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-2~%E5%87%BD%E6%95%B8%E9%82%8F%E8%BC%AF%E8%88%87%E8%BF%B4%E5%9C%88" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -1119,7 +1119,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fminicoursepython2%2F&amp;t=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-2~%E5%87%BD%E6%95%B8%E9%82%8F%E8%BC%AF%E8%88%87%E8%BF%B4%E5%9C%88" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython2%2F&amp;t=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-2~%E5%87%BD%E6%95%B8%E9%82%8F%E8%BC%AF%E8%88%87%E8%BF%B4%E5%9C%88" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -1138,7 +1138,7 @@
         
       
       <li>
-        <a href="mailto:?subject=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-2~%E5%87%BD%E6%95%B8%E9%82%8F%E8%BC%AF%E8%88%87%E8%BF%B4%E5%9C%88&amp;body=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fminicoursepython2%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-2~%E5%87%BD%E6%95%B8%E9%82%8F%E8%BC%AF%E8%88%87%E8%BF%B4%E5%9C%88&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython2%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -1155,7 +1155,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fminicoursepython2%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-2~%E5%87%BD%E6%95%B8%E9%82%8F%E8%BC%AF%E8%88%87%E8%BF%B4%E5%9C%88" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython2%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-2~%E5%87%BD%E6%95%B8%E9%82%8F%E8%BC%AF%E8%88%87%E8%BF%B4%E5%9C%88" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -1172,7 +1172,7 @@
       
       
       <li>
-        <a href="whatsapp://send?text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-2~%E5%87%BD%E6%95%B8%E9%82%8F%E8%BC%AF%E8%88%87%E8%BF%B4%E5%9C%88%20http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fminicoursepython2%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+        <a href="whatsapp://send?text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-2~%E5%87%BD%E6%95%B8%E9%82%8F%E8%BC%AF%E8%88%87%E8%BF%B4%E5%9C%88%20http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython2%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1189,7 +1189,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fminicoursepython2%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-2~%E5%87%BD%E6%95%B8%E9%82%8F%E8%BC%AF%E8%88%87%E8%BF%B4%E5%9C%88" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython2%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-2~%E5%87%BD%E6%95%B8%E9%82%8F%E8%BC%AF%E8%88%87%E8%BF%B4%E5%9C%88" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -1410,7 +1410,7 @@
 
   
   <p class="powered-by copyright-license-text">
-    © 2024. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+    © 2025. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
   </p>
   
 

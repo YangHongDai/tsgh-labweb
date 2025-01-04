@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python迷你課程 | DLit-Hub</title>
-    <link>http://localhost:49383/category/python%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B/</link>
-      <atom:link href="http://localhost:49383/category/python%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/category/python%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B/</link>
+      <atom:link href="http://localhost:1313/category/python%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <description>Python迷你課程</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 30 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:49383/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>Python迷你課程</title>
-      <link>http://localhost:49383/category/python%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B/</link>
+      <link>http://localhost:1313/category/python%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B/</link>
     </image>
     
     <item>
       <title>迷你課程:Python-2~函數邏輯與迴圈</title>
-      <link>http://localhost:49383/post/minicoursepython2/</link>
+      <link>http://localhost:1313/post/minicoursepython2/</link>
       <pubDate>Mon, 30 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/minicoursepython2/</guid>
+      <guid>http://localhost:1313/post/minicoursepython2/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;在這篇教學中，我們將深入探討 Python 中函數的邏輯與迴圈的應用，幫助學習者掌握基本程式設計技巧。課程內容涵蓋條件判斷、函數設計、迴圈使用、資料結構操作等關鍵概念。&lt;/p&gt;
 &lt;hr&gt;
@@ -39,7 +39,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;x is larger than y&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;x is equal to y&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但上面的寫法會讓程式評估&lt;code&gt;3次 if&lt;/code&gt;，如果是小程式倒還好，但如果是複雜的程式就會影響效能，有沒有更好的方法呢？其實我們可以使用&lt;code&gt;elif&lt;/code&gt;，這樣只有當if的結果是False時，程式才會往&lt;code&gt;elif&lt;/code&gt;去運算，因此從上面的3次運算，減少到目前的2-3次。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但上面的寫法會讓程式評估&lt;code&gt;3次 if&lt;/code&gt;，如果是小程式倒還好，但如果是複雜的程式就會影響效能，有沒有更好的方法呢？其實我們可以使用&lt;code&gt;elif&lt;/code&gt;，這樣只有當if的結果是False時，程式才會往&lt;code&gt;elif&lt;/code&gt;去運算，因此如果&lt;code&gt;x&amp;lt;y&lt;/code&gt;為真，就只要運算一次即可。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;x is less than y&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
@@ -263,9 +263,9 @@
     
     <item>
       <title>迷你課程:Python-1~字串操作與格式化</title>
-      <link>http://localhost:49383/post/minicoursepython1/</link>
+      <link>http://localhost:1313/post/minicoursepython1/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/minicoursepython1/</guid>
+      <guid>http://localhost:1313/post/minicoursepython1/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;在 Python 中，字串 (string) 是最常用的資料類型之一。掌握字串的基本操作和進階技巧，不僅能讓你的程式碼更簡潔，也能提升程式設計的靈活性。本文將基於範例程式碼進一步詳細講解，並延伸至更多實用的字串操作和格式化方法。&lt;/p&gt;
 &lt;hr&gt;

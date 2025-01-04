@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>論文技術分享 | DLit-Hub</title>
-    <link>http://localhost:49383/category/%E8%AB%96%E6%96%87%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/</link>
-      <atom:link href="http://localhost:49383/category/%E8%AB%96%E6%96%87%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/category/%E8%AB%96%E6%96%87%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/</link>
+      <atom:link href="http://localhost:1313/category/%E8%AB%96%E6%96%87%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/index.xml" rel="self" type="application/rss+xml" />
     <description>論文技術分享</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:49383/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>論文技術分享</title>
-      <link>http://localhost:49383/category/%E8%AB%96%E6%96%87%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/</link>
+      <link>http://localhost:1313/category/%E8%AB%96%E6%96%87%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/</link>
     </image>
     
     <item>
       <title>Sequence modeling and design from molecular to genome scale with Evo</title>
-      <link>http://localhost:49383/tech/tech3/</link>
+      <link>http://localhost:1313/tech/tech3/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/tech/tech3/</guid>
+      <guid>http://localhost:1313/tech/tech3/</guid>
       <description>&lt;p&gt;近期發表於《科學》期刊的研究介紹了Evo，一種具備7億參數的基因組基礎模型 (Foundation model)，能夠從單個核苷酸到整個基因組進行序列建模和設計。 Evo使用&lt;code&gt;StripedHyena&lt;/code&gt;架構，能夠以接近線性的計算和記憶體擴展來處理長序列，實現&lt;code&gt;單核苷酸&lt;/code&gt;級別的解析度。
 該模型在&lt;code&gt;OpenGenome&lt;/code&gt;資料集上進行訓練，該資料集包含約270萬個原核生物和噬菌體基因組序列，總計約3000億個標記。 Evo在DNA、RNA和蛋白質等多種生物模式下的&lt;code&gt;零樣本 (Zero shot)&lt;/code&gt;功能預測任務中表現出色，並能夠生成功能性生物系統，如CRISPR-Cas複合物和轉座子。&lt;/p&gt;
 &lt;ul&gt;

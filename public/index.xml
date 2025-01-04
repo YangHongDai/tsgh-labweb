@@ -2,21 +2,343 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DLit-Hub</title>
-    <link>http://localhost:49383/</link>
-      <atom:link href="http://localhost:49383/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/</link>
+      <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <description>DLit-Hub</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 24 Oct 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:49383/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>DLit-Hub</title>
-      <link>http://localhost:49383/</link>
+      <link>http://localhost:1313/</link>
     </image>
     
     <item>
+      <title>迷你課程:R語言-5~輸入與輸出</title>
+      <link>http://localhost:1313/post/minicourse_r6/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/minicourse_r6/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;今天介紹R語言中讀取和寫入資料的工具，包括讀取不同格式的資料模式，並使用寫入輸出來儲存和顯示資料。這部分將輸出更多實用示例與深入解釋。&lt;/p&gt;
+&lt;h2 id=&#34;input-讀取資料&#34;&gt;Input 讀取資料&lt;/h2&gt;
+&lt;h4 id=&#34;主要讀取函數&#34;&gt;主要讀取函數&lt;/h4&gt;
+&lt;p&gt;R 提供了一系列讀取資料的方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;read.table: 讀入行列形式的資料&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;read.csv: 用於 CSV 格式讀取資料，默認 header = TRUE&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;read_delim/read_csv: 定義於readr 套件中，可以在tidyverse 環境中建立tibble。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#read.table&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;cancer_patients&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;read.table&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;../datasets/cancer_patients.csv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sep&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;,&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;header&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cancer_patients&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# read.csv 讀取 CSV 資料&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;lung_cancer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;read.csv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;../datasets/lung_cancer.csv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lung_cancer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# readr包含的讀取方法&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;readr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;immunotherapy_tibble&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;read_csv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;../datasets/immunotherapy_tibble.csv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;immunotherapy_tibble&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;r專屬資料格式&#34;&gt;R專屬資料格式&lt;/h2&gt;
+&lt;p&gt;與matlab或其他程式語言類似，R的生態也有自己的數據格式，如&lt;code&gt;.RData&lt;/code&gt;與&lt;code&gt;.rds&lt;/code&gt;，用來儲存壓縮後的R物件。
+&lt;code&gt;.RData&lt;/code&gt; 是一種可以存儲多個 R 物件的檔案格式:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;多物件儲存：可以同時儲存多個物件，例如向量、數據框、列表、函數等。&lt;/li&gt;
+&lt;li&gt;無需指定變數名稱：使用 load() 函數加載 .RData 檔案時，檔案內的物件會直接被還原到工作環境中。&lt;/li&gt;
+&lt;li&gt;會覆蓋同名物件：如果工作空間中已有名稱相同的物件，load() 會覆蓋它們。&lt;/li&gt;
+&lt;li&gt;壓縮儲存：預設使用壓縮技術減少檔案大小。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;rdata-讀取&#34;&gt;.RData 讀取&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 儲存多個物件到 .RData&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;matrix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;save&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;example.RData&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 加載 .RData&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;load&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;example.RData&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 確認工作空間物件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;ls&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;.rds&lt;/code&gt; 是一種用於儲存單一 R 物件的檔案格式:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;僅支持單一物件：一次只能儲存一個物件，這使得它的用途更具針對性。&lt;/li&gt;
+&lt;li&gt;必須明確指定變數：使用 readRDS() 加載 .rds 檔案時，必須將物件指定給某個變數。&lt;/li&gt;
+&lt;li&gt;不覆蓋現有物件：因為需要明確分配變數名稱，因此避免了意外覆蓋現有物件的風險。&lt;/li&gt;
+&lt;li&gt;壓縮儲存：與 .RData 類似，使用壓縮技術減少檔案大小。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;rds-讀取&#34;&gt;.rds 讀取&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 儲存單一物件到 .rds&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;saveRDS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;example.rds&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 加載 .rds&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;x_loaded&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;readRDS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;example.rds&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 檢查內容&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x_loaded&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;output-輸出&#34;&gt;Output 輸出&lt;/h2&gt;
+&lt;p&gt;最間單的輸出方式是使用print()，print() 是最基本的輸出方法，將物件顯示在控制台。在 loop 和 function 中，常需要呼叫 print 來將結果輸出。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 在 loop 中輸出&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;my_list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 在 function 中輸出&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;prints_something&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;my_list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kr&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;prints_something&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此外，print()也是一種通用函數 (generic function)，意思是它會根據物件的&lt;code&gt;類別 (class)&lt;/code&gt;，調用對應的特定方法。例如，print.data.frame 是專門用於顯示資料框的 print 方法。
+當呼叫 print(x) 時，R 會檢查物件 x 的類別，然後執行 print.&lt;class&gt; 方法。可以用以下方式來查看 print() 方法列表：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看 `print` 方法列表&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;methods&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[1] &amp;#34;print,ANY-method&amp;#34;           
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[2] &amp;#34;print,CFunc-method&amp;#34;         
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[3] &amp;#34;print,CFuncList-method&amp;#34;     
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[4] &amp;#34;print,diagonalMatrix-method&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[5] &amp;#34;print,sparseMatrix-method&amp;#34;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[6] &amp;#34;print.aareg&amp;#34;   
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;通用函數運作機制&#34;&gt;通用函數運作機制&lt;/h4&gt;
+&lt;p&gt;R 會檢查物件的類別 (class)。根據類別選擇對應的 print.&lt;class&gt; 方法。若沒有定義專屬方法，則使用預設的 &lt;code&gt;print.default&lt;/code&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;s3系統&#34;&gt;S3系統&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;S3&lt;/code&gt; 是 R 的三種&lt;code&gt;物件導向系統&lt;/code&gt;之一（其他為 &lt;code&gt;S4&lt;/code&gt; 和 &lt;code&gt;R6&lt;/code&gt;）。它使用非常簡單的方式為物件&lt;code&gt;指定類別並定義方法&lt;/code&gt;。定義一個新的方法很簡單，只需&lt;code&gt;創建一個函數&lt;/code&gt;，命名格式為 &lt;code&gt;generic.class&lt;/code&gt;（例如 print.diagmat）。
+一旦方法被定義，&lt;code&gt;對應類別&lt;/code&gt;的物件會自動使用這個方法。接下來來為print定義新方法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;print.diagmat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;c1&#34;&gt;# 顯示一個對角矩陣，對角線元素由 `d` 決定&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;diag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然後再將物件轉換為自訂類別&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;diagmat&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;原本 &lt;code&gt;d&lt;/code&gt; 是一個普通的 &lt;code&gt;atomic vector&lt;/code&gt;，透過 &lt;code&gt;class(d) &amp;lt;- &amp;quot;diagmat&amp;quot; &lt;/code&gt;指定其類別為 &amp;ldquo;diagmat&amp;rdquo;。
+此時，d 將使用 &lt;code&gt;print.diagmat 方法&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;R 檢查 d 的類別為 &amp;ldquo;diagmat&amp;rdquo;。呼叫對應的 print.diagmat 方法。生成並顯示對角矩陣：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[1,]    1    0    0    0    0    0    0    0    0     0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[2,]    0    2    0    0    0    0    0    0    0     0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;使用cat&#34;&gt;使用cat&lt;/h2&gt;
+&lt;p&gt;print 與 cat 的差別：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;print&lt;/code&gt; 是通用函數，適合顯示 R 的物件（如數據框、向量等），並&lt;code&gt;自動換行&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cat&lt;/code&gt; 用於&lt;code&gt;直接將文字輸出到控制台&lt;/code&gt;，且&lt;code&gt;不自動換行&lt;/code&gt;，需要手動使用 &lt;code&gt;\n&lt;/code&gt; 加入換行符號。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, darkness, my old friend&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;cat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, darkness, my old friend&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;cat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, darkness, my old friend\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;cat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello, darkness, my old friend\nI&amp;#39;ve come to talk with you again\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;cat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;\nHello, darkness, my old friend\nI&amp;#39;ve come to talk with you again\n\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;cat常與字串操作函數結合&#34;&gt;cat常與字串操作函數結合&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;first&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;YangHong&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;last&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;paste&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;            &lt;span class=&#34;c1&#34;&gt;# &amp;#34;YangHong Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;paste0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;           &lt;span class=&#34;c1&#34;&gt;# &amp;#34;YangHongDai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;paste0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;# &amp;#34; YangHong Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;paste&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sep&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;, &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# &amp;#34;Dai, YangHong&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;cat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;paste&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;\n\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# &amp;#34;YangHong, Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;使用-sprintf-進行格式化輸出&#34;&gt;使用 sprintf 進行格式化輸出&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;sprintf&lt;/code&gt; 函數提供了高度靈活的文字格式化功能，可用於生成具特定格式的字串。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;first&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;YangHong&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;last&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s %s\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;# &amp;#34;YangHong Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s    %s\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;       &lt;span class=&#34;c1&#34;&gt;# &amp;#34;YangHong    Dai&amp;#34;（多個空格）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%10s %8s\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;       &lt;span class=&#34;c1&#34;&gt;# 將名字與姓氏各自右對齊，固定寬度&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%10s %10s\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;# 名字與姓氏各占 10 個字符寬度&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;%s&lt;/code&gt;：表示插入字串。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%10s&lt;/code&gt;：表示插入字串並右對齊，固定寬度為 10。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\n&lt;/code&gt;：換行符號。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;處理向量和回收-recycling&#34;&gt;處理向量和回收 (Recycling)&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;sprintf&lt;/code&gt; 支援向量運算，當第一個向量的長度大於第二個時，短的向量會自動重複。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;first&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;YangHong&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;James&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Curry&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;last&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s %s\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;         &lt;span class=&#34;c1&#34;&gt;# 依次組合向量的值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;cat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s %s\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;# 直接輸出結果到控制台&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;cat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%10s %10s\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# 固定寬度的格式化輸出&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[1] &amp;#34;YangHong Dai\n&amp;#34; &amp;#34;James Dai\n&amp;#34;   
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[3] &amp;#34;Curry Dai\n&amp;#34;   
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;YangHong Dai
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; James Dai
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; Curry Dai
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  YangHong        Dai
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      James        Dai
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      Curry        Dai
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;複雜字符串組合&#34;&gt;複雜字符串組合&lt;/h4&gt;
+&lt;p&gt;sprintf 可以處理多個不同類型的參數，像整數（%d）、浮點數（%f）等。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;first&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;YangHong&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;last&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Dai&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;team&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Los Angelos Lakers&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s %s won %d NBA championships with the %s.\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;team&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;cat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s %s won %d NBA championships with the %s.\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;team&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;YangHong Dai won 4 NBA championships with the Los Angelos Lakers.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;格式化浮點數&#34;&gt;格式化浮點數&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;pct&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;62.7&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;cat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s %s compated %f%% of his passes.\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 六位小數&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;cat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s %s compated %4.1f%% of his passes.\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 固定 1 位小數&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;cat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s %s compated %8.1f%% of his passes.\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 寬度 8，1 位小數&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;cat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s %s compated %4.2f%% of his passes.\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 固定 2 位小數&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;%%&lt;/code&gt;：表示插入百分號 %。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;合併多行輸出為單一字串&#34;&gt;合併多行輸出為單一字串&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s %s\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;                             &lt;span class=&#34;c1&#34;&gt;# 每行單獨輸出&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;cat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s %s\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;                        &lt;span class=&#34;c1&#34;&gt;# 直接顯示輸出&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;paste&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sprintf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s %s&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;first&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;last&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;collapse&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34; || &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;# 合併成單一字串&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;YangHong Dai || James Dai || Curry Dai&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;課程小結&#34;&gt;課程小結&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;strong&gt;功能&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;函數/方法&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;特性&lt;/strong&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;strong&gt;範例&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;資料讀取&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;read.table&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;讀入行列形式的資料，需指定分隔符號與表頭&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;read.table(&amp;quot;file.csv&amp;quot;, sep=&amp;quot;,&amp;quot;, header=TRUE)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;read.csv&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;預設分隔符為逗號，表頭默認為 &lt;code&gt;TRUE&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;read.csv(&amp;quot;file.csv&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;read_delim&lt;/code&gt;/&lt;code&gt;read_csv&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;使用於 &lt;code&gt;tidyverse&lt;/code&gt;，輸出為 &lt;code&gt;tibble&lt;/code&gt; 格式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;read_csv(&amp;quot;file.csv&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;專屬格式讀取&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;.RData&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;支援多物件存取，使用 &lt;code&gt;save&lt;/code&gt; 儲存，&lt;code&gt;load&lt;/code&gt; 加載&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;save(x, y, file=&amp;quot;data.RData&amp;quot;); load(&amp;quot;data.RData&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;.rds&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;單物件存取，需指定變數，使用 &lt;code&gt;saveRDS&lt;/code&gt; 和 &lt;code&gt;readRDS&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;saveRDS(x, file=&amp;quot;data.rds&amp;quot;); readRDS(&amp;quot;data.rds&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;資料輸出&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;write.csv&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;將數據框保存為 CSV 格式，選擇是否包含行名&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;write.csv(data, file=&amp;quot;output.csv&amp;quot;, row.names=FALSE)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;save&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;儲存多個物件為 &lt;code&gt;.RData&lt;/code&gt; 格式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;save(x, y, file=&amp;quot;data.RData&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;saveRDS&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;儲存單一物件為 &lt;code&gt;.rds&lt;/code&gt; 格式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;saveRDS(x, file=&amp;quot;data.rds&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;文字輸出&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;print&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;通用函數，適合顯示物件，自動換行&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;print(object)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;cat&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;將文字輸出至控制台，無自動換行，需手動指定 &lt;code&gt;\n&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;cat(&amp;quot;Hello\n&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;paste&lt;/code&gt;/&lt;code&gt;paste0&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;合併字串，&lt;code&gt;paste&lt;/code&gt; 默認空格分隔，&lt;code&gt;paste0&lt;/code&gt; 不使用分隔符&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;paste(&amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, sep=&amp;quot;, &amp;quot;)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;sprintf&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;格式化輸出，支援字串（%s）、整數（%d）、浮點數（%f）&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;sprintf(&amp;quot;%s %d&amp;quot;, &amp;quot;Value:&amp;quot;, 10)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;向量與回收機制&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;sprintf&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;支援向量操作，當向量長度不一致時自動回收&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;sprintf(&amp;quot;%s %d&amp;quot;, c(&amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;), 10)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;paste&lt;/code&gt;/&lt;code&gt;collapse&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;合併多行輸出為單一字串，指定分隔符號&lt;/td&gt;
+          &lt;td&gt;`paste(values, collapse=&amp;quot;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;S3 方法與類別&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;自定義方法&lt;/td&gt;
+          &lt;td&gt;使用 &lt;code&gt;generic.class&lt;/code&gt; 命名格式，為物件定義專屬方法&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;print.diagmat &amp;lt;- function(x){...}&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;class&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;指定物件類別以啟用專屬方法&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;class(x) &amp;lt;- &amp;quot;diagmat&amp;quot;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;methods&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;查看通用函數的所有專屬方法&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;methods(print)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;進階格式化輸出&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;sprintf&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;支援格式化字串，右對齊（%10s）、小數位數（%.2f）、百分號（%%）&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;sprintf(&amp;quot;%10s %.2f%%&amp;quot;, &amp;quot;Value&amp;quot;, 12.34)&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
+    
+    <item>
       <title>迷你課程:Python-2~函數邏輯與迴圈</title>
-      <link>http://localhost:49383/post/minicoursepython2/</link>
+      <link>http://localhost:1313/post/minicoursepython2/</link>
       <pubDate>Mon, 30 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/minicoursepython2/</guid>
+      <guid>http://localhost:1313/post/minicoursepython2/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;在這篇教學中，我們將深入探討 Python 中函數的邏輯與迴圈的應用，幫助學習者掌握基本程式設計技巧。課程內容涵蓋條件判斷、函數設計、迴圈使用、資料結構操作等關鍵概念。&lt;/p&gt;
 &lt;hr&gt;
@@ -39,7 +361,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;x is larger than y&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;x is equal to y&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但上面的寫法會讓程式評估&lt;code&gt;3次 if&lt;/code&gt;，如果是小程式倒還好，但如果是複雜的程式就會影響效能，有沒有更好的方法呢？其實我們可以使用&lt;code&gt;elif&lt;/code&gt;，這樣只有當if的結果是False時，程式才會往&lt;code&gt;elif&lt;/code&gt;去運算，因此從上面的3次運算，減少到。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但上面的寫法會讓程式評估&lt;code&gt;3次 if&lt;/code&gt;，如果是小程式倒還好，但如果是複雜的程式就會影響效能，有沒有更好的方法呢？其實我們可以使用&lt;code&gt;elif&lt;/code&gt;，這樣只有當if的結果是False時，程式才會往&lt;code&gt;elif&lt;/code&gt;去運算，因此如果&lt;code&gt;x&amp;lt;y&lt;/code&gt;為真，就只要運算一次即可。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;x is less than y&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
@@ -263,9 +585,9 @@
     
     <item>
       <title>初探單細胞定序</title>
-      <link>http://localhost:49383/post/scrna_guide/</link>
+      <link>http://localhost:1313/post/scrna_guide/</link>
       <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/scrna_guide/</guid>
+      <guid>http://localhost:1313/post/scrna_guide/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;單細胞定序已經在近年成為各大實驗室不可或缺的關鍵技術之一，讓我們從過去將組織混雜在一起的bulk RNA-seq精細化到單細胞的解析度，也讓我們可以針對一顆腫瘤做細部的分類，、甚至推測細胞分化的路徑，今天我們要讀的&lt;a href=&#34;https://www.nature.com/articles/s41596-018-0073-y&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;算是比較舊的nature protocol review article (2018)，但針對我們想要做單細胞定序分析的人來說是很推薦的入門讀物之一。&lt;/p&gt;
 &lt;hr&gt;
@@ -295,7 +617,7 @@
                /post/scrna_guide/fig1_hu11001555330395581792.webp 400w,
                /post/scrna_guide/fig1_hu5703038883069733888.webp 760w,
                /post/scrna_guide/fig1_hu16839371025272671103.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/scrna_guide/fig1_hu11001555330395581792.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_guide/fig1_hu11001555330395581792.webp&#34;
                width=&#34;760&#34;
                height=&#34;507&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -342,7 +664,7 @@
                /post/scrna_guide/fig2_hu15864937964798351048.webp 400w,
                /post/scrna_guide/fig2_hu13454636650653327452.webp 760w,
                /post/scrna_guide/fig2_hu2848814858266748199.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/scrna_guide/fig2_hu15864937964798351048.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_guide/fig2_hu15864937964798351048.webp&#34;
                width=&#34;760&#34;
                height=&#34;593&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -389,7 +711,7 @@
                /post/scrna_guide/fig3_hu13695154641875346659.webp 400w,
                /post/scrna_guide/fig3_hu8573096409683843575.webp 760w,
                /post/scrna_guide/fig3_hu16898922341218008701.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/scrna_guide/fig3_hu13695154641875346659.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_guide/fig3_hu13695154641875346659.webp&#34;
                width=&#34;700&#34;
                height=&#34;527&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -458,7 +780,7 @@
                /post/scrna_guide/fig4_hu17683730018688549645.webp 400w,
                /post/scrna_guide/fig4_hu15397314574738147101.webp 760w,
                /post/scrna_guide/fig4_hu6232023545738136439.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/scrna_guide/fig4_hu17683730018688549645.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_guide/fig4_hu17683730018688549645.webp&#34;
                width=&#34;760&#34;
                height=&#34;387&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -510,7 +832,7 @@
                /post/scrna_guide/fig5_hu16640274865221918418.webp 400w,
                /post/scrna_guide/fig5_hu16751551510422201417.webp 760w,
                /post/scrna_guide/fig5_hu7910360859258366755.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/scrna_guide/fig5_hu16640274865221918418.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_guide/fig5_hu16640274865221918418.webp&#34;
                width=&#34;760&#34;
                height=&#34;668&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -606,642 +928,10 @@
     </item>
     
     <item>
-      <title>數據科學聊聊：支持向量機（Support vector machine）</title>
-      <link>http://localhost:49383/post/svm/</link>
-      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/svm/</guid>
-      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;支持向量機（SVM）是一種強大的監督式學習模型，廣泛應用於分類和回歸分析中。SVM 以其獨特的數學基礎和幾何直觀性，在高維數據空間中具有出色的性能，尤其適合處理少量數據和非線性問題。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;支持向量機的基本原理&#34;&gt;支持向量機的基本原理&lt;/h2&gt;
-&lt;p&gt;SVM 的核心目標是找到一條分隔超平面（hyperplane），以最大化兩類數據點之間的間隔（margin）。以下是其運作的核心步驟：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;分隔超平面
-超平面是一個 d-1 維的空間，分隔 d 維特徵空間中的數據點。對於二分類問題，SVM 旨在找到一個最優超平面，使得兩類數據點之間的邊界最大化。數學表示為：&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;最大間隔原理
-SVM 以「最大化分類間隔」為優化目標。目標函數為：&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;硬邊界（Hard Margin）：數據點完全線性可分的情況，超平面將所有點正確分類。
-軟邊界（Soft Margin）：允許少量錯誤分類的情況，引入松弛變量（slack variable）
-ξ
-ξ，以平衡分類錯誤和間隔最大化。&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;核函數（Kernel Function）
-SVM 支持非線性數據的分類，通過核函數將數據從低維空間映射到高維空間，使其在高維空間中線性可分。 常見的核函數包括：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;支持向量機的優缺點&lt;/p&gt;
-&lt;p&gt;優點
-高效處理高維數據
-SVM 在高維空間中表現良好，並能有效處理高維度的特徵。
-核函數允許其在非線性數據中找到最佳的分類邊界。
-數學理論穩健
-以凸優化問題為基礎，保證了全局最優解的存在。
-適合小樣本學習
-SVM 能在小數據集上表現出色，因為它的訓練過程只依賴於支持向量，而非所有數據點。
-良好的泛化能力
-最大間隔原理有效降低了模型的過擬合風險。
-缺點
-對超參數敏感
-核函數的選擇、參數
-γ
-γ 和
-C
-C 的設置對模型性能有顯著影響，調參較為耗時。
-計算成本高
-當數據量較大時，計算支持向量的過程需要大量的內存和時間。
-隨著數據量增大，SVM 的訓練速度可能急劇下降。
-難以解釋
-在高維空間中，分類邊界的可視化和解釋較為困難。
-對噪音敏感
-SVM 在處理存在噪音的數據時，可能表現不佳，尤其是在軟邊界中，噪音數據可能影響超平面的選擇。
-3. SVM 的應用場景&lt;/p&gt;
-&lt;p&gt;(1) 分類任務
-文本分類：垃圾郵件過濾、情感分析等。
-圖像分類：目標檢測、人臉識別。
-醫療診斷：癌症預測、基因表達分類。
-(2) 回歸任務
-SVM 可應用於回歸分析（SVR, Support Vector Regression），用於預測連續值。
-如房價預測、股票市場分析。
-(3) 異常檢測
-在監測數據中識別異常點，如網絡入侵檢測、機器故障檢測。
-4. SVM 的未來發展與改進方向&lt;/p&gt;
-&lt;p&gt;處理大規模數據
-隨著數據量的增加，開發分布式和並行化 SVM 訓練算法成為重點。
-如使用梯度下降法來替代二次規劃，降低計算成本。
-結合深度學習
-將 SVM 作為深度神經網絡的輸出層，結合深度學習的特徵提取能力，提高分類性能。
-更靈活的核函數
-開發自適應核函數，使其能自動選擇適合當前數據分布的核方法。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>計算生物學聊聊：圖神經網路與分子圖形</title>
-      <link>http://localhost:49383/post/compbio_gnn/</link>
-      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/compbio_gnn/</guid>
-      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;分子表示法（molecular representation）在計算化學中扮演重要的角色，它使化學家和數據科學家能夠將複雜的化學結構轉換成機器可理解的形式，用於數據存儲和計算分析。這些表示法在格式、易用性和應用場景上存在顯著的差異，每種表示法在特定類型的分析中具有其獨特的優勢和局限性，透過建構圖神經網路（Graph neural network）來預測分子的特性，這些表示法的差異會更為顯著。&lt;/p&gt;
-&lt;p&gt;本篇筆記出自於美國麻省理工學院的計算生物學課程MLCB24。課程影片請看&lt;a href=&#34;https://www.youtube.com/watch?v=6gkIjo4Jb4E&amp;amp;t=220s&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;這裡&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;常見的分子表示法&#34;&gt;常見的分子表示法&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;SMILES (簡化分子輸入線性表示系統)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;SMARTS（SMILES 任意目標規範）&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;InChI（國際化學標識符）&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Molecular graph (分子圖)&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;接下來會根據每一種表示法做介紹：&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;smiles&#34;&gt;SMILES&lt;/h2&gt;
-&lt;p&gt;SMILES（Simplified Molecular Input Line Entry System）是一種基於&lt;code&gt;字串&lt;/code&gt;的分子表示法，最初由美國環保署（EPA）開發，用於以緊密相連的線性格式捕捉分子的結構。目前為化學資訊學中最廣泛使用的小分子表示法之一。&lt;/p&gt;
-&lt;h4 id=&#34;格式&#34;&gt;格式&lt;/h4&gt;
-&lt;p&gt;例如，乙醇的 SMILES 表示為 &lt;code&gt;CCO&lt;/code&gt;（省略氫原子）。&lt;code&gt;字母&lt;/code&gt;和&lt;code&gt;數字&lt;/code&gt;表示原子與鍵類型（單鍵、雙鍵等），&lt;code&gt;括號&lt;/code&gt;則用來標示&lt;code&gt;分支&lt;/code&gt;結構。&lt;/p&gt;
-&lt;h4 id=&#34;優點&#34;&gt;優點&lt;/h4&gt;
-&lt;p&gt;SMILES 具有高度壓縮性（compact），容易被大多數化學資訊軟體讀取，適合用於資料庫存儲。&lt;/p&gt;
-&lt;h4 id=&#34;限制&#34;&gt;限制&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;合成混淆&lt;/code&gt;：SMILES 字串靈活性高，容易生成，但這種靈活性導致許多語法有效的 SMILES 字串可能無法解碼成實際分子。
-&lt;code&gt;立體化學&lt;/code&gt;：雖然 SMILES 可以包含立體化學資訊，但通常在實務上會被省略，當分子功能取決於立體資訊時，會導致問題產生。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;smartssmiles-任意目標規範&#34;&gt;SMARTS（SMILES 任意目標規範）&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;SMARTS&lt;/code&gt; 是根據 SMILES 來擴展的表示法，允許在 SMILES 字串中進行&lt;code&gt;模式匹配&lt;/code&gt;來識別特定的分子子結構。&lt;/p&gt;
-&lt;h4 id=&#34;應用&#34;&gt;應用&lt;/h4&gt;
-&lt;p&gt;SMARTS 對於化學資訊學中的&lt;code&gt;子結構搜索&lt;/code&gt;特別有用，例如識別&lt;code&gt;芳香環&lt;/code&gt;或其他分子&lt;code&gt;功能基團&lt;/code&gt;。&lt;/p&gt;
-&lt;h4 id=&#34;格式-1&#34;&gt;格式&lt;/h4&gt;
-&lt;p&gt;例如，芳香環可以用&lt;code&gt;c1cccccc1&lt;/code&gt;來表示。&lt;/p&gt;
-&lt;h4 id=&#34;限制-1&#34;&gt;限制&lt;/h4&gt;
-&lt;p&gt;儘管 SMARTS 在子結構搜索中功能強大，但比 SMILES 更&lt;code&gt;複雜&lt;/code&gt;，需要對&lt;code&gt;化學模式&lt;/code&gt;有更深入的理解才能有效使用。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;selfies自引用嵌入字串&#34;&gt;SELFIES（自引用嵌入字串）&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;SELFIES&lt;/code&gt; 是一種較新的表示法，主要在克服 SMILES 的一些限制。它更像是一種&lt;code&gt;分子編程語言&lt;/code&gt;，允許完整解構字串，&lt;code&gt;系統化生成分子&lt;/code&gt;，&lt;/p&gt;
-&lt;h4 id=&#34;關鍵優勢&#34;&gt;關鍵優勢&lt;/h4&gt;
-&lt;p&gt;可以很好的耐受錯誤，所有的SELFIES字串都可以解構成某特定分子，不會導致訊息的喪失，有利於機器學習。&lt;/p&gt;
-&lt;h4 id=&#34;格式-2&#34;&gt;格式&lt;/h4&gt;
-&lt;p&gt;例如，苯環可以表示成：&lt;code&gt;C1=CC=CC=C1&lt;/code&gt;。&lt;/p&gt;
-&lt;h4 id=&#34;限制-2&#34;&gt;限制&lt;/h4&gt;
-&lt;p&gt;SELFIES 雖然創新，但&lt;code&gt;較難閱讀&lt;/code&gt;，且需進一步改進以確保化學空間中的採樣沒有偏誤。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;inchi國際化學標識符&#34;&gt;InChI（國際化學標識符）&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;InChI&lt;/code&gt; 是一種IUPAC開發的標準化分子表示法，保證每個分子與其 InChI 字串一一對應。包含多層的分子特徵，如連結性、價電子、空間化學與異構物等。&lt;/p&gt;
-&lt;h4 id=&#34;應用-1&#34;&gt;應用&lt;/h4&gt;
-&lt;p&gt;InChI 在&lt;code&gt;資料庫搜索&lt;/code&gt;和&lt;code&gt;比較&lt;/code&gt;中特別有價值，因為它允許直接進行&lt;code&gt;分子比較&lt;/code&gt;，避免了因不同 SMILES 表示法導致的&lt;code&gt;多餘訊息&lt;/code&gt;。因為SMILE並沒有賦予分子獨特性，因此需要電腦解讀，增加計算負擔。&lt;/p&gt;
-&lt;h4 id=&#34;關鍵優勢-1&#34;&gt;關鍵優勢&lt;/h4&gt;
-&lt;p&gt;標準化的表示法，每一個表示法都對應到單一獨特的分子式。&lt;/p&gt;
-&lt;h4 id=&#34;格式-3&#34;&gt;格式&lt;/h4&gt;
-&lt;p&gt;例如，乙醇可以表示成：&lt;code&gt;1S/C2H6)/c1-2-3/h3H,2H2,1H3&lt;/code&gt;。&lt;/p&gt;
-&lt;h4 id=&#34;限制-3&#34;&gt;限制&lt;/h4&gt;
-&lt;p&gt;InChI 的&lt;code&gt;複雜性&lt;/code&gt;使其難以閱讀和解釋。由於簡潔性，許多人&lt;code&gt;更偏好用 SMILES 進行可視化&lt;/code&gt;。目前有方法將SMILES表達法InChI化，藉此增加InChI的可讀性。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;分子圖&#34;&gt;分子圖&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;分子圖&lt;/code&gt;是一種基於&lt;code&gt;圖形&lt;/code&gt;的分子表示法，其中原子是頂點，鍵是邊。這種表示法捕捉了分子的所有信息，包括原子類型、鍵類型，甚至是立體化學。&lt;/p&gt;
-&lt;h4 id=&#34;優點-1&#34;&gt;優點&lt;/h4&gt;
-&lt;p&gt;分子圖全面地提供分子結構的完整描述，較為&lt;code&gt;直覺&lt;/code&gt;，尤其適用於基於圖的機器學習中的計算分析。&lt;/p&gt;
-&lt;h4 id=&#34;限制-4&#34;&gt;限制&lt;/h4&gt;
-&lt;p&gt;與基於字串的格式不同，分子圖不如 SMILES 那麼&lt;code&gt;緊密&lt;/code&gt;，也不適合快速搜索資料庫。分子圖更適合用於計算應用和視覺化，而非數據儲存。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;分子表示法比較&#34;&gt;分子表示法比較&lt;/h2&gt;
-&lt;p&gt;圖一顯示不同分子表示法的總結。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖一-分子表示法比較&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig1&#34; srcset=&#34;
-               /post/compbio_gnn/fig1_hu3479184427380367237.webp 400w,
-               /post/compbio_gnn/fig1_hu2261907717937882707.webp 760w,
-               /post/compbio_gnn/fig1_hu11170528079376645331.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/compbio_gnn/fig1_hu3479184427380367237.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;540&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      圖一 分子表示法比較
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;smiles-表示法&#34;&gt;SMILES 表示法&lt;/h2&gt;
-&lt;h4 id=&#34;原子與鍵&#34;&gt;原子與鍵&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;一般原子&lt;/code&gt;：在 SMILES 字串中，每個原子由其化學符號表示。大多數原子使用單個&lt;code&gt;大寫字母&lt;/code&gt;表示（例如，C 表示碳，O 表示氧）。一些原子需要兩個字母的組合（如 &lt;code&gt;Na 表示鈉，Cl 表示氯&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;芳香原子&lt;/code&gt;：在 SMILES 中，&lt;code&gt;小寫字母&lt;/code&gt;表示芳香化合物中的原子。例如，小寫的 c 表示&lt;code&gt;芳香碳&lt;/code&gt;，常見於&lt;code&gt;苯環&lt;/code&gt;中。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;鍵&lt;/code&gt;：&lt;code&gt;單鍵&lt;/code&gt;通常為簡化&lt;code&gt;省略&lt;/code&gt;，但也可使用單個破折號 &lt;code&gt;-&lt;/code&gt; 明確表示。&lt;code&gt;雙鍵&lt;/code&gt;用等號 &lt;code&gt;=&lt;/code&gt; 表示，&lt;code&gt;三鍵&lt;/code&gt;用井號 &lt;code&gt;#&lt;/code&gt; 表示。芳香鍵通常省略，因為小寫原子符號已隱含芳香性。分子組件的分離：句點 &lt;code&gt;.&lt;/code&gt; 用於表示分子中&lt;code&gt;不連接&lt;/code&gt;的部分，例如鹽或離子對。例：&lt;code&gt;Na.Cl 表示氯化鈉&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;鏈與分支&#34;&gt;鏈與分支&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;線性鏈&lt;/code&gt;：簡單的原子鏈以&lt;code&gt;直線順序&lt;/code&gt;表示。例如，乙醇的 SMILES 表示為 CCO，表示碳-碳-氧鏈。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;分支&lt;/code&gt;：SMILES 使用&lt;code&gt;括號&lt;/code&gt;表示從主鏈分支的結構。主鏈從括號前的原子開始繼續。例如，&lt;code&gt;異丙醇 (2-propanol or isopropanol)&lt;/code&gt;的 SMILES 表示為 &lt;code&gt;CC(O)C&lt;/code&gt;，其中 &lt;code&gt;(O)&lt;/code&gt; 表示&lt;code&gt;OH-&lt;/code&gt;分支。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;其他例子：&lt;/p&gt;
-&lt;p&gt;CC(=O)C: 2-Propanone&lt;/p&gt;
-&lt;p&gt;CC(CC)C: 2_Methylbutane&lt;/p&gt;
-&lt;p&gt;CC(C)CC(=O): 2-Methylbutanal&lt;/p&gt;
-&lt;p&gt;c1c(N)(=O)=O)cccc1: Nitrobenzene&lt;/p&gt;
-&lt;p&gt;CC(C)(C)CC: 2,2-Dimethylbutane&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&#34;環與環狀結構&#34;&gt;環與環狀結構&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;環閉合&lt;/code&gt;：SMILES 使用&lt;code&gt;數字&lt;/code&gt;標記環閉合。例如，&lt;code&gt;苯&lt;/code&gt;的表示為 &lt;code&gt;c1ccccc1&lt;/code&gt;，其中 &lt;code&gt;1&lt;/code&gt; 表示&lt;code&gt;第一和最後&lt;/code&gt;的碳原子相連以完成環。相同的數字表示開環與閉環的原子位置。鍵的類型著記在原子之後，但在數字之前。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;多重環&lt;/code&gt;：對於更複雜的環系統，使用額外的數字來表示分子內的每個環。例如，&lt;code&gt;萘&lt;/code&gt;的 SMILES 表示為 c1ccc2ccccc2c1，其中 1 和 2 標記了兩個融合的環 (圖二)。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖二-萘-naphthalene的smiles表示法&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig2&#34; srcset=&#34;
-               /post/compbio_gnn/fig2_hu10946339939307287139.webp 400w,
-               /post/compbio_gnn/fig2_hu13962839815580817115.webp 760w,
-               /post/compbio_gnn/fig2_hu7996518131002891555.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/compbio_gnn/fig2_hu10946339939307287139.webp&#34;
-               width=&#34;292&#34;
-               height=&#34;204&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      圖二 萘 (Naphthalene)的SMILES表示法
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;h4 id=&#34;電荷&#34;&gt;電荷&lt;/h4&gt;
-&lt;p&gt;電荷表示：SMILES 使用卷曲括號 &lt;code&gt;{}&lt;/code&gt; 和加號 &lt;code&gt;+&lt;/code&gt; 或減號 &lt;code&gt;-&lt;/code&gt; 表示原子的電荷。&lt;/p&gt;
-&lt;h4 id=&#34;模稜兩可的名稱&#34;&gt;模稜兩可的名稱&lt;/h4&gt;
-&lt;p&gt;若是比較容易讓人誤解的標示方法，用大括號 &lt;code&gt;[]&lt;/code&gt; 來區分，如Sc沒有框起來的話表示Sulfur與aromatic carbon，而[Sc]則表示Scandium。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;morgan-指紋機器學習中的分子結構編碼&#34;&gt;Morgan 指紋：機器學習中的分子結構編碼&lt;/h2&gt;
-&lt;p&gt;Morgan 指紋（也稱為&lt;code&gt;環狀指紋&lt;/code&gt;）是一種強大的工具，可將分子結構轉換為&lt;code&gt;固定長度的二進制向量&lt;/code&gt;，使其非常適合於機器學習應用。與需要詳細結構數據的完整分子圖不同，Morgan 指紋提供了一種&lt;code&gt;計算效率更高&lt;/code&gt;的表示方式，捕捉每個原子周圍的結構特徵並以易於輸入機器學習模型的格式儲存。&lt;/p&gt;
-&lt;h4 id=&#34;morgan-指紋的目的&#34;&gt;Morgan 指紋的目的&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;定量結構-活性關係（QSAR）建模&lt;/code&gt;：例如，預測分子的疏水性、溶解度或潛在生物活性。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;高通量篩選&lt;/code&gt;：在藥物發現中，用於快速篩選分子。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;主要優勢&#34;&gt;主要優勢&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;固定長度表示&lt;/code&gt;：每個分子無論大小都表示為特定長度的向量，與許多機器學習模型直接兼容。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;結構資訊封裝&lt;/code&gt;：通過編碼以原子為中心的子結構（達到&lt;code&gt;指定半徑&lt;/code&gt;），捕捉&lt;code&gt;局部化學環境&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;計算效率&lt;/code&gt;：這種表示方式&lt;code&gt;比生成完整分子圖更快&lt;/code&gt;，並且生成的指紋可快速用於機器學習。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;morgan-如何運作&#34;&gt;Morgan 如何運作？&lt;/h4&gt;
-&lt;p&gt;生成 Morgan 指紋涉及一系列步驟，這些步驟專注於分子中的每個原子，並檢查其在指定半徑內的&lt;code&gt;局部結構&lt;/code&gt; (圖三)。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;以原子為中心的編碼&lt;/code&gt;： 每個&lt;code&gt;原子&lt;/code&gt;作為&lt;code&gt;中心點&lt;/code&gt;，檢查其周圍的子結構。這些子結構的細節取決於設定的&lt;code&gt;半徑&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;定義半徑：&lt;/p&gt;
-&lt;p&gt;半徑 0：僅編碼原子本身。&lt;/p&gt;
-&lt;p&gt;半徑 1：編碼原子及其鄰近原子。&lt;/p&gt;
-&lt;p&gt;半徑 2：編碼原子、其鄰近原子及這些鄰近原子的鄰居。&lt;/p&gt;
-&lt;p&gt;通常，使用半徑 2 即可捕捉足夠的細節，而不會導致向量過於龐大。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;將子結構映射到比特 (bit) 位置&lt;/code&gt;：每個環狀子結構都被編碼為一個&lt;code&gt;二進制向量（bit string）&lt;/code&gt;，其中特定特徵（例如原子、鍵、環）的存在記錄為&lt;code&gt;1&lt;/code&gt;，缺失記錄為&lt;code&gt;0&lt;/code&gt;。半徑決定了圍繞中心原子的原子層數（例如，半徑為2時包括距離中心原子兩鍵以內的原子和鍵）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;子結構碰撞&lt;/code&gt;：子結構被哈希(hash)轉換為固定長度的指紋（例如1024位），這可能導致哈希碰撞，即多個子結構可能映射到相同的位。可以考慮增加長度來解決。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖三-morgan-fingerprinthttpstowardsdatasciencecoma-practical-introduction-to-the-use-of-molecular-fingerprints-in-drug-discovery-7f15021be2b1&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig3&#34; srcset=&#34;
-               /post/compbio_gnn/fig3_hu1804110335273990854.webp 400w,
-               /post/compbio_gnn/fig3_hu17041954323525736801.webp 760w,
-               /post/compbio_gnn/fig3_hu9009013187830519231.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/compbio_gnn/fig3_hu1804110335273990854.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;171&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      &lt;a href=&#34;https://towardsdatascience.com/a-practical-introduction-to-the-use-of-molecular-fingerprints-in-drug-discovery-7f15021be2b1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;圖三 Morgan fingerprint&lt;/a&gt;
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;h4 id=&#34;morgan-指紋生成範例&#34;&gt;Morgan 指紋生成範例&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;第一步：從分子內的某原子開始。&lt;/li&gt;
-&lt;li&gt;第二步：根據特定的半徑來建構子結構。&lt;/li&gt;
-&lt;li&gt;第三步：使用Hash table來將子結構轉換成獨特的比特編號。&lt;/li&gt;
-&lt;li&gt;第四步：針對每一個原子完成以上步驟，產生一個二元分子指紋，表示整個分子。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;以乙醇cco為例&#34;&gt;以乙醇（CCO）為例&lt;/h4&gt;
-&lt;p&gt;每個碳和氧原子作為中心點，評估其半徑 2 內的子結構。&lt;/p&gt;
-&lt;p&gt;這將產生以下信息：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;原子 1：第一個碳及其鄰居（第二個碳和氧）。&lt;/li&gt;
-&lt;li&gt;原子 2：第二個碳及其鄰居（第一個碳和氧）。&lt;/li&gt;
-&lt;li&gt;原子 3：氧及其鄰近的碳。
-每個原子和子結構會映射到指紋中，形成唯一表示乙醇結構的比特向量。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;morgan-指紋的優點&#34;&gt;Morgan 指紋的優點&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;對結構改變非常敏感，結構的些微修飾都可以被捕捉。&lt;/li&gt;
-&lt;li&gt;效率高。&lt;/li&gt;
-&lt;li&gt;廣泛使用於常見化學資訊學的工具中，如&lt;code&gt;RDKit&lt;/code&gt;，也常用在視覺篩選與相似性搜索中。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;半徑與比特向量長度的平衡&#34;&gt;半徑與比特向量長度的平衡&lt;/h4&gt;
-&lt;p&gt;半徑增加的影響：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;半徑越大，捕捉的子結構越詳細，但需要更大的向量以避免碰撞。&lt;/li&gt;
-&lt;li&gt;半徑 2 提供了適度的細節，廣泛用於化學資訊學。&lt;/li&gt;
-&lt;li&gt;半徑 3 或更大通常僅在需要非常細粒度結構細節時使用，但會顯著增加計算需求和複雜性。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;向量長度&#34;&gt;向量長度&lt;/h4&gt;
-&lt;p&gt;常用長度為 1024 或 2048 比特。更大的向量幫助減少哈希碰撞，但在數據集較小時可能導致稀疏性問題。&lt;/p&gt;
-&lt;h4 id=&#34;在機器學習中的解釋與應用&#34;&gt;在機器學習中的解釋與應用&lt;/h4&gt;
-&lt;p&gt;Morgan 指紋將複雜的分子結構轉換為向量空間表示，其中具有相似拓撲特徵的分子具有相似的指紋。結果向量可用於以下機器學習模型：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;隨機森林&lt;/code&gt;：適合特徵豐富的數據集，向量直接表示分子特徵。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;多層感知機（MLP）&lt;/code&gt;：能有效處理 Morgan 指紋，學習數據中的非線性模式。&lt;/li&gt;
-&lt;li&gt;其他演算法：包括支持向量機（SVM）和邏輯回歸在內的任何處理二進制或數值向量的演算法均可使用 Morgan 指紋。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;限制與考量&#34;&gt;限制與考量&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;不可逆&lt;/code&gt;：指紋無法反向解碼為原始分子。&lt;/li&gt;
-&lt;li&gt;碰撞問題：不同的分子結構可能映射到相同的比特位置，尤其是在&lt;code&gt;較小的比特向量&lt;/code&gt;或&lt;code&gt;大分子&lt;/code&gt;時。&lt;/li&gt;
-&lt;li&gt;不適用於大生物分子：對於&lt;code&gt;非常大的生物分子（如蛋白質）&lt;/code&gt;，Morgan 指紋可能不適用，因為結構的複雜性超出了其表達能力。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;分子圖化學結構的進階表示&#34;&gt;分子圖：化學結構的進階表示&lt;/h2&gt;
-&lt;p&gt;分子圖是一種靈活且精細的方式，能夠以數學形式表示分子，特別是在指紋&lt;code&gt;無法捕捉足夠結構細節&lt;/code&gt;時尤其有用。與比特向量指紋不同，分子圖提供了分子結構的&lt;code&gt;直接映射&lt;/code&gt;，將每個原子作為&lt;code&gt;節點 (node)&lt;/code&gt;，每條鍵作為&lt;code&gt;邊 (edge)&lt;/code&gt;。這種基於結構的表示允許更高的&lt;code&gt;特異性&lt;/code&gt;和數據的豐富性，使其成為&lt;code&gt;圖神經網絡（Graph Neural Networks, GNNs）&lt;/code&gt;的最佳輸入，尤其適用於需要深入探索原子間的關係時，例如定量QSAR和藥物設計。&lt;/p&gt;
-&lt;h4 id=&#34;分子圖的結構&#34;&gt;分子圖的結構&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;節點與邊&lt;/code&gt;：在分子圖中，每個&lt;code&gt;節點表示一個原子&lt;/code&gt;，每條&lt;code&gt;邊表示一條化學鍵&lt;/code&gt;。這種結構捕捉了分子內的原子類型及鍵類型（單鍵、雙鍵、三鍵或芳香鍵），能夠詳細描述化學關係。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;節點標籤&lt;/code&gt;：每個節點可以攜帶標籤或類型（例如，碳用 C 表示，氮用 N 表示），以區分不同的原子類型。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;邊標籤&lt;/code&gt;：邊可以標示鍵的類型（如單鍵、雙鍵、三鍵等）。這在分子圖中尤為重要，因為鍵類型對分子的化學行為和特性有著重要影響。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;圖的種類&#34;&gt;圖的種類&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;方向性&lt;/code&gt;：在大多數情況下，分子圖是&lt;code&gt;無向 (undirected)&lt;/code&gt;的，因為&lt;code&gt;化學鍵通常沒有方向性&lt;/code&gt;。但在某些情境下，如&lt;code&gt;化學反應&lt;/code&gt;網絡中，可以使用&lt;code&gt;有向圖 (directed)&lt;/code&gt;來表示從反應物到產物的轉化流程。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;圖標籤&lt;/code&gt;：原子和鍵都被標示，說明原子和鍵的類型，在對於需要化學分子細節的探討中很重要。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;加權圖&lt;/code&gt;：雖然在基本分子圖中不常使用，但可以引入&lt;code&gt;加權邊&lt;/code&gt;以指示&lt;code&gt;鍵強度&lt;/code&gt;、相互作用強度或其他結構行為的&lt;code&gt;先驗知識&lt;/code&gt;。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;分子圖的表示方法&#34;&gt;分子圖的表示方法&lt;/h4&gt;
-&lt;h4 id=&#34;鄰接矩陣&#34;&gt;鄰接矩陣：&lt;/h4&gt;
-&lt;p&gt;鄰接矩陣提供了一種表格式的圖表示，其中每個單元格表示原子之間是否存在鍵（或鍵的類型）。例如，若原子&lt;/p&gt;
-&lt;p&gt;(i,j) 的值為 1（或表示鍵類型的整數）；否則為 0。&lt;/p&gt;
-&lt;h4 id=&#34;對稱性對於無向圖鄰接矩陣是對稱的對於有向圖則是非對稱的反映每條邊的方向性&#34;&gt;對稱性：對於無向圖，鄰接矩陣是對稱的；對於有向圖，則是非對稱的，反映每條邊的方向性。&lt;/h4&gt;
-&lt;p&gt;鄰接清單：
-在處理大型圖（如社交網絡或大規模數據集）時，鄰接清單比矩陣更高效。每個原子只保存與其直接相連的原子清單，大大減少稀疏網絡中的存儲需求。&lt;/p&gt;
-&lt;h4 id=&#34;稀疏矩陣表示&#34;&gt;稀疏矩陣表示：&lt;/h4&gt;
-&lt;p&gt;另一種選擇是使用稀疏矩陣，只存儲非零值（即存在鍵的原子對），進一步降低內存使用量。&lt;/p&gt;
-&lt;h4 id=&#34;圖的可視化&#34;&gt;圖的可視化：&lt;/h4&gt;
-&lt;p&gt;分子圖也可以被可視化，提供直觀的方式來檢查分子結構、理解其複雜性並排查表示中的問題。
-分子圖的應用與優勢&lt;/p&gt;
-&lt;h4 id=&#34;完整的結構編碼分子圖保留了分子的完整拓撲結構允許對其特性和相互作用進行更深入的檢查&#34;&gt;完整的結構編碼：分子圖保留了分子的完整拓撲結構，允許對其特性和相互作用進行更深入的檢查。&lt;/h4&gt;
-&lt;p&gt;與圖神經網絡（GNNs）的兼容性：分子圖可以與 GNNs 無縫集成，後者專門設計用於處理圖結構數據。
-增強的預測建模：基於分子圖構建的 GNN 模型能夠更準確地預測分子的各種特性，如生物活性、毒性、溶解度和結合親和力。
-圖神經網絡（GNNs）在分子建模中的應用&lt;/p&gt;
-&lt;p&gt;消息傳遞：在 GNN 中，每個節點通過一種稱為消息傳遞的迭代過程與其鄰居進行通信。這允許每個節點聚合鄰近節點的信息，有效地捕捉其分子環境的影響。
-分層結構：與傳統神經網絡類似，GNN 有多層結構，每層允許圖捕捉分子中越來越遠的關係。
-可定制性：GNN 可以納入方向性和邊權重的設計，特別適合於處理具有專門相互作用的分子結構。
-不限於分子環境的圖應用&lt;/p&gt;
-&lt;p&gt;雖然分子圖是化學中的自然選擇，但其原則和技術可廣泛應用於其他與圖相關的領域，例如：&lt;/p&gt;
-&lt;p&gt;社交網絡：節點表示個體，邊表示聯繫（通常是有向的）。
-通訊網絡：路由信息，其中節點表示服務器或路由器，邊表示數據流路徑。
-生物網絡：基因與蛋白質的交互網絡，節點表示基因或蛋白質，邊表示相互作用或調控關係。
-小結
-分子圖提供了分子結構的全面表示，捕捉了指紋可能忽略的細微差異。這種詳細的表示使得 GNN 能夠深入分析分子，為特性預測和藥物發現開啟了新的可能性。通過有效利用分子圖，研究人員可以從化學數據中提取更豐富的見解，推進理論理解與實際應用。&lt;/p&gt;
-&lt;p&gt;接下來，我將翻譯「分子圖在藥物發現中的應用」內容，請稍候。&lt;/p&gt;
-&lt;p&gt;分子圖在藥物發現中的應用
-分子圖在藥物發現和開發的各個階段都不可或缺，能夠精準捕捉並操作分子的完整結構。以下是分子圖如何顯著提升藥物開發流程的幾種方式：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;化學相似性搜索&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;當一種領先化合物顯示出與特定靶點的良好結合親和力時，研究人員通常會尋找與之結構相似的化合物，因為它們可能具有類似的活性。通過分子圖，我們可以編碼已知化合物的結構特徵，並在包含數百萬化合物的大型化學庫中搜索類似結構。&lt;/p&gt;
-&lt;p&gt;優勢：研究人員可以優先選擇較小且更具針對性的分子集進行初步測試，從而減少大規模篩選的成本和資源使用。
-特別用途：此方法在資源有限或同時進行多個藥物發現項目時尤為重要。
-2. 定量結構-活性關係（QSAR）建模&lt;/p&gt;
-&lt;p&gt;QSAR 模型使用分子圖來預測各種生物化學和藥代動力學特性。例如，可以基於分子結構預測以下屬性：&lt;/p&gt;
-&lt;p&gt;溶解度
-血腦屏障的滲透性
-ADME（吸收、分布、代謝、排泄）
-毒性
-分子圖為 QSAR 模型提供了基於分子特徵與目標特性相關性的基礎，從而幫助研究人員在實驗測試之前篩選化合物。&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;圖神經網絡（GNNs）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;分子圖是圖神經網絡（Graph Neural Networks, GNNs）的主要數據格式。GNNs 特別適合於學習圖結構數據中的複雜關係。&lt;/p&gt;
-&lt;p&gt;應用於分子圖：GNNs 可預測特定的分子屬性、結合親和力，甚至通過建模分子層級的交互，識別潛在副作用或不良反應。
-優勢：GNNs 已成為現代計算藥物發現中的關鍵工具，能夠處理分子結構的複雜性。
-4. 基於結構的藥物設計&lt;/p&gt;
-&lt;p&gt;分子圖允許進行基於結構的藥物設計，通過表徵完整的分子結構，支持更準確的模擬與分子-靶標交互的預測。&lt;/p&gt;
-&lt;p&gt;應用：研究人員可以利用基於分子圖的表示法來模擬結合能量及交互動態，設計專門優化與靶標結合的化合物。
-卷積神經網絡（CNNs）作為 GNNs 的基礎
-為更直觀地理解圖神經網絡（GNNs），可以先考慮卷積神經網絡（CNNs）的結構與功能，因為 CNNs 廣泛應用於影像處理。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;CNN 處理 2D 網格數據&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;像素為單位：CNN 將每個像素視為一個單位，並與相鄰像素進行連接（垂直或水平），從而學習局部模式（如邊緣、梯度和紋理）。
-層級學習：隨著網絡層數的增加，CNN 將這些低級特徵聚合為更高級模式，最終能夠識別複雜對象（例如貓、狗或汽車）。
-2. 從 CNN 到幾何深度學習（GDL）的過渡&lt;/p&gt;
-&lt;p&gt;幾何深度學習的目標：將 CNN 在結構化數據（如影像）上的成功推廣到非結構化、非歐幾里得數據，如圖和流形。
-圖結構的特性：圖與網格或矩陣不同，因其缺乏固定的節點排列且連接多樣化，因此需要專門的神經網絡架構。
-3. 圖神經網絡（GNNs）如何擴展 CNN 的原則&lt;/p&gt;
-&lt;p&gt;消息傳遞或鄰居聚合：在 GNN 中，圖中的每個節點（如分子中的原子）從其鄰居（直接相連的節點）中收集信息，並反覆進行該過程，學習局部與全局模式。
-層級特徵學習：GNNs 通過多層聚合，逐步捕捉分子結構的相互作用，類似 CNN 中逐層學習更複雜特徵。
-GNNs 的可擴展性與應用&lt;/p&gt;
-&lt;p&gt;處理方向性與加權邊：GNNs 可處理有向和無向圖，特別是在處理具有特殊交互的分子結構時。
-標籤與權重的靈活性：GNNs 支持節點與邊標籤，以及不同鍵類型或交互強度的加權邊，使其能處理多樣化的圖結構。
-小結
-分子圖在藥物發現與開發中是至關重要的工具，為深入分析和預測提供了堅實的基礎。通過結合圖神經網絡和幾何深度學習的概念，我們可以分析分子的複雜關係結構，捕捉有效藥物設計所需的細微差異，推動分子與化學資訊學機器學習應用的邊界。&lt;/p&gt;
-&lt;p&gt;接下來，我將翻譯「幾何深度學習：擴展深度學習到複雜結構」部分內容，請稍候。&lt;/p&gt;
-&lt;p&gt;幾何深度學習：擴展深度學習到複雜結構
-幾何深度學習（Geometric Deep Learning, GDL）是一種將傳統深度學習方法推廣到更廣泛數據結構的技術，包括圖、點雲和流形等非歐幾里得數據結構。這種方法特別適合處理依賴關係和連接關係至關重要的任務，例如分子建模和物理模擬。&lt;/p&gt;
-&lt;p&gt;幾何深度學習中的複雜結構&lt;/p&gt;
-&lt;p&gt;在許多應用中，數據並非自然適合於簡單的網格或序列。常見情境包括：&lt;/p&gt;
-&lt;p&gt;圖：在社交網絡、分子結構和知識圖譜中，節點表示實體，邊表示關係或交互。
-3D 點雲：出現在計算機視覺任務中（如 3D 對象識別）或分子與結構生物學中，其中點表示空間中的原子或分子。
-流形：常出現在高維空間中，數據分佈於低維但連續平滑的曲面上。
-在這些情境下，空間關係往往比固定結構的排列更重要，連接性本身包含了有價值的信息。&lt;/p&gt;
-&lt;p&gt;對稱性、不變性與等變性&lt;/p&gt;
-&lt;p&gt;幾何深度學習的一個核心方面是處理對稱性和特性如不變性和等變性，確保模型在數據變換時的輸出具有可預測性。&lt;/p&gt;
-&lt;p&gt;不變性： 模型對某種變換不敏感，即無論輸入經歷怎樣的變換，輸出保持不變。
-例：一個模型在預測分子溶解度時應該對分子的旋轉或平移保持不變，因為這些變換不影響分子的溶解性。
-等變性： 模型的輸出會隨輸入的變換而相應變化。例如，分子動力學模擬中，對參考框架的旋轉應該導致原子位置與動量的相應旋轉。
-在模型中實現不變性與等變性&lt;/p&gt;
-&lt;p&gt;設計不變或等變層： 神經網絡層的設計可以天然處理變換。例如，在圖神經網絡（GNN）中，層的設計可以基於節點的連接方式而非空間排列進行信息聚合，從而實現這些性質。
-基於懲罰的正則化： 在目標函數中加入懲罰項，如果模型的輸出在變換下不符合預期則增加損失。這種方式驅動模型學習所需的不變性或等變性。
-數據增強： 通過對訓練數據進行多種變換（如旋轉、平移、翻轉等）迫使模型學習對這些變化的魯棒性。然而，對於高維圖數據，這種方法可能不切實際或效果有限。
-基於約束的學習設計： 利用嚴格的數學約束或群論構建模型，確保其天然滿足所需的對稱性。
-幾何深度學習在分子圖中的應用&lt;/p&gt;
-&lt;p&gt;在分子建模中，幾何深度學習為分子圖提供了工具，這些工具可以準確捕捉原子（節點）和鍵（邊）之間的關係。通過將每個原子作為節點，每條鍵作為邊，可以應用幾何深度學習原則來預測分子的性質、交互及行為。&lt;/p&gt;
-&lt;p&gt;圖神經網絡（GNNs）： GNNs 利用圖結構來傳遞信息，讓每個節點從其鄰居中學習，從而理解影響分子特性的關係。
-處理旋轉和平移： 在分子性質（如結合親和力或反應潛能）預測中，模型需要對旋轉和平移保持不變。GNNs 可以通過基於結構的聚合方法實現這一點。
-捕捉分層模式： 與卷積神經網絡（CNNs）識別低層次特徵（如邊緣）並逐步學習高層次形狀的方式類似，GNNs 能夠從單個原子學習，逐步捕捉更複雜的分子子結構。
-等變性在物理模擬中的應用： 在分子動力學或分子交互模擬中，等變性至關重要，因為空間變換應該適當傳播到相關原子。幾何深度學習允許構建尊重這些特性的模型，特別適合高精度模擬。
-幾何深度學習在藥物發現中的優勢&lt;/p&gt;
-&lt;p&gt;幾何深度學習在藥物發現和設計中的實用性體現在其處理分子圖和非結構化數據的能力上。&lt;/p&gt;
-&lt;p&gt;改進預測精度：幾何深度學習方法尊重分子的結構特性，因此能夠更準確地預測分子的性質和交互。
-高效表示分子空間：GNN 能夠靈活處理複雜的圖結構數據，包括多種鍵類型與原子特徵。
-增強對新化合物的泛化能力：幾何深度學習模型通過保持不變性與等變性，可以更好地適應新化合物，這對於發現新藥至關重要。
-小結
-幾何深度學習擴展了傳統深度學習，適應如圖和點雲這類複雜的非結構化數據。應用於分子圖時，它為分析、預測和模擬分子的性質與行為提供了強大的工具。通過開發魯棒且具有物理意義的模型，幾何深度學習推動了藥物發現的新進展。&lt;/p&gt;
-&lt;p&gt;圖神經網絡（GNNs）：結構、工作流程與應用
-圖神經網絡（Graph Neural Networks, GNNs）是一類專為處理圖結構數據而設計的深度學習模型。與傳統神經網絡處理網格數據（如圖像或時間序列）不同，GNNs 專注於以節點（例如原子）和邊（例如化學鍵）表示的圖結構數據，這使其在分子圖、社交網絡和知識圖譜等複雜結構中應用廣泛。GNNs 的目標是捕捉圖中的關係與依賴性，預測與節點、邊甚至整個圖相關的特性或行為。&lt;/p&gt;
-&lt;p&gt;GNN 的關鍵應用&lt;/p&gt;
-&lt;p&gt;節點級預測：
-應用：例如預測某特定節點（如分子中的原子）是否會參與活性位點的結合或參與化學反應。
-實例：在蛋白質-小分子交互研究中，GNN 可預測分子中的哪個原子參與結合位點。
-邊級（鏈路）預測：
-應用：判斷節點間邊的存在性或強度（例如化學鍵的形成可能性）。
-實例：基因組學中，預測可能與疾病相關的基因之間的潛在關聯。
-圖級預測：
-應用：為整個圖進行分類或性質預測，例如預測分子的毒性或是否能穿越血腦屏障。
-實例：在藥物篩選中，基於整個分子結構預測其生物活性。
-GNN 的一般工作流程&lt;/p&gt;
-&lt;p&gt;輸入數據與初始嵌入：
-每個圖的節點以初始特徵向量開始，例如分子中的原子可以包括原子序數、電負性和雜化狀態等特徵。
-這些特徵通過嵌入層轉化為高維空間中的向量，作為節點的初始狀態表示。
-消息傳遞與鄰居聚合：
-GNN 執行一系列消息傳遞步驟，在每個 GNN 層中，節點從其鄰居處收集信息。
-鄰居信息（消息）通過可學習的權重矩陣進行變換，並通過聚合函數（例如求和或平均）融合，形成該節點的上下文表示。
-多層消息傳遞：
-每次消息傳遞層後，節點能“看到”其更遠的鄰居。例如，兩層後，每個節點包含了其兩跳鄰居的信息。
-最終狀態與輸出生成：
-一旦所有 GNN 層處理完成，每個節點達到其最終的隱層表示，該表示包含來自鄰居的信息。
-根據任務性質，可以進行：
-節點級任務：使用每個節點的最終隱層表示進行預測。
-邊級任務：分析相鄰節點的最終表示，預測邊的屬性。
-圖級任務：將所有節點的最終表示進行聚合，生成固定長度的圖級表示。
-GNN 的示例工作流程&lt;/p&gt;
-&lt;p&gt;假設一個分子屬性預測任務：&lt;/p&gt;
-&lt;p&gt;輸入分子圖：
-節點（原子）特徵：如原子質量、雜化狀態。
-邊（鍵）特徵：如鍵類型（單鍵、雙鍵等）。
-初始嵌入：
-每個節點用特徵嵌入向量初始化。
-消息傳遞與聚合：
-每個節點從鄰居接收信息（例如，碳原子從相鄰的氧和氫原子接收消息）。
-聚合鄰居消息後，更新節點表示。
-多層處理：
-經過多層 GNN，每個節點整合來自更遠節點的信息，例如兩跳或三跳鄰居。
-最終輸出：
-使用聚合的節點表示進行分子性質（如溶解度或毒性）預測。
-GNN 層中的操作類型&lt;/p&gt;
-&lt;p&gt;圖上的卷積：
-與 CNN 在網格上進行卷積類似，GNN 在每個節點的鄰域內進行卷積操作，聚合鄰居信息。
-池化與讀出：
-與 CNN 中的池化層類似，GNN 的池化有助於降維並聚合節點信息。可以應用於子圖內節點或整個圖上的池化。
-正則化：
-由於節點的度數可能差異較大，對聚合的信息進行正則化有助於平衡信息流，防止過於依賴高度連接的節點。
-GNN 在分子建模與藥物發現中的優勢&lt;/p&gt;
-&lt;p&gt;處理複雜結構的靈活性：
-GNN 能夠適應不規則、非歐幾里得的分子圖結構。
-結構信息的高效利用：
-GNN 內嵌與傳遞信息的方式自然尊重分子的空間與化學關係。
-可擴展性：
-GNN 的消息傳遞協議允許高效處理大型圖數據集，如虛擬篩選中的化學庫。
-小結
-圖神經網絡通過結合深度學習技術與圖結構數據的關係特徵，為分子建模提供了強大的框架。GNNs 的多功能性使其適用於藥物發現、材料科學和網絡分析等廣泛領域，尤其在需要深入理解數據中複雜關係的場景中表現卓越。&lt;/p&gt;
-&lt;p&gt;消息傳遞（Message Passing）在圖神經網絡中的應用
-消息傳遞是圖神經網絡（GNNs）的核心操作，允許節點與其鄰居之間交換並聚合信息。這一過程使每個節點能夠結合來自其相鄰節點的特徵，構建出更豐富的上下文感知表示。消息傳遞是執行節點分類、鏈路預測和圖級屬性預測等圖結構任務的關鍵機制。&lt;/p&gt;
-&lt;p&gt;消息傳遞的主要步驟&lt;/p&gt;
-&lt;p&gt;消息生成：
-對於圖中的每個節點，GNN 從其鄰居處創建消息。這通常通過使用可學習的權重矩陣，對每個鄰居節點的隱層表示進行變換。
-舉例：對於一個黃色節點，其相鄰的粉色和灰色節點會通過權重矩陣變換生成消息向量，這些消息將被傳遞給黃色節點。
-消息聚合：
-下一步是將所有來自鄰居的消息聚合為一個向量，該向量反映所有鄰居的綜合影響。
-常見的聚合策略包括：
-求和聚合：將所有進入的消息加總。
-均值聚合：計算所有消息的平均值，確保每個鄰居在聚合中有相等的權重。
-最大池化：選取所有消息中最顯著的值，突出最重要的特徵。
-聚合策略的選擇會影響 GNN 的性能。例如，對於度數差異較大的節點，正則化可能是必需的，以平衡信息流。
-方向性與排列不變性：
-在 GNN 中，鄰居沒有固有的“方向”或“位置”，因此必須保證 GNN 是排列不變的——鄰居消息的順序不應影響結果。
-這一點通過對稱函數（如求和、均值或最大值）來實現，確保聚合方式與鄰居排列無關。
-更新函數：
-在聚合鄰居消息後，節點將使用更新函數結合自身的當前隱層表示與聚合消息，生成新的隱層表示。
-更新函數的典型形式：&lt;/p&gt;
-&lt;p&gt;：分別是應用於節點自身和鄰居的可學習權重矩陣。
-σ
-σ：非線性激活函數（如 ReLU 或 tanh）。
-非線性操作增加了模型的表達能力，使其能夠捕捉更複雜的節點間相互作用。
-多層消息傳遞：
-每次消息傳遞層之後，節點的“感受野”會擴展。例如：
-一層消息傳遞後，節點可看到其直接鄰居的信息。
-兩層後，可看到兩跳鄰居的信息（鄰居的鄰居）。
-多層消息傳遞允許 GNN 捕捉圖中的長距依賴性，但過多層數可能導致信息稀釋或過平滑問題。
-消息傳遞的示例應用&lt;/p&gt;
-&lt;p&gt;假設我們分析一個分子圖來預測化合物的溶解度：&lt;/p&gt;
-&lt;p&gt;節點初始化：
-節點（原子）的特徵包括原子序數和電負性。
-邊（鍵）的特徵包括鍵類型（單鍵、雙鍵等）。
-消息傳遞：
-每個節點從其鄰居接收消息。例如，碳原子從相鄰的氧和氫原子接收消息。
-聚合消息後，更新碳原子的表示，使其反映鄰居的綜合影響。
-多層擴展：
-多層消息傳遞使每個節點能夠逐漸獲取來自更遠節點的信息，構建全局上下文。
-模型輸出：
-使用節點或圖級表示進行性質預測，例如預測化合物的溶解度。
-消息傳遞在分子分析中的重要性&lt;/p&gt;
-&lt;p&gt;本地上下文的融合：
-消息傳遞允許節點整合來自鄰居的信息，這對理解分子內局部化學環境至關重要。
-可擴展性：
-基於鄰居的聚合方式，使 GNN 能夠高效處理大型圖。
-表達能力：
-多層消息傳遞可捕捉節點間的長距依賴性，這對分子性質預測尤其重要。
-小結
-消息傳遞是 GNN 中的核心過程，使得每個節點能夠從其鄰居中獲取有意義的信息，並逐步構建其全局上下文表示。通過精心設計消息生成、聚合與更新步驟，GNN 能夠適應複雜的分子圖結構，為化學性質分析和藥物發現等領域提供強有力的工具。&lt;/p&gt;
-&lt;p&gt;如果您需要後續翻譯的部分（如節點更新或最終輸出等），請告訴我！&lt;/p&gt;
-&lt;p&gt;節點更新（Node Updates）在基礎圖神經網絡（GNN）中的應用
-在基礎圖神經網絡中，節點更新是每一層消息傳遞過程中的關鍵部分。該機制允許每個節點通過反覆整合來自其鄰居的資訊，逐步構建更精緻的表示。&lt;/p&gt;
-&lt;p&gt;節點更新機制的逐步分解&lt;/p&gt;
-&lt;p&gt;節點嵌入初始化：
-每個節點&lt;/p&gt;
-&lt;p&gt;​
-，通常由輸入特徵（如原子序數或鍵類型）生成，或者通過嵌入層映射到高維空間。
-計算隱層表示：
-在每一層
-k
-k 中，每個節點
-u
-u 的隱層表示&lt;/p&gt;
-&lt;p&gt;是通過結合鄰居信息更新的，公式如下：&lt;/p&gt;
-&lt;p&gt;neighbor
-⋅
-Aggregate&lt;/p&gt;
-&lt;p&gt;​
-：鄰居嵌入的可學習權重矩陣。
-Aggregate
-Aggregate：鄰居信息的聚合函數（如求和或均值）。
-σ
-σ：非線性激活函數（如 ReLU）。
-更新後的&lt;/p&gt;
-&lt;p&gt;代表節點的新狀態，結合了來自鄰居的上下文信息。
-感受野的擴展：
-每次應用一層 GNN 後，節點的“感受野”就會擴展：
-層數&lt;/p&gt;
-&lt;p&gt;k=1：節點僅聚合其直接鄰居的信息。
-層數&lt;/p&gt;
-&lt;p&gt;k=2：節點聚合來自二跳鄰居的信息（鄰居的鄰居）。
-多層網絡可以捕捉長距離依賴性，使節點的表示能包含更廣泛的圖結構信息。
-層數與信息擴散的平衡：
-雖然更多層數允許更大的感受野，但過深的網絡可能導致以下問題：
-信息稀釋：節點表示可能因過多層的聚合而過於平滑，難以區分節點特徵（稱為過平滑問題）。
-計算成本增加：更多層會增加計算成本，且可能引發梯度消失或爆炸的問題。
-通常，實踐中選擇 2-4 層可以在信息擴散和計算效率之間取得平衡。
-節點更新的範例&lt;/p&gt;
-&lt;p&gt;考慮一個基於分子圖的溶解度預測任務：&lt;/p&gt;
-&lt;p&gt;初始表示：
-節點（如原子）的初始特徵包括原子序數、鍵類型等。
-消息聚合：
-每個節點從其鄰居接收消息，通過聚合函數進行匯總。
-非線性更新：
-聚合消息後，節點的表示結合自身的初始嵌入進行非線性變換。
-層數擴展：
-重複上述過程，隨著層數增加，節點表示逐步融合來自遠距鄰居的信息。
-GNN 最終輸出的應用
-完成所有 GNN 層的消息傳遞後，我們獲得了每個節點的最終嵌入表示，該表示整合了節點自身及其鄰居的上下文信息。不同的任務需求決定了如何使用這些節點嵌入來生成有意義的預測。&lt;/p&gt;
-&lt;p&gt;關鍵任務&lt;/p&gt;
-&lt;p&gt;節點級別預測：
-如果目標是預測單個節點的屬性或分類，我們可以直接使用其最終嵌入。
-例如，在分子圖中，節點（原子）的嵌入可用於預測其是否參與某種化學反應。
-邊級別預測：
-邊級別預測涉及預測節點之間是否存在關聯（如化學鍵是否存在）。
-方法包括計算節點嵌入之間的相似性（如餘弦相似度），或通過多層感知機（MLP）來進一步建模。
-圖級別預測：
-當需要對整個圖進行分類（如分子是否可溶）時，必須將節點嵌入聚合為單一向量，該向量捕捉整體圖結構信息。
-圖級別聚合技術&lt;/p&gt;
-&lt;p&gt;求和聚合：
-將所有節點嵌入相加，生成圖的綜合表示。
-均值聚合：
-計算節點嵌入的平均值，以消除因節點數量不同帶來的影響。
-最大池化：
-提取所有節點嵌入中最顯著的特徵值。
-注意力機制：
-使用注意力機制學習不同節點對任務的重要性，根據權重加權聚合節點嵌入。
-虛擬節點：
-引入一個虛擬節點，與圖中所有節點相連，通過消息傳遞聚合整圖信息。
-小結
-節點更新和輸出生成是 GNN 的關鍵步驟，這些步驟使模型能夠根據具體任務需求進行靈活調整。通過精心設計的聚合策略和嵌入生成方法，GNN 能夠處理複雜的圖結構數據，實現分子建模、社交網絡分析等多領域的應用。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Sequence modeling and design from molecular to genome scale with Evo</title>
-      <link>http://localhost:49383/tech/tech3/</link>
+      <link>http://localhost:1313/tech/tech3/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/tech/tech3/</guid>
+      <guid>http://localhost:1313/tech/tech3/</guid>
       <description>&lt;p&gt;近期發表於《科學》期刊的研究介紹了Evo，一種具備7億參數的基因組基礎模型 (Foundation model)，能夠從單個核苷酸到整個基因組進行序列建模和設計。 Evo使用&lt;code&gt;StripedHyena&lt;/code&gt;架構，能夠以接近線性的計算和記憶體擴展來處理長序列，實現&lt;code&gt;單核苷酸&lt;/code&gt;級別的解析度。
 該模型在&lt;code&gt;OpenGenome&lt;/code&gt;資料集上進行訓練，該資料集包含約270萬個原核生物和噬菌體基因組序列，總計約3000億個標記。 Evo在DNA、RNA和蛋白質等多種生物模式下的&lt;code&gt;零樣本 (Zero shot)&lt;/code&gt;功能預測任務中表現出色，並能夠生成功能性生物系統，如CRISPR-Cas複合物和轉座子。&lt;/p&gt;
 &lt;ul&gt;
@@ -1255,9 +945,9 @@ GNN 最終輸出的應用
     
     <item>
       <title>迷你課程:Python-1~字串操作與格式化</title>
-      <link>http://localhost:49383/post/minicoursepython1/</link>
+      <link>http://localhost:1313/post/minicoursepython1/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/minicoursepython1/</guid>
+      <guid>http://localhost:1313/post/minicoursepython1/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;在 Python 中，字串 (string) 是最常用的資料類型之一。掌握字串的基本操作和進階技巧，不僅能讓你的程式碼更簡潔，也能提升程式設計的靈活性。本文將基於範例程式碼進一步詳細講解，並延伸至更多實用的字串操作和格式化方法。&lt;/p&gt;
 &lt;hr&gt;
@@ -1465,9 +1155,9 @@ GNN 最終輸出的應用
     
     <item>
       <title>計算生物學聊聊：藥物開發的現況與挑戰</title>
-      <link>http://localhost:49383/post/compbio_drug/</link>
+      <link>http://localhost:1313/post/compbio_drug/</link>
       <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/compbio_drug/</guid>
+      <guid>http://localhost:1313/post/compbio_drug/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;本篇介紹藥物開發的現況，筆記出自於美國麻省理工學院的計算生物學課程MLCB24。
 課程影片請看&lt;a href=&#34;https://www.youtube.com/watch?v=m_R_6ItR-qY&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;這裡&lt;/a&gt;。&lt;/p&gt;
@@ -1610,7 +1300,7 @@ GNN 最終輸出的應用
                /post/compbio_drug/fig1_hu14414697526844801796.webp 400w,
                /post/compbio_drug/fig1_hu5525642444733473667.webp 760w,
                /post/compbio_drug/fig1_hu11859840641213679159.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/compbio_drug/fig1_hu14414697526844801796.webp&#34;
+               src=&#34;http://localhost:1313/post/compbio_drug/fig1_hu14414697526844801796.webp&#34;
                width=&#34;760&#34;
                height=&#34;499&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1766,7 +1456,7 @@ ED50: 一半群體產生治療效果的劑量。
                /post/compbio_drug/fig2_hu16441939913604798509.webp 400w,
                /post/compbio_drug/fig2_hu890291919401304658.webp 760w,
                /post/compbio_drug/fig2_hu14679296414677028875.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/compbio_drug/fig2_hu16441939913604798509.webp&#34;
+               src=&#34;http://localhost:1313/post/compbio_drug/fig2_hu16441939913604798509.webp&#34;
                width=&#34;644&#34;
                height=&#34;636&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1783,9 +1473,9 @@ ED50: 一半群體產生治療效果的劑量。
     
     <item>
       <title>迷你課程:R語言-5~R的字串操作</title>
-      <link>http://localhost:49383/post/minicourser5/</link>
+      <link>http://localhost:1313/post/minicourse_r5/</link>
       <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/minicourser5/</guid>
+      <guid>http://localhost:1313/post/minicourse_r5/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;本次課程將介紹 R 語言中與&lt;strong&gt;字串&lt;/strong&gt;相關的各種操作方法，包括字串的建立、分割、拼接、取子字串、查找與替換，以及字串的轉換與處理。&lt;/p&gt;
 &lt;p&gt;R 中的字串屬於 &lt;code&gt;character&lt;/code&gt; 類型，是一種重要的資料結構，特別是在文字處理、資料清理與分析中經常使用。&lt;/p&gt;
@@ -1963,9 +1653,9 @@ ED50: 一半群體產生治療效果的劑量。
     
     <item>
       <title>迷你課程:R語言-4~Function的定義與運用</title>
-      <link>http://localhost:49383/post/minicourse_r4/</link>
+      <link>http://localhost:1313/post/minicourse_r4/</link>
       <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/minicourse_r4/</guid>
+      <guid>http://localhost:1313/post/minicourse_r4/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;在 R 語言中，函數能夠幫助我們培養重複使用和結構化程式的能力。本篇文章將介紹：&lt;/p&gt;
 &lt;ol&gt;
@@ -2194,18 +1884,18 @@ ED50: 一半群體產生治療效果的劑量。
     
     <item>
       <title>Data Efficient and Weakly Supervised Computational Pathology on Whole Slide Images</title>
-      <link>http://localhost:49383/tech/tech2/</link>
+      <link>http://localhost:1313/tech/tech2/</link>
       <pubDate>Thu, 12 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/tech/tech2/</guid>
+      <guid>http://localhost:1313/tech/tech2/</guid>
       <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
 &lt;p&gt;The rapidly emerging field of computational pathology has the potential to enable objective diagnosis, therapeutic response prediction and identification of new morphological features of clinical relevance. However, deep learning-based computational pathology approaches either require manual annotation of gigapixel whole slide images (WSIs) in fully-supervised settings or thousands of WSIs with slide-level labels in a weakly-supervised setting. Moreover, whole slide level computational pathology methods also suffer from domain adaptation and interpretability issues. These challenges have prevented the broad adaptation of computational pathology for clinical and research purposes. Here we present CLAM - Clustering-constrained attention multiple instance learning, an easy-to-use, high-throughput, and interpretable WSI-level processing and learning method that only requires slide-level labels while being data efficient, adaptable and capable of handling multi-class subtyping problems. CLAM is a deep-learning-based weakly-supervised method that uses attention-based learning to automatically identify sub-regions of high diagnostic value in order to accurately classify the whole slide, while also utilizing instance-level clustering over the representative regions identified to constrain and refine the feature space. In three separate analyses, we demonstrate the data efficiency and adaptability of CLAM and its superior performance over standard weakly-supervised classification. We demonstrate that CLAM models are interpretable and can be used to identify well-known and new morphological features. We further show that models trained using CLAM are adaptable to independent test cohorts, cell phone microscopy images, and biopsies. CLAM is a general-purpose and adaptable method that can be used for a variety of different computational pathology tasks in both clinical and research settings.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>計算生物學聊聊：Hidden Markov Chain (上)</title>
-      <link>http://localhost:49383/post/markov/</link>
+      <link>http://localhost:1313/post/markov/</link>
       <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/markov/</guid>
+      <guid>http://localhost:1313/post/markov/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;Hidden Markov Chain(HMM)&lt;/code&gt;是計算生物學中一個重要的數學模型，廣泛應用於DNA序列分析和蛋白質結構預測等領域。HMM的核心概念是用&lt;code&gt;隱藏的狀態&lt;/code&gt;來建立模型，並解釋觀察到的數據，通過&lt;code&gt;轉移機率&lt;/code&gt;和&lt;code&gt;觀察機率&lt;/code&gt;來描述系統的動態行為。&lt;/p&gt;
 &lt;hr&gt;
@@ -2339,7 +2029,7 @@ $$
                /post/markov/fig1_hu8822840645180452515.webp 400w,
                /post/markov/fig1_hu2316656150060041621.webp 760w,
                /post/markov/fig1_hu8691795879731039526.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/markov/fig1_hu8822840645180452515.webp&#34;
+               src=&#34;http://localhost:1313/post/markov/fig1_hu8822840645180452515.webp&#34;
                width=&#34;760&#34;
                height=&#34;348&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -2438,7 +2128,7 @@ $$
                /post/markov/fig2_hu4390774657599844428.webp 400w,
                /post/markov/fig2_hu9501806590322226021.webp 760w,
                /post/markov/fig2_hu16811126276551008659.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/markov/fig2_hu4390774657599844428.webp&#34;
+               src=&#34;http://localhost:1313/post/markov/fig2_hu4390774657599844428.webp&#34;
                width=&#34;708&#34;
                height=&#34;408&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -2506,9 +2196,9 @@ $$
     
     <item>
       <title>迷你課程:R語言-3~list, matrix與array的子集提取</title>
-      <link>http://localhost:49383/post/minicourse_r3/</link>
+      <link>http://localhost:1313/post/minicourse_r3/</link>
       <pubDate>Sun, 08 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/minicourse_r3/</guid>
+      <guid>http://localhost:1313/post/minicourse_r3/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;今天介紹R中如何對 List、Matrix和Array（陣列）進行子集提取（Subsetting）的操作，包含：&lt;/p&gt;
 &lt;ol&gt;
@@ -2721,9 +2411,9 @@ $$
     
     <item>
       <title>迷你課程:R語言-2~Dataframe與tibble</title>
-      <link>http://localhost:49383/post/minicourse_r2/</link>
+      <link>http://localhost:1313/post/minicourse_r2/</link>
       <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/minicourse_r2/</guid>
+      <guid>http://localhost:1313/post/minicourse_r2/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;今天介紹R的兩種重要資料結構：&lt;/p&gt;
 &lt;ol&gt;
@@ -2908,9 +2598,9 @@ $$
     
     <item>
       <title>迷你課程:R語言-1~R的資本資料型態</title>
-      <link>http://localhost:49383/post/minicourse_r1/</link>
+      <link>http://localhost:1313/post/minicourse_r1/</link>
       <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/minicourse_r1/</guid>
+      <guid>http://localhost:1313/post/minicourse_r1/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;今天介紹R的data type:&lt;/p&gt;
 &lt;ol&gt;
@@ -3110,18 +2800,18 @@ $$
     
     <item>
       <title>10X Genomics 推出GEM-X Flex</title>
-      <link>http://localhost:49383/tech/tech1/</link>
+      <link>http://localhost:1313/tech/tech1/</link>
       <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/tech/tech1/</guid>
+      <guid>http://localhost:1313/tech/tech1/</guid>
       <description>&lt;p&gt;10x Genomics 推出的Single Cell GEM-X技術為單細胞分析開創了嶄新的可能性，提供前所未有的效能提升。基於這項創新，10x Genomics進一步推出了&lt;a href=&#34;%28https://www.10xgenomics.com/support/single-cell-gene-expression-flex/documentation/steps/library-prep/gem-x-flex-gene-expression-reagent-kit-for-multiplex-samples%29&#34;&gt;GEM-X Flex&lt;/a&gt;和，為研究者提供更靈活、高效且經濟的實驗設計選擇，跟先前的Flex protocol相比，GEM-X Flex可以在花費較少的情況下，用較少的細胞數量，得到品質更好的數據。&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>IgA腎病變：現況與挑戰</title>
-      <link>http://localhost:49383/post/iga_nephropathy/</link>
+      <link>http://localhost:1313/post/iga_nephropathy/</link>
       <pubDate>Fri, 29 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/iga_nephropathy/</guid>
+      <guid>http://localhost:1313/post/iga_nephropathy/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;IgA腎病變(IgA nephropathy, IgAN)&lt;/code&gt;是一種常見的原發性腎絲球腎炎，雖然進程緩慢，但仍有不少患者在會一生中面臨腎衰竭或是洗腎的風險。該疾病的致病機轉主要來自於黏膜免疫系統中衍生的缺半乳糖化IgA1在血液中濃度升高，且和特異性IgG和IgA抗體結合，形成免疫複合物沉積於腎小球內，導致發炎、補體活化及腎損傷。儘管現有的治療選擇有限，但不同類型的療法正在快速發展，本篇針對最新發表在nature review nephrology的&lt;a href=&#34;https://www.nature.com/articles/s41581-024-00885-3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;，深入探討IgAN的病生理機制與治療前景。&lt;/p&gt;
 &lt;h1 id=&#34;前情提要&#34;&gt;前情提要&lt;/h1&gt;
@@ -3155,7 +2845,7 @@ $$
                /post/iga_nephropathy/fig1_hu8477814647956072909.webp 400w,
                /post/iga_nephropathy/fig1_hu2347947302523353437.webp 760w,
                /post/iga_nephropathy/fig1_hu16276878206001251811.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/iga_nephropathy/fig1_hu8477814647956072909.webp&#34;
+               src=&#34;http://localhost:1313/post/iga_nephropathy/fig1_hu8477814647956072909.webp&#34;
                width=&#34;760&#34;
                height=&#34;390&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -3194,7 +2884,7 @@ $$
                /post/iga_nephropathy/fig2_hu9214946873256410068.webp 400w,
                /post/iga_nephropathy/fig2_hu8460772400180790820.webp 760w,
                /post/iga_nephropathy/fig2_hu1227887210895014429.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/iga_nephropathy/fig2_hu9214946873256410068.webp&#34;
+               src=&#34;http://localhost:1313/post/iga_nephropathy/fig2_hu9214946873256410068.webp&#34;
                width=&#34;760&#34;
                height=&#34;322&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -3246,7 +2936,7 @@ $$
                /post/iga_nephropathy/fig3_hu17316065617603901825.webp 400w,
                /post/iga_nephropathy/fig3_hu3953366864811020813.webp 760w,
                /post/iga_nephropathy/fig3_hu2584949262212506169.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/iga_nephropathy/fig3_hu17316065617603901825.webp&#34;
+               src=&#34;http://localhost:1313/post/iga_nephropathy/fig3_hu17316065617603901825.webp&#34;
                width=&#34;760&#34;
                height=&#34;586&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -3287,7 +2977,7 @@ $$
                /post/iga_nephropathy/fig4_hu16834576376985772938.webp 400w,
                /post/iga_nephropathy/fig4_hu10351183366052398372.webp 760w,
                /post/iga_nephropathy/fig4_hu12702964302490181733.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/iga_nephropathy/fig4_hu16834576376985772938.webp&#34;
+               src=&#34;http://localhost:1313/post/iga_nephropathy/fig4_hu16834576376985772938.webp&#34;
                width=&#34;760&#34;
                height=&#34;436&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -3346,9 +3036,9 @@ $$
     
     <item>
       <title>生資硬核技術：公開癌症基因數據下載及操作</title>
-      <link>http://localhost:49383/post/ucscxenatool/</link>
+      <link>http://localhost:1313/post/ucscxenatool/</link>
       <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/ucscxenatool/</guid>
+      <guid>http://localhost:1313/post/ucscxenatool/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;數年前我還是住院醫師的時候是直接在UCSC Xena&lt;a href=&#34;https://xenabrowser.net&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;平台&lt;/a&gt;下載癌症數據，但整個過程很難流程化， 而2019年發表的UCSCXenaTools解決了這個問題，也讓我在前年分析公開數據時方便許多。
 UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。該平台集成了多個公開數據庫(如分析癌症數據一定要知道的TCGA、ICGC、TARGET、GTEx等），提供處理過的數據，便於我們進行數據的篩選、連結、探索及下載。UCSCXenaTools的功能強大且操作簡單，在我們先前的&lt;a href=&#34;https://www.biorxiv.org/content/10.1101/2024.07.21.604474v1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;preprint&lt;/a&gt;發表我也是利用這個套件做TCGA數據的處理，所以這邊就簡單分享我是如何用這個套件來進行分析的。&lt;/p&gt;
@@ -3487,9 +3177,9 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
     
     <item>
       <title>纖維母性網狀細胞為肺癌中的T細胞塑造碉堡？</title>
-      <link>http://localhost:49383/post/paperr3/</link>
+      <link>http://localhost:1313/post/paperr3/</link>
       <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/paperr3/</guid>
+      <guid>http://localhost:1313/post/paperr3/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;腫瘤內部的免疫微環境基本上都存在高度異質性，從免疫細胞密集分布到完全缺乏等等。目前的證據顯示，腫瘤抗原特異性T細胞(Tumor-specific T cell)若要順利的啟動及維持他們的活性，仰賴腫瘤引流淋巴結(tumor draining lymph node)和腫瘤組織內的微環境，特別是三級淋巴結構（tertiary lymphoid structure，TLS），其通常位於腫瘤邊緣並由B細胞主導。而TLS中的B細胞活性也與Immune checkpoint inhibitor的成功率息息相關。&lt;/p&gt;
 &lt;p&gt;這些免疫細胞由專門的纖維母細胞(如T細胞區網狀細胞和血管周圍網狀細胞)支撐，而這之間的交互作用也從TLS透過某種物理架構延伸到腫瘤內部。本篇研究通過單細胞轉錄組學和高解析度顯微技術，發現了在肺癌中形成特定T細胞環境的纖維母細胞亞群(fibroblastic reticular cell)。這些FRC與免疫細胞的互動促進了TLS的形成、T細胞軌跡中的分化，以及控制T細胞活性。實驗顯示，破壞腫瘤微環境中FRC與免疫細胞的互動會降低CD8+ T細胞的抗腫瘤活性並促進腫瘤生長。&lt;/p&gt;
@@ -3518,7 +3208,7 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
                /post/paperr3/fig1_hu8012954762647498247.webp 400w,
                /post/paperr3/fig1_hu18030004843405312440.webp 760w,
                /post/paperr3/fig1_hu13374468011937916873.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/paperr3/fig1_hu8012954762647498247.webp&#34;
+               src=&#34;http://localhost:1313/post/paperr3/fig1_hu8012954762647498247.webp&#34;
                width=&#34;713&#34;
                height=&#34;760&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -3559,7 +3249,7 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
                /post/paperr3/fig2_hu8035623134348539547.webp 400w,
                /post/paperr3/fig2_hu17343627255761551909.webp 760w,
                /post/paperr3/fig2_hu6183092819207817373.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/paperr3/fig2_hu8035623134348539547.webp&#34;
+               src=&#34;http://localhost:1313/post/paperr3/fig2_hu8035623134348539547.webp&#34;
                width=&#34;760&#34;
                height=&#34;371&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -3591,7 +3281,7 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
                /post/paperr3/fig3_hu9023605283481264180.webp 400w,
                /post/paperr3/fig3_hu3262590434171768881.webp 760w,
                /post/paperr3/fig3_hu7929229898512150303.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/paperr3/fig3_hu9023605283481264180.webp&#34;
+               src=&#34;http://localhost:1313/post/paperr3/fig3_hu9023605283481264180.webp&#34;
                width=&#34;760&#34;
                height=&#34;363&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -3609,9 +3299,9 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
     
     <item>
       <title>基礎模型於醫學領域的運用？</title>
-      <link>http://localhost:49383/post/paperr2/</link>
+      <link>http://localhost:1313/post/paperr2/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/paperr2/</guid>
+      <guid>http://localhost:1313/post/paperr2/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;人工智慧的快速發展，特別是高靈活性和可重複使用的模型，預計將為醫學領域帶來全新的能力。這篇發表於nature的&lt;a href=&#34;https://www.nature.com/articles/s41586-023-05881-4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;提出了一種新的醫學AI模式，稱為通用型醫學人工智慧(Generalist Medical AI，GMAI)。GMAI 模型將能夠在極少甚至不依賴特定任務標註數據的情況下，執行多樣化的醫學任務。這些模型通過對大規模、多樣性數據集的自監督學習構建，能靈活解讀多種醫學數據模態的組合，包括影像數據、電子健康紀錄(EHR)、實驗室檢驗結果、基因組數據、圖形數據和醫學文本等。GMAI模型的輸出將更具表達性，例如提供自由文本解釋、語音建議或圖像註解，並展現出高級的醫學推理能力。&lt;/p&gt;
 &lt;h1 id=&#34;基礎模型真的有那麼強大&#34;&gt;基礎模型真的有那麼強大？&lt;/h1&gt;
@@ -3652,7 +3342,7 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
                /post/paperr2/fig1_hu4465402215046398491.webp 400w,
                /post/paperr2/fig1_hu7223638083453739918.webp 760w,
                /post/paperr2/fig1_hu1798559871620689176.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/paperr2/fig1_hu4465402215046398491.webp&#34;
+               src=&#34;http://localhost:1313/post/paperr2/fig1_hu4465402215046398491.webp&#34;
                width=&#34;760&#34;
                height=&#34;376&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -3710,7 +3400,7 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
                /post/paperr2/fig2_hu5603937334617053369.webp 400w,
                /post/paperr2/fig2_hu14445273741430393331.webp 760w,
                /post/paperr2/fig2_hu10463116408328140366.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/paperr2/fig2_hu5603937334617053369.webp&#34;
+               src=&#34;http://localhost:1313/post/paperr2/fig2_hu5603937334617053369.webp&#34;
                width=&#34;760&#34;
                height=&#34;340&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -3724,9 +3414,9 @@ UCSCXenaTools是一個專門用來處理UCSC Xena的基因組數據的R套件。
     
     <item>
       <title>數據科學技術盤點:主成分分析？</title>
-      <link>http://localhost:49383/post/data_pca/</link>
+      <link>http://localhost:1313/post/data_pca/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/data_pca/</guid>
+      <guid>http://localhost:1313/post/data_pca/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;主成分分析（Principal component analysis, PCA）是一種強大且直觀的數據降維技術，被廣泛應用於臨床研究與醫學數據分析中。作為醫師，在日常工作中，我們經常面對大量的病患數據，例如基因表達數據、影像數據、實驗室檢驗值等。PCA能夠幫助我們提取數據的關鍵特徵，將高維度的資料轉換成易於解釋的低維度數據，從而揭示潛在的生物學意義。&lt;/p&gt;
 &lt;ul&gt;
@@ -3903,7 +3593,7 @@ $$
                /post/data_pca/fig1_hu15827159032189168353.webp 400w,
                /post/data_pca/fig1_hu4818452470569895218.webp 760w,
                /post/data_pca/fig1_hu7070961658534383816.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/data_pca/fig1_hu15827159032189168353.webp&#34;
+               src=&#34;http://localhost:1313/post/data_pca/fig1_hu15827159032189168353.webp&#34;
                width=&#34;760&#34;
                height=&#34;656&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -3930,9 +3620,9 @@ $$
     
     <item>
       <title>黑色素瘤如何對免疫治療產生抗藥性？</title>
-      <link>http://localhost:49383/post/paperr1/</link>
+      <link>http://localhost:1313/post/paperr1/</link>
       <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/paperr1/</guid>
+      <guid>http://localhost:1313/post/paperr1/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;這篇&lt;a href=&#34;https://www.nature.com/articles/s41467-023-36979-y&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;研究了Immune checkpoint inhibitor（ICI）療法在黑色素瘤中(melanoma)的抗藥性機制。通過分析來自患者的短期腫瘤細胞系(short term cell line))和匹配的腫瘤樣本，作者發現了三種不同的抗藥性機制，分別涉及抗原表達的喪失、抗原呈現的破壞，以及與PTEN缺失相關的免疫細胞排斥。這些抗藥性機制揭示了可能的救援性治療策略，例如恢復MHC的表達、促進先天免疫反應、以及重新刺激抗原的呈現。&lt;/p&gt;
 &lt;h1 id=&#34;簡介&#34;&gt;簡介&lt;/h1&gt;
@@ -3964,7 +3654,7 @@ $$
                /post/paperr1/fig1_hu9654123225570833926.webp 400w,
                /post/paperr1/fig1_hu9312653373427227540.webp 760w,
                /post/paperr1/fig1_hu15333842250656839342.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/paperr1/fig1_hu9654123225570833926.webp&#34;
+               src=&#34;http://localhost:1313/post/paperr1/fig1_hu9654123225570833926.webp&#34;
                width=&#34;760&#34;
                height=&#34;407&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -4000,7 +3690,7 @@ $$
                /post/paperr1/fig2_hu14716284260067820646.webp 400w,
                /post/paperr1/fig2_hu3714876771964191745.webp 760w,
                /post/paperr1/fig2_hu13053414200563141755.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/paperr1/fig2_hu14716284260067820646.webp&#34;
+               src=&#34;http://localhost:1313/post/paperr1/fig2_hu14716284260067820646.webp&#34;
                width=&#34;760&#34;
                height=&#34;629&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -4032,7 +3722,7 @@ $$
                /post/paperr1/fig3_hu15511228375094572697.webp 400w,
                /post/paperr1/fig3_hu17629593433813472757.webp 760w,
                /post/paperr1/fig3_hu17722807213131398297.webp 1200w&#34;
-               src=&#34;http://localhost:49383/post/paperr1/fig3_hu15511228375094572697.webp&#34;
+               src=&#34;http://localhost:1313/post/paperr1/fig3_hu15511228375094572697.webp&#34;
                width=&#34;760&#34;
                height=&#34;538&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -4053,9 +3743,9 @@ $$
     
     <item>
       <title>新文章發表於 European Urology</title>
-      <link>http://localhost:49383/event/meta_publish/</link>
+      <link>http://localhost:1313/event/meta_publish/</link>
       <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/event/meta_publish/</guid>
+      <guid>http://localhost:1313/event/meta_publish/</guid>
       <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
 &lt;p&gt;A Meta-Analysis and Meta-Regression of the Efficacy, Toxicity, and Quality of Life Outcomes Following Prostate-Specific Membrane Antigen Radioligand Therapy Utilising Lutetium-177 and Actinium- 225 in Metastatic Prostate Cancer&lt;/p&gt;
 &lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
@@ -4071,9 +3761,9 @@ Our findings suggest an association between PRLT and reductions in PSA levels, a
     
     <item>
       <title>新 Preprint 發表於 biorxiv</title>
-      <link>http://localhost:49383/event/driveromics/</link>
+      <link>http://localhost:1313/event/driveromics/</link>
       <pubDate>Sun, 21 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/event/driveromics/</guid>
+      <guid>http://localhost:1313/event/driveromics/</guid>
       <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
 &lt;p&gt;DriverOmicsNet-An Integrated Graph Convolutional Network for Multi-Omics Exploration of Cancer Driver Genes&lt;/p&gt;
 &lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
@@ -4086,9 +3776,9 @@ Our findings suggest an association between PRLT and reductions in PSA levels, a
     
     <item>
       <title>腎臟科國考複習</title>
-      <link>http://localhost:49383/event/example/</link>
+      <link>http://localhost:1313/event/example/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/event/example/</guid>
+      <guid>http://localhost:1313/event/example/</guid>
       <description>
 
     
@@ -4102,9 +3792,9 @@ Our findings suggest an association between PRLT and reductions in PSA levels, a
     
     <item>
       <title>新文章發表於Journal of Translational Medicine</title>
-      <link>http://localhost:49383/event/lupus/</link>
+      <link>http://localhost:1313/event/lupus/</link>
       <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/event/lupus/</guid>
+      <guid>http://localhost:1313/event/lupus/</guid>
       <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
 &lt;p&gt;Incorporating knowledge of disease-defining hub genes and regulatory network into a machine learning-based model for predicting treatment response in lupus nephritis after the first renal flare&lt;/p&gt;
 &lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
@@ -4117,33 +3807,33 @@ Our findings suggest an association between PRLT and reductions in PSA levels, a
     
     <item>
       <title>Contact</title>
-      <link>http://localhost:49383/contact/</link>
+      <link>http://localhost:1313/contact/</link>
       <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/contact/</guid>
+      <guid>http://localhost:1313/contact/</guid>
       <description></description>
     </item>
     
     <item>
       <title>People</title>
-      <link>http://localhost:49383/people/</link>
+      <link>http://localhost:1313/people/</link>
       <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/people/</guid>
+      <guid>http://localhost:1313/people/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tour</title>
-      <link>http://localhost:49383/tour/</link>
+      <link>http://localhost:1313/tour/</link>
       <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/tour/</guid>
+      <guid>http://localhost:1313/tour/</guid>
       <description></description>
     </item>
     
     <item>
       <title>An example preprint / working paper</title>
-      <link>http://localhost:49383/publication/preprint/</link>
+      <link>http://localhost:1313/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/publication/preprint/</guid>
+      <guid>http://localhost:1313/publication/preprint/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
@@ -4155,9 +3845,9 @@ Our findings suggest an association between PRLT and reductions in PSA levels, a
     
     <item>
       <title>An example journal article</title>
-      <link>http://localhost:49383/publication/journal-article/</link>
+      <link>http://localhost:1313/publication/journal-article/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/publication/journal-article/</guid>
+      <guid>http://localhost:1313/publication/journal-article/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -4174,9 +3864,9 @@ Our findings suggest an association between PRLT and reductions in PSA levels, a
     
     <item>
       <title>An example conference paper</title>
-      <link>http://localhost:49383/publication/conference-paper/</link>
+      <link>http://localhost:1313/publication/conference-paper/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/publication/conference-paper/</guid>
+      <guid>http://localhost:1313/publication/conference-paper/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -4193,9 +3883,9 @@ Our findings suggest an association between PRLT and reductions in PSA levels, a
     
     <item>
       <title></title>
-      <link>http://localhost:49383/admin/config.yml</link>
+      <link>http://localhost:1313/admin/config.yml</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/admin/config.yml</guid>
+      <guid>http://localhost:1313/admin/config.yml</guid>
       <description></description>
     </item>
     

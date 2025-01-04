@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>新技術分享 | DLit-Hub</title>
-    <link>http://localhost:49383/tech/</link>
-      <atom:link href="http://localhost:49383/tech/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/tech/</link>
+      <atom:link href="http://localhost:1313/tech/index.xml" rel="self" type="application/rss+xml" />
     <description>新技術分享</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:49383/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>新技術分享</title>
-      <link>http://localhost:49383/tech/</link>
+      <link>http://localhost:1313/tech/</link>
     </image>
     
     <item>
       <title>Sequence modeling and design from molecular to genome scale with Evo</title>
-      <link>http://localhost:49383/tech/tech3/</link>
+      <link>http://localhost:1313/tech/tech3/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/tech/tech3/</guid>
+      <guid>http://localhost:1313/tech/tech3/</guid>
       <description>&lt;p&gt;近期發表於《科學》期刊的研究介紹了Evo，一種具備7億參數的基因組基礎模型 (Foundation model)，能夠從單個核苷酸到整個基因組進行序列建模和設計。 Evo使用&lt;code&gt;StripedHyena&lt;/code&gt;架構，能夠以接近線性的計算和記憶體擴展來處理長序列，實現&lt;code&gt;單核苷酸&lt;/code&gt;級別的解析度。
 該模型在&lt;code&gt;OpenGenome&lt;/code&gt;資料集上進行訓練，該資料集包含約270萬個原核生物和噬菌體基因組序列，總計約3000億個標記。 Evo在DNA、RNA和蛋白質等多種生物模式下的&lt;code&gt;零樣本 (Zero shot)&lt;/code&gt;功能預測任務中表現出色，並能夠生成功能性生物系統，如CRISPR-Cas複合物和轉座子。&lt;/p&gt;
 &lt;ul&gt;
@@ -30,18 +30,18 @@
     
     <item>
       <title>Data Efficient and Weakly Supervised Computational Pathology on Whole Slide Images</title>
-      <link>http://localhost:49383/tech/tech2/</link>
+      <link>http://localhost:1313/tech/tech2/</link>
       <pubDate>Thu, 12 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/tech/tech2/</guid>
+      <guid>http://localhost:1313/tech/tech2/</guid>
       <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
 &lt;p&gt;The rapidly emerging field of computational pathology has the potential to enable objective diagnosis, therapeutic response prediction and identification of new morphological features of clinical relevance. However, deep learning-based computational pathology approaches either require manual annotation of gigapixel whole slide images (WSIs) in fully-supervised settings or thousands of WSIs with slide-level labels in a weakly-supervised setting. Moreover, whole slide level computational pathology methods also suffer from domain adaptation and interpretability issues. These challenges have prevented the broad adaptation of computational pathology for clinical and research purposes. Here we present CLAM - Clustering-constrained attention multiple instance learning, an easy-to-use, high-throughput, and interpretable WSI-level processing and learning method that only requires slide-level labels while being data efficient, adaptable and capable of handling multi-class subtyping problems. CLAM is a deep-learning-based weakly-supervised method that uses attention-based learning to automatically identify sub-regions of high diagnostic value in order to accurately classify the whole slide, while also utilizing instance-level clustering over the representative regions identified to constrain and refine the feature space. In three separate analyses, we demonstrate the data efficiency and adaptability of CLAM and its superior performance over standard weakly-supervised classification. We demonstrate that CLAM models are interpretable and can be used to identify well-known and new morphological features. We further show that models trained using CLAM are adaptable to independent test cohorts, cell phone microscopy images, and biopsies. CLAM is a general-purpose and adaptable method that can be used for a variety of different computational pathology tasks in both clinical and research settings.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>10X Genomics 推出GEM-X Flex</title>
-      <link>http://localhost:49383/tech/tech1/</link>
+      <link>http://localhost:1313/tech/tech1/</link>
       <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/tech/tech1/</guid>
+      <guid>http://localhost:1313/tech/tech1/</guid>
       <description>&lt;p&gt;10x Genomics 推出的Single Cell GEM-X技術為單細胞分析開創了嶄新的可能性，提供前所未有的效能提升。基於這項創新，10x Genomics進一步推出了&lt;a href=&#34;%28https://www.10xgenomics.com/support/single-cell-gene-expression-flex/documentation/steps/library-prep/gem-x-flex-gene-expression-reagent-kit-for-multiplex-samples%29&#34;&gt;GEM-X Flex&lt;/a&gt;和，為研究者提供更靈活、高效且經濟的實驗設計選擇，跟先前的Flex protocol相比，GEM-X Flex可以在花費較少的情況下，用較少的細胞數量，得到品質更好的數據。&lt;/p&gt;
 </description>
     </item>
