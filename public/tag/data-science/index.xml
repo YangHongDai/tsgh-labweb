@@ -5,12 +5,102 @@
     <link>http://localhost:1313/tag/data-science/</link>
       <atom:link href="http://localhost:1313/tag/data-science/index.xml" rel="self" type="application/rss+xml" />
     <description>Data Science</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 06 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>Data Science</title>
       <link>http://localhost:1313/tag/data-science/</link>
     </image>
+    
+    <item>
+      <title>影像組學在醫學影像的運用（上）</title>
+      <link>http://localhost:1313/post/radiomics_1/</link>
+      <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/radiomics_1/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;Radiomics（放射組學/影像組學）&lt;/code&gt;是一種醫學影像分析技術，利用電腦從醫學影像（例如 X 光、電腦斷層掃描 CT、核磁共振成像 MRI、正子造影PET等）中提取大量定量特徵，這些特徵包含腫瘤的形狀、大小、紋理、密度等。這些特徵能夠展現器官或疾病內部的異質性，以及肉眼無法察覺的細微變化。簡單來說，Radiomics 就是通過數位化的方式，把醫學影像轉化為數位特徵，幫助醫師診斷、治療和評估疾病。以下簡述一下影像組學特徵的標準化和分類，詳細的規範可以參考最新版的&lt;a href=&#34;https://theibsi.github.io/documentation/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IBSI（Image Biomarker Standardization Initiative）文獻&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;影像前處理步驟&#34;&gt;影像前處理步驟&lt;/h2&gt;
+&lt;p&gt;而在提取這些特徵之前，首先要用手動或自動的方法來識別並標記出感興趣(欲分析)的區域 &lt;code&gt;(Region of Interest, ROI)。&lt;/code&gt;接著，影像的強度需要進行一系列的&lt;code&gt;標準化&lt;/code&gt;，以便消除不同掃描設備或者不同掃描參數產生的變異，增加&lt;code&gt;可比較性&lt;/code&gt;。常見的方式包括&lt;code&gt;重採樣(Resampling)&lt;/code&gt;、&lt;code&gt;歸一化(Normaliztaion)&lt;/code&gt;和離散化（&lt;code&gt;Discretization）&lt;/code&gt;。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;Resampling&lt;/code&gt;: 重採樣的目的在於確保所有影像的體素（voxel）具有相同的實體大小。在實際操作中，重採樣通常牽涉到&lt;code&gt;插值（Interpolation）算法&lt;/code&gt;，用於在轉換影像分辨率時保留影像質量和細節。在這種情況下，影像被重採樣到等方體素大小，即每個體素在三個維度上（長度、寬度、和深度）的大小都是1 mm，這樣就確保了所有影像有相同的實體分辨率。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Normaliztaion&lt;/code&gt;: &lt;code&gt;Z-score強度歸一化&lt;/code&gt;是一種常用的方法，它將每一個像素或體素的強度值轉換為&lt;code&gt;標準分數（Z-score）&lt;/code&gt;，即原始強度值減去整個影像的平均強度值，然後除以影像強度值的標準差。Z將所有影像轉換到同一強度範圍，從而使不同影像的影像組學特徵之間更有可比較性。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Discretization&lt;/code&gt;: 離散化的具體步驟包括將影像的強度值（例如CT值）映射到一個固定範圍（例如-1000到1000 HU），然後將這個範圍劃分為&lt;code&gt;固定數目的「bins」（例如32個）&lt;/code&gt;。這個過程能夠使影像強度變為有限的離散值，進而降低一些放射學特徵的計算複雜度，並且使得特徵值更為穩定，不易受到不同掃描參數的影響。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;影像組學特徵的提取&#34;&gt;影像組學特徵的提取&lt;/h2&gt;
+&lt;p&gt;以上步驟可以統稱為影像前處理，完成後我們就可以開始提取數據化的&lt;code&gt;影像組學特徵（例如形狀、大小、紋理、密度等）&lt;/code&gt;，這些特徵是基於&lt;code&gt;數學公式&lt;/code&gt;和&lt;code&gt;統計方法&lt;/code&gt;對醫學影像進行計算得來的。通常分為幾大類，並有具體的定義和計算方法，以下是針對常見的影像組學特徵的名詞解釋：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;形狀特徵（Shape Features）&lt;/code&gt;：描述腫瘤或感興趣區域 (ROI) 的&lt;code&gt;幾何形狀&lt;/code&gt;，是直接基於 ROI 的邊界資訊進行計算的。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;常見形狀特徵&#34;&gt;常見形狀特徵：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;體積&lt;/code&gt;：ROI 中包含的體素 (voxel) 總數乘以每個體素的體積。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;表面積&lt;/code&gt;：腫瘤表面的體素構成的邊界面積。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;表面積與體積比（Surface Area to Volume Ratio, SA:V）&lt;/code&gt;：衡量腫瘤是否更球形（比值小）或更不規則（比值大）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;長寬比（Major Axis to Minor Axis）&lt;/code&gt;：腫瘤最大長度與最小長度的比值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;一階特徵（First-order Features, Histogram Features）&lt;/code&gt;：描述 ROI 中影像強度（如 CT 值或灰階值）的統計分佈特徵。通過計算 ROI 中每個體素的影像強度，生成一個統計直方圖。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;常見一階特徵&#34;&gt;常見一階特徵：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;平均值（Mean）&lt;/code&gt;：所有體素灰階值的平均數。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;中位數（Median）&lt;/code&gt;：灰階值的中間值。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;標準差（Standard Deviation）&lt;/code&gt;：衡量灰階值的離散程度。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;偏態（Skewness）&lt;/code&gt;：分佈是否偏向某一方向。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;峰度（Kurtosis）&lt;/code&gt;：分佈是否有尖峰。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;紋理特徵（Texture Features&lt;/code&gt;）:描述影像中灰階值之間的空間分佈與關聯，用於揭示ROI內部的異質性。基於數學矩陣（例如灰階共現矩陣 GLCM、灰階游程矩陣 GLRLM 等）進行計算。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;常見紋理特徵&#34;&gt;常見紋理特徵：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;灰階共現矩陣 (Gray-Level Co-occurrence Matrix, GLCM)&lt;/code&gt;：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;能量（Energy&lt;/code&gt;）：灰階值分佈是否集中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;對比度（Contrast）&lt;/code&gt;：灰階值差異的大小。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;同質性（Homogeneity）&lt;/code&gt;：灰階值分佈的均勻性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;灰階游程矩陣 (Gray-Level Run-Length Matrix, GLRLM)&lt;/code&gt;：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;短游程強度（Short Run Emphasis, SRE）&lt;/code&gt;：是否存在許多短灰階游程。=&amp;gt;高 SRE 值表示影像紋理細膩、變化多。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;長游程強度（Long Run Emphasis, LRE）&lt;/code&gt;：是否存在許多長灰階游程。=&amp;gt;高 LRE 值表示影像紋理平滑或均勻。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;游程(run length)是指影像中某一方向（通常是水平、垂直、對角線等方向）上，具有相同灰階值的連續像素數量。一段游程就是影像中一列像素中具有相同灰階值的連續部分。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;局部二值模式-local-binary-patterns-lbp測量灰階值的局部變化&#34;&gt;局部二值模式 (Local Binary Patterns, LBP)：測量灰階值的局部變化。&lt;/h3&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;code&gt;高階特徵（Wavelet Features）&lt;/code&gt;：通過小波變換將影像分解為不同的頻率成分，提取特定空間頻率中的紋理或強度特徵。對原始影像的三個軸進行小波濾波處理，生成 8 組影像（LLL, LLH, LHL, LHH, HLL, HLH, HHL, 和 HHH），並對每組影像計算一階和紋理特徵。
+這八個小波集代表了濾波器在三個維度（例如，長度、寬度、和高度）上的不同組合。例如，LLL代表在所有三個維度上都使用了低通濾波器，而HHL代表在前兩個維度上使用了高通濾波器，最後一個維度則使用了低通濾波器。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;低通（Low-pass）濾波器&lt;/code&gt;：它能夠讓低頻率的訊號通過，而阻擋高頻率的訊號。在影像中，低通濾波器能夠模糊並移除細節和噪聲，讓影像變得更平滑。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;高通（High-pass）濾波器&lt;/code&gt;：與低通濾波器相反，它允許高頻率的訊號通過，而阻擋低頻率的訊號。在影像中，高通濾波器能夠強調影像的邊緣和細節。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;radiomics-在醫學中的應用&#34;&gt;Radiomics 在醫學中的應用&lt;/h2&gt;
+&lt;p&gt;隨著人工智慧（AI）和機器學習技術的發展，結合多模態影像（例如 CT / MRI / PET）、基因及臨床數據，Radiomics 已成為醫學研究的重要工具。Radiomics也被廣泛地應用於不同疾病的診斷與治療，例如心血管疾病、神經疾病、癌症等。然而，由於從醫學影像中提取的定量特徵輕易就會超過數百個；相對地，當樣本數不夠大時，容易產生維度詛咒的問題（Curse of Dimensionality）。因此下個主題我們將會著重在解決這個問題的一些方式。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>初探單細胞定序</title>
@@ -357,89 +447,110 @@
     </item>
     
     <item>
-      <title>影像組學在醫學影像的運用（上）</title>
-      <link>http://localhost:1313/post/radiomics_1/</link>
-      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/radiomics_1/</guid>
+      <title>數據科學聊聊：支持向量機（Support vector machine）</title>
+      <link>http://localhost:1313/post/svm/</link>
+      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/svm/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;Radiomics（放射組學/影像組學）是一種醫學影像分析技術，利用電腦從醫學影像（例如 X 光、電腦斷層掃描 CT、核磁共振成像 MRI、正子造影PET等）中提取大量定量特徵，這些特徵包含腫瘤的形狀、大小、紋理、密度等。這些特徵能夠展現器官或疾病內部的異質性，以及肉眼無法察覺的細微變化。簡單來說，Radiomics 就是通過數位化的方式，把醫學影像轉化為數位特徵，幫助醫師診斷、治療和評估疾病。以下簡述一下影像組學特徵的標準化和分類，詳細的規範可以參考最新版的&lt;a href=&#34;https://theibsi.github.io/documentation/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IBSI（Image Biomarker Standardization Initiative）文獻&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;影像前處理步驟&#34;&gt;影像前處理步驟&lt;/h2&gt;
-&lt;p&gt;而在提取這些特徵之前，首先要用手動或自動的方法來識別並標記出感興趣(欲分析)的區域 &lt;code&gt;(Region of Interest, ROI)。&lt;/code&gt;接著，影像的強度需要進行一系列的&lt;code&gt;標準化&lt;/code&gt;，以便消除不同掃描設備或者不同掃描參數產生的變異，增加&lt;code&gt;可比較性&lt;/code&gt;。常見的方式包括&lt;code&gt;重採樣(Resampling)&lt;/code&gt;、&lt;code&gt;歸一化(Normaliztaion)&lt;/code&gt;和離散化（&lt;code&gt;Discretization）&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;支持向量機（SVM）是一種強大的監督式學習模型，廣泛應用於分類和回歸分析中。SVM 以其獨特的數學基礎和幾何直觀性，在高維數據空間中具有出色的性能，尤其適合處理少量數據和非線性問題。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;支持向量機的基本原理&#34;&gt;支持向量機的基本原理&lt;/h2&gt;
+&lt;p&gt;SVM 的核心目標是找到一條分隔超平面（hyperplane），以最大化兩類數據點之間的間隔（margin）。以下是其運作的核心步驟：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;Resampling&lt;/code&gt;: 重採樣的目的在於確保所有影像的體素（voxel）具有相同的實體大小。在實際操作中，重採樣通常牽涉到&lt;code&gt;插值（Interpolation）算法&lt;/code&gt;，用於在轉換影像分辨率時保留影像質量和細節。在這種情況下，影像被重採樣到等方體素大小，即每個體素在三個維度上（長度、寬度、和深度）的大小都是1 mm，這樣就確保了所有影像有相同的實體分辨率。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Normaliztaion&lt;/code&gt;: &lt;code&gt;Z-score強度歸一化&lt;/code&gt;是一種常用的方法，它將每一個像素或體素的強度值轉換為&lt;code&gt;標準分數（Z-score）&lt;/code&gt;，即原始強度值減去整個影像的平均強度值，然後除以影像強度值的標準差。Z將所有影像轉換到同一強度範圍，從而使不同影像的影像組學特徵之間更有可比較性。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Discretization&lt;/code&gt;: 離散化的具體步驟包括將影像的強度值（例如CT值）映射到一個固定範圍（例如-1000到1000 HU），然後將這個範圍劃分為&lt;code&gt;固定數目的「bins」（例如32個）&lt;/code&gt;。這個過程能夠使影像強度變為有限的離散值，進而降低一些放射學特徵的計算複雜度，並且使得特徵值更為穩定，不易受到不同掃描參數的影響。&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分隔超平面
+超平面是一個 d-1 維的空間，分隔 d 維特徵空間中的數據點。對於二分類問題，SVM 旨在找到一個最優超平面，使得兩類數據點之間的邊界最大化。數學表示為：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最大間隔原理
+SVM 以「最大化分類間隔」為優化目標。目標函數為：&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;影像組學特徵的提取&#34;&gt;影像組學特徵的提取&lt;/h2&gt;
-&lt;p&gt;以上步驟可以統稱為影像前處理，完成後我們就可以開始提取數據化的&lt;code&gt;影像組學特徵（例如形狀、大小、紋理、密度等）&lt;/code&gt;，這些特徵是基於&lt;code&gt;數學公式&lt;/code&gt;和&lt;code&gt;統計方法&lt;/code&gt;對醫學影像進行計算得來的。通常分為幾大類，並有具體的定義和計算方法，以下是針對常見的影像組學特徵的名詞解釋：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;形狀特徵（Shape Features）&lt;/code&gt;：描述腫瘤或感興趣區域 (ROI) 的&lt;code&gt;幾何形狀&lt;/code&gt;，是直接基於 ROI 的邊界資訊進行計算的。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;常見形狀特徵&#34;&gt;常見形狀特徵：&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;體積：ROI 中包含的體素 (voxel) 總數乘以每個體素的體積。&lt;/li&gt;
-&lt;li&gt;表面積：腫瘤表面的體素構成的邊界面積。&lt;/li&gt;
-&lt;li&gt;表面積與體積比（Surface Area to Volume Ratio, SA:V）：衡量腫瘤是否更球形（比值小）或更不規則（比值大）。&lt;/li&gt;
-&lt;li&gt;長寬比（Major Axis to Minor Axis）：腫瘤最大長度與最小長度的比值。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;一階特徵（First-order Features, Histogram Features）：描述 ROI 中影像強度（如 CT 值或灰階值）的統計分佈特徵。通過計算 ROI 中每個體素的影像強度，生成一個統計直方圖。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;常見一階特徵&#34;&gt;常見一階特徵：&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;平均值（Mean）：所有體素灰階值的平均數。&lt;/li&gt;
-&lt;li&gt;中位數（Median）：灰階值的中間值。&lt;/li&gt;
-&lt;li&gt;標準差（Standard Deviation）：衡量灰階值的離散程度。&lt;/li&gt;
-&lt;li&gt;偏態（Skewness）：分佈是否偏向某一方向。&lt;/li&gt;
-&lt;li&gt;峰度（Kurtosis）：分佈是否有尖峰。&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;硬邊界（Hard Margin）：數據點完全線性可分的情況，超平面將所有點正確分類。
+軟邊界（Soft Margin）：允許少量錯誤分類的情況，引入松弛變量（slack variable）
+ξ
+ξ，以平衡分類錯誤和間隔最大化。&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;code&gt;紋理特徵（Texture Features&lt;/code&gt;）:描述影像中灰階值之間的空間分佈與關聯，用於揭示ROI內部的異質性。基於數學矩陣（例如灰階共現矩陣 GLCM、灰階游程矩陣 GLRLM 等）進行計算。&lt;/li&gt;
+&lt;li&gt;核函數（Kernel Function）
+SVM 支持非線性數據的分類，通過核函數將數據從低維空間映射到高維空間，使其在高維空間中線性可分。 常見的核函數包括：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h4 id=&#34;常見紋理特徵&#34;&gt;常見紋理特徵：&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;灰階共現矩陣 (Gray-Level Co-occurrence Matrix, GLCM)：&lt;/li&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;能量（Energy）：灰階值分佈是否集中。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;對比度（Contrast）：灰階值差異的大小。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;同質性（Homogeneity）：灰階值分佈的均勻性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;灰階游程矩陣 (Gray-Level Run-Length Matrix, GLRLM)：&lt;/li&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;短游程強度（Short Run Emphasis, SRE）：是否存在許多短灰階游程。=&amp;gt;高 SRE 值表示影像紋理細膩、變化多。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;長游程強度（Long Run Emphasis, LRE）：是否存在許多長灰階游程。=&amp;gt;高 LRE 值表示影像紋理平滑或均勻。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;游程(run length)是指影像中某一方向（通常是水平、垂直、對角線等方向）上，具有相同灰階值的連續像素數量。一段游程就是影像中一列像素中具有相同灰階值的連續部分。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;局部二值模式-local-binary-patterns-lbp測量灰階值的局部變化&#34;&gt;局部二值模式 (Local Binary Patterns, LBP)：測量灰階值的局部變化。&lt;/h3&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;&lt;code&gt;高階特徵（Wavelet Features）&lt;/code&gt;：通過小波變換將影像分解為不同的頻率成分，提取特定空間頻率中的紋理或強度特徵。對原始影像的三個軸進行小波濾波處理，生成 8 組影像（LLL, LLH, LHL, LHH, HLL, HLH, HHL, 和 HHH），並對每組影像計算一階和紋理特徵。
-這八個小波集代表了濾波器在三個維度（例如，長度、寬度、和高度）上的不同組合。例如，LLL代表在所有三個維度上都使用了低通濾波器，而HHL代表在前兩個維度上使用了高通濾波器，最後一個維度則使用了低通濾波器。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;低通（Low-pass）濾波器：它能夠讓低頻率的訊號通過，而阻擋高頻率的訊號。在影像中，低通濾波器能夠模糊並移除細節和噪聲，讓影像變得更平滑。&lt;/li&gt;
-&lt;li&gt;高通（High-pass）濾波器：與低通濾波器相反，它允許高頻率的訊號通過，而阻擋低頻率的訊號。在影像中，高通濾波器能夠強調影像的邊緣和細節。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;radiomics-在醫學中的應用&#34;&gt;Radiomics 在醫學中的應用&lt;/h2&gt;
-&lt;p&gt;隨著人工智慧（AI）和機器學習技術的發展，結合多模態影像（例如 CT / MRI / PET）、基因及臨床數據，Radiomics 已成為醫學研究的重要工具。Radiomics也被廣泛地應用於不同疾病的診斷與治療，例如心血管疾病、神經疾病、癌症等。然而，由於從醫學影像中提取的定量特徵輕易就會超過數百個；相對地，當樣本數不夠大時，容易產生維度詛咒的問題（Curse of Dimensionality）。因此下個主題我們將會著重在解決這個問題的一些方式。&lt;/p&gt;</description>
+&lt;p&gt;支持向量機的優缺點&lt;/p&gt;
+&lt;p&gt;優點
+高效處理高維數據
+SVM 在高維空間中表現良好，並能有效處理高維度的特徵。
+核函數允許其在非線性數據中找到最佳的分類邊界。
+數學理論穩健
+以凸優化問題為基礎，保證了全局最優解的存在。
+適合小樣本學習
+SVM 能在小數據集上表現出色，因為它的訓練過程只依賴於支持向量，而非所有數據點。
+良好的泛化能力
+最大間隔原理有效降低了模型的過擬合風險。
+缺點
+對超參數敏感
+核函數的選擇、參數
+γ
+γ 和
+C
+C 的設置對模型性能有顯著影響，調參較為耗時。
+計算成本高
+當數據量較大時，計算支持向量的過程需要大量的內存和時間。
+隨著數據量增大，SVM 的訓練速度可能急劇下降。
+難以解釋
+在高維空間中，分類邊界的可視化和解釋較為困難。
+對噪音敏感
+SVM 在處理存在噪音的數據時，可能表現不佳，尤其是在軟邊界中，噪音數據可能影響超平面的選擇。
+3. SVM 的應用場景&lt;/p&gt;
+&lt;p&gt;(1) 分類任務
+文本分類：垃圾郵件過濾、情感分析等。
+圖像分類：目標檢測、人臉識別。
+醫療診斷：癌症預測、基因表達分類。
+(2) 回歸任務
+SVM 可應用於回歸分析（SVR, Support Vector Regression），用於預測連續值。
+如房價預測、股票市場分析。
+(3) 異常檢測
+在監測數據中識別異常點，如網絡入侵檢測、機器故障檢測。
+4. SVM 的未來發展與改進方向&lt;/p&gt;
+&lt;p&gt;處理大規模數據
+隨著數據量的增加，開發分布式和並行化 SVM 訓練算法成為重點。
+如使用梯度下降法來替代二次規劃，降低計算成本。
+結合深度學習
+將 SVM 作為深度神經網絡的輸出層，結合深度學習的特徵提取能力，提高分類性能。
+更靈活的核函數
+開發自適應核函數，使其能自動選擇適合當前數據分布的核方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>如何誘導細胞表現突變胜肽或是蛋白？</title>
+      <link>http://localhost:1313/post/mutation_technique/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mutation_technique/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;當我們發現某個蛋白的特定區域若發生關鍵突變可能會導致功能改變時，設計實驗來驗證這一假設非常重要。我們需要採用一些方法誘導細胞表現突變的目標蛋白，並分析細胞在功能性方面的變化。&lt;/p&gt;
+&lt;h2 id=&#34;site-directed-mutagenesis&#34;&gt;Site-Directed Mutagenesis&lt;/h2&gt;
+&lt;p&gt;利用定點突變技術設計特定的核酸序列改變（例如，單點突變或插入突變）。
+突變基因會被克隆到表現載體中，並通過轉染或病毒感染引入細胞中，從而誘導突變蛋白的表現。
+設計突變基因：
+使用 定點突變技術（Site-Directed Mutagenesis） 或其他基因編輯方法設計突變基因。
+將突變基因插入到適合的 逆轉錄病毒載體（Retroviral Vector） 中。
+病毒包裝：
+在病毒包裝細胞（如 293T 細胞）中共轉染逆轉錄病毒載體和包裝質粒（提供結構蛋白和包膜蛋白）。
+包裝細胞會生成帶有突變基因的逆轉錄病毒顆粒。
+感染目標細胞：
+使用產生的逆轉錄病毒顆粒感染目標細胞（如腫瘤細胞、原代細胞等）。
+逆轉錄病毒將突變基因插入到目標細胞的基因組中。
+突變蛋白的穩定表達：
+突變基因在細胞中整合後，隨著宿主基因組的轉錄和翻譯而穩定表達突變蛋白。&lt;/p&gt;
+&lt;h2 id=&#34;crisprcas9-genome-editing&#34;&gt;CRISPR/Cas9 Genome Editing&lt;/h2&gt;
+&lt;p&gt;使用 CRISPR/Cas9 系統在細胞基因組中直接引入目標基因的突變。
+這種方法能精確地在內源性基因中引入突變，模擬更接近生理環境的突變效果。&lt;/p&gt;
+&lt;h2 id=&#34;recombinant-dna-technology&#34;&gt;Recombinant DNA Technology&lt;/h2&gt;
+&lt;p&gt;通過將編碼突變蛋白的基因克隆到適當的表現載體中，研究人員可以將這一構建物引入宿主細胞（例如細菌、酵母、昆蟲或哺乳動物細胞）中以表達突變蛋白。宿主的選擇取決於例如蛋白質翻譯後修飾和摺疊等因素的需求。&lt;/p&gt;
+&lt;h2 id=&#34;baculovirus-mediated-gene-delivery-bacmam&#34;&gt;Baculovirus-Mediated Gene Delivery (BacMam)&lt;/h2&gt;
+&lt;p&gt;該方法利用桿狀病毒將基因導入哺乳動物細胞中。目標基因（編碼突變蛋白）被插入到桿狀病毒中，該病毒隨後感染哺乳動物細胞以表達蛋白。桿狀病毒具有攜帶大量外源基因的優勢，並能感染多種類型的細胞。&lt;/p&gt;
+&lt;h2 id=&#34;adeno-associated-virus-aav-vectors&#34;&gt;Adeno-Associated Virus (AAV) Vectors&lt;/h2&gt;
+&lt;p&gt;AAV 載體可用於基因傳遞，將突變基因引入細胞中。由於其低免疫原性以及感染分裂和非分裂細胞的能力，這些載體特別適合於體內研究。&lt;/p&gt;
+&lt;h2 id=&#34;cell-penetrating-peptides-cpps&#34;&gt;Cell-Penetrating Peptides (CPPs)&lt;/h2&gt;
+&lt;p&gt;如果只需短期分析功能，可通過純化帶有突變的重組蛋白直接處理細胞，或使用蛋白質轉導技術（如與細胞穿膜肽結合）。&lt;/p&gt;</description>
     </item>
     
     <item>

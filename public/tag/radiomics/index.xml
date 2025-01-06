@@ -5,7 +5,7 @@
     <link>http://localhost:1313/tag/radiomics/</link>
       <atom:link href="http://localhost:1313/tag/radiomics/index.xml" rel="self" type="application/rss+xml" />
     <description>Radiomics</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 09 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 06 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>Radiomics</title>
@@ -15,10 +15,10 @@
     <item>
       <title>影像組學在醫學影像的運用（上）</title>
       <link>http://localhost:1313/post/radiomics_1/</link>
-      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/radiomics_1/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;Radiomics（放射組學/影像組學）是一種醫學影像分析技術，利用電腦從醫學影像（例如 X 光、電腦斷層掃描 CT、核磁共振成像 MRI、正子造影PET等）中提取大量定量特徵，這些特徵包含腫瘤的形狀、大小、紋理、密度等。這些特徵能夠展現器官或疾病內部的異質性，以及肉眼無法察覺的細微變化。簡單來說，Radiomics 就是通過數位化的方式，把醫學影像轉化為數位特徵，幫助醫師診斷、治療和評估疾病。以下簡述一下影像組學特徵的標準化和分類，詳細的規範可以參考最新版的&lt;a href=&#34;https://theibsi.github.io/documentation/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IBSI（Image Biomarker Standardization Initiative）文獻&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Radiomics（放射組學/影像組學）&lt;/code&gt;是一種醫學影像分析技術，利用電腦從醫學影像（例如 X 光、電腦斷層掃描 CT、核磁共振成像 MRI、正子造影PET等）中提取大量定量特徵，這些特徵包含腫瘤的形狀、大小、紋理、密度等。這些特徵能夠展現器官或疾病內部的異質性，以及肉眼無法察覺的細微變化。簡單來說，Radiomics 就是通過數位化的方式，把醫學影像轉化為數位特徵，幫助醫師診斷、治療和評估疾病。以下簡述一下影像組學特徵的標準化和分類，詳細的規範可以參考最新版的&lt;a href=&#34;https://theibsi.github.io/documentation/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IBSI（Image Biomarker Standardization Initiative）文獻&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;影像前處理步驟&#34;&gt;影像前處理步驟&lt;/h2&gt;
 &lt;p&gt;而在提取這些特徵之前，首先要用手動或自動的方法來識別並標記出感興趣(欲分析)的區域 &lt;code&gt;(Region of Interest, ROI)。&lt;/code&gt;接著，影像的強度需要進行一系列的&lt;code&gt;標準化&lt;/code&gt;，以便消除不同掃描設備或者不同掃描參數產生的變異，增加&lt;code&gt;可比較性&lt;/code&gt;。常見的方式包括&lt;code&gt;重採樣(Resampling)&lt;/code&gt;、&lt;code&gt;歸一化(Normaliztaion)&lt;/code&gt;和離散化（&lt;code&gt;Discretization）&lt;/code&gt;。&lt;/p&gt;
 &lt;ol&gt;
@@ -33,52 +33,56 @@
 &lt;/ol&gt;
 &lt;h4 id=&#34;常見形狀特徵&#34;&gt;常見形狀特徵：&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;體積：ROI 中包含的體素 (voxel) 總數乘以每個體素的體積。&lt;/li&gt;
-&lt;li&gt;表面積：腫瘤表面的體素構成的邊界面積。&lt;/li&gt;
-&lt;li&gt;表面積與體積比（Surface Area to Volume Ratio, SA:V）：衡量腫瘤是否更球形（比值小）或更不規則（比值大）。&lt;/li&gt;
-&lt;li&gt;長寬比（Major Axis to Minor Axis）：腫瘤最大長度與最小長度的比值。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;體積&lt;/code&gt;：ROI 中包含的體素 (voxel) 總數乘以每個體素的體積。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;表面積&lt;/code&gt;：腫瘤表面的體素構成的邊界面積。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;表面積與體積比（Surface Area to Volume Ratio, SA:V）&lt;/code&gt;：衡量腫瘤是否更球形（比值小）或更不規則（比值大）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;長寬比（Major Axis to Minor Axis）&lt;/code&gt;：腫瘤最大長度與最小長度的比值。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;一階特徵（First-order Features, Histogram Features）：描述 ROI 中影像強度（如 CT 值或灰階值）的統計分佈特徵。通過計算 ROI 中每個體素的影像強度，生成一個統計直方圖。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;一階特徵（First-order Features, Histogram Features）&lt;/code&gt;：描述 ROI 中影像強度（如 CT 值或灰階值）的統計分佈特徵。通過計算 ROI 中每個體素的影像強度，生成一個統計直方圖。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;常見一階特徵&#34;&gt;常見一階特徵：&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;平均值（Mean）：所有體素灰階值的平均數。&lt;/li&gt;
-&lt;li&gt;中位數（Median）：灰階值的中間值。&lt;/li&gt;
-&lt;li&gt;標準差（Standard Deviation）：衡量灰階值的離散程度。&lt;/li&gt;
-&lt;li&gt;偏態（Skewness）：分佈是否偏向某一方向。&lt;/li&gt;
-&lt;li&gt;峰度（Kurtosis）：分佈是否有尖峰。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;平均值（Mean）&lt;/code&gt;：所有體素灰階值的平均數。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;中位數（Median）&lt;/code&gt;：灰階值的中間值。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;標準差（Standard Deviation）&lt;/code&gt;：衡量灰階值的離散程度。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;偏態（Skewness）&lt;/code&gt;：分佈是否偏向某一方向。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;峰度（Kurtosis）&lt;/code&gt;：分佈是否有尖峰。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;&lt;code&gt;紋理特徵（Texture Features&lt;/code&gt;）:描述影像中灰階值之間的空間分佈與關聯，用於揭示ROI內部的異質性。基於數學矩陣（例如灰階共現矩陣 GLCM、灰階游程矩陣 GLRLM 等）進行計算。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;常見紋理特徵&#34;&gt;常見紋理特徵：&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;灰階共現矩陣 (Gray-Level Co-occurrence Matrix, GLCM)：&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;灰階共現矩陣 (Gray-Level Co-occurrence Matrix, GLCM)&lt;/code&gt;：&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;
 &lt;ul&gt;
-&lt;li&gt;能量（Energy）：灰階值分佈是否集中。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;能量（Energy&lt;/code&gt;）：灰階值分佈是否集中。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul&gt;
-&lt;li&gt;對比度（Contrast）：灰階值差異的大小。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;對比度（Contrast）&lt;/code&gt;：灰階值差異的大小。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul&gt;
-&lt;li&gt;同質性（Homogeneity）：灰階值分佈的均勻性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;灰階游程矩陣 (Gray-Level Run-Length Matrix, GLRLM)：&lt;/li&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;短游程強度（Short Run Emphasis, SRE）：是否存在許多短灰階游程。=&amp;gt;高 SRE 值表示影像紋理細膩、變化多。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;同質性（Homogeneity）&lt;/code&gt;：灰階值分佈的均勻性。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;&lt;code&gt;灰階游程矩陣 (Gray-Level Run-Length Matrix, GLRLM)&lt;/code&gt;：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;ul&gt;
-&lt;li&gt;長游程強度（Long Run Emphasis, LRE）：是否存在許多長灰階游程。=&amp;gt;高 LRE 值表示影像紋理平滑或均勻。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;短游程強度（Short Run Emphasis, SRE）&lt;/code&gt;：是否存在許多短灰階游程。=&amp;gt;高 SRE 值表示影像紋理細膩、變化多。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;長游程強度（Long Run Emphasis, LRE）&lt;/code&gt;：是否存在許多長灰階游程。=&amp;gt;高 LRE 值表示影像紋理平滑或均勻。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -91,8 +95,8 @@
 這八個小波集代表了濾波器在三個維度（例如，長度、寬度、和高度）上的不同組合。例如，LLL代表在所有三個維度上都使用了低通濾波器，而HHL代表在前兩個維度上使用了高通濾波器，最後一個維度則使用了低通濾波器。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;低通（Low-pass）濾波器：它能夠讓低頻率的訊號通過，而阻擋高頻率的訊號。在影像中，低通濾波器能夠模糊並移除細節和噪聲，讓影像變得更平滑。&lt;/li&gt;
-&lt;li&gt;高通（High-pass）濾波器：與低通濾波器相反，它允許高頻率的訊號通過，而阻擋低頻率的訊號。在影像中，高通濾波器能夠強調影像的邊緣和細節。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;低通（Low-pass）濾波器&lt;/code&gt;：它能夠讓低頻率的訊號通過，而阻擋高頻率的訊號。在影像中，低通濾波器能夠模糊並移除細節和噪聲，讓影像變得更平滑。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;高通（High-pass）濾波器&lt;/code&gt;：與低通濾波器相反，它允許高頻率的訊號通過，而阻擋低頻率的訊號。在影像中，高通濾波器能夠強調影像的邊緣和細節。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;radiomics-在醫學中的應用&#34;&gt;Radiomics 在醫學中的應用&lt;/h2&gt;
 &lt;p&gt;隨著人工智慧（AI）和機器學習技術的發展，結合多模態影像（例如 CT / MRI / PET）、基因及臨床數據，Radiomics 已成為醫學研究的重要工具。Radiomics也被廣泛地應用於不同疾病的診斷與治療，例如心血管疾病、神經疾病、癌症等。然而，由於從醫學影像中提取的定量特徵輕易就會超過數百個；相對地，當樣本數不夠大時，容易產生維度詛咒的問題（Curse of Dimensionality）。因此下個主題我們將會著重在解決這個問題的一些方式。&lt;/p&gt;</description>

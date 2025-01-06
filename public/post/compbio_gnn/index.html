@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: December 30, 2024 --><html lang="en-us" >
+<!-- Last Published: January 6, 2025 --><html lang="en-us" >
 
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=49383&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -266,7 +266,7 @@
 
 
 
-  <meta name="author" content="Yang-Hong Dai 戴揚紘" />
+  <meta name="author" content="Po-Chien Shen 沈伯鍵" />
 
 
 
@@ -278,8 +278,8 @@
 
 
 
-<link rel="alternate" hreflang="en-us" href="http://localhost:49383/post/compbio_gnn/" />
-<link rel="canonical" href="http://localhost:49383/post/compbio_gnn/" />
+<link rel="alternate" hreflang="en-us" href="http://localhost:1313/post/compbio_gnn/" />
+<link rel="canonical" href="http://localhost:1313/post/compbio_gnn/" />
 
 
 
@@ -302,18 +302,17 @@
 
 
   
-  
 
 
 
 
 
 
-<meta property="twitter:card" content="summary" />
+<meta property="twitter:card" content="summary_large_image" />
 
   <meta property="twitter:site" content="@GetResearchDev" />
   <meta property="twitter:creator" content="@GetResearchDev" />
-<meta property="twitter:image" content="http://localhost:49383/media/icon_hu15379254428347791189.png" />
+<meta property="twitter:image" content="http://localhost:1313/post/compbio_gnn/featured.jpeg" />
 
 
 
@@ -321,18 +320,18 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="DLit-Hub" />
-<meta property="og:url" content="http://localhost:49383/post/compbio_gnn/" />
-<meta property="og:title" content="計算生物學聊聊：圖神經網路與分子圖形 | DLit-Hub" />
-<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:49383/media/icon_hu15379254428347791189.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:url" content="http://localhost:1313/post/compbio_gnn/" />
+<meta property="og:title" content="計算生物學聊聊：分子表示法與圖神經網路 | DLit-Hub" />
+<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:1313/post/compbio_gnn/featured.jpeg" /><meta property="og:locale" content="en-us" />
 
   
     <meta
       property="article:published_time"
-      content="2024-12-22T00:00:00&#43;00:00"
+      content="2025-01-06T00:00:00&#43;00:00"
     />
   
   
-    <meta property="article:modified_time" content="2024-12-22T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2025-01-06T00:00:00&#43;00:00">
   
 
 
@@ -358,12 +357,16 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:49383/post/compbio_gnn/"
+    "@id": "http://localhost:1313/post/compbio_gnn/"
   },
-  "headline": "計算生物學聊聊：圖神經網路與分子圖形",
+  "headline": "計算生物學聊聊：分子表示法與圖神經網路",
   
-  "datePublished": "2024-12-22T00:00:00Z",
-  "dateModified": "2024-12-22T00:00:00Z",
+  "image": [
+    "http://localhost:1313/post/compbio_gnn/featured.jpeg"
+  ],
+  
+  "datePublished": "2025-01-06T00:00:00Z",
+  "dateModified": "2025-01-06T00:00:00Z",
   
   "author": {
     "@type": "Person",
@@ -375,7 +378,7 @@
     "name": "DLit-Hub",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:49383/media/icon_hu1636988907106955456.png"
+      "url": "http://localhost:1313/media/icon_hu1636988907106955456.png"
     }
   },
   "description": ""
@@ -400,7 +403,7 @@
 
 
   
-  <title>計算生物學聊聊：圖神經網路與分子圖形 | DLit-Hub</title>
+  <title>計算生物學聊聊：分子表示法與圖神經網路 | DLit-Hub</title>
 
   
   
@@ -730,18 +733,26 @@
 
 
 
-  
+
+
+
+
+
+
+
+
 
   
   
-  
+
+
+
 <div class="article-container pt-3">
-  <h1>計算生物學聊聊：圖神經網路與分子圖形</h1>
+  <h1>計算生物學聊聊：分子表示法與圖神經網路</h1>
 
   
 
   
-    
 
 
 <div class="article-metadata">
@@ -765,7 +776,7 @@
     
       
     
-    Dec 22, 2024
+    Jan 6, 2025
   </span>
   
 
@@ -774,7 +785,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    24 min read
+    20 min read
   </span>
   
 
@@ -795,13 +806,20 @@
 
 </div>
 
-    
-
-
-
-
-
   
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 512px; max-height: 512px;">
+  <div style="position: relative">
+    <img src="/post/compbio_gnn/featured_hu370332526689706399.webp" width="512" height="512" alt="" class="featured-image">
+    
+  </div>
 </div>
 
 
@@ -810,7 +828,7 @@
 
     <div class="article-style">
       <h2 id="quick-look">Quick look</h2>
-<p>分子表示法（molecular representation）在計算化學中扮演重要的角色，它使化學家和數據科學家能夠將複雜的化學結構轉換成機器可理解的形式，用於數據存儲和計算分析。這些表示法在格式、易用性和應用場景上存在顯著的差異，每種表示法在特定類型的分析中具有其獨特的優勢和局限性，透過建構圖神經網路（Graph neural network）來預測分子的特性，這些表示法的差異會更為顯著。</p>
+<p>分子表示法（molecular representation）在計算化學中扮演重要的角色，它使化學家和數據科學家能夠將複雜的化學結構轉換成機器可理解的形式，用於數據存儲和計算分析。這些表示法在格式、易用性和應用場景上存在顯著的差異，每種表示法在特定類型的分析中具有其獨特的優勢和局限性，透過建構圖神經網路（Graph neural network, GNN）來預測分子的特性，這些表示法的差異會更為顯著。</p>
 <p>本篇筆記出自於美國麻省理工學院的計算生物學課程MLCB24。課程影片請看<a href="https://www.youtube.com/watch?v=6gkIjo4Jb4E&amp;t=220s" target="_blank" rel="noopener">這裡</a>。</p>
 <h2 id="常見的分子表示法">常見的分子表示法</h2>
 <ol>
@@ -1081,286 +1099,340 @@
 <li><code>方向性</code>：在大多數情況下，分子圖是<code>無向 (undirected)</code>的，因為<code>化學鍵通常沒有方向性</code>。但在某些情境下，如<code>化學反應</code>網絡中，可以使用<code>有向圖 (directed)</code>來表示從反應物到產物的轉化流程。</li>
 <li><code>圖標籤</code>：原子和鍵都被標示，說明原子和鍵的類型，在對於需要化學分子細節的探討中很重要。</li>
 <li><code>加權圖</code>：雖然在基本分子圖中不常使用，但可以引入<code>加權邊</code>以指示<code>鍵強度</code>、相互作用強度或其他結構行為的<code>先驗知識</code>。</li>
+<li><code>對稱性</code>：對於無向圖，鄰接矩陣是對稱的；對於有向圖，則是非對稱的，反映每條邊的方向性。</li>
 </ol>
 <h4 id="分子圖的表示方法">分子圖的表示方法</h4>
-<h4 id="鄰接矩陣">鄰接矩陣：</h4>
-<p>鄰接矩陣提供了一種表格式的圖表示，其中每個單元格表示原子之間是否存在鍵（或鍵的類型）。例如，若原子</p>
-<p>(i,j) 的值為 1（或表示鍵類型的整數）；否則為 0。</p>
-<h4 id="對稱性對於無向圖鄰接矩陣是對稱的對於有向圖則是非對稱的反映每條邊的方向性">對稱性：對於無向圖，鄰接矩陣是對稱的；對於有向圖，則是非對稱的，反映每條邊的方向性。</h4>
-<p>鄰接清單：
-在處理大型圖（如社交網絡或大規模數據集）時，鄰接清單比矩陣更高效。每個原子只保存與其直接相連的原子清單，大大減少稀疏網絡中的存儲需求。</p>
+<h4 id="鄰接矩陣-adjacency-matrix">鄰接矩陣 (Adjacency Matrix)：</h4>
+<p>鄰接矩陣提供了一種表格式的圖表示，其中每個單元格表示原子之間<code>是否存在鍵（或鍵的類型）</code>。例如，若原子
+(i,j) 的值為 1（或表示鍵類型的整數）；否則為 0。</p>
+<h4 id="鄰接列表-adjacency-list">鄰接列表 （Adjacency List）</h4>
+<p>在處理大型圖（如社交網絡或大規模數據集）時比矩陣更高效。每個原子只保存與其直接相連的原子清單，大大減少稀疏網絡中的存儲需求。</p>
 <h4 id="稀疏矩陣表示">稀疏矩陣表示：</h4>
 <p>另一種選擇是使用稀疏矩陣，只存儲非零值（即存在鍵的原子對），進一步降低內存使用量。</p>
 <h4 id="圖的可視化">圖的可視化：</h4>
-<p>分子圖也可以被可視化，提供直觀的方式來檢查分子結構、理解其複雜性並排查表示中的問題。
-分子圖的應用與優勢</p>
+<p>分子圖也可以被可視化，提供直觀的方式來檢查分子結構、理解其複雜性並排查表示中的問題。</p>
+<h4 id="分子圖的應用與優勢">分子圖的應用與優勢</h4>
 <h4 id="完整的結構編碼分子圖保留了分子的完整拓撲結構允許對其特性和相互作用進行更深入的檢查">完整的結構編碼：分子圖保留了分子的完整拓撲結構，允許對其特性和相互作用進行更深入的檢查。</h4>
-<p>與圖神經網絡（GNNs）的兼容性：分子圖可以與 GNNs 無縫集成，後者專門設計用於處理圖結構數據。
-增強的預測建模：基於分子圖構建的 GNN 模型能夠更準確地預測分子的各種特性，如生物活性、毒性、溶解度和結合親和力。
-圖神經網絡（GNNs）在分子建模中的應用</p>
-<p>消息傳遞：在 GNN 中，每個節點通過一種稱為消息傳遞的迭代過程與其鄰居進行通信。這允許每個節點聚合鄰近節點的信息，有效地捕捉其分子環境的影響。
-分層結構：與傳統神經網絡類似，GNN 有多層結構，每層允許圖捕捉分子中越來越遠的關係。
-可定制性：GNN 可以納入方向性和邊權重的設計，特別適合於處理具有專門相互作用的分子結構。
-不限於分子環境的圖應用</p>
+<ol>
+<li>與圖神經網絡（GNNs）的兼容性：分子圖可以與 GNNs 無縫集成，後者專門設計用於處理圖結構數據。</li>
+<li>強化的預測模型：基於分子圖構建的 GNN 模型能夠更準確地預測分子的各種特性，如生物活性、毒性、溶解度和結合親和力。</li>
+<li>消息傳遞：在 GNN 中，每個節點通過一種稱為消息傳遞的迭代過程與其鄰居進行通信。這允許每個節點聚合鄰近節點的信息，有效地捕捉其分子環境的影響。</li>
+<li>分層結構：與傳統神經網絡類似，GNN 有多層結構，每層允許圖捕捉分子中越來越遠的關係。</li>
+<li>可定制性：GNN 可以納入方向性和邊權重的設計，特別適合於處理具有專門相互作用的分子結構。</li>
+</ol>
+<h3 id="其他圖應用">其他圖應用</h3>
 <p>雖然分子圖是化學中的自然選擇，但其原則和技術可廣泛應用於其他與圖相關的領域，例如：</p>
-<p>社交網絡：節點表示個體，邊表示聯繫（通常是有向的）。
-通訊網絡：路由信息，其中節點表示服務器或路由器，邊表示數據流路徑。
-生物網絡：基因與蛋白質的交互網絡，節點表示基因或蛋白質，邊表示相互作用或調控關係。
-小結
-分子圖提供了分子結構的全面表示，捕捉了指紋可能忽略的細微差異。這種詳細的表示使得 GNN 能夠深入分析分子，為特性預測和藥物發現開啟了新的可能性。通過有效利用分子圖，研究人員可以從化學數據中提取更豐富的見解，推進理論理解與實際應用。</p>
-<p>接下來，我將翻譯「分子圖在藥物發現中的應用」內容，請稍候。</p>
-<p>分子圖在藥物發現中的應用
-分子圖在藥物發現和開發的各個階段都不可或缺，能夠精準捕捉並操作分子的完整結構。以下是分子圖如何顯著提升藥物開發流程的幾種方式：</p>
+<ul>
+<li>社交網絡：節點表示個體，邊表示聯繫（通常是有向的）。</li>
+<li>通訊網絡：路由信息，其中節點表示服務器或路由器，邊表示數據流路徑。</li>
+<li>生物網絡：基因與蛋白質的交互網絡，節點表示基因或蛋白質，邊表示相互作用或調控關係。</li>
+</ul>
+<hr>
+<h2 id="運用分子圖於藥物開發領域">運用分子圖於藥物開發領域</h2>
+<p>分子圖在藥物發現和開發的各個階段都不可或缺，能夠精準捕捉並操作分子的完整結構。以下是分子圖如何顯著提升藥物開發流程的幾種方式：</p>
 <ol>
-<li>化學相似性搜索</li>
+<li><code>化學相似性搜索 （Chemical similarity searching）</code></li>
 </ol>
-<p>當一種領先化合物顯示出與特定靶點的良好結合親和力時，研究人員通常會尋找與之結構相似的化合物，因為它們可能具有類似的活性。通過分子圖，我們可以編碼已知化合物的結構特徵，並在包含數百萬化合物的大型化學庫中搜索類似結構。</p>
-<p>優勢：研究人員可以優先選擇較小且更具針對性的分子集進行初步測試，從而減少大規模篩選的成本和資源使用。
-特別用途：此方法在資源有限或同時進行多個藥物發現項目時尤為重要。
-2. 定量結構-活性關係（QSAR）建模</p>
-<p>QSAR 模型使用分子圖來預測各種生物化學和藥代動力學特性。例如，可以基於分子結構預測以下屬性：</p>
-<p>溶解度
-血腦屏障的滲透性
-ADME（吸收、分布、代謝、排泄）
-毒性
-分子圖為 QSAR 模型提供了基於分子特徵與目標特性相關性的基礎，從而幫助研究人員在實驗測試之前篩選化合物。</p>
+<ul>
+<li>當一種化合物顯示出與特定靶點的良好結合親和力時，研究人員通常會尋找與之結構相似的化合物，因為它們可能具有類似的活性。通過分子圖，我們可以編碼已知化合物的結構特徵，並在包含數百萬化合物的大型化學庫中搜索類似結構。</li>
+<li>研究人員可以優先選擇較小且更具針對性的分子集進行初步測試，從而減少大規模篩選的成本和資源使用。</li>
+</ul>
+<ol start="2">
+<li><code>定量結構-活性關係（QSAR）建模</code></li>
+</ol>
+<ul>
+<li>QSAR 模型使用分子圖來預測各種生物化學和藥代動力學特性。例如，可以基於分子結構預測以下屬性：</li>
+<li>溶解度</li>
+<li>血腦屏障的滲透性</li>
+<li>ADME（吸收、分布、代謝、排泄）</li>
+<li>毒性</li>
+</ul>
 <ol start="3">
-<li>圖神經網絡（GNNs）</li>
+<li><code>基於結構的藥物設計</code>
+分子圖允許進行基於結構的藥物設計，通過表現完整的分子結構，支持更準確的分子-靶標作用模擬與預測。</li>
 </ol>
-<p>分子圖是圖神經網絡（Graph Neural Networks, GNNs）的主要數據格式。GNNs 特別適合於學習圖結構數據中的複雜關係。</p>
-<p>應用於分子圖：GNNs 可預測特定的分子屬性、結合親和力，甚至通過建模分子層級的交互，識別潛在副作用或不良反應。
-優勢：GNNs 已成為現代計算藥物發現中的關鍵工具，能夠處理分子結構的複雜性。
-4. 基於結構的藥物設計</p>
-<p>分子圖允許進行基於結構的藥物設計，通過表徵完整的分子結構，支持更準確的模擬與分子-靶標交互的預測。</p>
-<p>應用：研究人員可以利用基於分子圖的表示法來模擬結合能量及交互動態，設計專門優化與靶標結合的化合物。
-卷積神經網絡（CNNs）作為 GNNs 的基礎
-為更直觀地理解圖神經網絡（GNNs），可以先考慮卷積神經網絡（CNNs）的結構與功能，因為 CNNs 廣泛應用於影像處理。</p>
+<ul>
+<li>研究人員可以利用基於分子圖的表示法來模擬<code>結合能量</code>及<code>交互動態</code>，設計專門與目標結合的化合物。</li>
+</ul>
+<hr>
+<h2 id="卷積神經網絡-cnns">卷積神經網絡 (CNNs)</h2>
+<p>為更直觀地理解GNNs，可以先考慮CNNs的結構與功能。</p>
 <ol>
-<li>CNN 處理 2D 網格數據</li>
+<li><code>CNN 處理 2D 網格數據</code>: 以像素為單位：CNN 將每個像素視為一個單位，並與相鄰像素進行連接（垂直或水平），從而學習局部模式（如邊緣、梯度和紋理）。</li>
+<li><code>層級學習</code>：隨著網絡層數的增加，CNN 將這些<code>初級</code>特徵<code>聚合為更高級模式</code>，最終能夠識別複雜對象（例如貓、狗或汽車）。</li>
+<li>從 CNN 到<code>幾何深度學習（GDL）的過渡</code>: 將 CNN 在結構化數據（如影像）上的成功<code>推廣到非結構化</code>、<code>非歐幾里得數據</code>，如<code>圖</code>和<code>流形</code> (graphs, meshes and point clouds)。</li>
 </ol>
-<p>像素為單位：CNN 將每個像素視為一個單位，並與相鄰像素進行連接（垂直或水平），從而學習局部模式（如邊緣、梯度和紋理）。
-層級學習：隨著網絡層數的增加，CNN 將這些低級特徵聚合為更高級模式，最終能夠識別複雜對象（例如貓、狗或汽車）。
-2. 從 CNN 到幾何深度學習（GDL）的過渡</p>
-<p>幾何深度學習的目標：將 CNN 在結構化數據（如影像）上的成功推廣到非結構化、非歐幾里得數據，如圖和流形。
-圖結構的特性：圖與網格或矩陣不同，因其缺乏固定的節點排列且連接多樣化，因此需要專門的神經網絡架構。
-3. 圖神經網絡（GNNs）如何擴展 CNN 的原則</p>
-<p>消息傳遞或鄰居聚合：在 GNN 中，圖中的每個節點（如分子中的原子）從其鄰居（直接相連的節點）中收集信息，並反覆進行該過程，學習局部與全局模式。
-層級特徵學習：GNNs 通過多層聚合，逐步捕捉分子結構的相互作用，類似 CNN 中逐層學習更複雜特徵。
-GNNs 的可擴展性與應用</p>
-<p>處理方向性與加權邊：GNNs 可處理有向和無向圖，特別是在處理具有特殊交互的分子結構時。
-標籤與權重的靈活性：GNNs 支持節點與邊標籤，以及不同鍵類型或交互強度的加權邊，使其能處理多樣化的圖結構。
-小結
-分子圖在藥物發現與開發中是至關重要的工具，為深入分析和預測提供了堅實的基礎。通過結合圖神經網絡和幾何深度學習的概念，我們可以分析分子的複雜關係結構，捕捉有效藥物設計所需的細微差異，推動分子與化學資訊學機器學習應用的邊界。</p>
-<p>接下來，我將翻譯「幾何深度學習：擴展深度學習到複雜結構」部分內容，請稍候。</p>
-<p>幾何深度學習：擴展深度學習到複雜結構
-幾何深度學習（Geometric Deep Learning, GDL）是一種將傳統深度學習方法推廣到更廣泛數據結構的技術，包括圖、點雲和流形等非歐幾里得數據結構。這種方法特別適合處理依賴關係和連接關係至關重要的任務，例如分子建模和物理模擬。</p>
-<p>幾何深度學習中的複雜結構</p>
-<p>在許多應用中，數據並非自然適合於簡單的網格或序列。常見情境包括：</p>
-<p>圖：在社交網絡、分子結構和知識圖譜中，節點表示實體，邊表示關係或交互。
-3D 點雲：出現在計算機視覺任務中（如 3D 對象識別）或分子與結構生物學中，其中點表示空間中的原子或分子。
-流形：常出現在高維空間中，數據分佈於低維但連續平滑的曲面上。
-在這些情境下，空間關係往往比固定結構的排列更重要，連接性本身包含了有價值的信息。</p>
-<p>對稱性、不變性與等變性</p>
-<p>幾何深度學習的一個核心方面是處理對稱性和特性如不變性和等變性，確保模型在數據變換時的輸出具有可預測性。</p>
-<p>不變性： 模型對某種變換不敏感，即無論輸入經歷怎樣的變換，輸出保持不變。
-例：一個模型在預測分子溶解度時應該對分子的旋轉或平移保持不變，因為這些變換不影響分子的溶解性。
-等變性： 模型的輸出會隨輸入的變換而相應變化。例如，分子動力學模擬中，對參考框架的旋轉應該導致原子位置與動量的相應旋轉。
-在模型中實現不變性與等變性</p>
-<p>設計不變或等變層： 神經網絡層的設計可以天然處理變換。例如，在圖神經網絡（GNN）中，層的設計可以基於節點的連接方式而非空間排列進行信息聚合，從而實現這些性質。
-基於懲罰的正則化： 在目標函數中加入懲罰項，如果模型的輸出在變換下不符合預期則增加損失。這種方式驅動模型學習所需的不變性或等變性。
-數據增強： 通過對訓練數據進行多種變換（如旋轉、平移、翻轉等）迫使模型學習對這些變化的魯棒性。然而，對於高維圖數據，這種方法可能不切實際或效果有限。
-基於約束的學習設計： 利用嚴格的數學約束或群論構建模型，確保其天然滿足所需的對稱性。
-幾何深度學習在分子圖中的應用</p>
-<p>在分子建模中，幾何深度學習為分子圖提供了工具，這些工具可以準確捕捉原子（節點）和鍵（邊）之間的關係。通過將每個原子作為節點，每條鍵作為邊，可以應用幾何深度學習原則來預測分子的性質、交互及行為。</p>
-<p>圖神經網絡（GNNs）： GNNs 利用圖結構來傳遞信息，讓每個節點從其鄰居中學習，從而理解影響分子特性的關係。
-處理旋轉和平移： 在分子性質（如結合親和力或反應潛能）預測中，模型需要對旋轉和平移保持不變。GNNs 可以通過基於結構的聚合方法實現這一點。
-捕捉分層模式： 與卷積神經網絡（CNNs）識別低層次特徵（如邊緣）並逐步學習高層次形狀的方式類似，GNNs 能夠從單個原子學習，逐步捕捉更複雜的分子子結構。
-等變性在物理模擬中的應用： 在分子動力學或分子交互模擬中，等變性至關重要，因為空間變換應該適當傳播到相關原子。幾何深度學習允許構建尊重這些特性的模型，特別適合高精度模擬。
-幾何深度學習在藥物發現中的優勢</p>
-<p>幾何深度學習在藥物發現和設計中的實用性體現在其處理分子圖和非結構化數據的能力上。</p>
-<p>改進預測精度：幾何深度學習方法尊重分子的結構特性，因此能夠更準確地預測分子的性質和交互。
-高效表示分子空間：GNN 能夠靈活處理複雜的圖結構數據，包括多種鍵類型與原子特徵。
-增強對新化合物的泛化能力：幾何深度學習模型通過保持不變性與等變性，可以更好地適應新化合物，這對於發現新藥至關重要。
-小結
-幾何深度學習擴展了傳統深度學習，適應如圖和點雲這類複雜的非結構化數據。應用於分子圖時，它為分析、預測和模擬分子的性質與行為提供了強大的工具。通過開發魯棒且具有物理意義的模型，幾何深度學習推動了藥物發現的新進展。</p>
-<p>圖神經網絡（GNNs）：結構、工作流程與應用
-圖神經網絡（Graph Neural Networks, GNNs）是一類專為處理圖結構數據而設計的深度學習模型。與傳統神經網絡處理網格數據（如圖像或時間序列）不同，GNNs 專注於以節點（例如原子）和邊（例如化學鍵）表示的圖結構數據，這使其在分子圖、社交網絡和知識圖譜等複雜結構中應用廣泛。GNNs 的目標是捕捉圖中的關係與依賴性，預測與節點、邊甚至整個圖相關的特性或行為。</p>
-<p>GNN 的關鍵應用</p>
-<p>節點級預測：
-應用：例如預測某特定節點（如分子中的原子）是否會參與活性位點的結合或參與化學反應。
-實例：在蛋白質-小分子交互研究中，GNN 可預測分子中的哪個原子參與結合位點。
-邊級（鏈路）預測：
-應用：判斷節點間邊的存在性或強度（例如化學鍵的形成可能性）。
-實例：基因組學中，預測可能與疾病相關的基因之間的潛在關聯。
-圖級預測：
-應用：為整個圖進行分類或性質預測，例如預測分子的毒性或是否能穿越血腦屏障。
-實例：在藥物篩選中，基於整個分子結構預測其生物活性。
-GNN 的一般工作流程</p>
-<p>輸入數據與初始嵌入：
-每個圖的節點以初始特徵向量開始，例如分子中的原子可以包括原子序數、電負性和雜化狀態等特徵。
-這些特徵通過嵌入層轉化為高維空間中的向量，作為節點的初始狀態表示。
-消息傳遞與鄰居聚合：
-GNN 執行一系列消息傳遞步驟，在每個 GNN 層中，節點從其鄰居處收集信息。
-鄰居信息（消息）通過可學習的權重矩陣進行變換，並通過聚合函數（例如求和或平均）融合，形成該節點的上下文表示。
-多層消息傳遞：
-每次消息傳遞層後，節點能“看到”其更遠的鄰居。例如，兩層後，每個節點包含了其兩跳鄰居的信息。
-最終狀態與輸出生成：
-一旦所有 GNN 層處理完成，每個節點達到其最終的隱層表示，該表示包含來自鄰居的信息。
-根據任務性質，可以進行：
-節點級任務：使用每個節點的最終隱層表示進行預測。
-邊級任務：分析相鄰節點的最終表示，預測邊的屬性。
-圖級任務：將所有節點的最終表示進行聚合，生成固定長度的圖級表示。
-GNN 的示例工作流程</p>
-<p>假設一個分子屬性預測任務：</p>
-<p>輸入分子圖：
-節點（原子）特徵：如原子質量、雜化狀態。
-邊（鍵）特徵：如鍵類型（單鍵、雙鍵等）。
-初始嵌入：
-每個節點用特徵嵌入向量初始化。
-消息傳遞與聚合：
-每個節點從鄰居接收信息（例如，碳原子從相鄰的氧和氫原子接收消息）。
-聚合鄰居消息後，更新節點表示。
-多層處理：
-經過多層 GNN，每個節點整合來自更遠節點的信息，例如兩跳或三跳鄰居。
-最終輸出：
-使用聚合的節點表示進行分子性質（如溶解度或毒性）預測。
-GNN 層中的操作類型</p>
-<p>圖上的卷積：
-與 CNN 在網格上進行卷積類似，GNN 在每個節點的鄰域內進行卷積操作，聚合鄰居信息。
-池化與讀出：
-與 CNN 中的池化層類似，GNN 的池化有助於降維並聚合節點信息。可以應用於子圖內節點或整個圖上的池化。
-正則化：
-由於節點的度數可能差異較大，對聚合的信息進行正則化有助於平衡信息流，防止過於依賴高度連接的節點。
-GNN 在分子建模與藥物發現中的優勢</p>
-<p>處理複雜結構的靈活性：
-GNN 能夠適應不規則、非歐幾里得的分子圖結構。
-結構信息的高效利用：
-GNN 內嵌與傳遞信息的方式自然尊重分子的空間與化學關係。
-可擴展性：
-GNN 的消息傳遞協議允許高效處理大型圖數據集，如虛擬篩選中的化學庫。
-小結
-圖神經網絡通過結合深度學習技術與圖結構數據的關係特徵，為分子建模提供了強大的框架。GNNs 的多功能性使其適用於藥物發現、材料科學和網絡分析等廣泛領域，尤其在需要深入理解數據中複雜關係的場景中表現卓越。</p>
-<p>消息傳遞（Message Passing）在圖神經網絡中的應用
-消息傳遞是圖神經網絡（GNNs）的核心操作，允許節點與其鄰居之間交換並聚合信息。這一過程使每個節點能夠結合來自其相鄰節點的特徵，構建出更豐富的上下文感知表示。消息傳遞是執行節點分類、鏈路預測和圖級屬性預測等圖結構任務的關鍵機制。</p>
-<p>消息傳遞的主要步驟</p>
-<p>消息生成：
-對於圖中的每個節點，GNN 從其鄰居處創建消息。這通常通過使用可學習的權重矩陣，對每個鄰居節點的隱層表示進行變換。
-舉例：對於一個黃色節點，其相鄰的粉色和灰色節點會通過權重矩陣變換生成消息向量，這些消息將被傳遞給黃色節點。
-消息聚合：
-下一步是將所有來自鄰居的消息聚合為一個向量，該向量反映所有鄰居的綜合影響。
-常見的聚合策略包括：
-求和聚合：將所有進入的消息加總。
-均值聚合：計算所有消息的平均值，確保每個鄰居在聚合中有相等的權重。
-最大池化：選取所有消息中最顯著的值，突出最重要的特徵。
-聚合策略的選擇會影響 GNN 的性能。例如，對於度數差異較大的節點，正則化可能是必需的，以平衡信息流。
-方向性與排列不變性：
-在 GNN 中，鄰居沒有固有的“方向”或“位置”，因此必須保證 GNN 是排列不變的——鄰居消息的順序不應影響結果。
-這一點通過對稱函數（如求和、均值或最大值）來實現，確保聚合方式與鄰居排列無關。
-更新函數：
-在聚合鄰居消息後，節點將使用更新函數結合自身的當前隱層表示與聚合消息，生成新的隱層表示。
-更新函數的典型形式：</p>
-<p>：分別是應用於節點自身和鄰居的可學習權重矩陣。
-σ
-σ：非線性激活函數（如 ReLU 或 tanh）。
-非線性操作增加了模型的表達能力，使其能夠捕捉更複雜的節點間相互作用。
-多層消息傳遞：
-每次消息傳遞層之後，節點的“感受野”會擴展。例如：
-一層消息傳遞後，節點可看到其直接鄰居的信息。
-兩層後，可看到兩跳鄰居的信息（鄰居的鄰居）。
-多層消息傳遞允許 GNN 捕捉圖中的長距依賴性，但過多層數可能導致信息稀釋或過平滑問題。
-消息傳遞的示例應用</p>
-<p>假設我們分析一個分子圖來預測化合物的溶解度：</p>
-<p>節點初始化：
-節點（原子）的特徵包括原子序數和電負性。
-邊（鍵）的特徵包括鍵類型（單鍵、雙鍵等）。
-消息傳遞：
-每個節點從其鄰居接收消息。例如，碳原子從相鄰的氧和氫原子接收消息。
-聚合消息後，更新碳原子的表示，使其反映鄰居的綜合影響。
-多層擴展：
-多層消息傳遞使每個節點能夠逐漸獲取來自更遠節點的信息，構建全局上下文。
-模型輸出：
-使用節點或圖級表示進行性質預測，例如預測化合物的溶解度。
-消息傳遞在分子分析中的重要性</p>
-<p>本地上下文的融合：
-消息傳遞允許節點整合來自鄰居的信息，這對理解分子內局部化學環境至關重要。
-可擴展性：
-基於鄰居的聚合方式，使 GNN 能夠高效處理大型圖。
-表達能力：
-多層消息傳遞可捕捉節點間的長距依賴性，這對分子性質預測尤其重要。
-小結
-消息傳遞是 GNN 中的核心過程，使得每個節點能夠從其鄰居中獲取有意義的信息，並逐步構建其全局上下文表示。通過精心設計消息生成、聚合與更新步驟，GNN 能夠適應複雜的分子圖結構，為化學性質分析和藥物發現等領域提供強有力的工具。</p>
-<p>如果您需要後續翻譯的部分（如節點更新或最終輸出等），請告訴我！</p>
-<p>節點更新（Node Updates）在基礎圖神經網絡（GNN）中的應用
-在基礎圖神經網絡中，節點更新是每一層消息傳遞過程中的關鍵部分。該機制允許每個節點通過反覆整合來自其鄰居的資訊，逐步構建更精緻的表示。</p>
-<p>節點更新機制的逐步分解</p>
-<p>節點嵌入初始化：
-每個節點</p>
-<p>​
-，通常由輸入特徵（如原子序數或鍵類型）生成，或者通過嵌入層映射到高維空間。
-計算隱層表示：
-在每一層
-k
-k 中，每個節點
-u
-u 的隱層表示</p>
-<p>是通過結合鄰居信息更新的，公式如下：</p>
-<p>neighbor
-⋅
-Aggregate</p>
-<p>​
-：鄰居嵌入的可學習權重矩陣。
-Aggregate
-Aggregate：鄰居信息的聚合函數（如求和或均值）。
-σ
-σ：非線性激活函數（如 ReLU）。
-更新後的</p>
-<p>代表節點的新狀態，結合了來自鄰居的上下文信息。
-感受野的擴展：
-每次應用一層 GNN 後，節點的“感受野”就會擴展：
-層數</p>
-<p>k=1：節點僅聚合其直接鄰居的信息。
-層數</p>
-<p>k=2：節點聚合來自二跳鄰居的信息（鄰居的鄰居）。
-多層網絡可以捕捉長距離依賴性，使節點的表示能包含更廣泛的圖結構信息。
-層數與信息擴散的平衡：
-雖然更多層數允許更大的感受野，但過深的網絡可能導致以下問題：
-信息稀釋：節點表示可能因過多層的聚合而過於平滑，難以區分節點特徵（稱為過平滑問題）。
-計算成本增加：更多層會增加計算成本，且可能引發梯度消失或爆炸的問題。
-通常，實踐中選擇 2-4 層可以在信息擴散和計算效率之間取得平衡。
-節點更新的範例</p>
-<p>考慮一個基於分子圖的溶解度預測任務：</p>
-<p>初始表示：
-節點（如原子）的初始特徵包括原子序數、鍵類型等。
-消息聚合：
-每個節點從其鄰居接收消息，通過聚合函數進行匯總。
-非線性更新：
-聚合消息後，節點的表示結合自身的初始嵌入進行非線性變換。
-層數擴展：
-重複上述過程，隨著層數增加，節點表示逐步融合來自遠距鄰居的信息。
-GNN 最終輸出的應用
-完成所有 GNN 層的消息傳遞後，我們獲得了每個節點的最終嵌入表示，該表示整合了節點自身及其鄰居的上下文信息。不同的任務需求決定了如何使用這些節點嵌入來生成有意義的預測。</p>
-<p>關鍵任務</p>
-<p>節點級別預測：
-如果目標是預測單個節點的屬性或分類，我們可以直接使用其最終嵌入。
-例如，在分子圖中，節點（原子）的嵌入可用於預測其是否參與某種化學反應。
-邊級別預測：
-邊級別預測涉及預測節點之間是否存在關聯（如化學鍵是否存在）。
-方法包括計算節點嵌入之間的相似性（如餘弦相似度），或通過多層感知機（MLP）來進一步建模。
-圖級別預測：
-當需要對整個圖進行分類（如分子是否可溶）時，必須將節點嵌入聚合為單一向量，該向量捕捉整體圖結構信息。
-圖級別聚合技術</p>
-<p>求和聚合：
-將所有節點嵌入相加，生成圖的綜合表示。
-均值聚合：
-計算節點嵌入的平均值，以消除因節點數量不同帶來的影響。
-最大池化：
-提取所有節點嵌入中最顯著的特徵值。
-注意力機制：
-使用注意力機制學習不同節點對任務的重要性，根據權重加權聚合節點嵌入。
-虛擬節點：
-引入一個虛擬節點，與圖中所有節點相連，通過消息傳遞聚合整圖信息。
-小結
-節點更新和輸出生成是 GNN 的關鍵步驟，這些步驟使模型能夠根據具體任務需求進行靈活調整。通過精心設計的聚合策略和嵌入生成方法，GNN 能夠處理複雜的圖結構數據，實現分子建模、社交網絡分析等多領域的應用。</p>
+<p>而圖與網格或矩陣不同，因其<code>缺乏固定的節點排列</code>且<code>連接多樣化</code>，因此需要專門的神經網絡架構，因此才有圖神經網路的角色出現。</p>
+<hr>
+<h2 id="invariance-與-equivariance">Invariance 與 Equivariance</h2>
+<p>在深度學習中，Invariance（不變性）與 Equivariance（等變性）是兩個非常重要的概念，特別是在處理結構化數據（例如圖像、序列、圖）時，對模型的性能和泛化能力有著深遠的影響。</p>
+<ul>
+<li>Invariance: 不變性指的是模型或函數對某些輸入變換保持輸出不變的特性。如果f(x)是某個模型或函數，針對某個變換T，不變性表示：</li>
+</ul>
+<div style="overflow-x: scroll;">
+$$
+f(T(x))=f(x)
+$$
+</div>
+<p>如圖四，貓的圖片在轉換之後，模型仍然能偵測為貓。或是一個模型在預測分子溶解度時應該對分子的<code>旋轉</code>或<code>平移</code>保持不變，因為這些變換<code>不影響分子的溶解性</code>。</p>
+<ul>
+<li>Equivariance: 等變性指的是模型或函數對某些輸入變換的輸出也發生相應的變換。如果f(x)是某個模型或函數，針對某個變換T，等變性表示：</li>
+</ul>
+<div style="overflow-x: scroll;">
+$$
+f(T(x))=T(f(x))
+$$
+</div>
+<p>換句話說，輸入經過某種變化後，輸出的結果應該跟著同步變化。例如，分子動力學模擬中，對參考框架的旋轉應該導致原子位置與動量的相應旋轉。</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-圖四">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="fig4" srcset="
+               /post/compbio_gnn/fig4_hu18150330024369147487.webp 400w,
+               /post/compbio_gnn/fig4_hu7306947348480769975.webp 760w,
+               /post/compbio_gnn/fig4_hu5704989358987084869.webp 1200w"
+               src="/post/compbio_gnn/fig4_hu18150330024369147487.webp"
+               width="760"
+               height="329"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      圖四
+    </figcaption></figure>
+</p>
+<hr>
+<h2 id="圖神經網路">圖神經網路</h2>
+<p>圖神經網絡是一類專為處理圖結構數據而設計的深度學習模型。與傳統神經網絡處理網格數據（如圖像或時間序列）不同，GNNs 專注於以節點（例如原子）和邊（例如化學鍵）表示的圖結構數據，這使其在分子圖、社交網絡和知識圖譜等複雜結構中應用廣泛。GNNs 的目標是捕捉圖中的關係與依賴性，預測與節點、邊甚至整個圖相關的特性或行為。</p>
+<h4 id="關鍵概念">關鍵概念</h4>
+<p>圖神經網路可以學習如何表達以圖為結構的數據，並且可以利用節點和邊的關係來做預測。</p>
+<h4 id="gnn-的關鍵應用">GNN 的關鍵應用</h4>
+<p>廣泛使用於<code>化學資訊學</code>、生物資訊學與<code>社群網路</code>分析。</p>
+<ol>
+<li><code>節點級預測</code>：</li>
+</ol>
+<ul>
+<li>應用：例如預測某特定節點（如分子中的原子）是否會參與活性位點的結合或參與化學反應。</li>
+<li>實例：在蛋白質-小分子交互研究中，GNN 可預測分子中的<code>哪個原子參與結合位點</code>。</li>
+</ul>
+<ol start="2">
+<li><code>邊級（鏈路）預測</code>：</li>
+</ol>
+<ul>
+<li>應用：判斷節點間邊的存在性或強度（例如化學鍵的形成可能性）。</li>
+<li>實例：基因組學中，預測可能與疾病相關的基因之間的潛在關聯。</li>
+</ul>
+<ol start="3">
+<li><code>圖級預測</code>：</li>
+</ol>
+<ul>
+<li>應用：為整個圖進行分類或性質預測，例如預測<code>分子的毒性</code>或是<code>否能穿越血腦屏障</code>。</li>
+<li>實例：在藥物篩選中，基於<code>整個分子結構</code>預測其生物活性。</li>
+</ul>
+<h4 id="gnn-的一般工作流程">GNN 的一般工作流程</h4>
+<p>GNN 的工作流程通常包括以下幾個階段：</p>
+<ol>
+<li>
+<p><code>輸入數據與初始嵌入</code>: 圖中的每個<code>節點</code>都有一些初始輸入特徵。例如，在分子應用中，每個節點可能表示一個原子，其特徵可能包括原子序數、電荷狀態等。這些初始特徵被嵌入到一個高維空間中的潛在表示中（latent representation），以捕捉每個節點的初始狀態。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-圖五-圖神經網路的節點特徵嵌入">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="fig5" srcset="
+               /post/compbio_gnn/fig5_hu2388238815147713275.webp 400w,
+               /post/compbio_gnn/fig5_hu5675022451590598209.webp 760w,
+               /post/compbio_gnn/fig5_hu3447441218360307289.webp 1200w"
+               src="/post/compbio_gnn/fig5_hu2388238815147713275.webp"
+               width="760"
+               height="292"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      圖五 圖神經網路的節點特徵嵌入
+    </figcaption></figure>
+</p>
+</li>
+<li>
+<p>通過 GNN 層進行<code>信息傳遞 (Message Passing)</code>: 嵌入後，GNN 在多層網絡中進行一系列的消息傳遞（message passing）步驟。這一過程類似於 CNN 中的卷積操作，CNN 是從<code>鄰近像素中聚合信息</code>，而 GNN 則是從<code>相鄰節點中聚合信息</code>。</p>
+</li>
+<li>
+<p>聚合與更新: 在每一層 GNN 中，每個節點都從其鄰居處接收訊息。節點將這些訊息聚合起來，與自身的潛在向量結合後<code>更新其狀態</code>。這種聚合方法可以是<code>求和（sum</code>）、<code>均值（mean）</code>、或<code>最大池化（max pooling</code>），具體取決於任務需求。
+以下是一些常見的聚合技術：</p>
+</li>
+<li>
+<p><code>總和聚合(Sum Aggregation)</code>：透過將所有節點的representation相加，我們可以獲得一個<code>單一的向量</code>，反映來自所有節點的<code>累積信息</code>。這種方法在節點數量在<code>不同圖之間相近時</code>效果不錯，但如果某些圖比其他圖大得多，可能會導致偏差。</p>
+</li>
+<li>
+<p><code>平均聚合(Mean Aggregation)</code>：通過對節點向量取平均值，這種方法在聚合過程中進行了歸一化，確保圖的大小（節點數量）不會影響結果。當處理大小不同的圖時，平均聚合特別有用，因為它可以調整節點數量之間的差異。</p>
+</li>
+<li>
+<p><code>最大池化(Max Pooling)</code>：在這種方法中，我們從所有節點向量的<code>每個位置中取最大值</code>，捕捉到最顯著的特徵值。這種方法能夠突出圖中最具代表性的特徵，但可能會<code>忽略</code>一些重要的細微特徵，特別是當其他節點包含較低但關鍵的值時。</p>
+</li>
+<li>
+<p><code>注意力機制(Attention Mechanisms)</code>：基於注意力機制的方法允許我們根據節點對任務的重要性，對每個節點的貢獻賦予不同的權重。模型會自動學習這些權重，從而自適應地突出關鍵節點，是一種強大的方法來優先考慮圖中的某些區域。例如，在分子圖中，注意力機制可以對重要的功能基團賦予更高的權重，以便在預測化學性質時更加精準。</p>
+</li>
+<li>
+<p><code>全局節點或虛擬節點(Global Nodes or Virtual Nodes)</code>：在一些進階的 GNN中，會引入一個<code>全局節點</code>或<code>虛擬節點</code>，該節點與圖中的所有其他節點相連。在信息傳遞（message-passing）過程中，這個節點會聚合來自整個圖的所有信息，作為一個中心樞紐。到最後，這個虛擬節點的潛在向量（latent vector）就成為整個圖的表示，捕捉了整個網絡的特徵。</p>
+</li>
+</ol>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-圖六-訊息的結合">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="fig6" srcset="
+               /post/compbio_gnn/fig6_hu17702982825052260044.webp 400w,
+               /post/compbio_gnn/fig6_hu18171683510162612183.webp 760w,
+               /post/compbio_gnn/fig6_hu17719637959162410375.webp 1200w"
+               src="/post/compbio_gnn/fig6_hu17702982825052260044.webp"
+               width="760"
+               height="246"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      圖六 訊息的結合
+    </figcaption></figure>
+</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-圖七-節點訊息的更新">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="fig7" srcset="
+               /post/compbio_gnn/fig7_hu14204850261544369576.webp 400w,
+               /post/compbio_gnn/fig7_hu9938346904168491431.webp 760w,
+               /post/compbio_gnn/fig7_hu296375659254389028.webp 1200w"
+               src="/post/compbio_gnn/fig7_hu14204850261544369576.webp"
+               width="760"
+               height="261"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      圖七 節點訊息的更新
+    </figcaption></figure>
+</p>
+<p>節點的更新公式：</p>
+<div style="overflow-x: scroll;">
+$$
+h_u^{(k)} = \sigma \left( W_{\text{self}}^{(k)} h_u^{(k-1)} + W_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}_u} h_v^{(k-1)} + b^{(k)} \right)
+$$
+</div>
+<div style="overflow-x: scroll;">
+$$
+h_u^{(k-1)} \in \mathbb{R}^{d^{(k-1)}}: Node-embeddings
+$$
+</div>
+<div style="overflow-x: scroll;">
+$$
+W_{\text{self}}^{(k)}, W_{\text{neigh}}^{(k)} \in \mathbb{R}^{d^{(k)} \times d^{(k-1)}}: Learnable-parameters
+$$
+</div>
+<div style="overflow-x: scroll;">
+$$
+b^{(k)} \in \mathbb{R}^{d^{(k)}}: Bias-term
+$$
+</div>
+<div style="overflow-x: scroll;">
+$$\sigma: Elementwise-non-linearity  (e.g., a \tanh or ReLU)$$
+</div>
+<blockquote>
+<p>更新機制</p>
+<p>Step 1: 每個節點先從鄰居中收集信息（聚合鄰居特徵）。</p>
+<p>Step 2: 將聚合後的鄰居特徵與自身特徵結合（線性變換 + 偏置項）。</p>
+<p>Step 3: 應用激活函數，生成該節點在新層的嵌入特徵。</p>
+</blockquote>
+<ol>
+<li>
+<p>多層結構: 信息通過<code>多層傳遞</code>，每層使節點可以<code>看到</code>圖中<code>更遠的鄰居</code>。例如，經過兩層後，每個節點可以融入來自其<code>兩跳</code>鄰居的信息。</p>
+</li>
+<li>
+<p>最終狀態與輸出生成: 當圖經過多層 GNN 處理後，節點達到最終狀態，該狀態包含從周圍節點學到的信息。這些最終狀態可以用於生成多種預測：</p>
+</li>
+</ol>
+<ul>
+<li><code>節點級任務</code>：使用每個節點的最終狀態進行預測。當我們需要為單個節點分類或預測屬性時，可以直接使用每個節點的最終潛在表示（latent representation）。例如，假設我們有一個分子圖，並且已知每個原子的分子屬性，但對某個特定原子（節點）缺乏相關信息，我們可以將該未知節點的潛在向量輸入分類器，來預測所需的屬性，例如該原子是否參與結合位點，或者是否與某些分子相互作用。</li>
+<li><code>邊級任務</code>：分析相鄰節點最終狀態之間的關係。連結預測的目標是預測節點之間的連接（邊）的存在性或強度，這在<code>社交網絡</code>或<code>生物網絡</code>中非常有用，可以用來推斷新的關係。例如，在基因組學中，我們可能已知與某種疾病相關的一組基因，並希望通過檢查它們在生物途徑中的連接性，來預測其他潛在的基因。這可以通過以下方式實現：將兩個節點的潛在向量進行相似性測量（例如餘弦相似度）或學習函數，來預測是否存在一條邊。更複雜的情況下，將兩個節點的表示組合後輸入多層感知器（MLP），以進行關係的預測。</li>
+<li><code>圖級任務</code>：將所有節點的最終狀態池化成單一圖表示，用於<code>分類</code>或<code>回歸</code>。在某些情況下，我們需要對整個圖進行單一的預測，例如分子的溶解度或毒性。這時需要將所有節點的信息聚合成一個<code>固定長度的向量</code>，該向量能夠捕捉整個圖的結構和特徵。例如：可以使用聚合技術（如平均聚合、總和聚合或注意力機制）來匯總節點的表示，生成代表整體圖特徵的向量。
+然後，將該圖級表示作為輸入，用於進行<code>分類</code>或迴歸任務。</li>
+</ul>
+<h4 id="擴大感受野">擴大感受野</h4>
+<p>每當我們應用一層 GNN層時，實際上我們就增加了每個節點的<code>感受野 (receptive filed)</code>。起初，一個節點的感受野僅包括<code>它自己</code>。然而，在第一層之後，該節點的表示（representation）將會結合來自其直接鄰居的信息。經過第二層後，該節點的表示將會包含來自兩跳 (K-hops=2) 鄰居（即鄰居的鄰居）的信息，依此類推。這種擴展意味著節點可以逐漸從圖中更大的區域累積信息。
+例如，在分子圖中，一個碳原子的感受野起初可能僅包括直接鍵合的原子（例如一個相鄰的氧原子）。而經過兩層 GNN 層後，該碳原子可以結合來自兩個鍵距離的原子的信息，提供更多的化學訊息。</p>
+<h4 id="層數深度與信息擴散">層數深度與信息擴散</h4>
+<p>雖然看似增加層數可以最大化節點的感受野，但更深的網絡層數也會帶來一些問題：</p>
+<ol>
+<li><code>訊息稀釋(Information Dilution)</code>：隨著層數的增加，節點表示可能會<code>過度混合（overly blended）</code>，失去原本的特徵，從而<code>難以區分不同的節點</code>。這種現象通常被稱為<code>過平滑（oversmoothing）</code>，在處理複雜任務時可能導致性能下降。</li>
+<li><code>計算成本(Computational Costs)</code>：增加層數需要更多的計算資源，同時也會提高訓練過程中出現<code>梯度消失</code>或<code>梯度爆炸</code>問題的風險，從而使訓練變得更加困難。
+因此，在許多實際應用中，使用<code>有限層數的 GNN（例如 2-4 層）</code>是更為有效的策略。這種方法在計算效率與每個節點能夠融合的信息深度之間取得了<code>平衡</code>。</li>
+</ol>
+<hr>
+<p>GNN 層中的操作旨在將卷積操作推廣到圖結構，其中空間結構由節點之間的邊定義，而不是固定的空間坐標。</p>
+<ol>
+<li><code>圖上的卷積(Convolution on Graphs)</code>:在 CNN 中，卷積在固定的網格上進行；而在 GNN 中，卷積基於每個節點的鄰域進行。這種局部特徵的聚合使得每個節點可以從其鄰居中學習，同時保留圖的固有結構。</li>
+<li><code>池化與讀出(Pooling and Readout)</code>: 與 CNN 中的池化層類似，GNN 的池化用於<code>減少維度並聚合節點信息</code>。池化可以應用於子圖內的節點，也可以應用於整個圖，用於生成圖級輸出。</li>
+<li><code>正規化(Normalization)</code>: 由於節點的度數（連接數）可能不同，對聚合的消息進行<code>正規化</code>有助於防止模型過度依賴於高連接節點，並保證信息流的平衡。</li>
+</ol>
+<h4 id="gnn-在分子建模與藥物發現中的優勢">GNN 在分子建模與藥物發現中的優勢</h4>
+<p>GNN 的結構化消息傳遞使其能夠有效地從複雜的關係中學習，這在分子和生物應用中尤為重要。主要優勢包括：</p>
+<ol>
+<li>靈活處理複雜結構: GNN 能夠處理分子圖的不規則和非歐幾里得結構，其中原子和鍵並不遵循網格狀結構。</li>
+<li>高效利用結構信息: 通過嵌入和消息傳遞，GNN 能夠內在地尊重分子內的空間和化學關係。</li>
+<li>可擴展性: GNN 通過基於鄰域的聚合機制，可以有效處理大型圖形數據，例如虛擬篩選中的分子庫。</li>
+</ol>
+<hr>
+<h2 id="結語">結語</h2>
+<p>使用 GNN 的輸出需要考慮很多的因素，包括任務的性質、數據的結構，以及圖的大小和多樣性。在這個過程中，從聚合技術到模型類型的每一個選擇，都會影響 GNN 對於進行準確且具普遍性預測的能力。</p>
+<p>通過調整這些步驟，並為每種類型的預測選擇合適的方法，GNN 能夠成為處理複雜數據集的強大工具，特別是在藥物發現、分子建模、社交網絡分析等領域中發揮重要作用。</p>
     </div>
 
     
@@ -1394,7 +1466,7 @@ GNN 最終輸出的應用
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fcompbio_gnn%2F&amp;text=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fcompbio_gnn%2F&amp;text=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%88%86%E5%AD%90%E8%A1%A8%E7%A4%BA%E6%B3%95%E8%88%87%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -1411,7 +1483,7 @@ GNN 最終輸出的應用
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fcompbio_gnn%2F&amp;t=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fcompbio_gnn%2F&amp;t=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%88%86%E5%AD%90%E8%A1%A8%E7%A4%BA%E6%B3%95%E8%88%87%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -1430,7 +1502,7 @@ GNN 最終輸出的應用
         
       
       <li>
-        <a href="mailto:?subject=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2&amp;body=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fcompbio_gnn%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%88%86%E5%AD%90%E8%A1%A8%E7%A4%BA%E6%B3%95%E8%88%87%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fcompbio_gnn%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -1447,7 +1519,7 @@ GNN 最終輸出的應用
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fcompbio_gnn%2F&amp;title=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fcompbio_gnn%2F&amp;title=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%88%86%E5%AD%90%E8%A1%A8%E7%A4%BA%E6%B3%95%E8%88%87%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -1464,7 +1536,7 @@ GNN 最終輸出的應用
       
       
       <li>
-        <a href="whatsapp://send?text=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2%20http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fcompbio_gnn%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+        <a href="whatsapp://send?text=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%88%86%E5%AD%90%E8%A1%A8%E7%A4%BA%E6%B3%95%E8%88%87%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%20http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fcompbio_gnn%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1481,7 +1553,7 @@ GNN 最終輸出的應用
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A49383%2Fpost%2Fcompbio_gnn%2F&amp;title=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF%E8%88%87%E5%88%86%E5%AD%90%E5%9C%96%E5%BD%A2" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fcompbio_gnn%2F&amp;title=%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8%E8%81%8A%E8%81%8A%EF%BC%9A%E5%88%86%E5%AD%90%E8%A1%A8%E7%A4%BA%E6%B3%95%E8%88%87%E5%9C%96%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -1702,7 +1774,7 @@ GNN 最終輸出的應用
 
   
   <p class="powered-by copyright-license-text">
-    © 2024. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+    © 2025. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
   </p>
   
 

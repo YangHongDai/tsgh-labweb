@@ -5,12 +5,622 @@
     <link>http://localhost:1313/category/%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8/</link>
       <atom:link href="http://localhost:1313/category/%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
     <description>計算生物學</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>計算生物學</title>
       <link>http://localhost:1313/category/%E8%A8%88%E7%AE%97%E7%94%9F%E7%89%A9%E5%AD%B8/</link>
     </image>
+    
+    <item>
+      <title>計算生物學聊聊：圖神經網路與分子圖形</title>
+      <link>http://localhost:1313/post/compbio_gnn/</link>
+      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/compbio_gnn/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;分子表示法（molecular representation）在計算化學中扮演重要的角色，它使化學家和數據科學家能夠將複雜的化學結構轉換成機器可理解的形式，用於數據存儲和計算分析。這些表示法在格式、易用性和應用場景上存在顯著的差異，每種表示法在特定類型的分析中具有其獨特的優勢和局限性，透過建構圖神經網路（Graph neural network）來預測分子的特性，這些表示法的差異會更為顯著。&lt;/p&gt;
+&lt;p&gt;本篇筆記出自於美國麻省理工學院的計算生物學課程MLCB24。課程影片請看&lt;a href=&#34;https://www.youtube.com/watch?v=6gkIjo4Jb4E&amp;amp;t=220s&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;這裡&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;常見的分子表示法&#34;&gt;常見的分子表示法&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;SMILES (簡化分子輸入線性表示系統)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SMARTS（SMILES 任意目標規範）&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;InChI（國際化學標識符）&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Molecular graph (分子圖)&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;接下來會根據每一種表示法做介紹：&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;smiles&#34;&gt;SMILES&lt;/h2&gt;
+&lt;p&gt;SMILES（Simplified Molecular Input Line Entry System）是一種基於&lt;code&gt;字串&lt;/code&gt;的分子表示法，最初由美國環保署（EPA）開發，用於以緊密相連的線性格式捕捉分子的結構。目前為化學資訊學中最廣泛使用的小分子表示法之一。&lt;/p&gt;
+&lt;h4 id=&#34;格式&#34;&gt;格式&lt;/h4&gt;
+&lt;p&gt;例如，乙醇的 SMILES 表示為 &lt;code&gt;CCO&lt;/code&gt;（省略氫原子）。&lt;code&gt;字母&lt;/code&gt;和&lt;code&gt;數字&lt;/code&gt;表示原子與鍵類型（單鍵、雙鍵等），&lt;code&gt;括號&lt;/code&gt;則用來標示&lt;code&gt;分支&lt;/code&gt;結構。&lt;/p&gt;
+&lt;h4 id=&#34;優點&#34;&gt;優點&lt;/h4&gt;
+&lt;p&gt;SMILES 具有高度壓縮性（compact），容易被大多數化學資訊軟體讀取，適合用於資料庫存儲。&lt;/p&gt;
+&lt;h4 id=&#34;限制&#34;&gt;限制&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;合成混淆&lt;/code&gt;：SMILES 字串靈活性高，容易生成，但這種靈活性導致許多語法有效的 SMILES 字串可能無法解碼成實際分子。
+&lt;code&gt;立體化學&lt;/code&gt;：雖然 SMILES 可以包含立體化學資訊，但通常在實務上會被省略，當分子功能取決於立體資訊時，會導致問題產生。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;smartssmiles-任意目標規範&#34;&gt;SMARTS（SMILES 任意目標規範）&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SMARTS&lt;/code&gt; 是根據 SMILES 來擴展的表示法，允許在 SMILES 字串中進行&lt;code&gt;模式匹配&lt;/code&gt;來識別特定的分子子結構。&lt;/p&gt;
+&lt;h4 id=&#34;應用&#34;&gt;應用&lt;/h4&gt;
+&lt;p&gt;SMARTS 對於化學資訊學中的&lt;code&gt;子結構搜索&lt;/code&gt;特別有用，例如識別&lt;code&gt;芳香環&lt;/code&gt;或其他分子&lt;code&gt;功能基團&lt;/code&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;格式-1&#34;&gt;格式&lt;/h4&gt;
+&lt;p&gt;例如，芳香環可以用&lt;code&gt;c1cccccc1&lt;/code&gt;來表示。&lt;/p&gt;
+&lt;h4 id=&#34;限制-1&#34;&gt;限制&lt;/h4&gt;
+&lt;p&gt;儘管 SMARTS 在子結構搜索中功能強大，但比 SMILES 更&lt;code&gt;複雜&lt;/code&gt;，需要對&lt;code&gt;化學模式&lt;/code&gt;有更深入的理解才能有效使用。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;selfies自引用嵌入字串&#34;&gt;SELFIES（自引用嵌入字串）&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SELFIES&lt;/code&gt; 是一種較新的表示法，主要在克服 SMILES 的一些限制。它更像是一種&lt;code&gt;分子編程語言&lt;/code&gt;，允許完整解構字串，&lt;code&gt;系統化生成分子&lt;/code&gt;，&lt;/p&gt;
+&lt;h4 id=&#34;關鍵優勢&#34;&gt;關鍵優勢&lt;/h4&gt;
+&lt;p&gt;可以很好的耐受錯誤，所有的SELFIES字串都可以解構成某特定分子，不會導致訊息的喪失，有利於機器學習。&lt;/p&gt;
+&lt;h4 id=&#34;格式-2&#34;&gt;格式&lt;/h4&gt;
+&lt;p&gt;例如，苯環可以表示成：&lt;code&gt;C1=CC=CC=C1&lt;/code&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;限制-2&#34;&gt;限制&lt;/h4&gt;
+&lt;p&gt;SELFIES 雖然創新，但&lt;code&gt;較難閱讀&lt;/code&gt;，且需進一步改進以確保化學空間中的採樣沒有偏誤。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;inchi國際化學標識符&#34;&gt;InChI（國際化學標識符）&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;InChI&lt;/code&gt; 是一種IUPAC開發的標準化分子表示法，保證每個分子與其 InChI 字串一一對應。包含多層的分子特徵，如連結性、價電子、空間化學與異構物等。&lt;/p&gt;
+&lt;h4 id=&#34;應用-1&#34;&gt;應用&lt;/h4&gt;
+&lt;p&gt;InChI 在&lt;code&gt;資料庫搜索&lt;/code&gt;和&lt;code&gt;比較&lt;/code&gt;中特別有價值，因為它允許直接進行&lt;code&gt;分子比較&lt;/code&gt;，避免了因不同 SMILES 表示法導致的&lt;code&gt;多餘訊息&lt;/code&gt;。因為SMILE並沒有賦予分子獨特性，因此需要電腦解讀，增加計算負擔。&lt;/p&gt;
+&lt;h4 id=&#34;關鍵優勢-1&#34;&gt;關鍵優勢&lt;/h4&gt;
+&lt;p&gt;標準化的表示法，每一個表示法都對應到單一獨特的分子式。&lt;/p&gt;
+&lt;h4 id=&#34;格式-3&#34;&gt;格式&lt;/h4&gt;
+&lt;p&gt;例如，乙醇可以表示成：&lt;code&gt;1S/C2H6)/c1-2-3/h3H,2H2,1H3&lt;/code&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;限制-3&#34;&gt;限制&lt;/h4&gt;
+&lt;p&gt;InChI 的&lt;code&gt;複雜性&lt;/code&gt;使其難以閱讀和解釋。由於簡潔性，許多人&lt;code&gt;更偏好用 SMILES 進行可視化&lt;/code&gt;。目前有方法將SMILES表達法InChI化，藉此增加InChI的可讀性。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;分子圖&#34;&gt;分子圖&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;分子圖&lt;/code&gt;是一種基於&lt;code&gt;圖形&lt;/code&gt;的分子表示法，其中原子是頂點，鍵是邊。這種表示法捕捉了分子的所有信息，包括原子類型、鍵類型，甚至是立體化學。&lt;/p&gt;
+&lt;h4 id=&#34;優點-1&#34;&gt;優點&lt;/h4&gt;
+&lt;p&gt;分子圖全面地提供分子結構的完整描述，較為&lt;code&gt;直覺&lt;/code&gt;，尤其適用於基於圖的機器學習中的計算分析。&lt;/p&gt;
+&lt;h4 id=&#34;限制-4&#34;&gt;限制&lt;/h4&gt;
+&lt;p&gt;與基於字串的格式不同，分子圖不如 SMILES 那麼&lt;code&gt;緊密&lt;/code&gt;，也不適合快速搜索資料庫。分子圖更適合用於計算應用和視覺化，而非數據儲存。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;分子表示法比較&#34;&gt;分子表示法比較&lt;/h2&gt;
+&lt;p&gt;圖一顯示不同分子表示法的總結。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖一-分子表示法比較&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig1&#34; srcset=&#34;
+               /post/compbio_gnn/fig1_hu3479184427380367237.webp 400w,
+               /post/compbio_gnn/fig1_hu2261907717937882707.webp 760w,
+               /post/compbio_gnn/fig1_hu11170528079376645331.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig1_hu3479184427380367237.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;540&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖一 分子表示法比較
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;smiles-表示法&#34;&gt;SMILES 表示法&lt;/h2&gt;
+&lt;h4 id=&#34;原子與鍵&#34;&gt;原子與鍵&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;一般原子&lt;/code&gt;：在 SMILES 字串中，每個原子由其化學符號表示。大多數原子使用單個&lt;code&gt;大寫字母&lt;/code&gt;表示（例如，C 表示碳，O 表示氧）。一些原子需要兩個字母的組合（如 &lt;code&gt;Na 表示鈉，Cl 表示氯&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;芳香原子&lt;/code&gt;：在 SMILES 中，&lt;code&gt;小寫字母&lt;/code&gt;表示芳香化合物中的原子。例如，小寫的 c 表示&lt;code&gt;芳香碳&lt;/code&gt;，常見於&lt;code&gt;苯環&lt;/code&gt;中。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;鍵&lt;/code&gt;：&lt;code&gt;單鍵&lt;/code&gt;通常為簡化&lt;code&gt;省略&lt;/code&gt;，但也可使用單個破折號 &lt;code&gt;-&lt;/code&gt; 明確表示。&lt;code&gt;雙鍵&lt;/code&gt;用等號 &lt;code&gt;=&lt;/code&gt; 表示，&lt;code&gt;三鍵&lt;/code&gt;用井號 &lt;code&gt;#&lt;/code&gt; 表示。芳香鍵通常省略，因為小寫原子符號已隱含芳香性。分子組件的分離：句點 &lt;code&gt;.&lt;/code&gt; 用於表示分子中&lt;code&gt;不連接&lt;/code&gt;的部分，例如鹽或離子對。例：&lt;code&gt;Na.Cl 表示氯化鈉&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;鏈與分支&#34;&gt;鏈與分支&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;線性鏈&lt;/code&gt;：簡單的原子鏈以&lt;code&gt;直線順序&lt;/code&gt;表示。例如，乙醇的 SMILES 表示為 CCO，表示碳-碳-氧鏈。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;分支&lt;/code&gt;：SMILES 使用&lt;code&gt;括號&lt;/code&gt;表示從主鏈分支的結構。主鏈從括號前的原子開始繼續。例如，&lt;code&gt;異丙醇 (2-propanol or isopropanol)&lt;/code&gt;的 SMILES 表示為 &lt;code&gt;CC(O)C&lt;/code&gt;，其中 &lt;code&gt;(O)&lt;/code&gt; 表示&lt;code&gt;OH-&lt;/code&gt;分支。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其他例子：&lt;/p&gt;
+&lt;p&gt;CC(=O)C: 2-Propanone&lt;/p&gt;
+&lt;p&gt;CC(CC)C: 2_Methylbutane&lt;/p&gt;
+&lt;p&gt;CC(C)CC(=O): 2-Methylbutanal&lt;/p&gt;
+&lt;p&gt;c1c(N)(=O)=O)cccc1: Nitrobenzene&lt;/p&gt;
+&lt;p&gt;CC(C)(C)CC: 2,2-Dimethylbutane&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;環與環狀結構&#34;&gt;環與環狀結構&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;環閉合&lt;/code&gt;：SMILES 使用&lt;code&gt;數字&lt;/code&gt;標記環閉合。例如，&lt;code&gt;苯&lt;/code&gt;的表示為 &lt;code&gt;c1ccccc1&lt;/code&gt;，其中 &lt;code&gt;1&lt;/code&gt; 表示&lt;code&gt;第一和最後&lt;/code&gt;的碳原子相連以完成環。相同的數字表示開環與閉環的原子位置。鍵的類型著記在原子之後，但在數字之前。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;多重環&lt;/code&gt;：對於更複雜的環系統，使用額外的數字來表示分子內的每個環。例如，&lt;code&gt;萘&lt;/code&gt;的 SMILES 表示為 c1ccc2ccccc2c1，其中 1 和 2 標記了兩個融合的環 (圖二)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖二-萘-naphthalene的smiles表示法&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig2&#34; srcset=&#34;
+               /post/compbio_gnn/fig2_hu10946339939307287139.webp 400w,
+               /post/compbio_gnn/fig2_hu13962839815580817115.webp 760w,
+               /post/compbio_gnn/fig2_hu7996518131002891555.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig2_hu10946339939307287139.webp&#34;
+               width=&#34;292&#34;
+               height=&#34;204&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖二 萘 (Naphthalene)的SMILES表示法
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;電荷&#34;&gt;電荷&lt;/h4&gt;
+&lt;p&gt;電荷表示：SMILES 使用卷曲括號 &lt;code&gt;{}&lt;/code&gt; 和加號 &lt;code&gt;+&lt;/code&gt; 或減號 &lt;code&gt;-&lt;/code&gt; 表示原子的電荷。&lt;/p&gt;
+&lt;h4 id=&#34;模稜兩可的名稱&#34;&gt;模稜兩可的名稱&lt;/h4&gt;
+&lt;p&gt;若是比較容易讓人誤解的標示方法，用大括號 &lt;code&gt;[]&lt;/code&gt; 來區分，如Sc沒有框起來的話表示Sulfur與aromatic carbon，而[Sc]則表示Scandium。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;morgan-指紋機器學習中的分子結構編碼&#34;&gt;Morgan 指紋：機器學習中的分子結構編碼&lt;/h2&gt;
+&lt;p&gt;Morgan 指紋（也稱為&lt;code&gt;環狀指紋&lt;/code&gt;）是一種強大的工具，可將分子結構轉換為&lt;code&gt;固定長度的二進制向量&lt;/code&gt;，使其非常適合於機器學習應用。與需要詳細結構數據的完整分子圖不同，Morgan 指紋提供了一種&lt;code&gt;計算效率更高&lt;/code&gt;的表示方式，捕捉每個原子周圍的結構特徵並以易於輸入機器學習模型的格式儲存。&lt;/p&gt;
+&lt;h4 id=&#34;morgan-指紋的目的&#34;&gt;Morgan 指紋的目的&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;定量結構-活性關係（QSAR）建模&lt;/code&gt;：例如，預測分子的疏水性、溶解度或潛在生物活性。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;高通量篩選&lt;/code&gt;：在藥物發現中，用於快速篩選分子。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;主要優勢&#34;&gt;主要優勢&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;固定長度表示&lt;/code&gt;：每個分子無論大小都表示為特定長度的向量，與許多機器學習模型直接兼容。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;結構資訊封裝&lt;/code&gt;：通過編碼以原子為中心的子結構（達到&lt;code&gt;指定半徑&lt;/code&gt;），捕捉&lt;code&gt;局部化學環境&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;計算效率&lt;/code&gt;：這種表示方式&lt;code&gt;比生成完整分子圖更快&lt;/code&gt;，並且生成的指紋可快速用於機器學習。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;morgan-如何運作&#34;&gt;Morgan 如何運作？&lt;/h4&gt;
+&lt;p&gt;生成 Morgan 指紋涉及一系列步驟，這些步驟專注於分子中的每個原子，並檢查其在指定半徑內的&lt;code&gt;局部結構&lt;/code&gt; (圖三)。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;以原子為中心的編碼&lt;/code&gt;： 每個&lt;code&gt;原子&lt;/code&gt;作為&lt;code&gt;中心點&lt;/code&gt;，檢查其周圍的子結構。這些子結構的細節取決於設定的&lt;code&gt;半徑&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;定義半徑：&lt;/p&gt;
+&lt;p&gt;半徑 0：僅編碼原子本身。&lt;/p&gt;
+&lt;p&gt;半徑 1：編碼原子及其鄰近原子。&lt;/p&gt;
+&lt;p&gt;半徑 2：編碼原子、其鄰近原子及這些鄰近原子的鄰居。&lt;/p&gt;
+&lt;p&gt;通常，使用半徑 2 即可捕捉足夠的細節，而不會導致向量過於龐大。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;將子結構映射到比特 (bit) 位置&lt;/code&gt;：每個環狀子結構都被編碼為一個&lt;code&gt;二進制向量（bit string）&lt;/code&gt;，其中特定特徵（例如原子、鍵、環）的存在記錄為&lt;code&gt;1&lt;/code&gt;，缺失記錄為&lt;code&gt;0&lt;/code&gt;。半徑決定了圍繞中心原子的原子層數（例如，半徑為2時包括距離中心原子兩鍵以內的原子和鍵）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;子結構碰撞&lt;/code&gt;：子結構被哈希(hash)轉換為固定長度的指紋（例如1024位），這可能導致哈希碰撞，即多個子結構可能映射到相同的位。可以考慮增加長度來解決。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖三-morgan-fingerprinthttpstowardsdatasciencecoma-practical-introduction-to-the-use-of-molecular-fingerprints-in-drug-discovery-7f15021be2b1&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig3&#34; srcset=&#34;
+               /post/compbio_gnn/fig3_hu1804110335273990854.webp 400w,
+               /post/compbio_gnn/fig3_hu17041954323525736801.webp 760w,
+               /post/compbio_gnn/fig3_hu9009013187830519231.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig3_hu1804110335273990854.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;171&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      &lt;a href=&#34;https://towardsdatascience.com/a-practical-introduction-to-the-use-of-molecular-fingerprints-in-drug-discovery-7f15021be2b1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;圖三 Morgan fingerprint&lt;/a&gt;
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;morgan-指紋生成範例&#34;&gt;Morgan 指紋生成範例&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;第一步：從分子內的某原子開始。&lt;/li&gt;
+&lt;li&gt;第二步：根據特定的半徑來建構子結構。&lt;/li&gt;
+&lt;li&gt;第三步：使用Hash table來將子結構轉換成獨特的比特編號。&lt;/li&gt;
+&lt;li&gt;第四步：針對每一個原子完成以上步驟，產生一個二元分子指紋，表示整個分子。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;以乙醇cco為例&#34;&gt;以乙醇（CCO）為例&lt;/h4&gt;
+&lt;p&gt;每個碳和氧原子作為中心點，評估其半徑 2 內的子結構。&lt;/p&gt;
+&lt;p&gt;這將產生以下信息：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;原子 1：第一個碳及其鄰居（第二個碳和氧）。&lt;/li&gt;
+&lt;li&gt;原子 2：第二個碳及其鄰居（第一個碳和氧）。&lt;/li&gt;
+&lt;li&gt;原子 3：氧及其鄰近的碳。
+每個原子和子結構會映射到指紋中，形成唯一表示乙醇結構的比特向量。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;morgan-指紋的優點&#34;&gt;Morgan 指紋的優點&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;對結構改變非常敏感，結構的些微修飾都可以被捕捉。&lt;/li&gt;
+&lt;li&gt;效率高。&lt;/li&gt;
+&lt;li&gt;廣泛使用於常見化學資訊學的工具中，如&lt;code&gt;RDKit&lt;/code&gt;，也常用在視覺篩選與相似性搜索中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;半徑與比特向量長度的平衡&#34;&gt;半徑與比特向量長度的平衡&lt;/h4&gt;
+&lt;p&gt;半徑增加的影響：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;半徑越大，捕捉的子結構越詳細，但需要更大的向量以避免碰撞。&lt;/li&gt;
+&lt;li&gt;半徑 2 提供了適度的細節，廣泛用於化學資訊學。&lt;/li&gt;
+&lt;li&gt;半徑 3 或更大通常僅在需要非常細粒度結構細節時使用，但會顯著增加計算需求和複雜性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;向量長度&#34;&gt;向量長度&lt;/h4&gt;
+&lt;p&gt;常用長度為 1024 或 2048 比特。更大的向量幫助減少哈希碰撞，但在數據集較小時可能導致稀疏性問題。&lt;/p&gt;
+&lt;h4 id=&#34;在機器學習中的解釋與應用&#34;&gt;在機器學習中的解釋與應用&lt;/h4&gt;
+&lt;p&gt;Morgan 指紋將複雜的分子結構轉換為向量空間表示，其中具有相似拓撲特徵的分子具有相似的指紋。結果向量可用於以下機器學習模型：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;隨機森林&lt;/code&gt;：適合特徵豐富的數據集，向量直接表示分子特徵。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;多層感知機（MLP）&lt;/code&gt;：能有效處理 Morgan 指紋，學習數據中的非線性模式。&lt;/li&gt;
+&lt;li&gt;其他演算法：包括支持向量機（SVM）和邏輯回歸在內的任何處理二進制或數值向量的演算法均可使用 Morgan 指紋。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;限制與考量&#34;&gt;限制與考量&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;不可逆&lt;/code&gt;：指紋無法反向解碼為原始分子。&lt;/li&gt;
+&lt;li&gt;碰撞問題：不同的分子結構可能映射到相同的比特位置，尤其是在&lt;code&gt;較小的比特向量&lt;/code&gt;或&lt;code&gt;大分子&lt;/code&gt;時。&lt;/li&gt;
+&lt;li&gt;不適用於大生物分子：對於&lt;code&gt;非常大的生物分子（如蛋白質）&lt;/code&gt;，Morgan 指紋可能不適用，因為結構的複雜性超出了其表達能力。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;分子圖化學結構的進階表示&#34;&gt;分子圖：化學結構的進階表示&lt;/h2&gt;
+&lt;p&gt;分子圖是一種靈活且精細的方式，能夠以數學形式表示分子，特別是在指紋&lt;code&gt;無法捕捉足夠結構細節&lt;/code&gt;時尤其有用。與比特向量指紋不同，分子圖提供了分子結構的&lt;code&gt;直接映射&lt;/code&gt;，將每個原子作為&lt;code&gt;節點 (node)&lt;/code&gt;，每條鍵作為&lt;code&gt;邊 (edge)&lt;/code&gt;。這種基於結構的表示允許更高的&lt;code&gt;特異性&lt;/code&gt;和數據的豐富性，使其成為&lt;code&gt;圖神經網絡（Graph Neural Networks, GNNs）&lt;/code&gt;的最佳輸入，尤其適用於需要深入探索原子間的關係時，例如定量QSAR和藥物設計。&lt;/p&gt;
+&lt;h4 id=&#34;分子圖的結構&#34;&gt;分子圖的結構&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;節點與邊&lt;/code&gt;：在分子圖中，每個&lt;code&gt;節點表示一個原子&lt;/code&gt;，每條&lt;code&gt;邊表示一條化學鍵&lt;/code&gt;。這種結構捕捉了分子內的原子類型及鍵類型（單鍵、雙鍵、三鍵或芳香鍵），能夠詳細描述化學關係。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;節點標籤&lt;/code&gt;：每個節點可以攜帶標籤或類型（例如，碳用 C 表示，氮用 N 表示），以區分不同的原子類型。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;邊標籤&lt;/code&gt;：邊可以標示鍵的類型（如單鍵、雙鍵、三鍵等）。這在分子圖中尤為重要，因為鍵類型對分子的化學行為和特性有著重要影響。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;圖的種類&#34;&gt;圖的種類&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;方向性&lt;/code&gt;：在大多數情況下，分子圖是&lt;code&gt;無向 (undirected)&lt;/code&gt;的，因為&lt;code&gt;化學鍵通常沒有方向性&lt;/code&gt;。但在某些情境下，如&lt;code&gt;化學反應&lt;/code&gt;網絡中，可以使用&lt;code&gt;有向圖 (directed)&lt;/code&gt;來表示從反應物到產物的轉化流程。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;圖標籤&lt;/code&gt;：原子和鍵都被標示，說明原子和鍵的類型，在對於需要化學分子細節的探討中很重要。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;加權圖&lt;/code&gt;：雖然在基本分子圖中不常使用，但可以引入&lt;code&gt;加權邊&lt;/code&gt;以指示&lt;code&gt;鍵強度&lt;/code&gt;、相互作用強度或其他結構行為的&lt;code&gt;先驗知識&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;對稱性&lt;/code&gt;：對於無向圖，鄰接矩陣是對稱的；對於有向圖，則是非對稱的，反映每條邊的方向性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;分子圖的表示方法&#34;&gt;分子圖的表示方法&lt;/h4&gt;
+&lt;h4 id=&#34;鄰接矩陣-adjacency-matrix&#34;&gt;鄰接矩陣 (Adjacency Matrix)：&lt;/h4&gt;
+&lt;p&gt;鄰接矩陣提供了一種表格式的圖表示，其中每個單元格表示原子之間&lt;code&gt;是否存在鍵（或鍵的類型）&lt;/code&gt;。例如，若原子
+(i,j) 的值為 1（或表示鍵類型的整數）；否則為 0。&lt;/p&gt;
+&lt;h4 id=&#34;鄰接列表-adjacency-list&#34;&gt;鄰接列表 （Adjacency List）&lt;/h4&gt;
+&lt;p&gt;在處理大型圖（如社交網絡或大規模數據集）時比矩陣更高效。每個原子只保存與其直接相連的原子清單，大大減少稀疏網絡中的存儲需求。&lt;/p&gt;
+&lt;h4 id=&#34;稀疏矩陣表示&#34;&gt;稀疏矩陣表示：&lt;/h4&gt;
+&lt;p&gt;另一種選擇是使用稀疏矩陣，只存儲非零值（即存在鍵的原子對），進一步降低內存使用量。&lt;/p&gt;
+&lt;h4 id=&#34;圖的可視化&#34;&gt;圖的可視化：&lt;/h4&gt;
+&lt;p&gt;分子圖也可以被可視化，提供直觀的方式來檢查分子結構、理解其複雜性並排查表示中的問題。&lt;/p&gt;
+&lt;h4 id=&#34;分子圖的應用與優勢&#34;&gt;分子圖的應用與優勢&lt;/h4&gt;
+&lt;h4 id=&#34;完整的結構編碼分子圖保留了分子的完整拓撲結構允許對其特性和相互作用進行更深入的檢查&#34;&gt;完整的結構編碼：分子圖保留了分子的完整拓撲結構，允許對其特性和相互作用進行更深入的檢查。&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;與圖神經網絡（GNNs）的兼容性：分子圖可以與 GNNs 無縫集成，後者專門設計用於處理圖結構數據。&lt;/li&gt;
+&lt;li&gt;強化的預測模型：基於分子圖構建的 GNN 模型能夠更準確地預測分子的各種特性，如生物活性、毒性、溶解度和結合親和力。&lt;/li&gt;
+&lt;li&gt;消息傳遞：在 GNN 中，每個節點通過一種稱為消息傳遞的迭代過程與其鄰居進行通信。這允許每個節點聚合鄰近節點的信息，有效地捕捉其分子環境的影響。&lt;/li&gt;
+&lt;li&gt;分層結構：與傳統神經網絡類似，GNN 有多層結構，每層允許圖捕捉分子中越來越遠的關係。&lt;/li&gt;
+&lt;li&gt;可定制性：GNN 可以納入方向性和邊權重的設計，特別適合於處理具有專門相互作用的分子結構。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;其他圖應用&#34;&gt;其他圖應用&lt;/h3&gt;
+&lt;p&gt;雖然分子圖是化學中的自然選擇，但其原則和技術可廣泛應用於其他與圖相關的領域，例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;社交網絡：節點表示個體，邊表示聯繫（通常是有向的）。&lt;/li&gt;
+&lt;li&gt;通訊網絡：路由信息，其中節點表示服務器或路由器，邊表示數據流路徑。&lt;/li&gt;
+&lt;li&gt;生物網絡：基因與蛋白質的交互網絡，節點表示基因或蛋白質，邊表示相互作用或調控關係。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;運用分子圖於藥物開發領域&#34;&gt;運用分子圖於藥物開發領域&lt;/h2&gt;
+&lt;p&gt;分子圖在藥物發現和開發的各個階段都不可或缺，能夠精準捕捉並操作分子的完整結構。以下是分子圖如何顯著提升藥物開發流程的幾種方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;化學相似性搜索 （Chemical similarity searching）&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;當一種化合物顯示出與特定靶點的良好結合親和力時，研究人員通常會尋找與之結構相似的化合物，因為它們可能具有類似的活性。通過分子圖，我們可以編碼已知化合物的結構特徵，並在包含數百萬化合物的大型化學庫中搜索類似結構。&lt;/li&gt;
+&lt;li&gt;研究人員可以優先選擇較小且更具針對性的分子集進行初步測試，從而減少大規模篩選的成本和資源使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;定量結構-活性關係（QSAR）建模&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;QSAR 模型使用分子圖來預測各種生物化學和藥代動力學特性。例如，可以基於分子結構預測以下屬性：&lt;/li&gt;
+&lt;li&gt;溶解度&lt;/li&gt;
+&lt;li&gt;血腦屏障的滲透性&lt;/li&gt;
+&lt;li&gt;ADME（吸收、分布、代謝、排泄）&lt;/li&gt;
+&lt;li&gt;毒性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;基於結構的藥物設計&lt;/code&gt;
+分子圖允許進行基於結構的藥物設計，通過表現完整的分子結構，支持更準確的分子-靶標作用模擬與預測。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;研究人員可以利用基於分子圖的表示法來模擬&lt;code&gt;結合能量&lt;/code&gt;及&lt;code&gt;交互動態&lt;/code&gt;，設計專門與目標結合的化合物。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;卷積神經網絡-cnns&#34;&gt;卷積神經網絡 (CNNs)&lt;/h2&gt;
+&lt;p&gt;為更直觀地理解GNNs，可以先考慮CNNs的結構與功能。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;CNN 處理 2D 網格數據&lt;/code&gt;: 以像素為單位：CNN 將每個像素視為一個單位，並與相鄰像素進行連接（垂直或水平），從而學習局部模式（如邊緣、梯度和紋理）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;層級學習&lt;/code&gt;：隨著網絡層數的增加，CNN 將這些&lt;code&gt;初級&lt;/code&gt;特徵&lt;code&gt;聚合為更高級模式&lt;/code&gt;，最終能夠識別複雜對象（例如貓、狗或汽車）。&lt;/li&gt;
+&lt;li&gt;從 CNN 到&lt;code&gt;幾何深度學習（GDL）的過渡&lt;/code&gt;: 將 CNN 在結構化數據（如影像）上的成功&lt;code&gt;推廣到非結構化&lt;/code&gt;、&lt;code&gt;非歐幾里得數據&lt;/code&gt;，如&lt;code&gt;圖&lt;/code&gt;和&lt;code&gt;流形&lt;/code&gt; (graphs, meshes and point clouds)。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而圖與網格或矩陣不同，因其&lt;code&gt;缺乏固定的節點排列&lt;/code&gt;且&lt;code&gt;連接多樣化&lt;/code&gt;，因此需要專門的神經網絡架構，因此才有圖神經網路的角色出現。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;invariance-與-equivariance&#34;&gt;Invariance 與 Equivariance&lt;/h2&gt;
+&lt;p&gt;在深度學習中，Invariance（不變性）與 Equivariance（等變性）是兩個非常重要的概念，特別是在處理結構化數據（例如圖像、序列、圖）時，對模型的性能和泛化能力有著深遠的影響。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Invariance: 不變性指的是模型或函數對某些輸入變換保持輸出不變的特性。如果f(x)是某個模型或函數，針對某個變換T，不變性表示：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+f(T(x))=f(x)
+$$
+&lt;/div&gt;
+&lt;p&gt;如圖四，貓的圖片在轉換之後，模型仍然能偵測為貓。或是一個模型在預測分子溶解度時應該對分子的&lt;code&gt;旋轉&lt;/code&gt;或&lt;code&gt;平移&lt;/code&gt;保持不變，因為這些變換&lt;code&gt;不影響分子的溶解性&lt;/code&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Equivariance: 等變性指的是模型或函數對某些輸入變換的輸出也發生相應的變換。如果f(x)是某個模型或函數，針對某個變換T，等變性表示：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+f(T(x))=T(f(x))
+$$
+&lt;/div&gt;
+&lt;p&gt;換句話說，輸入經過某種變化後，輸出的結果應該跟著同步變化。例如，分子動力學模擬中，對參考框架的旋轉應該導致原子位置與動量的相應旋轉。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖四&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig4&#34; srcset=&#34;
+               /post/compbio_gnn/fig4_hu11891778795753320154.webp 400w,
+               /post/compbio_gnn/fig4_hu2327891892416369507.webp 760w,
+               /post/compbio_gnn/fig4_hu5704989358987084869.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig4_hu11891778795753320154.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;329&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖四
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;圖神經網路&#34;&gt;圖神經網路&lt;/h2&gt;
+&lt;p&gt;圖神經網絡是一類專為處理圖結構數據而設計的深度學習模型。與傳統神經網絡處理網格數據（如圖像或時間序列）不同，GNNs 專注於以節點（例如原子）和邊（例如化學鍵）表示的圖結構數據，這使其在分子圖、社交網絡和知識圖譜等複雜結構中應用廣泛。GNNs 的目標是捕捉圖中的關係與依賴性，預測與節點、邊甚至整個圖相關的特性或行為。&lt;/p&gt;
+&lt;h4 id=&#34;關鍵概念&#34;&gt;關鍵概念&lt;/h4&gt;
+&lt;p&gt;圖神經網路可以學習如何表達以圖為結構的數據，並且可以利用節點和邊的關係來做預測。&lt;/p&gt;
+&lt;h4 id=&#34;gnn-的關鍵應用&#34;&gt;GNN 的關鍵應用&lt;/h4&gt;
+&lt;p&gt;廣泛使用於&lt;code&gt;化學資訊學&lt;/code&gt;、生物資訊學與&lt;code&gt;社群網路&lt;/code&gt;分析。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;節點級預測&lt;/code&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;應用：例如預測某特定節點（如分子中的原子）是否會參與活性位點的結合或參與化學反應。&lt;/li&gt;
+&lt;li&gt;實例：在蛋白質-小分子交互研究中，GNN 可預測分子中的&lt;code&gt;哪個原子參與結合位點&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;邊級（鏈路）預測&lt;/code&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;應用：判斷節點間邊的存在性或強度（例如化學鍵的形成可能性）。&lt;/li&gt;
+&lt;li&gt;實例：基因組學中，預測可能與疾病相關的基因之間的潛在關聯。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;圖級預測&lt;/code&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;應用：為整個圖進行分類或性質預測，例如預測&lt;code&gt;分子的毒性&lt;/code&gt;或是&lt;code&gt;否能穿越血腦屏障&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;實例：在藥物篩選中，基於&lt;code&gt;整個分子結構&lt;/code&gt;預測其生物活性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;gnn-的一般工作流程&#34;&gt;GNN 的一般工作流程&lt;/h4&gt;
+&lt;p&gt;GNN 的工作流程通常包括以下幾個階段：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;輸入數據與初始嵌入&lt;/code&gt;: 圖中的每個&lt;code&gt;節點&lt;/code&gt;都有一些初始輸入特徵。例如，在分子應用中，每個節點可能表示一個原子，其特徵可能包括原子序數、電荷狀態等。這些初始特徵被嵌入到一個高維空間中的潛在表示中（latent representation），以捕捉每個節點的初始狀態。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖五-圖神經網路的節點特徵嵌入&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig5&#34; srcset=&#34;
+               /post/compbio_gnn/fig5_hu12922210404889534981.webp 400w,
+               /post/compbio_gnn/fig5_hu9082402036942852217.webp 760w,
+               /post/compbio_gnn/fig5_hu3447441218360307289.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig5_hu12922210404889534981.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;292&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖五 圖神經網路的節點特徵嵌入
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通過 GNN 層進行&lt;code&gt;信息傳遞 (Message Passing)&lt;/code&gt;: 嵌入後，GNN 在多層網絡中進行一系列的消息傳遞（message passing）步驟。這一過程類似於 CNN 中的卷積操作，CNN 是從&lt;code&gt;鄰近像素中聚合信息&lt;/code&gt;，而 GNN 則是從&lt;code&gt;相鄰節點中聚合信息&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;聚合與更新: 在每一層 GNN 中，每個節點都從其鄰居處接收訊息。節點將這些訊息聚合起來，與自身的潛在向量結合後&lt;code&gt;更新其狀態&lt;/code&gt;。這種聚合方法可以是&lt;code&gt;求和（sum&lt;/code&gt;）、&lt;code&gt;均值（mean）&lt;/code&gt;、或&lt;code&gt;最大池化（max pooling&lt;/code&gt;），具體取決於任務需求。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖六-訊息的結合&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig6&#34; srcset=&#34;
+               /post/compbio_gnn/fig6_hu14644748546000289295.webp 400w,
+               /post/compbio_gnn/fig6_hu12299013578289705132.webp 760w,
+               /post/compbio_gnn/fig6_hu17719637959162410375.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig6_hu14644748546000289295.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;246&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖六 訊息的結合
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖七-節點訊息的更新&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig7&#34; srcset=&#34;
+               /post/compbio_gnn/fig7_hu15690456253749884017.webp 400w,
+               /post/compbio_gnn/fig7_hu8201984966484311980.webp 760w,
+               /post/compbio_gnn/fig7_hu296375659254389028.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig7_hu15690456253749884017.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;261&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖七 節點訊息的更新
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;節點的更新公式：&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+\documentclass{article}
+\usepackage{amsmath}
+&lt;p&gt;\begin{document}&lt;/p&gt;
+&lt;p&gt;[
+h_u^{(k)} = \sigma \left( W_{\text{self}}^{(k)} h_u^{(k-1)} + W_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}_u} h_v^{(k-1)} + b^{(k)} \right)
+]&lt;/p&gt;
+&lt;p&gt;\begin{itemize}
+\item $h_u^{(k-1)} \in \mathbb{R}^{d^{(k-1)}}$: Node embeddings
+\item $W_{\text{self}}^{(k)}, W_{\text{neigh}}^{(k)} \in \mathbb{R}^{d^{(k)} \times d^{(k-1)}}$: Learnable parameters
+\item $b^{(k)} \in \mathbb{R}^{d^{(k)}}$: Bias term
+\item $\sigma$: Elementwise non-linearity (e.g., a $\tanh$ or ReLU)
+\end{itemize}&lt;/p&gt;
+&lt;p&gt;\end{document}
+$$&lt;/p&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;多層結構: 信息通過&lt;code&gt;多層傳遞&lt;/code&gt;，每層使節點可以&lt;code&gt;看到&lt;/code&gt;圖中&lt;code&gt;更遠的鄰居&lt;/code&gt;。例如，經過兩層後，每個節點可以融入來自其&lt;code&gt;兩跳&lt;/code&gt;鄰居的信息。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最終狀態與輸出生成: 當圖經過多層 GNN 處理後，節點達到最終狀態，該狀態包含從周圍節點學到的信息。這些最終狀態可以用於生成多種預測：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;節點級任務：使用每個節點的最終狀態進行預測。&lt;/li&gt;
+&lt;li&gt;邊級任務：分析相鄰節點最終狀態之間的關係。&lt;/li&gt;
+&lt;li&gt;圖級任務：將所有節點的最終狀態池化成單一圖表示，用於分類或回歸。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;使用-gnn-進行分子預測的例子&#34;&gt;使用 GNN 進行分子預測的例子&lt;/h2&gt;
+&lt;p&gt;初始設置：
+圖形化表示分子：每個原子是節點，特徵包括原子質量、電負性和雜化。
+每條邊表示鍵，特徵包括鍵類型（單鍵、雙鍵、芳香鍵等）。
+初始嵌入：
+每個節點用一個潛在向量表示其初始特徵。
+信息傳遞：
+在多層 GNN 中，節點之間交換並聚合信息。
+節點的潛在向量在多層信息傳遞過程中迭代更新。
+預測：
+使用節點的最終嵌入向量進行任務，例如預測分子與特定蛋白結合的可能性。
+GNN 的操作類型&lt;/p&gt;
+&lt;p&gt;GNN 層中的操作旨在將卷積操作推廣到圖結構，其中空間結構由節點之間的邊定義，而不是固定的空間坐標。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;圖上的卷積（Convolution on Graphs）
+在 CNN 中，卷積在固定的網格上進行；而在 GNN 中，卷積基於每個節點的鄰域進行。
+這種局部特徵的聚合使得每個節點可以從其鄰居中學習，同時保留圖的固有結構。&lt;/li&gt;
+&lt;li&gt;池化與讀出（Pooling and Readout）
+與 CNN 中的池化層類似，GNN 的池化用於減少維度並聚合節點信息。
+池化可以應用於子圖內的節點，也可以應用於整個圖，用於生成圖級輸出。&lt;/li&gt;
+&lt;li&gt;正規化（Normalization）
+由於節點的度數（連接數）可能不同，對聚合的消息進行正規化有助於防止模型過度依賴於高連接節點，並保證信息流的平衡。
+GNN 在分子建模與藥物發現中的優勢&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;GNN 的結構化消息傳遞使其能夠有效地從複雜的關係中學習，這在分子和生物應用中尤為重要。主要優勢包括：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;靈活處理複雜結構
+GNN 能夠處理分子圖的不規則和非歐幾里得結構，其中原子和鍵並不遵循網格狀結構。&lt;/li&gt;
+&lt;li&gt;高效利用結構信息
+通過嵌入和消息傳遞，GNN 能夠內在地尊重分子內的空間和化學關係。&lt;/li&gt;
+&lt;li&gt;可擴展性
+GNN 通過基於鄰域的聚合機制，可以有效處理大型圖形數據，例如虛擬篩選中的分子庫。
+GNN 的消息傳遞機制（Message Passing）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;消息傳遞是 GNN 的核心操作，使節點能夠從鄰居處接收和聚合信息，形成更豐富的上下文表示。&lt;/p&gt;
+&lt;p&gt;消息傳遞的步驟&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;消息創建（Message Creation）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;對於圖中的每個節點，GNN 從其鄰居創建消息。
+這通常通過將每個鄰居節點的潛在向量（隱藏表示）乘以一個可學習的權重矩陣來完成。
+2. 聚合（Aggregation）&lt;/p&gt;
+&lt;p&gt;聚合將所有鄰居的消息合併成一個向量，表示所有鄰居的綜合影響。
+常用的聚合策略：
+求和（Sum Aggregation）：簡單地將所有消息相加。
+均值（Mean Aggregation）：計算消息的平均值，歸一化連接數。
+最大池化（Max Pooling）：保留所有消息中最重要的元素。
+3. 更新（Update Function）&lt;/p&gt;
+&lt;p&gt;節點將其當前的潛在向量與聚合的消息向量結合，更新自身狀態。
+更新函數通常包括將節點的潛在向量乘以一個可學習的權重矩陣，並與聚合消息結合（例如相加或拼接）。
+4. 多層傳遞&lt;/p&gt;
+&lt;p&gt;經過每層 GNN 後，節點的潛在向量更新，並輸入到下一層。
+每增加一層，節點可以“看到”圖中更遠的節點，最終學習更長距離的依賴關係。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>計算生物學聊聊：藥物開發的現況與挑戰</title>

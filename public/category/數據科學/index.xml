@@ -5,12 +5,85 @@
     <link>http://localhost:1313/category/%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8/</link>
       <atom:link href="http://localhost:1313/category/%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
     <description>數據科學</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 25 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>數據科學</title>
       <link>http://localhost:1313/category/%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8/</link>
     </image>
+    
+    <item>
+      <title>數據科學聊聊：支持向量機（Support vector machine）</title>
+      <link>http://localhost:1313/post/svm/</link>
+      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/svm/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;支持向量機（SVM）是一種強大的監督式學習模型，廣泛應用於分類和回歸分析中。SVM 以其獨特的數學基礎和幾何直觀性，在高維數據空間中具有出色的性能，尤其適合處理少量數據和非線性問題。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;支持向量機的基本原理&#34;&gt;支持向量機的基本原理&lt;/h2&gt;
+&lt;p&gt;SVM 的核心目標是找到一條分隔超平面（hyperplane），以最大化兩類數據點之間的間隔（margin）。以下是其運作的核心步驟：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;分隔超平面
+超平面是一個 d-1 維的空間，分隔 d 維特徵空間中的數據點。對於二分類問題，SVM 旨在找到一個最優超平面，使得兩類數據點之間的邊界最大化。數學表示為：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最大間隔原理
+SVM 以「最大化分類間隔」為優化目標。目標函數為：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;硬邊界（Hard Margin）：數據點完全線性可分的情況，超平面將所有點正確分類。
+軟邊界（Soft Margin）：允許少量錯誤分類的情況，引入松弛變量（slack variable）
+ξ
+ξ，以平衡分類錯誤和間隔最大化。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;核函數（Kernel Function）
+SVM 支持非線性數據的分類，通過核函數將數據從低維空間映射到高維空間，使其在高維空間中線性可分。 常見的核函數包括：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;支持向量機的優缺點&lt;/p&gt;
+&lt;p&gt;優點
+高效處理高維數據
+SVM 在高維空間中表現良好，並能有效處理高維度的特徵。
+核函數允許其在非線性數據中找到最佳的分類邊界。
+數學理論穩健
+以凸優化問題為基礎，保證了全局最優解的存在。
+適合小樣本學習
+SVM 能在小數據集上表現出色，因為它的訓練過程只依賴於支持向量，而非所有數據點。
+良好的泛化能力
+最大間隔原理有效降低了模型的過擬合風險。
+缺點
+對超參數敏感
+核函數的選擇、參數
+γ
+γ 和
+C
+C 的設置對模型性能有顯著影響，調參較為耗時。
+計算成本高
+當數據量較大時，計算支持向量的過程需要大量的內存和時間。
+隨著數據量增大，SVM 的訓練速度可能急劇下降。
+難以解釋
+在高維空間中，分類邊界的可視化和解釋較為困難。
+對噪音敏感
+SVM 在處理存在噪音的數據時，可能表現不佳，尤其是在軟邊界中，噪音數據可能影響超平面的選擇。
+3. SVM 的應用場景&lt;/p&gt;
+&lt;p&gt;(1) 分類任務
+文本分類：垃圾郵件過濾、情感分析等。
+圖像分類：目標檢測、人臉識別。
+醫療診斷：癌症預測、基因表達分類。
+(2) 回歸任務
+SVM 可應用於回歸分析（SVR, Support Vector Regression），用於預測連續值。
+如房價預測、股票市場分析。
+(3) 異常檢測
+在監測數據中識別異常點，如網絡入侵檢測、機器故障檢測。
+4. SVM 的未來發展與改進方向&lt;/p&gt;
+&lt;p&gt;處理大規模數據
+隨著數據量的增加，開發分布式和並行化 SVM 訓練算法成為重點。
+如使用梯度下降法來替代二次規劃，降低計算成本。
+結合深度學習
+將 SVM 作為深度神經網絡的輸出層，結合深度學習的特徵提取能力，提高分類性能。
+更靈活的核函數
+開發自適應核函數，使其能自動選擇適合當前數據分布的核方法。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>數據科學技術盤點:主成分分析？</title>

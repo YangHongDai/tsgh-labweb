@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Support Vector Machine | DLit-Hub</title>
-    <link>http://localhost:49383/tag/support-vector-machine/</link>
-      <atom:link href="http://localhost:49383/tag/support-vector-machine/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/tag/support-vector-machine/</link>
+      <atom:link href="http://localhost:1313/tag/support-vector-machine/index.xml" rel="self" type="application/rss+xml" />
     <description>Support Vector Machine</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:49383/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>Support Vector Machine</title>
-      <link>http://localhost:49383/tag/support-vector-machine/</link>
+      <link>http://localhost:1313/tag/support-vector-machine/</link>
     </image>
     
     <item>
       <title>數據科學聊聊：支持向量機（Support vector machine）</title>
-      <link>http://localhost:49383/post/svm/</link>
+      <link>http://localhost:1313/post/svm/</link>
       <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:49383/post/svm/</guid>
+      <guid>http://localhost:1313/post/svm/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;支持向量機（SVM）是一種強大的監督式學習模型，廣泛應用於分類和回歸分析中。SVM 以其獨特的數學基礎和幾何直觀性，在高維數據空間中具有出色的性能，尤其適合處理少量數據和非線性問題。&lt;/p&gt;
 &lt;hr&gt;
