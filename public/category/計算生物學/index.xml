@@ -544,7 +544,7 @@ $$
 &lt;p&gt;然而，上面的總機率必須考慮所有&lt;code&gt;隱藏狀態的序列&lt;/code&gt;，即便是 &lt;em&gt;H&lt;/em&gt;，有可能 fair coin或是biased coin擲出，而這兩種狀態都必須考慮進來，然後加總。所以一旦序列很長，計算的&lt;code&gt;複雜度&lt;/code&gt;會變得很大，導致在計算上無法順利執行，為了解決個問題，接下來會介紹一些常見的HMM演算法來解決這個問題。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;forward-procedure&#34;&gt;Forward procedure&lt;/h2&gt;
-&lt;p&gt;前向算法&lt;code&gt;（Forward Algorithm）&lt;/code&gt; 是 HMM 中用於計算觀察序列的總機率 P(O∣λ) 的一種高效動態規劃方法。這個機率表示給定模型參數 λ = (A,B,π) 時，生成觀察序列 O= {o1,o2,…,oT} 的機率。
+&lt;p&gt;前向算法&lt;code&gt;（Forward Algorithm）&lt;/code&gt; 是 HMM 中用於計算觀察序列的總機率 P(O∣λ) 的一種高效動態規劃方法。這個機率表示給定模型參數 λ = (F,B,π) 時，生成觀察序列 O= {o1,o2,…,oT} 的機率。
 
 
 

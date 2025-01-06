@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: January 4, 2025 --><html lang="en-us" >
+<!-- Last Published: January 6, 2025 --><html lang="en-us" >
 
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
@@ -1036,7 +1036,7 @@ $$
 <p>然而，上面的總機率必須考慮所有<code>隱藏狀態的序列</code>，即便是 <em>H</em>，有可能 fair coin或是biased coin擲出，而這兩種狀態都必須考慮進來，然後加總。所以一旦序列很長，計算的<code>複雜度</code>會變得很大，導致在計算上無法順利執行，為了解決個問題，接下來會介紹一些常見的HMM演算法來解決這個問題。</p>
 <hr>
 <h2 id="forward-procedure">Forward procedure</h2>
-<p>前向算法<code>（Forward Algorithm）</code> 是 HMM 中用於計算觀察序列的總機率 P(O∣λ) 的一種高效動態規劃方法。這個機率表示給定模型參數 λ = (A,B,π) 時，生成觀察序列 O= {o1,o2,…,oT} 的機率。
+<p>前向算法<code>（Forward Algorithm）</code> 是 HMM 中用於計算觀察序列的總機率 P(O∣λ) 的一種高效動態規劃方法。這個機率表示給定模型參數 λ = (F,B,π) 時，生成觀察序列 O= {o1,o2,…,oT} 的機率。
 
 
 

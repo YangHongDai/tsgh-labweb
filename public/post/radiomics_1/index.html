@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: January 6, 2025 --><html lang="en-us" >
+
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Hugo Blox Builder 5.9.7" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+    
+    <script src="/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.css" integrity="" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Po-Chien Shen 沈伯鍵" />
+
+
+
+
+
+  
+
+<meta name="description" content="" />
+
+
+
+<link rel="alternate" hreflang="en-us" href="http://localhost:1313/post/radiomics_1/" />
+<link rel="canonical" href="http://localhost:1313/post/radiomics_1/" />
+
+
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/media/icon_hu4797303566791800343.png" />
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hu417240513471516789.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary_large_image" />
+
+  <meta property="twitter:site" content="@GetResearchDev" />
+  <meta property="twitter:creator" content="@GetResearchDev" />
+<meta property="twitter:image" content="http://localhost:1313/post/radiomics_1/featured.jpeg" />
+
+
+
+  
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="DLit-Hub" />
+<meta property="og:url" content="http://localhost:1313/post/radiomics_1/" />
+<meta property="og:title" content="影像組學在醫學影像的運用（上） | DLit-Hub" />
+<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:1313/post/radiomics_1/featured.jpeg" /><meta property="og:locale" content="en-us" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2025-01-06T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2025-01-06T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/post/radiomics_1/"
+  },
+  "headline": "影像組學在醫學影像的運用（上）",
+  
+  "image": [
+    "http://localhost:1313/post/radiomics_1/featured.jpeg"
+  ],
+  
+  "datePublished": "2025-01-06T00:00:00Z",
+  "dateModified": "2025-01-06T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "沈伯鍵"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "DLit-Hub",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/media/icon_hu1636988907106955456.png"
+    }
+  },
+  "description": ""
+}
+</script>
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>影像組學在醫學影像的運用（上） | DLit-Hub</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="299cc5ec4655978182305bed27203ea6" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">DLit-Hub</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">DLit-Hub</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/tour"><span>導覽</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/post"><span>文章</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/people"><span>人物</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/event"><span>消息</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/tech"><span>新技術分享</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+          
+        
+          
+        
+
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+<div class="article-container pt-3">
+  <h1>影像組學在醫學影像的運用（上）</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  <span >
+      <a href="/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/">Po-Chien Shen 沈伯鍵</a></span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jan 6, 2025
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+  
+    <span class="middot-divider"></span>
+    <a href="/post/radiomics_1/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/%E5%BD%B1%E5%83%8F%E7%B5%84%E5%AD%B8/">影像組學</a></span>
+  
+
+</div>
+
+  
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 512px; max-height: 512px;">
+  <div style="position: relative">
+    <img src="/post/radiomics_1/featured_hu15086853547696860519.webp" width="512" height="512" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <h2 id="quick-look">Quick look</h2>
+<p><code>Radiomics（放射組學/影像組學）</code>是一種醫學影像分析技術，利用電腦從醫學影像（例如 X 光、電腦斷層掃描 CT、核磁共振成像 MRI、正子造影PET等）中提取大量定量特徵，這些特徵包含腫瘤的形狀、大小、紋理、密度等。這些特徵能夠展現器官或疾病內部的異質性，以及肉眼無法察覺的細微變化。簡單來說，Radiomics 就是通過數位化的方式，把醫學影像轉化為數位特徵，幫助醫師診斷、治療和評估疾病。以下簡述一下影像組學特徵的標準化和分類，詳細的規範可以參考最新版的<a href="https://theibsi.github.io/documentation/" target="_blank" rel="noopener">IBSI（Image Biomarker Standardization Initiative）文獻</a>。</p>
+<h2 id="影像前處理步驟">影像前處理步驟</h2>
+<p>而在提取這些特徵之前，首先要用手動或自動的方法來識別並標記出感興趣(欲分析)的區域 <code>(Region of Interest, ROI)。</code>接著，影像的強度需要進行一系列的<code>標準化</code>，以便消除不同掃描設備或者不同掃描參數產生的變異，增加<code>可比較性</code>。常見的方式包括<code>重採樣(Resampling)</code>、<code>歸一化(Normaliztaion)</code>和離散化（<code>Discretization）</code>。</p>
+<ol>
+<li><code>Resampling</code>: 重採樣的目的在於確保所有影像的體素（voxel）具有相同的實體大小。在實際操作中，重採樣通常牽涉到<code>插值（Interpolation）算法</code>，用於在轉換影像分辨率時保留影像質量和細節。在這種情況下，影像被重採樣到等方體素大小，即每個體素在三個維度上（長度、寬度、和深度）的大小都是1 mm，這樣就確保了所有影像有相同的實體分辨率。</li>
+<li><code>Normaliztaion</code>: <code>Z-score強度歸一化</code>是一種常用的方法，它將每一個像素或體素的強度值轉換為<code>標準分數（Z-score）</code>，即原始強度值減去整個影像的平均強度值，然後除以影像強度值的標準差。Z將所有影像轉換到同一強度範圍，從而使不同影像的影像組學特徵之間更有可比較性。</li>
+<li><code>Discretization</code>: 離散化的具體步驟包括將影像的強度值（例如CT值）映射到一個固定範圍（例如-1000到1000 HU），然後將這個範圍劃分為<code>固定數目的「bins」（例如32個）</code>。這個過程能夠使影像強度變為有限的離散值，進而降低一些放射學特徵的計算複雜度，並且使得特徵值更為穩定，不易受到不同掃描參數的影響。</li>
+</ol>
+<h2 id="影像組學特徵的提取">影像組學特徵的提取</h2>
+<p>以上步驟可以統稱為影像前處理，完成後我們就可以開始提取數據化的<code>影像組學特徵（例如形狀、大小、紋理、密度等）</code>，這些特徵是基於<code>數學公式</code>和<code>統計方法</code>對醫學影像進行計算得來的。通常分為幾大類，並有具體的定義和計算方法，以下是針對常見的影像組學特徵的名詞解釋：</p>
+<ol>
+<li><code>形狀特徵（Shape Features）</code>：描述腫瘤或感興趣區域 (ROI) 的<code>幾何形狀</code>，是直接基於 ROI 的邊界資訊進行計算的。</li>
+</ol>
+<h4 id="常見形狀特徵">常見形狀特徵：</h4>
+<ul>
+<li><code>體積</code>：ROI 中包含的體素 (voxel) 總數乘以每個體素的體積。</li>
+<li><code>表面積</code>：腫瘤表面的體素構成的邊界面積。</li>
+<li><code>表面積與體積比（Surface Area to Volume Ratio, SA:V）</code>：衡量腫瘤是否更球形（比值小）或更不規則（比值大）。</li>
+<li><code>長寬比（Major Axis to Minor Axis）</code>：腫瘤最大長度與最小長度的比值。</li>
+</ul>
+<ol start="2">
+<li><code>一階特徵（First-order Features, Histogram Features）</code>：描述 ROI 中影像強度（如 CT 值或灰階值）的統計分佈特徵。通過計算 ROI 中每個體素的影像強度，生成一個統計直方圖。</li>
+</ol>
+<h4 id="常見一階特徵">常見一階特徵：</h4>
+<ul>
+<li><code>平均值（Mean）</code>：所有體素灰階值的平均數。</li>
+<li><code>中位數（Median）</code>：灰階值的中間值。</li>
+<li><code>標準差（Standard Deviation）</code>：衡量灰階值的離散程度。</li>
+<li><code>偏態（Skewness）</code>：分佈是否偏向某一方向。</li>
+<li><code>峰度（Kurtosis）</code>：分佈是否有尖峰。</li>
+</ul>
+<ol start="3">
+<li><code>紋理特徵（Texture Features</code>）:描述影像中灰階值之間的空間分佈與關聯，用於揭示ROI內部的異質性。基於數學矩陣（例如灰階共現矩陣 GLCM、灰階游程矩陣 GLRLM 等）進行計算。</li>
+</ol>
+<h4 id="常見紋理特徵">常見紋理特徵：</h4>
+<ul>
+<li>
+<p><code>灰階共現矩陣 (Gray-Level Co-occurrence Matrix, GLCM)</code>：</p>
+</li>
+<li>
+<ul>
+<li><code>能量（Energy</code>）：灰階值分佈是否集中。</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>對比度（Contrast）</code>：灰階值差異的大小。</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>同質性（Homogeneity）</code>：灰階值分佈的均勻性。</li>
+</ul>
+</li>
+<li>
+<p><code>灰階游程矩陣 (Gray-Level Run-Length Matrix, GLRLM)</code>：</p>
+</li>
+<li>
+<ul>
+<li><code>短游程強度（Short Run Emphasis, SRE）</code>：是否存在許多短灰階游程。=&gt;高 SRE 值表示影像紋理細膩、變化多。</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>長游程強度（Long Run Emphasis, LRE）</code>：是否存在許多長灰階游程。=&gt;高 LRE 值表示影像紋理平滑或均勻。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>游程(run length)是指影像中某一方向（通常是水平、垂直、對角線等方向）上，具有相同灰階值的連續像素數量。一段游程就是影像中一列像素中具有相同灰階值的連續部分。</p>
+</blockquote>
+<h3 id="局部二值模式-local-binary-patterns-lbp測量灰階值的局部變化">局部二值模式 (Local Binary Patterns, LBP)：測量灰階值的局部變化。</h3>
+<ol start="4">
+<li><code>高階特徵（Wavelet Features）</code>：通過小波變換將影像分解為不同的頻率成分，提取特定空間頻率中的紋理或強度特徵。對原始影像的三個軸進行小波濾波處理，生成 8 組影像（LLL, LLH, LHL, LHH, HLL, HLH, HHL, 和 HHH），並對每組影像計算一階和紋理特徵。
+這八個小波集代表了濾波器在三個維度（例如，長度、寬度、和高度）上的不同組合。例如，LLL代表在所有三個維度上都使用了低通濾波器，而HHL代表在前兩個維度上使用了高通濾波器，最後一個維度則使用了低通濾波器。</li>
+</ol>
+<ul>
+<li><code>低通（Low-pass）濾波器</code>：它能夠讓低頻率的訊號通過，而阻擋高頻率的訊號。在影像中，低通濾波器能夠模糊並移除細節和噪聲，讓影像變得更平滑。</li>
+<li><code>高通（High-pass）濾波器</code>：與低通濾波器相反，它允許高頻率的訊號通過，而阻擋低頻率的訊號。在影像中，高通濾波器能夠強調影像的邊緣和細節。</li>
+</ul>
+<h2 id="radiomics-在醫學中的應用">Radiomics 在醫學中的應用</h2>
+<p>隨著人工智慧（AI）和機器學習技術的發展，結合多模態影像（例如 CT / MRI / PET）、基因及臨床數據，Radiomics 已成為醫學研究的重要工具。Radiomics也被廣泛地應用於不同疾病的診斷與治療，例如心血管疾病、神經疾病、癌症等。然而，由於從醫學影像中提取的定量特徵輕易就會超過數百個；相對地，當樣本數不夠大時，容易產生維度詛咒的問題（Curse of Dimensionality）。因此下個主題我們將會著重在解決這個問題的一些方式。</p>
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/radiomics/">Radiomics</a>
+  
+  <a class="badge badge-light" href="/tag/data-science/">Data Science</a>
+  
+</div>
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fradiomics_1%2F&amp;text=%E5%BD%B1%E5%83%8F%E7%B5%84%E5%AD%B8%E5%9C%A8%E9%86%AB%E5%AD%B8%E5%BD%B1%E5%83%8F%E7%9A%84%E9%81%8B%E7%94%A8%EF%BC%88%E4%B8%8A%EF%BC%89" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fradiomics_1%2F&amp;t=%E5%BD%B1%E5%83%8F%E7%B5%84%E5%AD%B8%E5%9C%A8%E9%86%AB%E5%AD%B8%E5%BD%B1%E5%83%8F%E7%9A%84%E9%81%8B%E7%94%A8%EF%BC%88%E4%B8%8A%EF%BC%89" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a href="mailto:?subject=%E5%BD%B1%E5%83%8F%E7%B5%84%E5%AD%B8%E5%9C%A8%E9%86%AB%E5%AD%B8%E5%BD%B1%E5%83%8F%E7%9A%84%E9%81%8B%E7%94%A8%EF%BC%88%E4%B8%8A%EF%BC%89&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fradiomics_1%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fradiomics_1%2F&amp;title=%E5%BD%B1%E5%83%8F%E7%B5%84%E5%AD%B8%E5%9C%A8%E9%86%AB%E5%AD%B8%E5%BD%B1%E5%83%8F%E7%9A%84%E9%81%8B%E7%94%A8%EF%BC%88%E4%B8%8A%EF%BC%89" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=%E5%BD%B1%E5%83%8F%E7%B5%84%E5%AD%B8%E5%9C%A8%E9%86%AB%E5%AD%B8%E5%BD%B1%E5%83%8F%E7%9A%84%E9%81%8B%E7%94%A8%EF%BC%88%E4%B8%8A%EF%BC%89%20http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fradiomics_1%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fradiomics_1%2F&amp;title=%E5%BD%B1%E5%83%8F%E7%B5%84%E5%AD%B8%E5%9C%A8%E9%86%AB%E5%AD%B8%E5%BD%B1%E5%83%8F%E7%9A%84%E9%81%8B%E7%94%A8%EF%BC%88%E4%B8%8A%EF%BC%89" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+
+
+
+  
+  
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/"><img class="avatar mr-3 avatar-circle" src="/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/avatar_hu508877709439512294.png" alt="Po-Chien Shen 沈伯鍵"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/">Po-Chien Shen 沈伯鍵</a></h5>
+      <h6 class="card-subtitle">主治醫師</h6>
+      <p class="card-text">我的研究興趣為結合影像分析及影像組學改善放射治療，提升治療的精準性與效果。</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.facebook.com/bojianc" target="_blank" rel="noopener">
+        <i class="fab fa-facebook"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=mUH6Mw8AAAAJ&amp;hl=zh-TW" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <section id="comments">
+    
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "yhd" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  </section>
+  
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2025. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/js/vendor-bundle.min.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.js" integrity="" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+  <script id="dsq-count-scr" src="https://yhd.disqus.com/count.js" async></script>
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+  <script src="/js/wowchemy-headroom.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/en/js/wowchemy.min.js"></script>
+
+
+
+  <script src="/js/wowchemy-map.js" type="module"></script>
+
+
+
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <pre><code></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/wowchemy-publication.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
