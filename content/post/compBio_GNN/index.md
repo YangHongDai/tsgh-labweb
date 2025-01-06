@@ -6,7 +6,7 @@ commentable: true
 categories: [計算生物學]
 tags: [Computational biology, Graph nueral network]
 isCJKLanguage: true
-draft: true
+draft: false
 ---
 <!--more-->
 ## Quick look
