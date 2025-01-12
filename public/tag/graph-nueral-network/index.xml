@@ -5,7 +5,7 @@
     <link>http://localhost:1313/tag/graph-nueral-network/</link>
       <atom:link href="http://localhost:1313/tag/graph-nueral-network/index.xml" rel="self" type="application/rss+xml" />
     <description>Graph Nueral Network</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 06 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
       <title>Graph Nueral Network</title>
@@ -13,12 +13,12 @@
     </image>
     
     <item>
-      <title>計算生物學聊聊：圖神經網路與分子圖形</title>
+      <title>計算生物學聊聊：分子表示法與圖神經網路</title>
       <link>http://localhost:1313/post/compbio_gnn/</link>
-      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/compbio_gnn/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;分子表示法（molecular representation）在計算化學中扮演重要的角色，它使化學家和數據科學家能夠將複雜的化學結構轉換成機器可理解的形式，用於數據存儲和計算分析。這些表示法在格式、易用性和應用場景上存在顯著的差異，每種表示法在特定類型的分析中具有其獨特的優勢和局限性，透過建構圖神經網路（Graph neural network）來預測分子的特性，這些表示法的差異會更為顯著。&lt;/p&gt;
+&lt;p&gt;分子表示法（molecular representation）在計算化學中扮演重要的角色，它使化學家和數據科學家能夠將複雜的化學結構轉換成機器可理解的形式，用於數據存儲和計算分析。這些表示法在格式、易用性和應用場景上存在顯著的差異，每種表示法在特定類型的分析中具有其獨特的優勢和局限性，透過建構圖神經網路（Graph neural network, GNN）來預測分子的特性，這些表示法的差異會更為顯著。&lt;/p&gt;
 &lt;p&gt;本篇筆記出自於美國麻省理工學院的計算生物學課程MLCB24。課程影片請看&lt;a href=&#34;https://www.youtube.com/watch?v=6gkIjo4Jb4E&amp;amp;t=220s&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;這裡&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;常見的分子表示法&#34;&gt;常見的分子表示法&lt;/h2&gt;
 &lt;ol&gt;
@@ -393,10 +393,10 @@ $$
 &lt;figure  id=&#34;figure-圖四&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig4&#34; srcset=&#34;
-               /post/compbio_gnn/fig4_hu11891778795753320154.webp 400w,
-               /post/compbio_gnn/fig4_hu2327891892416369507.webp 760w,
+               /post/compbio_gnn/fig4_hu18150330024369147487.webp 400w,
+               /post/compbio_gnn/fig4_hu7306947348480769975.webp 760w,
                /post/compbio_gnn/fig4_hu5704989358987084869.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/compbio_gnn/fig4_hu11891778795753320154.webp&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig4_hu18150330024369147487.webp&#34;
                width=&#34;760&#34;
                height=&#34;329&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -456,10 +456,10 @@ $$
 &lt;figure  id=&#34;figure-圖五-圖神經網路的節點特徵嵌入&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig5&#34; srcset=&#34;
-               /post/compbio_gnn/fig5_hu12922210404889534981.webp 400w,
-               /post/compbio_gnn/fig5_hu9082402036942852217.webp 760w,
+               /post/compbio_gnn/fig5_hu2388238815147713275.webp 400w,
+               /post/compbio_gnn/fig5_hu5675022451590598209.webp 760w,
                /post/compbio_gnn/fig5_hu3447441218360307289.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/compbio_gnn/fig5_hu12922210404889534981.webp&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig5_hu2388238815147713275.webp&#34;
                width=&#34;760&#34;
                height=&#34;292&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -472,7 +472,23 @@ $$
 &lt;p&gt;通過 GNN 層進行&lt;code&gt;信息傳遞 (Message Passing)&lt;/code&gt;: 嵌入後，GNN 在多層網絡中進行一系列的消息傳遞（message passing）步驟。這一過程類似於 CNN 中的卷積操作，CNN 是從&lt;code&gt;鄰近像素中聚合信息&lt;/code&gt;，而 GNN 則是從&lt;code&gt;相鄰節點中聚合信息&lt;/code&gt;。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;聚合與更新: 在每一層 GNN 中，每個節點都從其鄰居處接收訊息。節點將這些訊息聚合起來，與自身的潛在向量結合後&lt;code&gt;更新其狀態&lt;/code&gt;。這種聚合方法可以是&lt;code&gt;求和（sum&lt;/code&gt;）、&lt;code&gt;均值（mean）&lt;/code&gt;、或&lt;code&gt;最大池化（max pooling&lt;/code&gt;），具體取決於任務需求。&lt;/p&gt;
+&lt;p&gt;聚合與更新: 在每一層 GNN 中，每個節點都從其鄰居處接收訊息。節點將這些訊息聚合起來，與自身的潛在向量結合後&lt;code&gt;更新其狀態&lt;/code&gt;。這種聚合方法可以是&lt;code&gt;求和（sum&lt;/code&gt;）、&lt;code&gt;均值（mean）&lt;/code&gt;、或&lt;code&gt;最大池化（max pooling&lt;/code&gt;），具體取決於任務需求。
+以下是一些常見的聚合技術：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;總和聚合(Sum Aggregation)&lt;/code&gt;：透過將所有節點的representation相加，我們可以獲得一個&lt;code&gt;單一的向量&lt;/code&gt;，反映來自所有節點的&lt;code&gt;累積信息&lt;/code&gt;。這種方法在節點數量在&lt;code&gt;不同圖之間相近時&lt;/code&gt;效果不錯，但如果某些圖比其他圖大得多，可能會導致偏差。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;平均聚合(Mean Aggregation)&lt;/code&gt;：通過對節點向量取平均值，這種方法在聚合過程中進行了歸一化，確保圖的大小（節點數量）不會影響結果。當處理大小不同的圖時，平均聚合特別有用，因為它可以調整節點數量之間的差異。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;最大池化(Max Pooling)&lt;/code&gt;：在這種方法中，我們從所有節點向量的&lt;code&gt;每個位置中取最大值&lt;/code&gt;，捕捉到最顯著的特徵值。這種方法能夠突出圖中最具代表性的特徵，但可能會&lt;code&gt;忽略&lt;/code&gt;一些重要的細微特徵，特別是當其他節點包含較低但關鍵的值時。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;注意力機制(Attention Mechanisms)&lt;/code&gt;：基於注意力機制的方法允許我們根據節點對任務的重要性，對每個節點的貢獻賦予不同的權重。模型會自動學習這些權重，從而自適應地突出關鍵節點，是一種強大的方法來優先考慮圖中的某些區域。例如，在分子圖中，注意力機制可以對重要的功能基團賦予更高的權重，以便在預測化學性質時更加精準。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;全局節點或虛擬節點(Global Nodes or Virtual Nodes)&lt;/code&gt;：在一些進階的 GNN中，會引入一個&lt;code&gt;全局節點&lt;/code&gt;或&lt;code&gt;虛擬節點&lt;/code&gt;，該節點與圖中的所有其他節點相連。在信息傳遞（message-passing）過程中，這個節點會聚合來自整個圖的所有信息，作為一個中心樞紐。到最後，這個虛擬節點的潛在向量（latent vector）就成為整個圖的表示，捕捉了整個網絡的特徵。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;
@@ -494,10 +510,10 @@ $$
 &lt;figure  id=&#34;figure-圖六-訊息的結合&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig6&#34; srcset=&#34;
-               /post/compbio_gnn/fig6_hu14644748546000289295.webp 400w,
-               /post/compbio_gnn/fig6_hu12299013578289705132.webp 760w,
+               /post/compbio_gnn/fig6_hu17702982825052260044.webp 400w,
+               /post/compbio_gnn/fig6_hu18171683510162612183.webp 760w,
                /post/compbio_gnn/fig6_hu17719637959162410375.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/compbio_gnn/fig6_hu14644748546000289295.webp&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig6_hu17702982825052260044.webp&#34;
                width=&#34;760&#34;
                height=&#34;246&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -524,10 +540,10 @@ $$
 &lt;figure  id=&#34;figure-圖七-節點訊息的更新&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig7&#34; srcset=&#34;
-               /post/compbio_gnn/fig7_hu15690456253749884017.webp 400w,
-               /post/compbio_gnn/fig7_hu8201984966484311980.webp 760w,
+               /post/compbio_gnn/fig7_hu14204850261544369576.webp 400w,
+               /post/compbio_gnn/fig7_hu9938346904168491431.webp 760w,
                /post/compbio_gnn/fig7_hu296375659254389028.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/compbio_gnn/fig7_hu15690456253749884017.webp&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig7_hu14204850261544369576.webp&#34;
                width=&#34;760&#34;
                height=&#34;261&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -538,22 +554,34 @@ $$
 &lt;p&gt;節點的更新公式：&lt;/p&gt;
 &lt;div style=&#34;overflow-x: scroll;&#34;&gt;
 $$
-\documentclass{article}
-\usepackage{amsmath}
-&lt;p&gt;\begin{document}&lt;/p&gt;
-&lt;p&gt;[
 h_u^{(k)} = \sigma \left( W_{\text{self}}^{(k)} h_u^{(k-1)} + W_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}_u} h_v^{(k-1)} + b^{(k)} \right)
-]&lt;/p&gt;
-&lt;p&gt;\begin{itemize}
-\item $h_u^{(k-1)} \in \mathbb{R}^{d^{(k-1)}}$: Node embeddings
-\item $W_{\text{self}}^{(k)}, W_{\text{neigh}}^{(k)} \in \mathbb{R}^{d^{(k)} \times d^{(k-1)}}$: Learnable parameters
-\item $b^{(k)} \in \mathbb{R}^{d^{(k)}}$: Bias term
-\item $\sigma$: Elementwise non-linearity (e.g., a $\tanh$ or ReLU)
-\end{itemize}&lt;/p&gt;
-&lt;p&gt;\end{document}
-$$&lt;/p&gt;
+$$
 &lt;/div&gt;
-&lt;ol start=&#34;4&#34;&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+h_u^{(k-1)} \in \mathbb{R}^{d^{(k-1)}}: Node-embeddings
+$$
+&lt;/div&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+W_{\text{self}}^{(k)}, W_{\text{neigh}}^{(k)} \in \mathbb{R}^{d^{(k)} \times d^{(k-1)}}: Learnable-parameters
+$$
+&lt;/div&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+b^{(k)} \in \mathbb{R}^{d^{(k)}}: Bias-term
+$$
+&lt;/div&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$\sigma: Elementwise-non-linearity  (e.g., a \tanh or ReLU)$$
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;更新機制&lt;/p&gt;
+&lt;p&gt;Step 1: 每個節點先從鄰居中收集信息（聚合鄰居特徵）。&lt;/p&gt;
+&lt;p&gt;Step 2: 將聚合後的鄰居特徵與自身特徵結合（線性變換 + 偏置項）。&lt;/p&gt;
+&lt;p&gt;Step 3: 應用激活函數，生成該節點在新層的嵌入特徵。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;多層結構: 信息通過&lt;code&gt;多層傳遞&lt;/code&gt;，每層使節點可以&lt;code&gt;看到&lt;/code&gt;圖中&lt;code&gt;更遠的鄰居&lt;/code&gt;。例如，經過兩層後，每個節點可以融入來自其&lt;code&gt;兩跳&lt;/code&gt;鄰居的信息。&lt;/p&gt;
 &lt;/li&gt;
@@ -562,64 +590,39 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;節點級任務：使用每個節點的最終狀態進行預測。&lt;/li&gt;
-&lt;li&gt;邊級任務：分析相鄰節點最終狀態之間的關係。&lt;/li&gt;
-&lt;li&gt;圖級任務：將所有節點的最終狀態池化成單一圖表示，用於分類或回歸。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;節點級任務&lt;/code&gt;：使用每個節點的最終狀態進行預測。當我們需要為單個節點分類或預測屬性時，可以直接使用每個節點的最終潛在表示（latent representation）。例如，假設我們有一個分子圖，並且已知每個原子的分子屬性，但對某個特定原子（節點）缺乏相關信息，我們可以將該未知節點的潛在向量輸入分類器，來預測所需的屬性，例如該原子是否參與結合位點，或者是否與某些分子相互作用。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;邊級任務&lt;/code&gt;：分析相鄰節點最終狀態之間的關係。連結預測的目標是預測節點之間的連接（邊）的存在性或強度，這在&lt;code&gt;社交網絡&lt;/code&gt;或&lt;code&gt;生物網絡&lt;/code&gt;中非常有用，可以用來推斷新的關係。例如，在基因組學中，我們可能已知與某種疾病相關的一組基因，並希望通過檢查它們在生物途徑中的連接性，來預測其他潛在的基因。這可以通過以下方式實現：將兩個節點的潛在向量進行相似性測量（例如餘弦相似度）或學習函數，來預測是否存在一條邊。更複雜的情況下，將兩個節點的表示組合後輸入多層感知器（MLP），以進行關係的預測。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;圖級任務&lt;/code&gt;：將所有節點的最終狀態池化成單一圖表示，用於&lt;code&gt;分類&lt;/code&gt;或&lt;code&gt;回歸&lt;/code&gt;。在某些情況下，我們需要對整個圖進行單一的預測，例如分子的溶解度或毒性。這時需要將所有節點的信息聚合成一個&lt;code&gt;固定長度的向量&lt;/code&gt;，該向量能夠捕捉整個圖的結構和特徵。例如：可以使用聚合技術（如平均聚合、總和聚合或注意力機制）來匯總節點的表示，生成代表整體圖特徵的向量。
+然後，將該圖級表示作為輸入，用於進行&lt;code&gt;分類&lt;/code&gt;或迴歸任務。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h4 id=&#34;擴大感受野&#34;&gt;擴大感受野&lt;/h4&gt;
+&lt;p&gt;每當我們應用一層 GNN層時，實際上我們就增加了每個節點的&lt;code&gt;感受野 (receptive filed)&lt;/code&gt;。起初，一個節點的感受野僅包括&lt;code&gt;它自己&lt;/code&gt;。然而，在第一層之後，該節點的表示（representation）將會結合來自其直接鄰居的信息。經過第二層後，該節點的表示將會包含來自兩跳 (K-hops=2) 鄰居（即鄰居的鄰居）的信息，依此類推。這種擴展意味著節點可以逐漸從圖中更大的區域累積信息。
+例如，在分子圖中，一個碳原子的感受野起初可能僅包括直接鍵合的原子（例如一個相鄰的氧原子）。而經過兩層 GNN 層後，該碳原子可以結合來自兩個鍵距離的原子的信息，提供更多的化學訊息。&lt;/p&gt;
+&lt;h4 id=&#34;層數深度與信息擴散&#34;&gt;層數深度與信息擴散&lt;/h4&gt;
+&lt;p&gt;雖然看似增加層數可以最大化節點的感受野，但更深的網絡層數也會帶來一些問題：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;訊息稀釋(Information Dilution)&lt;/code&gt;：隨著層數的增加，節點表示可能會&lt;code&gt;過度混合（overly blended）&lt;/code&gt;，失去原本的特徵，從而&lt;code&gt;難以區分不同的節點&lt;/code&gt;。這種現象通常被稱為&lt;code&gt;過平滑（oversmoothing）&lt;/code&gt;，在處理複雜任務時可能導致性能下降。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;計算成本(Computational Costs)&lt;/code&gt;：增加層數需要更多的計算資源，同時也會提高訓練過程中出現&lt;code&gt;梯度消失&lt;/code&gt;或&lt;code&gt;梯度爆炸&lt;/code&gt;問題的風險，從而使訓練變得更加困難。
+因此，在許多實際應用中，使用&lt;code&gt;有限層數的 GNN（例如 2-4 層）&lt;/code&gt;是更為有效的策略。這種方法在計算效率與每個節點能夠融合的信息深度之間取得了&lt;code&gt;平衡&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;使用-gnn-進行分子預測的例子&#34;&gt;使用 GNN 進行分子預測的例子&lt;/h2&gt;
-&lt;p&gt;初始設置：
-圖形化表示分子：每個原子是節點，特徵包括原子質量、電負性和雜化。
-每條邊表示鍵，特徵包括鍵類型（單鍵、雙鍵、芳香鍵等）。
-初始嵌入：
-每個節點用一個潛在向量表示其初始特徵。
-信息傳遞：
-在多層 GNN 中，節點之間交換並聚合信息。
-節點的潛在向量在多層信息傳遞過程中迭代更新。
-預測：
-使用節點的最終嵌入向量進行任務，例如預測分子與特定蛋白結合的可能性。
-GNN 的操作類型&lt;/p&gt;
 &lt;p&gt;GNN 層中的操作旨在將卷積操作推廣到圖結構，其中空間結構由節點之間的邊定義，而不是固定的空間坐標。&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;圖上的卷積（Convolution on Graphs）
-在 CNN 中，卷積在固定的網格上進行；而在 GNN 中，卷積基於每個節點的鄰域進行。
-這種局部特徵的聚合使得每個節點可以從其鄰居中學習，同時保留圖的固有結構。&lt;/li&gt;
-&lt;li&gt;池化與讀出（Pooling and Readout）
-與 CNN 中的池化層類似，GNN 的池化用於減少維度並聚合節點信息。
-池化可以應用於子圖內的節點，也可以應用於整個圖，用於生成圖級輸出。&lt;/li&gt;
-&lt;li&gt;正規化（Normalization）
-由於節點的度數（連接數）可能不同，對聚合的消息進行正規化有助於防止模型過度依賴於高連接節點，並保證信息流的平衡。
-GNN 在分子建模與藥物發現中的優勢&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;圖上的卷積(Convolution on Graphs)&lt;/code&gt;:在 CNN 中，卷積在固定的網格上進行；而在 GNN 中，卷積基於每個節點的鄰域進行。這種局部特徵的聚合使得每個節點可以從其鄰居中學習，同時保留圖的固有結構。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;池化與讀出(Pooling and Readout)&lt;/code&gt;: 與 CNN 中的池化層類似，GNN 的池化用於&lt;code&gt;減少維度並聚合節點信息&lt;/code&gt;。池化可以應用於子圖內的節點，也可以應用於整個圖，用於生成圖級輸出。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;正規化(Normalization)&lt;/code&gt;: 由於節點的度數（連接數）可能不同，對聚合的消息進行&lt;code&gt;正規化&lt;/code&gt;有助於防止模型過度依賴於高連接節點，並保證信息流的平衡。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h4 id=&#34;gnn-在分子建模與藥物發現中的優勢&#34;&gt;GNN 在分子建模與藥物發現中的優勢&lt;/h4&gt;
 &lt;p&gt;GNN 的結構化消息傳遞使其能夠有效地從複雜的關係中學習，這在分子和生物應用中尤為重要。主要優勢包括：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;靈活處理複雜結構
-GNN 能夠處理分子圖的不規則和非歐幾里得結構，其中原子和鍵並不遵循網格狀結構。&lt;/li&gt;
-&lt;li&gt;高效利用結構信息
-通過嵌入和消息傳遞，GNN 能夠內在地尊重分子內的空間和化學關係。&lt;/li&gt;
-&lt;li&gt;可擴展性
-GNN 通過基於鄰域的聚合機制，可以有效處理大型圖形數據，例如虛擬篩選中的分子庫。
-GNN 的消息傳遞機制（Message Passing）&lt;/li&gt;
+&lt;li&gt;靈活處理複雜結構: GNN 能夠處理分子圖的不規則和非歐幾里得結構，其中原子和鍵並不遵循網格狀結構。&lt;/li&gt;
+&lt;li&gt;高效利用結構信息: 通過嵌入和消息傳遞，GNN 能夠內在地尊重分子內的空間和化學關係。&lt;/li&gt;
+&lt;li&gt;可擴展性: GNN 通過基於鄰域的聚合機制，可以有效處理大型圖形數據，例如虛擬篩選中的分子庫。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;消息傳遞是 GNN 的核心操作，使節點能夠從鄰居處接收和聚合信息，形成更豐富的上下文表示。&lt;/p&gt;
-&lt;p&gt;消息傳遞的步驟&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;消息創建（Message Creation）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;對於圖中的每個節點，GNN 從其鄰居創建消息。
-這通常通過將每個鄰居節點的潛在向量（隱藏表示）乘以一個可學習的權重矩陣來完成。
-2. 聚合（Aggregation）&lt;/p&gt;
-&lt;p&gt;聚合將所有鄰居的消息合併成一個向量，表示所有鄰居的綜合影響。
-常用的聚合策略：
-求和（Sum Aggregation）：簡單地將所有消息相加。
-均值（Mean Aggregation）：計算消息的平均值，歸一化連接數。
-最大池化（Max Pooling）：保留所有消息中最重要的元素。
-3. 更新（Update Function）&lt;/p&gt;
-&lt;p&gt;節點將其當前的潛在向量與聚合的消息向量結合，更新自身狀態。
-更新函數通常包括將節點的潛在向量乘以一個可學習的權重矩陣，並與聚合消息結合（例如相加或拼接）。
-4. 多層傳遞&lt;/p&gt;
-&lt;p&gt;經過每層 GNN 後，節點的潛在向量更新，並輸入到下一層。
-每增加一層，節點可以“看到”圖中更遠的節點，最終學習更長距離的依賴關係。&lt;/p&gt;</description>
+&lt;hr&gt;
+&lt;h2 id=&#34;結語&#34;&gt;結語&lt;/h2&gt;
+&lt;p&gt;使用 GNN 的輸出需要考慮很多的因素，包括任務的性質、數據的結構，以及圖的大小和多樣性。在這個過程中，從聚合技術到模型類型的每一個選擇，都會影響 GNN 對於進行準確且具普遍性預測的能力。&lt;/p&gt;
+&lt;p&gt;通過調整這些步驟，並為每種類型的預測選擇合適的方法，GNN 能夠成為處理複雜數據集的強大工具，特別是在藥物發現、分子建模、社交網絡分析等領域中發揮重要作用。&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -13,6 +13,101 @@
     </image>
     
     <item>
+      <title>計算生物學聊聊：Hidden Markov Chain (下)</title>
+      <link>http://localhost:1313/post/markov2/</link>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/markov2/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;在上一章節，我們介紹了 Hidden Markov Model（HMM）的基本架構與 Forward Algorithm。本篇將進一步探討其他常見的 HMM 演算法，包括 Backward Algorithm、Forward-Backward Algorithm，以及解碼問題中的 Viterbi Algorithm，並說明其數學基礎及應用。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;backward-algorithm&#34;&gt;Backward Algorithm&lt;/h2&gt;
+&lt;p&gt;Backward Algorithm 是 Forward Algorithm 的「對偶」，用於計算從時間點 $t$ 開始到序列結束生成觀察序列的機率。它主要用於與 Forward Algorithm 結合，進行參數估計和隱藏狀態的後驗分佈計算。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;初始化(時間 $t = T$)：
+$$
+\beta_T(i) = 1, \quad \text{for } 1 \leq i \leq N
+$$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;i 表示不同的隱藏狀態， 表示在最後一個時間點的&lt;code&gt;機率總和為 1&lt;/code&gt;，意即後面不會再有觀測值，機率已確定。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;遞推(時間 $t &amp;lt; T$)：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\beta_t(i) = \sum_{j=1}^N a_{ij} \cdot b_j(o_{t+1}) \cdot \beta_{t+1}(j), \quad 1 \leq i \leq N
+$$&lt;/p&gt;
+&lt;p&gt;其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\beta_t(i)$ 是在狀態 $s_i$ 且從時間點 $t+1$ 到序列結尾的觀察機率。&lt;/li&gt;
+&lt;li&gt;$a_{ij}$ 是狀態 $s_i$ 到 $s_j$ 的轉移機率。&lt;/li&gt;
+&lt;li&gt;$b_j(o_{t+1})$ 是狀態 $s_j$ 生成觀察值 $o_{t+1}$ 的機率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其實就是forward algorithm 的計算方式由後往前算，因為每一個機率節點已經&lt;code&gt;繼承&lt;/code&gt;了前一個或後一個節點傳輸過來的資訊，因此可以接續往下計算。前向算法與後向算法的差別在於，一個機率取決於已經出現的觀察值，一個取決於未來值，即某一個時間點的前與後面的序列。&lt;/p&gt;
+&lt;p&gt;此外，最重要的結論是不管前向還是後向，對總觀察機率的計算結果是一致的，因為總序列相同，條件的參數也相同。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;forward-backward-algorithm&#34;&gt;Forward-Backward Algorithm&lt;/h2&gt;
+&lt;p&gt;前面講的forward algorithm 或是 backward algorithm 是用在觀測值機率的計算，但是如果要計算隱藏態的機率，就必須要靠兩者的結合。而隱藏狀態也是條件機率，但是前向和後向給的條件不同，也就是序列不同，所以兩者所評估的隱藏狀態分不會不一樣，因此必須要結合兩者來正確評估隱藏狀態的分佈。
+Forward-Backward Algorithm 結合 Forward 和 Backward 的結果，用於計算隱藏狀態的後驗分佈（Posterior Distribution）。這在參數重估（如 Baum-Welch Algorithm）或狀態分析中非常重要。&lt;/p&gt;
+&lt;h3 id=&#34;後驗機率計算公式&#34;&gt;後驗機率計算公式&lt;/h3&gt;
+&lt;p&gt;給定觀察序列 $O = {o_1, o_2, \dots, o_T}$，隱藏狀態 $s_i$ 在時間 $t$ 出現的後驗機率為：&lt;/p&gt;
+&lt;p&gt;$$
+P(s_t = i \mid O, \lambda) = \frac{\alpha_t(i) \cdot \beta_t(i)}{P(O \mid \lambda)}
+$$&lt;/p&gt;
+&lt;p&gt;其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\alpha_t(i)$ 是 Forward Algorithm 在時間 $t$ 的結果。&lt;/li&gt;
+&lt;li&gt;$\beta_t(i)$ 是 Backward Algorithm 在時間 $t$ 的結果。&lt;/li&gt;
+&lt;li&gt;$P(O \mid \lambda)$ 是觀察序列的總機率，可用 Forward 或 Backward 計算：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+P(O \mid \lambda) = \sum_{i=1}^N \alpha_T(i)
+$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;viterbi-algorithm&#34;&gt;Viterbi Algorithm&lt;/h2&gt;
+&lt;p&gt;Viterbi Algorithm 用於解碼問題，即在給定觀察序列的情況下，找出最可能的隱藏狀態序列（最短路徑問題）。&lt;/p&gt;
+&lt;h3 id=&#34;數學公式&#34;&gt;數學公式&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;初始化(時間 $t=1$)：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\delta_1(i) = \pi_i \cdot b_i(o_1), \quad \psi_1(i) = 0, \quad 1 \leq i \leq N
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\delta_1(i)$ 表示狀態 $s_i$ 在時間 $t=1$ 的最優路徑機，也就是&lt;code&gt;機率較大&lt;/code&gt;的那條。&lt;/li&gt;
+&lt;li&gt;$\psi_1(i)$ 是回溯指標，用於記錄上一個狀態。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;遞推(時間 $t &amp;gt; 1$)：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+\delta_t(i) = \max_{j=1}^N \big[\delta_{t-1}(j) \cdot a_{ji}\big] \cdot b_i(o_t), \quad 1 \leq i \leq N
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\psi_t(i) = \arg\max_{j=1}^N \big[\delta_{t-1}(j) \cdot a_{ji}\big]
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\delta_t(i)$ 是到時間 $t$ 並到達狀態 $s_i$ 的最優路徑機率。&lt;/li&gt;
+&lt;li&gt;$\psi_t(i)$ 是到達 $s_i$ 的最可能上一個狀態。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;回溯：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;從最後一個時間點 $T$ 開始，找到最可能的終點狀態：&lt;/p&gt;
+&lt;p&gt;$$
+s_T^* = \arg\max_{i=1}^N \delta_T(i)
+$$&lt;/p&gt;
+&lt;p&gt;然後根據 $\psi$ 回溯最優隱藏狀態序列：&lt;/p&gt;
+&lt;p&gt;$$
+s_t^* = \psi_{t+1}(s_{t+1}^*), \quad t = T-1, T-2, \dots, 1
+$$&lt;/p&gt;
+&lt;p&gt;和forward-backward 演算法相比，Viterbi 在多數情況下會給出相似的計算，但因為Viterbi只會考慮最優解，所以會忽略其他路徑的貢獻，但forward-backward 演算法可能會給出機率較低的隱藏態。Forward-Backward 的後驗概率分佈反映了所有可能隱藏狀態的加權機率，而不是選擇單一路徑。因此，對某些時間點，它可能偏向於總體解釋力強但機率較低的狀態。&lt;/p&gt;
+&lt;h2 id=&#34;其他演算法baum-welch-algorithm&#34;&gt;其他演算法：Baum Welch Algorithm&lt;/h2&gt;
+&lt;p&gt;Baum-Welch 演算法是一種基於 EM (Expectation-Maximization) 框架的HMM參數學習方法，通過 Forward-Backward 演算法計算隱藏狀態的後驗分佈，並迭代更新初始分佈、轉移機率和觀察機率，以最大化觀察序列的對數似然值。其精髓在於將不可觀測的隱藏狀態以概率分佈的形式處理（軟標籤），適用於無監督學習的序列數據建模，但可能受初始值影響，易陷入局部最優。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;總結&#34;&gt;總結&lt;/h2&gt;
+&lt;p&gt;本篇主要介紹了 HMM 的三個核心演算法：Backward Algorithm、Forward-Backward Algorithm 和 Viterbi Algorithm。這些演算法在生物資訊學中被廣泛應用，例如基因組注釋、蛋白質結構預測和序列比對。未來的篇章將繼續探討這些演算法的實際應用案例。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>影像組學在醫學影像的運用（上）</title>
       <link>http://localhost:1313/post/radiomics_1/</link>
       <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
@@ -100,6 +195,619 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;radiomics-在醫學中的應用&#34;&gt;Radiomics 在醫學中的應用&lt;/h2&gt;
 &lt;p&gt;隨著人工智慧（AI）和機器學習技術的發展，結合多模態影像（例如 CT / MRI / PET）、基因及臨床數據，Radiomics 已成為醫學研究的重要工具。Radiomics也被廣泛地應用於不同疾病的診斷與治療，例如心血管疾病、神經疾病、癌症等。然而，由於從醫學影像中提取的定量特徵輕易就會超過數百個；相對地，當樣本數不夠大時，容易產生維度詛咒的問題（Curse of Dimensionality）。因此下個主題我們將會著重在解決這個問題的一些方式。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>計算生物學聊聊：分子表示法與圖神經網路</title>
+      <link>http://localhost:1313/post/compbio_gnn/</link>
+      <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/compbio_gnn/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;分子表示法（molecular representation）在計算化學中扮演重要的角色，它使化學家和數據科學家能夠將複雜的化學結構轉換成機器可理解的形式，用於數據存儲和計算分析。這些表示法在格式、易用性和應用場景上存在顯著的差異，每種表示法在特定類型的分析中具有其獨特的優勢和局限性，透過建構圖神經網路（Graph neural network, GNN）來預測分子的特性，這些表示法的差異會更為顯著。&lt;/p&gt;
+&lt;p&gt;本篇筆記出自於美國麻省理工學院的計算生物學課程MLCB24。課程影片請看&lt;a href=&#34;https://www.youtube.com/watch?v=6gkIjo4Jb4E&amp;amp;t=220s&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;這裡&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;常見的分子表示法&#34;&gt;常見的分子表示法&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;SMILES (簡化分子輸入線性表示系統)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SMARTS（SMILES 任意目標規範）&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;InChI（國際化學標識符）&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Molecular graph (分子圖)&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;接下來會根據每一種表示法做介紹：&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;smiles&#34;&gt;SMILES&lt;/h2&gt;
+&lt;p&gt;SMILES（Simplified Molecular Input Line Entry System）是一種基於&lt;code&gt;字串&lt;/code&gt;的分子表示法，最初由美國環保署（EPA）開發，用於以緊密相連的線性格式捕捉分子的結構。目前為化學資訊學中最廣泛使用的小分子表示法之一。&lt;/p&gt;
+&lt;h4 id=&#34;格式&#34;&gt;格式&lt;/h4&gt;
+&lt;p&gt;例如，乙醇的 SMILES 表示為 &lt;code&gt;CCO&lt;/code&gt;（省略氫原子）。&lt;code&gt;字母&lt;/code&gt;和&lt;code&gt;數字&lt;/code&gt;表示原子與鍵類型（單鍵、雙鍵等），&lt;code&gt;括號&lt;/code&gt;則用來標示&lt;code&gt;分支&lt;/code&gt;結構。&lt;/p&gt;
+&lt;h4 id=&#34;優點&#34;&gt;優點&lt;/h4&gt;
+&lt;p&gt;SMILES 具有高度壓縮性（compact），容易被大多數化學資訊軟體讀取，適合用於資料庫存儲。&lt;/p&gt;
+&lt;h4 id=&#34;限制&#34;&gt;限制&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;合成混淆&lt;/code&gt;：SMILES 字串靈活性高，容易生成，但這種靈活性導致許多語法有效的 SMILES 字串可能無法解碼成實際分子。
+&lt;code&gt;立體化學&lt;/code&gt;：雖然 SMILES 可以包含立體化學資訊，但通常在實務上會被省略，當分子功能取決於立體資訊時，會導致問題產生。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;smartssmiles-任意目標規範&#34;&gt;SMARTS（SMILES 任意目標規範）&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SMARTS&lt;/code&gt; 是根據 SMILES 來擴展的表示法，允許在 SMILES 字串中進行&lt;code&gt;模式匹配&lt;/code&gt;來識別特定的分子子結構。&lt;/p&gt;
+&lt;h4 id=&#34;應用&#34;&gt;應用&lt;/h4&gt;
+&lt;p&gt;SMARTS 對於化學資訊學中的&lt;code&gt;子結構搜索&lt;/code&gt;特別有用，例如識別&lt;code&gt;芳香環&lt;/code&gt;或其他分子&lt;code&gt;功能基團&lt;/code&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;格式-1&#34;&gt;格式&lt;/h4&gt;
+&lt;p&gt;例如，芳香環可以用&lt;code&gt;c1cccccc1&lt;/code&gt;來表示。&lt;/p&gt;
+&lt;h4 id=&#34;限制-1&#34;&gt;限制&lt;/h4&gt;
+&lt;p&gt;儘管 SMARTS 在子結構搜索中功能強大，但比 SMILES 更&lt;code&gt;複雜&lt;/code&gt;，需要對&lt;code&gt;化學模式&lt;/code&gt;有更深入的理解才能有效使用。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;selfies自引用嵌入字串&#34;&gt;SELFIES（自引用嵌入字串）&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SELFIES&lt;/code&gt; 是一種較新的表示法，主要在克服 SMILES 的一些限制。它更像是一種&lt;code&gt;分子編程語言&lt;/code&gt;，允許完整解構字串，&lt;code&gt;系統化生成分子&lt;/code&gt;，&lt;/p&gt;
+&lt;h4 id=&#34;關鍵優勢&#34;&gt;關鍵優勢&lt;/h4&gt;
+&lt;p&gt;可以很好的耐受錯誤，所有的SELFIES字串都可以解構成某特定分子，不會導致訊息的喪失，有利於機器學習。&lt;/p&gt;
+&lt;h4 id=&#34;格式-2&#34;&gt;格式&lt;/h4&gt;
+&lt;p&gt;例如，苯環可以表示成：&lt;code&gt;C1=CC=CC=C1&lt;/code&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;限制-2&#34;&gt;限制&lt;/h4&gt;
+&lt;p&gt;SELFIES 雖然創新，但&lt;code&gt;較難閱讀&lt;/code&gt;，且需進一步改進以確保化學空間中的採樣沒有偏誤。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;inchi國際化學標識符&#34;&gt;InChI（國際化學標識符）&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;InChI&lt;/code&gt; 是一種IUPAC開發的標準化分子表示法，保證每個分子與其 InChI 字串一一對應。包含多層的分子特徵，如連結性、價電子、空間化學與異構物等。&lt;/p&gt;
+&lt;h4 id=&#34;應用-1&#34;&gt;應用&lt;/h4&gt;
+&lt;p&gt;InChI 在&lt;code&gt;資料庫搜索&lt;/code&gt;和&lt;code&gt;比較&lt;/code&gt;中特別有價值，因為它允許直接進行&lt;code&gt;分子比較&lt;/code&gt;，避免了因不同 SMILES 表示法導致的&lt;code&gt;多餘訊息&lt;/code&gt;。因為SMILE並沒有賦予分子獨特性，因此需要電腦解讀，增加計算負擔。&lt;/p&gt;
+&lt;h4 id=&#34;關鍵優勢-1&#34;&gt;關鍵優勢&lt;/h4&gt;
+&lt;p&gt;標準化的表示法，每一個表示法都對應到單一獨特的分子式。&lt;/p&gt;
+&lt;h4 id=&#34;格式-3&#34;&gt;格式&lt;/h4&gt;
+&lt;p&gt;例如，乙醇可以表示成：&lt;code&gt;1S/C2H6)/c1-2-3/h3H,2H2,1H3&lt;/code&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;限制-3&#34;&gt;限制&lt;/h4&gt;
+&lt;p&gt;InChI 的&lt;code&gt;複雜性&lt;/code&gt;使其難以閱讀和解釋。由於簡潔性，許多人&lt;code&gt;更偏好用 SMILES 進行可視化&lt;/code&gt;。目前有方法將SMILES表達法InChI化，藉此增加InChI的可讀性。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;分子圖&#34;&gt;分子圖&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;分子圖&lt;/code&gt;是一種基於&lt;code&gt;圖形&lt;/code&gt;的分子表示法，其中原子是頂點，鍵是邊。這種表示法捕捉了分子的所有信息，包括原子類型、鍵類型，甚至是立體化學。&lt;/p&gt;
+&lt;h4 id=&#34;優點-1&#34;&gt;優點&lt;/h4&gt;
+&lt;p&gt;分子圖全面地提供分子結構的完整描述，較為&lt;code&gt;直覺&lt;/code&gt;，尤其適用於基於圖的機器學習中的計算分析。&lt;/p&gt;
+&lt;h4 id=&#34;限制-4&#34;&gt;限制&lt;/h4&gt;
+&lt;p&gt;與基於字串的格式不同，分子圖不如 SMILES 那麼&lt;code&gt;緊密&lt;/code&gt;，也不適合快速搜索資料庫。分子圖更適合用於計算應用和視覺化，而非數據儲存。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;分子表示法比較&#34;&gt;分子表示法比較&lt;/h2&gt;
+&lt;p&gt;圖一顯示不同分子表示法的總結。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖一-分子表示法比較&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig1&#34; srcset=&#34;
+               /post/compbio_gnn/fig1_hu3479184427380367237.webp 400w,
+               /post/compbio_gnn/fig1_hu2261907717937882707.webp 760w,
+               /post/compbio_gnn/fig1_hu11170528079376645331.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig1_hu3479184427380367237.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;540&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖一 分子表示法比較
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;smiles-表示法&#34;&gt;SMILES 表示法&lt;/h2&gt;
+&lt;h4 id=&#34;原子與鍵&#34;&gt;原子與鍵&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;一般原子&lt;/code&gt;：在 SMILES 字串中，每個原子由其化學符號表示。大多數原子使用單個&lt;code&gt;大寫字母&lt;/code&gt;表示（例如，C 表示碳，O 表示氧）。一些原子需要兩個字母的組合（如 &lt;code&gt;Na 表示鈉，Cl 表示氯&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;芳香原子&lt;/code&gt;：在 SMILES 中，&lt;code&gt;小寫字母&lt;/code&gt;表示芳香化合物中的原子。例如，小寫的 c 表示&lt;code&gt;芳香碳&lt;/code&gt;，常見於&lt;code&gt;苯環&lt;/code&gt;中。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;鍵&lt;/code&gt;：&lt;code&gt;單鍵&lt;/code&gt;通常為簡化&lt;code&gt;省略&lt;/code&gt;，但也可使用單個破折號 &lt;code&gt;-&lt;/code&gt; 明確表示。&lt;code&gt;雙鍵&lt;/code&gt;用等號 &lt;code&gt;=&lt;/code&gt; 表示，&lt;code&gt;三鍵&lt;/code&gt;用井號 &lt;code&gt;#&lt;/code&gt; 表示。芳香鍵通常省略，因為小寫原子符號已隱含芳香性。分子組件的分離：句點 &lt;code&gt;.&lt;/code&gt; 用於表示分子中&lt;code&gt;不連接&lt;/code&gt;的部分，例如鹽或離子對。例：&lt;code&gt;Na.Cl 表示氯化鈉&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;鏈與分支&#34;&gt;鏈與分支&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;線性鏈&lt;/code&gt;：簡單的原子鏈以&lt;code&gt;直線順序&lt;/code&gt;表示。例如，乙醇的 SMILES 表示為 CCO，表示碳-碳-氧鏈。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;分支&lt;/code&gt;：SMILES 使用&lt;code&gt;括號&lt;/code&gt;表示從主鏈分支的結構。主鏈從括號前的原子開始繼續。例如，&lt;code&gt;異丙醇 (2-propanol or isopropanol)&lt;/code&gt;的 SMILES 表示為 &lt;code&gt;CC(O)C&lt;/code&gt;，其中 &lt;code&gt;(O)&lt;/code&gt; 表示&lt;code&gt;OH-&lt;/code&gt;分支。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其他例子：&lt;/p&gt;
+&lt;p&gt;CC(=O)C: 2-Propanone&lt;/p&gt;
+&lt;p&gt;CC(CC)C: 2_Methylbutane&lt;/p&gt;
+&lt;p&gt;CC(C)CC(=O): 2-Methylbutanal&lt;/p&gt;
+&lt;p&gt;c1c(N)(=O)=O)cccc1: Nitrobenzene&lt;/p&gt;
+&lt;p&gt;CC(C)(C)CC: 2,2-Dimethylbutane&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;環與環狀結構&#34;&gt;環與環狀結構&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;環閉合&lt;/code&gt;：SMILES 使用&lt;code&gt;數字&lt;/code&gt;標記環閉合。例如，&lt;code&gt;苯&lt;/code&gt;的表示為 &lt;code&gt;c1ccccc1&lt;/code&gt;，其中 &lt;code&gt;1&lt;/code&gt; 表示&lt;code&gt;第一和最後&lt;/code&gt;的碳原子相連以完成環。相同的數字表示開環與閉環的原子位置。鍵的類型著記在原子之後，但在數字之前。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;多重環&lt;/code&gt;：對於更複雜的環系統，使用額外的數字來表示分子內的每個環。例如，&lt;code&gt;萘&lt;/code&gt;的 SMILES 表示為 c1ccc2ccccc2c1，其中 1 和 2 標記了兩個融合的環 (圖二)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖二-萘-naphthalene的smiles表示法&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig2&#34; srcset=&#34;
+               /post/compbio_gnn/fig2_hu10946339939307287139.webp 400w,
+               /post/compbio_gnn/fig2_hu13962839815580817115.webp 760w,
+               /post/compbio_gnn/fig2_hu7996518131002891555.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig2_hu10946339939307287139.webp&#34;
+               width=&#34;292&#34;
+               height=&#34;204&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖二 萘 (Naphthalene)的SMILES表示法
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;電荷&#34;&gt;電荷&lt;/h4&gt;
+&lt;p&gt;電荷表示：SMILES 使用卷曲括號 &lt;code&gt;{}&lt;/code&gt; 和加號 &lt;code&gt;+&lt;/code&gt; 或減號 &lt;code&gt;-&lt;/code&gt; 表示原子的電荷。&lt;/p&gt;
+&lt;h4 id=&#34;模稜兩可的名稱&#34;&gt;模稜兩可的名稱&lt;/h4&gt;
+&lt;p&gt;若是比較容易讓人誤解的標示方法，用大括號 &lt;code&gt;[]&lt;/code&gt; 來區分，如Sc沒有框起來的話表示Sulfur與aromatic carbon，而[Sc]則表示Scandium。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;morgan-指紋機器學習中的分子結構編碼&#34;&gt;Morgan 指紋：機器學習中的分子結構編碼&lt;/h2&gt;
+&lt;p&gt;Morgan 指紋（也稱為&lt;code&gt;環狀指紋&lt;/code&gt;）是一種強大的工具，可將分子結構轉換為&lt;code&gt;固定長度的二進制向量&lt;/code&gt;，使其非常適合於機器學習應用。與需要詳細結構數據的完整分子圖不同，Morgan 指紋提供了一種&lt;code&gt;計算效率更高&lt;/code&gt;的表示方式，捕捉每個原子周圍的結構特徵並以易於輸入機器學習模型的格式儲存。&lt;/p&gt;
+&lt;h4 id=&#34;morgan-指紋的目的&#34;&gt;Morgan 指紋的目的&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;定量結構-活性關係（QSAR）建模&lt;/code&gt;：例如，預測分子的疏水性、溶解度或潛在生物活性。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;高通量篩選&lt;/code&gt;：在藥物發現中，用於快速篩選分子。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;主要優勢&#34;&gt;主要優勢&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;固定長度表示&lt;/code&gt;：每個分子無論大小都表示為特定長度的向量，與許多機器學習模型直接兼容。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;結構資訊封裝&lt;/code&gt;：通過編碼以原子為中心的子結構（達到&lt;code&gt;指定半徑&lt;/code&gt;），捕捉&lt;code&gt;局部化學環境&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;計算效率&lt;/code&gt;：這種表示方式&lt;code&gt;比生成完整分子圖更快&lt;/code&gt;，並且生成的指紋可快速用於機器學習。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;morgan-如何運作&#34;&gt;Morgan 如何運作？&lt;/h4&gt;
+&lt;p&gt;生成 Morgan 指紋涉及一系列步驟，這些步驟專注於分子中的每個原子，並檢查其在指定半徑內的&lt;code&gt;局部結構&lt;/code&gt; (圖三)。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;以原子為中心的編碼&lt;/code&gt;： 每個&lt;code&gt;原子&lt;/code&gt;作為&lt;code&gt;中心點&lt;/code&gt;，檢查其周圍的子結構。這些子結構的細節取決於設定的&lt;code&gt;半徑&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;定義半徑：&lt;/p&gt;
+&lt;p&gt;半徑 0：僅編碼原子本身。&lt;/p&gt;
+&lt;p&gt;半徑 1：編碼原子及其鄰近原子。&lt;/p&gt;
+&lt;p&gt;半徑 2：編碼原子、其鄰近原子及這些鄰近原子的鄰居。&lt;/p&gt;
+&lt;p&gt;通常，使用半徑 2 即可捕捉足夠的細節，而不會導致向量過於龐大。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;將子結構映射到比特 (bit) 位置&lt;/code&gt;：每個環狀子結構都被編碼為一個&lt;code&gt;二進制向量（bit string）&lt;/code&gt;，其中特定特徵（例如原子、鍵、環）的存在記錄為&lt;code&gt;1&lt;/code&gt;，缺失記錄為&lt;code&gt;0&lt;/code&gt;。半徑決定了圍繞中心原子的原子層數（例如，半徑為2時包括距離中心原子兩鍵以內的原子和鍵）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;子結構碰撞&lt;/code&gt;：子結構被哈希(hash)轉換為固定長度的指紋（例如1024位），這可能導致哈希碰撞，即多個子結構可能映射到相同的位。可以考慮增加長度來解決。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖三-morgan-fingerprinthttpstowardsdatasciencecoma-practical-introduction-to-the-use-of-molecular-fingerprints-in-drug-discovery-7f15021be2b1&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig3&#34; srcset=&#34;
+               /post/compbio_gnn/fig3_hu1804110335273990854.webp 400w,
+               /post/compbio_gnn/fig3_hu17041954323525736801.webp 760w,
+               /post/compbio_gnn/fig3_hu9009013187830519231.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig3_hu1804110335273990854.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;171&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      &lt;a href=&#34;https://towardsdatascience.com/a-practical-introduction-to-the-use-of-molecular-fingerprints-in-drug-discovery-7f15021be2b1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;圖三 Morgan fingerprint&lt;/a&gt;
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;morgan-指紋生成範例&#34;&gt;Morgan 指紋生成範例&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;第一步：從分子內的某原子開始。&lt;/li&gt;
+&lt;li&gt;第二步：根據特定的半徑來建構子結構。&lt;/li&gt;
+&lt;li&gt;第三步：使用Hash table來將子結構轉換成獨特的比特編號。&lt;/li&gt;
+&lt;li&gt;第四步：針對每一個原子完成以上步驟，產生一個二元分子指紋，表示整個分子。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;以乙醇cco為例&#34;&gt;以乙醇（CCO）為例&lt;/h4&gt;
+&lt;p&gt;每個碳和氧原子作為中心點，評估其半徑 2 內的子結構。&lt;/p&gt;
+&lt;p&gt;這將產生以下信息：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;原子 1：第一個碳及其鄰居（第二個碳和氧）。&lt;/li&gt;
+&lt;li&gt;原子 2：第二個碳及其鄰居（第一個碳和氧）。&lt;/li&gt;
+&lt;li&gt;原子 3：氧及其鄰近的碳。
+每個原子和子結構會映射到指紋中，形成唯一表示乙醇結構的比特向量。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;morgan-指紋的優點&#34;&gt;Morgan 指紋的優點&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;對結構改變非常敏感，結構的些微修飾都可以被捕捉。&lt;/li&gt;
+&lt;li&gt;效率高。&lt;/li&gt;
+&lt;li&gt;廣泛使用於常見化學資訊學的工具中，如&lt;code&gt;RDKit&lt;/code&gt;，也常用在視覺篩選與相似性搜索中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;半徑與比特向量長度的平衡&#34;&gt;半徑與比特向量長度的平衡&lt;/h4&gt;
+&lt;p&gt;半徑增加的影響：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;半徑越大，捕捉的子結構越詳細，但需要更大的向量以避免碰撞。&lt;/li&gt;
+&lt;li&gt;半徑 2 提供了適度的細節，廣泛用於化學資訊學。&lt;/li&gt;
+&lt;li&gt;半徑 3 或更大通常僅在需要非常細粒度結構細節時使用，但會顯著增加計算需求和複雜性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;向量長度&#34;&gt;向量長度&lt;/h4&gt;
+&lt;p&gt;常用長度為 1024 或 2048 比特。更大的向量幫助減少哈希碰撞，但在數據集較小時可能導致稀疏性問題。&lt;/p&gt;
+&lt;h4 id=&#34;在機器學習中的解釋與應用&#34;&gt;在機器學習中的解釋與應用&lt;/h4&gt;
+&lt;p&gt;Morgan 指紋將複雜的分子結構轉換為向量空間表示，其中具有相似拓撲特徵的分子具有相似的指紋。結果向量可用於以下機器學習模型：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;隨機森林&lt;/code&gt;：適合特徵豐富的數據集，向量直接表示分子特徵。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;多層感知機（MLP）&lt;/code&gt;：能有效處理 Morgan 指紋，學習數據中的非線性模式。&lt;/li&gt;
+&lt;li&gt;其他演算法：包括支持向量機（SVM）和邏輯回歸在內的任何處理二進制或數值向量的演算法均可使用 Morgan 指紋。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;限制與考量&#34;&gt;限制與考量&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;不可逆&lt;/code&gt;：指紋無法反向解碼為原始分子。&lt;/li&gt;
+&lt;li&gt;碰撞問題：不同的分子結構可能映射到相同的比特位置，尤其是在&lt;code&gt;較小的比特向量&lt;/code&gt;或&lt;code&gt;大分子&lt;/code&gt;時。&lt;/li&gt;
+&lt;li&gt;不適用於大生物分子：對於&lt;code&gt;非常大的生物分子（如蛋白質）&lt;/code&gt;，Morgan 指紋可能不適用，因為結構的複雜性超出了其表達能力。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;分子圖化學結構的進階表示&#34;&gt;分子圖：化學結構的進階表示&lt;/h2&gt;
+&lt;p&gt;分子圖是一種靈活且精細的方式，能夠以數學形式表示分子，特別是在指紋&lt;code&gt;無法捕捉足夠結構細節&lt;/code&gt;時尤其有用。與比特向量指紋不同，分子圖提供了分子結構的&lt;code&gt;直接映射&lt;/code&gt;，將每個原子作為&lt;code&gt;節點 (node)&lt;/code&gt;，每條鍵作為&lt;code&gt;邊 (edge)&lt;/code&gt;。這種基於結構的表示允許更高的&lt;code&gt;特異性&lt;/code&gt;和數據的豐富性，使其成為&lt;code&gt;圖神經網絡（Graph Neural Networks, GNNs）&lt;/code&gt;的最佳輸入，尤其適用於需要深入探索原子間的關係時，例如定量QSAR和藥物設計。&lt;/p&gt;
+&lt;h4 id=&#34;分子圖的結構&#34;&gt;分子圖的結構&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;節點與邊&lt;/code&gt;：在分子圖中，每個&lt;code&gt;節點表示一個原子&lt;/code&gt;，每條&lt;code&gt;邊表示一條化學鍵&lt;/code&gt;。這種結構捕捉了分子內的原子類型及鍵類型（單鍵、雙鍵、三鍵或芳香鍵），能夠詳細描述化學關係。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;節點標籤&lt;/code&gt;：每個節點可以攜帶標籤或類型（例如，碳用 C 表示，氮用 N 表示），以區分不同的原子類型。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;邊標籤&lt;/code&gt;：邊可以標示鍵的類型（如單鍵、雙鍵、三鍵等）。這在分子圖中尤為重要，因為鍵類型對分子的化學行為和特性有著重要影響。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;圖的種類&#34;&gt;圖的種類&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;方向性&lt;/code&gt;：在大多數情況下，分子圖是&lt;code&gt;無向 (undirected)&lt;/code&gt;的，因為&lt;code&gt;化學鍵通常沒有方向性&lt;/code&gt;。但在某些情境下，如&lt;code&gt;化學反應&lt;/code&gt;網絡中，可以使用&lt;code&gt;有向圖 (directed)&lt;/code&gt;來表示從反應物到產物的轉化流程。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;圖標籤&lt;/code&gt;：原子和鍵都被標示，說明原子和鍵的類型，在對於需要化學分子細節的探討中很重要。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;加權圖&lt;/code&gt;：雖然在基本分子圖中不常使用，但可以引入&lt;code&gt;加權邊&lt;/code&gt;以指示&lt;code&gt;鍵強度&lt;/code&gt;、相互作用強度或其他結構行為的&lt;code&gt;先驗知識&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;對稱性&lt;/code&gt;：對於無向圖，鄰接矩陣是對稱的；對於有向圖，則是非對稱的，反映每條邊的方向性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;分子圖的表示方法&#34;&gt;分子圖的表示方法&lt;/h4&gt;
+&lt;h4 id=&#34;鄰接矩陣-adjacency-matrix&#34;&gt;鄰接矩陣 (Adjacency Matrix)：&lt;/h4&gt;
+&lt;p&gt;鄰接矩陣提供了一種表格式的圖表示，其中每個單元格表示原子之間&lt;code&gt;是否存在鍵（或鍵的類型）&lt;/code&gt;。例如，若原子
+(i,j) 的值為 1（或表示鍵類型的整數）；否則為 0。&lt;/p&gt;
+&lt;h4 id=&#34;鄰接列表-adjacency-list&#34;&gt;鄰接列表 （Adjacency List）&lt;/h4&gt;
+&lt;p&gt;在處理大型圖（如社交網絡或大規模數據集）時比矩陣更高效。每個原子只保存與其直接相連的原子清單，大大減少稀疏網絡中的存儲需求。&lt;/p&gt;
+&lt;h4 id=&#34;稀疏矩陣表示&#34;&gt;稀疏矩陣表示：&lt;/h4&gt;
+&lt;p&gt;另一種選擇是使用稀疏矩陣，只存儲非零值（即存在鍵的原子對），進一步降低內存使用量。&lt;/p&gt;
+&lt;h4 id=&#34;圖的可視化&#34;&gt;圖的可視化：&lt;/h4&gt;
+&lt;p&gt;分子圖也可以被可視化，提供直觀的方式來檢查分子結構、理解其複雜性並排查表示中的問題。&lt;/p&gt;
+&lt;h4 id=&#34;分子圖的應用與優勢&#34;&gt;分子圖的應用與優勢&lt;/h4&gt;
+&lt;h4 id=&#34;完整的結構編碼分子圖保留了分子的完整拓撲結構允許對其特性和相互作用進行更深入的檢查&#34;&gt;完整的結構編碼：分子圖保留了分子的完整拓撲結構，允許對其特性和相互作用進行更深入的檢查。&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;與圖神經網絡（GNNs）的兼容性：分子圖可以與 GNNs 無縫集成，後者專門設計用於處理圖結構數據。&lt;/li&gt;
+&lt;li&gt;強化的預測模型：基於分子圖構建的 GNN 模型能夠更準確地預測分子的各種特性，如生物活性、毒性、溶解度和結合親和力。&lt;/li&gt;
+&lt;li&gt;消息傳遞：在 GNN 中，每個節點通過一種稱為消息傳遞的迭代過程與其鄰居進行通信。這允許每個節點聚合鄰近節點的信息，有效地捕捉其分子環境的影響。&lt;/li&gt;
+&lt;li&gt;分層結構：與傳統神經網絡類似，GNN 有多層結構，每層允許圖捕捉分子中越來越遠的關係。&lt;/li&gt;
+&lt;li&gt;可定制性：GNN 可以納入方向性和邊權重的設計，特別適合於處理具有專門相互作用的分子結構。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;其他圖應用&#34;&gt;其他圖應用&lt;/h3&gt;
+&lt;p&gt;雖然分子圖是化學中的自然選擇，但其原則和技術可廣泛應用於其他與圖相關的領域，例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;社交網絡：節點表示個體，邊表示聯繫（通常是有向的）。&lt;/li&gt;
+&lt;li&gt;通訊網絡：路由信息，其中節點表示服務器或路由器，邊表示數據流路徑。&lt;/li&gt;
+&lt;li&gt;生物網絡：基因與蛋白質的交互網絡，節點表示基因或蛋白質，邊表示相互作用或調控關係。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;運用分子圖於藥物開發領域&#34;&gt;運用分子圖於藥物開發領域&lt;/h2&gt;
+&lt;p&gt;分子圖在藥物發現和開發的各個階段都不可或缺，能夠精準捕捉並操作分子的完整結構。以下是分子圖如何顯著提升藥物開發流程的幾種方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;化學相似性搜索 （Chemical similarity searching）&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;當一種化合物顯示出與特定靶點的良好結合親和力時，研究人員通常會尋找與之結構相似的化合物，因為它們可能具有類似的活性。通過分子圖，我們可以編碼已知化合物的結構特徵，並在包含數百萬化合物的大型化學庫中搜索類似結構。&lt;/li&gt;
+&lt;li&gt;研究人員可以優先選擇較小且更具針對性的分子集進行初步測試，從而減少大規模篩選的成本和資源使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;定量結構-活性關係（QSAR）建模&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;QSAR 模型使用分子圖來預測各種生物化學和藥代動力學特性。例如，可以基於分子結構預測以下屬性：&lt;/li&gt;
+&lt;li&gt;溶解度&lt;/li&gt;
+&lt;li&gt;血腦屏障的滲透性&lt;/li&gt;
+&lt;li&gt;ADME（吸收、分布、代謝、排泄）&lt;/li&gt;
+&lt;li&gt;毒性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;基於結構的藥物設計&lt;/code&gt;
+分子圖允許進行基於結構的藥物設計，通過表現完整的分子結構，支持更準確的分子-靶標作用模擬與預測。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;研究人員可以利用基於分子圖的表示法來模擬&lt;code&gt;結合能量&lt;/code&gt;及&lt;code&gt;交互動態&lt;/code&gt;，設計專門與目標結合的化合物。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;卷積神經網絡-cnns&#34;&gt;卷積神經網絡 (CNNs)&lt;/h2&gt;
+&lt;p&gt;為更直觀地理解GNNs，可以先考慮CNNs的結構與功能。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;CNN 處理 2D 網格數據&lt;/code&gt;: 以像素為單位：CNN 將每個像素視為一個單位，並與相鄰像素進行連接（垂直或水平），從而學習局部模式（如邊緣、梯度和紋理）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;層級學習&lt;/code&gt;：隨著網絡層數的增加，CNN 將這些&lt;code&gt;初級&lt;/code&gt;特徵&lt;code&gt;聚合為更高級模式&lt;/code&gt;，最終能夠識別複雜對象（例如貓、狗或汽車）。&lt;/li&gt;
+&lt;li&gt;從 CNN 到&lt;code&gt;幾何深度學習（GDL）的過渡&lt;/code&gt;: 將 CNN 在結構化數據（如影像）上的成功&lt;code&gt;推廣到非結構化&lt;/code&gt;、&lt;code&gt;非歐幾里得數據&lt;/code&gt;，如&lt;code&gt;圖&lt;/code&gt;和&lt;code&gt;流形&lt;/code&gt; (graphs, meshes and point clouds)。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而圖與網格或矩陣不同，因其&lt;code&gt;缺乏固定的節點排列&lt;/code&gt;且&lt;code&gt;連接多樣化&lt;/code&gt;，因此需要專門的神經網絡架構，因此才有圖神經網路的角色出現。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;invariance-與-equivariance&#34;&gt;Invariance 與 Equivariance&lt;/h2&gt;
+&lt;p&gt;在深度學習中，Invariance（不變性）與 Equivariance（等變性）是兩個非常重要的概念，特別是在處理結構化數據（例如圖像、序列、圖）時，對模型的性能和泛化能力有著深遠的影響。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Invariance: 不變性指的是模型或函數對某些輸入變換保持輸出不變的特性。如果f(x)是某個模型或函數，針對某個變換T，不變性表示：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+f(T(x))=f(x)
+$$
+&lt;/div&gt;
+&lt;p&gt;如圖四，貓的圖片在轉換之後，模型仍然能偵測為貓。或是一個模型在預測分子溶解度時應該對分子的&lt;code&gt;旋轉&lt;/code&gt;或&lt;code&gt;平移&lt;/code&gt;保持不變，因為這些變換&lt;code&gt;不影響分子的溶解性&lt;/code&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Equivariance: 等變性指的是模型或函數對某些輸入變換的輸出也發生相應的變換。如果f(x)是某個模型或函數，針對某個變換T，等變性表示：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+f(T(x))=T(f(x))
+$$
+&lt;/div&gt;
+&lt;p&gt;換句話說，輸入經過某種變化後，輸出的結果應該跟著同步變化。例如，分子動力學模擬中，對參考框架的旋轉應該導致原子位置與動量的相應旋轉。&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖四&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig4&#34; srcset=&#34;
+               /post/compbio_gnn/fig4_hu18150330024369147487.webp 400w,
+               /post/compbio_gnn/fig4_hu7306947348480769975.webp 760w,
+               /post/compbio_gnn/fig4_hu5704989358987084869.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig4_hu18150330024369147487.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;329&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖四
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;圖神經網路&#34;&gt;圖神經網路&lt;/h2&gt;
+&lt;p&gt;圖神經網絡是一類專為處理圖結構數據而設計的深度學習模型。與傳統神經網絡處理網格數據（如圖像或時間序列）不同，GNNs 專注於以節點（例如原子）和邊（例如化學鍵）表示的圖結構數據，這使其在分子圖、社交網絡和知識圖譜等複雜結構中應用廣泛。GNNs 的目標是捕捉圖中的關係與依賴性，預測與節點、邊甚至整個圖相關的特性或行為。&lt;/p&gt;
+&lt;h4 id=&#34;關鍵概念&#34;&gt;關鍵概念&lt;/h4&gt;
+&lt;p&gt;圖神經網路可以學習如何表達以圖為結構的數據，並且可以利用節點和邊的關係來做預測。&lt;/p&gt;
+&lt;h4 id=&#34;gnn-的關鍵應用&#34;&gt;GNN 的關鍵應用&lt;/h4&gt;
+&lt;p&gt;廣泛使用於&lt;code&gt;化學資訊學&lt;/code&gt;、生物資訊學與&lt;code&gt;社群網路&lt;/code&gt;分析。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;節點級預測&lt;/code&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;應用：例如預測某特定節點（如分子中的原子）是否會參與活性位點的結合或參與化學反應。&lt;/li&gt;
+&lt;li&gt;實例：在蛋白質-小分子交互研究中，GNN 可預測分子中的&lt;code&gt;哪個原子參與結合位點&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;邊級（鏈路）預測&lt;/code&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;應用：判斷節點間邊的存在性或強度（例如化學鍵的形成可能性）。&lt;/li&gt;
+&lt;li&gt;實例：基因組學中，預測可能與疾病相關的基因之間的潛在關聯。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;圖級預測&lt;/code&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;應用：為整個圖進行分類或性質預測，例如預測&lt;code&gt;分子的毒性&lt;/code&gt;或是&lt;code&gt;否能穿越血腦屏障&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;實例：在藥物篩選中，基於&lt;code&gt;整個分子結構&lt;/code&gt;預測其生物活性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;gnn-的一般工作流程&#34;&gt;GNN 的一般工作流程&lt;/h4&gt;
+&lt;p&gt;GNN 的工作流程通常包括以下幾個階段：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;輸入數據與初始嵌入&lt;/code&gt;: 圖中的每個&lt;code&gt;節點&lt;/code&gt;都有一些初始輸入特徵。例如，在分子應用中，每個節點可能表示一個原子，其特徵可能包括原子序數、電荷狀態等。這些初始特徵被嵌入到一個高維空間中的潛在表示中（latent representation），以捕捉每個節點的初始狀態。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖五-圖神經網路的節點特徵嵌入&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig5&#34; srcset=&#34;
+               /post/compbio_gnn/fig5_hu2388238815147713275.webp 400w,
+               /post/compbio_gnn/fig5_hu5675022451590598209.webp 760w,
+               /post/compbio_gnn/fig5_hu3447441218360307289.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig5_hu2388238815147713275.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;292&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖五 圖神經網路的節點特徵嵌入
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通過 GNN 層進行&lt;code&gt;信息傳遞 (Message Passing)&lt;/code&gt;: 嵌入後，GNN 在多層網絡中進行一系列的消息傳遞（message passing）步驟。這一過程類似於 CNN 中的卷積操作，CNN 是從&lt;code&gt;鄰近像素中聚合信息&lt;/code&gt;，而 GNN 則是從&lt;code&gt;相鄰節點中聚合信息&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;聚合與更新: 在每一層 GNN 中，每個節點都從其鄰居處接收訊息。節點將這些訊息聚合起來，與自身的潛在向量結合後&lt;code&gt;更新其狀態&lt;/code&gt;。這種聚合方法可以是&lt;code&gt;求和（sum&lt;/code&gt;）、&lt;code&gt;均值（mean）&lt;/code&gt;、或&lt;code&gt;最大池化（max pooling&lt;/code&gt;），具體取決於任務需求。
+以下是一些常見的聚合技術：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;總和聚合(Sum Aggregation)&lt;/code&gt;：透過將所有節點的representation相加，我們可以獲得一個&lt;code&gt;單一的向量&lt;/code&gt;，反映來自所有節點的&lt;code&gt;累積信息&lt;/code&gt;。這種方法在節點數量在&lt;code&gt;不同圖之間相近時&lt;/code&gt;效果不錯，但如果某些圖比其他圖大得多，可能會導致偏差。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;平均聚合(Mean Aggregation)&lt;/code&gt;：通過對節點向量取平均值，這種方法在聚合過程中進行了歸一化，確保圖的大小（節點數量）不會影響結果。當處理大小不同的圖時，平均聚合特別有用，因為它可以調整節點數量之間的差異。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;最大池化(Max Pooling)&lt;/code&gt;：在這種方法中，我們從所有節點向量的&lt;code&gt;每個位置中取最大值&lt;/code&gt;，捕捉到最顯著的特徵值。這種方法能夠突出圖中最具代表性的特徵，但可能會&lt;code&gt;忽略&lt;/code&gt;一些重要的細微特徵，特別是當其他節點包含較低但關鍵的值時。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;注意力機制(Attention Mechanisms)&lt;/code&gt;：基於注意力機制的方法允許我們根據節點對任務的重要性，對每個節點的貢獻賦予不同的權重。模型會自動學習這些權重，從而自適應地突出關鍵節點，是一種強大的方法來優先考慮圖中的某些區域。例如，在分子圖中，注意力機制可以對重要的功能基團賦予更高的權重，以便在預測化學性質時更加精準。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;全局節點或虛擬節點(Global Nodes or Virtual Nodes)&lt;/code&gt;：在一些進階的 GNN中，會引入一個&lt;code&gt;全局節點&lt;/code&gt;或&lt;code&gt;虛擬節點&lt;/code&gt;，該節點與圖中的所有其他節點相連。在信息傳遞（message-passing）過程中，這個節點會聚合來自整個圖的所有信息，作為一個中心樞紐。到最後，這個虛擬節點的潛在向量（latent vector）就成為整個圖的表示，捕捉了整個網絡的特徵。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖六-訊息的結合&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig6&#34; srcset=&#34;
+               /post/compbio_gnn/fig6_hu17702982825052260044.webp 400w,
+               /post/compbio_gnn/fig6_hu18171683510162612183.webp 760w,
+               /post/compbio_gnn/fig6_hu17719637959162410375.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig6_hu17702982825052260044.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;246&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖六 訊息的結合
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖七-節點訊息的更新&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig7&#34; srcset=&#34;
+               /post/compbio_gnn/fig7_hu14204850261544369576.webp 400w,
+               /post/compbio_gnn/fig7_hu9938346904168491431.webp 760w,
+               /post/compbio_gnn/fig7_hu296375659254389028.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/compbio_gnn/fig7_hu14204850261544369576.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;261&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖七 節點訊息的更新
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;節點的更新公式：&lt;/p&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+h_u^{(k)} = \sigma \left( W_{\text{self}}^{(k)} h_u^{(k-1)} + W_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}_u} h_v^{(k-1)} + b^{(k)} \right)
+$$
+&lt;/div&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+h_u^{(k-1)} \in \mathbb{R}^{d^{(k-1)}}: Node-embeddings
+$$
+&lt;/div&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+W_{\text{self}}^{(k)}, W_{\text{neigh}}^{(k)} \in \mathbb{R}^{d^{(k)} \times d^{(k-1)}}: Learnable-parameters
+$$
+&lt;/div&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$
+b^{(k)} \in \mathbb{R}^{d^{(k)}}: Bias-term
+$$
+&lt;/div&gt;
+&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
+$$\sigma: Elementwise-non-linearity  (e.g., a \tanh or ReLU)$$
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;更新機制&lt;/p&gt;
+&lt;p&gt;Step 1: 每個節點先從鄰居中收集信息（聚合鄰居特徵）。&lt;/p&gt;
+&lt;p&gt;Step 2: 將聚合後的鄰居特徵與自身特徵結合（線性變換 + 偏置項）。&lt;/p&gt;
+&lt;p&gt;Step 3: 應用激活函數，生成該節點在新層的嵌入特徵。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;多層結構: 信息通過&lt;code&gt;多層傳遞&lt;/code&gt;，每層使節點可以&lt;code&gt;看到&lt;/code&gt;圖中&lt;code&gt;更遠的鄰居&lt;/code&gt;。例如，經過兩層後，每個節點可以融入來自其&lt;code&gt;兩跳&lt;/code&gt;鄰居的信息。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最終狀態與輸出生成: 當圖經過多層 GNN 處理後，節點達到最終狀態，該狀態包含從周圍節點學到的信息。這些最終狀態可以用於生成多種預測：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;節點級任務&lt;/code&gt;：使用每個節點的最終狀態進行預測。當我們需要為單個節點分類或預測屬性時，可以直接使用每個節點的最終潛在表示（latent representation）。例如，假設我們有一個分子圖，並且已知每個原子的分子屬性，但對某個特定原子（節點）缺乏相關信息，我們可以將該未知節點的潛在向量輸入分類器，來預測所需的屬性，例如該原子是否參與結合位點，或者是否與某些分子相互作用。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;邊級任務&lt;/code&gt;：分析相鄰節點最終狀態之間的關係。連結預測的目標是預測節點之間的連接（邊）的存在性或強度，這在&lt;code&gt;社交網絡&lt;/code&gt;或&lt;code&gt;生物網絡&lt;/code&gt;中非常有用，可以用來推斷新的關係。例如，在基因組學中，我們可能已知與某種疾病相關的一組基因，並希望通過檢查它們在生物途徑中的連接性，來預測其他潛在的基因。這可以通過以下方式實現：將兩個節點的潛在向量進行相似性測量（例如餘弦相似度）或學習函數，來預測是否存在一條邊。更複雜的情況下，將兩個節點的表示組合後輸入多層感知器（MLP），以進行關係的預測。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;圖級任務&lt;/code&gt;：將所有節點的最終狀態池化成單一圖表示，用於&lt;code&gt;分類&lt;/code&gt;或&lt;code&gt;回歸&lt;/code&gt;。在某些情況下，我們需要對整個圖進行單一的預測，例如分子的溶解度或毒性。這時需要將所有節點的信息聚合成一個&lt;code&gt;固定長度的向量&lt;/code&gt;，該向量能夠捕捉整個圖的結構和特徵。例如：可以使用聚合技術（如平均聚合、總和聚合或注意力機制）來匯總節點的表示，生成代表整體圖特徵的向量。
+然後，將該圖級表示作為輸入，用於進行&lt;code&gt;分類&lt;/code&gt;或迴歸任務。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;擴大感受野&#34;&gt;擴大感受野&lt;/h4&gt;
+&lt;p&gt;每當我們應用一層 GNN層時，實際上我們就增加了每個節點的&lt;code&gt;感受野 (receptive filed)&lt;/code&gt;。起初，一個節點的感受野僅包括&lt;code&gt;它自己&lt;/code&gt;。然而，在第一層之後，該節點的表示（representation）將會結合來自其直接鄰居的信息。經過第二層後，該節點的表示將會包含來自兩跳 (K-hops=2) 鄰居（即鄰居的鄰居）的信息，依此類推。這種擴展意味著節點可以逐漸從圖中更大的區域累積信息。
+例如，在分子圖中，一個碳原子的感受野起初可能僅包括直接鍵合的原子（例如一個相鄰的氧原子）。而經過兩層 GNN 層後，該碳原子可以結合來自兩個鍵距離的原子的信息，提供更多的化學訊息。&lt;/p&gt;
+&lt;h4 id=&#34;層數深度與信息擴散&#34;&gt;層數深度與信息擴散&lt;/h4&gt;
+&lt;p&gt;雖然看似增加層數可以最大化節點的感受野，但更深的網絡層數也會帶來一些問題：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;訊息稀釋(Information Dilution)&lt;/code&gt;：隨著層數的增加，節點表示可能會&lt;code&gt;過度混合（overly blended）&lt;/code&gt;，失去原本的特徵，從而&lt;code&gt;難以區分不同的節點&lt;/code&gt;。這種現象通常被稱為&lt;code&gt;過平滑（oversmoothing）&lt;/code&gt;，在處理複雜任務時可能導致性能下降。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;計算成本(Computational Costs)&lt;/code&gt;：增加層數需要更多的計算資源，同時也會提高訓練過程中出現&lt;code&gt;梯度消失&lt;/code&gt;或&lt;code&gt;梯度爆炸&lt;/code&gt;問題的風險，從而使訓練變得更加困難。
+因此，在許多實際應用中，使用&lt;code&gt;有限層數的 GNN（例如 2-4 層）&lt;/code&gt;是更為有效的策略。這種方法在計算效率與每個節點能夠融合的信息深度之間取得了&lt;code&gt;平衡&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;GNN 層中的操作旨在將卷積操作推廣到圖結構，其中空間結構由節點之間的邊定義，而不是固定的空間坐標。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;圖上的卷積(Convolution on Graphs)&lt;/code&gt;:在 CNN 中，卷積在固定的網格上進行；而在 GNN 中，卷積基於每個節點的鄰域進行。這種局部特徵的聚合使得每個節點可以從其鄰居中學習，同時保留圖的固有結構。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;池化與讀出(Pooling and Readout)&lt;/code&gt;: 與 CNN 中的池化層類似，GNN 的池化用於&lt;code&gt;減少維度並聚合節點信息&lt;/code&gt;。池化可以應用於子圖內的節點，也可以應用於整個圖，用於生成圖級輸出。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;正規化(Normalization)&lt;/code&gt;: 由於節點的度數（連接數）可能不同，對聚合的消息進行&lt;code&gt;正規化&lt;/code&gt;有助於防止模型過度依賴於高連接節點，並保證信息流的平衡。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;gnn-在分子建模與藥物發現中的優勢&#34;&gt;GNN 在分子建模與藥物發現中的優勢&lt;/h4&gt;
+&lt;p&gt;GNN 的結構化消息傳遞使其能夠有效地從複雜的關係中學習，這在分子和生物應用中尤為重要。主要優勢包括：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;靈活處理複雜結構: GNN 能夠處理分子圖的不規則和非歐幾里得結構，其中原子和鍵並不遵循網格狀結構。&lt;/li&gt;
+&lt;li&gt;高效利用結構信息: 通過嵌入和消息傳遞，GNN 能夠內在地尊重分子內的空間和化學關係。&lt;/li&gt;
+&lt;li&gt;可擴展性: GNN 通過基於鄰域的聚合機制，可以有效處理大型圖形數據，例如虛擬篩選中的分子庫。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;結語&#34;&gt;結語&lt;/h2&gt;
+&lt;p&gt;使用 GNN 的輸出需要考慮很多的因素，包括任務的性質、數據的結構，以及圖的大小和多樣性。在這個過程中，從聚合技術到模型類型的每一個選擇，都會影響 GNN 對於進行準確且具普遍性預測的能力。&lt;/p&gt;
+&lt;p&gt;通過調整這些步驟，並為每種類型的預測選擇合適的方法，GNN 能夠成為處理複雜數據集的強大工具，特別是在藥物發現、分子建模、社交網絡分析等領域中發揮重要作用。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -674,6 +1382,113 @@
     </item>
     
     <item>
+      <title>迷你課程:Python-3~Exception</title>
+      <link>http://localhost:1313/post/minicoursepython3/</link>
+      <pubDate>Mon, 30 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/minicoursepython3/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;sx? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;invalid&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;literal&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;sx? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;ValueError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is not an integer&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#ValueError&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;sx? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;ValueError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is not an integer&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#NameError: name &amp;#39;x&amp;#39; is not defined 雖然有indent 但是try 裡面的還是在global env 是可以被外面調用的，只是valueError 先發生，所以不會有x 被定義&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;s x? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;ValueError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is not an integer&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# 只有x有值時才會執行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#In a look, with break to deliberately stop&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;s x? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ValueEror&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is not an integer&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;s x? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ValueEror&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is not an integer&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# 會一直問user 不會break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;           &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;s x? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;           &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;ValueError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is not an integer&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#Either way is ok&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;get_int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;sa&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;get_int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;s x? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ValueEror&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is not an integer&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#More tidy version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;get_int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;s x? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ValueEror&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;x is not an integer&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#return has the same function to break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;get_int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;What&amp;#39;s x? &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ValueEror&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;pass&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# still recognize the error but do nothing&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;get_int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ValueEror&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;pass&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# still recognize the error but do nothing&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
       <title>初探單細胞定序</title>
       <link>http://localhost:1313/post/scrna_guide/</link>
       <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
@@ -1015,689 +1830,6 @@
 &lt;h2 id=&#34;未來方向&#34;&gt;未來方向&lt;/h2&gt;
 &lt;p&gt;scRNA-seq正在快速發展。每次實驗可以分析的細胞數量已經增加到數十萬以上，顯著提升了罕見或是過度型態細胞的檢測能力和解析度。然而，高通量技術的代價是分子捕獲率降低，因此未來的方法需要在細胞數量和細胞解析度之間實現更好的平衡。&lt;/p&gt;
 &lt;p&gt;目前，組織和整體生物體級別的項目通常採用&lt;code&gt;跳傘式（sky-dive）&lt;/code&gt;的實驗策略，意即先通過數千個細胞來建立低解析度的圖譜，估算樣本的異質性，然後利用高效的 scRNA-seq 方法對&lt;code&gt;目標細胞類型&lt;/code&gt;進行深入分析，以獲得&lt;code&gt;更高的單細胞解析度&lt;/code&gt;。未來，高解析度的圖譜將允許研究者在現有數據中進行&lt;code&gt;放大&lt;/code&gt;，從而避免昂貴且耗時的樣本重處理。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>數據科學聊聊：支持向量機（Support vector machine）</title>
-      <link>http://localhost:1313/post/svm/</link>
-      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/svm/</guid>
-      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;支持向量機（SVM）是一種強大的監督式學習模型，廣泛應用於分類和回歸分析中。SVM 以其獨特的數學基礎和幾何直觀性，在高維數據空間中具有出色的性能，尤其適合處理少量數據和非線性問題。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;支持向量機的基本原理&#34;&gt;支持向量機的基本原理&lt;/h2&gt;
-&lt;p&gt;SVM 的核心目標是找到一條分隔超平面（hyperplane），以最大化兩類數據點之間的間隔（margin）。以下是其運作的核心步驟：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;分隔超平面
-超平面是一個 d-1 維的空間，分隔 d 維特徵空間中的數據點。對於二分類問題，SVM 旨在找到一個最優超平面，使得兩類數據點之間的邊界最大化。數學表示為：&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;最大間隔原理
-SVM 以「最大化分類間隔」為優化目標。目標函數為：&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;硬邊界（Hard Margin）：數據點完全線性可分的情況，超平面將所有點正確分類。
-軟邊界（Soft Margin）：允許少量錯誤分類的情況，引入松弛變量（slack variable）
-ξ
-ξ，以平衡分類錯誤和間隔最大化。&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;核函數（Kernel Function）
-SVM 支持非線性數據的分類，通過核函數將數據從低維空間映射到高維空間，使其在高維空間中線性可分。 常見的核函數包括：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;支持向量機的優缺點&lt;/p&gt;
-&lt;p&gt;優點
-高效處理高維數據
-SVM 在高維空間中表現良好，並能有效處理高維度的特徵。
-核函數允許其在非線性數據中找到最佳的分類邊界。
-數學理論穩健
-以凸優化問題為基礎，保證了全局最優解的存在。
-適合小樣本學習
-SVM 能在小數據集上表現出色，因為它的訓練過程只依賴於支持向量，而非所有數據點。
-良好的泛化能力
-最大間隔原理有效降低了模型的過擬合風險。
-缺點
-對超參數敏感
-核函數的選擇、參數
-γ
-γ 和
-C
-C 的設置對模型性能有顯著影響，調參較為耗時。
-計算成本高
-當數據量較大時，計算支持向量的過程需要大量的內存和時間。
-隨著數據量增大，SVM 的訓練速度可能急劇下降。
-難以解釋
-在高維空間中，分類邊界的可視化和解釋較為困難。
-對噪音敏感
-SVM 在處理存在噪音的數據時，可能表現不佳，尤其是在軟邊界中，噪音數據可能影響超平面的選擇。
-3. SVM 的應用場景&lt;/p&gt;
-&lt;p&gt;(1) 分類任務
-文本分類：垃圾郵件過濾、情感分析等。
-圖像分類：目標檢測、人臉識別。
-醫療診斷：癌症預測、基因表達分類。
-(2) 回歸任務
-SVM 可應用於回歸分析（SVR, Support Vector Regression），用於預測連續值。
-如房價預測、股票市場分析。
-(3) 異常檢測
-在監測數據中識別異常點，如網絡入侵檢測、機器故障檢測。
-4. SVM 的未來發展與改進方向&lt;/p&gt;
-&lt;p&gt;處理大規模數據
-隨著數據量的增加，開發分布式和並行化 SVM 訓練算法成為重點。
-如使用梯度下降法來替代二次規劃，降低計算成本。
-結合深度學習
-將 SVM 作為深度神經網絡的輸出層，結合深度學習的特徵提取能力，提高分類性能。
-更靈活的核函數
-開發自適應核函數，使其能自動選擇適合當前數據分布的核方法。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>計算生物學聊聊：圖神經網路與分子圖形</title>
-      <link>http://localhost:1313/post/compbio_gnn/</link>
-      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/compbio_gnn/</guid>
-      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;分子表示法（molecular representation）在計算化學中扮演重要的角色，它使化學家和數據科學家能夠將複雜的化學結構轉換成機器可理解的形式，用於數據存儲和計算分析。這些表示法在格式、易用性和應用場景上存在顯著的差異，每種表示法在特定類型的分析中具有其獨特的優勢和局限性，透過建構圖神經網路（Graph neural network）來預測分子的特性，這些表示法的差異會更為顯著。&lt;/p&gt;
-&lt;p&gt;本篇筆記出自於美國麻省理工學院的計算生物學課程MLCB24。課程影片請看&lt;a href=&#34;https://www.youtube.com/watch?v=6gkIjo4Jb4E&amp;amp;t=220s&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;這裡&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;常見的分子表示法&#34;&gt;常見的分子表示法&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;SMILES (簡化分子輸入線性表示系統)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;SMARTS（SMILES 任意目標規範）&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;InChI（國際化學標識符）&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Molecular graph (分子圖)&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;接下來會根據每一種表示法做介紹：&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;smiles&#34;&gt;SMILES&lt;/h2&gt;
-&lt;p&gt;SMILES（Simplified Molecular Input Line Entry System）是一種基於&lt;code&gt;字串&lt;/code&gt;的分子表示法，最初由美國環保署（EPA）開發，用於以緊密相連的線性格式捕捉分子的結構。目前為化學資訊學中最廣泛使用的小分子表示法之一。&lt;/p&gt;
-&lt;h4 id=&#34;格式&#34;&gt;格式&lt;/h4&gt;
-&lt;p&gt;例如，乙醇的 SMILES 表示為 &lt;code&gt;CCO&lt;/code&gt;（省略氫原子）。&lt;code&gt;字母&lt;/code&gt;和&lt;code&gt;數字&lt;/code&gt;表示原子與鍵類型（單鍵、雙鍵等），&lt;code&gt;括號&lt;/code&gt;則用來標示&lt;code&gt;分支&lt;/code&gt;結構。&lt;/p&gt;
-&lt;h4 id=&#34;優點&#34;&gt;優點&lt;/h4&gt;
-&lt;p&gt;SMILES 具有高度壓縮性（compact），容易被大多數化學資訊軟體讀取，適合用於資料庫存儲。&lt;/p&gt;
-&lt;h4 id=&#34;限制&#34;&gt;限制&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;合成混淆&lt;/code&gt;：SMILES 字串靈活性高，容易生成，但這種靈活性導致許多語法有效的 SMILES 字串可能無法解碼成實際分子。
-&lt;code&gt;立體化學&lt;/code&gt;：雖然 SMILES 可以包含立體化學資訊，但通常在實務上會被省略，當分子功能取決於立體資訊時，會導致問題產生。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;smartssmiles-任意目標規範&#34;&gt;SMARTS（SMILES 任意目標規範）&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;SMARTS&lt;/code&gt; 是根據 SMILES 來擴展的表示法，允許在 SMILES 字串中進行&lt;code&gt;模式匹配&lt;/code&gt;來識別特定的分子子結構。&lt;/p&gt;
-&lt;h4 id=&#34;應用&#34;&gt;應用&lt;/h4&gt;
-&lt;p&gt;SMARTS 對於化學資訊學中的&lt;code&gt;子結構搜索&lt;/code&gt;特別有用，例如識別&lt;code&gt;芳香環&lt;/code&gt;或其他分子&lt;code&gt;功能基團&lt;/code&gt;。&lt;/p&gt;
-&lt;h4 id=&#34;格式-1&#34;&gt;格式&lt;/h4&gt;
-&lt;p&gt;例如，芳香環可以用&lt;code&gt;c1cccccc1&lt;/code&gt;來表示。&lt;/p&gt;
-&lt;h4 id=&#34;限制-1&#34;&gt;限制&lt;/h4&gt;
-&lt;p&gt;儘管 SMARTS 在子結構搜索中功能強大，但比 SMILES 更&lt;code&gt;複雜&lt;/code&gt;，需要對&lt;code&gt;化學模式&lt;/code&gt;有更深入的理解才能有效使用。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;selfies自引用嵌入字串&#34;&gt;SELFIES（自引用嵌入字串）&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;SELFIES&lt;/code&gt; 是一種較新的表示法，主要在克服 SMILES 的一些限制。它更像是一種&lt;code&gt;分子編程語言&lt;/code&gt;，允許完整解構字串，&lt;code&gt;系統化生成分子&lt;/code&gt;，&lt;/p&gt;
-&lt;h4 id=&#34;關鍵優勢&#34;&gt;關鍵優勢&lt;/h4&gt;
-&lt;p&gt;可以很好的耐受錯誤，所有的SELFIES字串都可以解構成某特定分子，不會導致訊息的喪失，有利於機器學習。&lt;/p&gt;
-&lt;h4 id=&#34;格式-2&#34;&gt;格式&lt;/h4&gt;
-&lt;p&gt;例如，苯環可以表示成：&lt;code&gt;C1=CC=CC=C1&lt;/code&gt;。&lt;/p&gt;
-&lt;h4 id=&#34;限制-2&#34;&gt;限制&lt;/h4&gt;
-&lt;p&gt;SELFIES 雖然創新，但&lt;code&gt;較難閱讀&lt;/code&gt;，且需進一步改進以確保化學空間中的採樣沒有偏誤。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;inchi國際化學標識符&#34;&gt;InChI（國際化學標識符）&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;InChI&lt;/code&gt; 是一種IUPAC開發的標準化分子表示法，保證每個分子與其 InChI 字串一一對應。包含多層的分子特徵，如連結性、價電子、空間化學與異構物等。&lt;/p&gt;
-&lt;h4 id=&#34;應用-1&#34;&gt;應用&lt;/h4&gt;
-&lt;p&gt;InChI 在&lt;code&gt;資料庫搜索&lt;/code&gt;和&lt;code&gt;比較&lt;/code&gt;中特別有價值，因為它允許直接進行&lt;code&gt;分子比較&lt;/code&gt;，避免了因不同 SMILES 表示法導致的&lt;code&gt;多餘訊息&lt;/code&gt;。因為SMILE並沒有賦予分子獨特性，因此需要電腦解讀，增加計算負擔。&lt;/p&gt;
-&lt;h4 id=&#34;關鍵優勢-1&#34;&gt;關鍵優勢&lt;/h4&gt;
-&lt;p&gt;標準化的表示法，每一個表示法都對應到單一獨特的分子式。&lt;/p&gt;
-&lt;h4 id=&#34;格式-3&#34;&gt;格式&lt;/h4&gt;
-&lt;p&gt;例如，乙醇可以表示成：&lt;code&gt;1S/C2H6)/c1-2-3/h3H,2H2,1H3&lt;/code&gt;。&lt;/p&gt;
-&lt;h4 id=&#34;限制-3&#34;&gt;限制&lt;/h4&gt;
-&lt;p&gt;InChI 的&lt;code&gt;複雜性&lt;/code&gt;使其難以閱讀和解釋。由於簡潔性，許多人&lt;code&gt;更偏好用 SMILES 進行可視化&lt;/code&gt;。目前有方法將SMILES表達法InChI化，藉此增加InChI的可讀性。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;分子圖&#34;&gt;分子圖&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;分子圖&lt;/code&gt;是一種基於&lt;code&gt;圖形&lt;/code&gt;的分子表示法，其中原子是頂點，鍵是邊。這種表示法捕捉了分子的所有信息，包括原子類型、鍵類型，甚至是立體化學。&lt;/p&gt;
-&lt;h4 id=&#34;優點-1&#34;&gt;優點&lt;/h4&gt;
-&lt;p&gt;分子圖全面地提供分子結構的完整描述，較為&lt;code&gt;直覺&lt;/code&gt;，尤其適用於基於圖的機器學習中的計算分析。&lt;/p&gt;
-&lt;h4 id=&#34;限制-4&#34;&gt;限制&lt;/h4&gt;
-&lt;p&gt;與基於字串的格式不同，分子圖不如 SMILES 那麼&lt;code&gt;緊密&lt;/code&gt;，也不適合快速搜索資料庫。分子圖更適合用於計算應用和視覺化，而非數據儲存。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;分子表示法比較&#34;&gt;分子表示法比較&lt;/h2&gt;
-&lt;p&gt;圖一顯示不同分子表示法的總結。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖一-分子表示法比較&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig1&#34; srcset=&#34;
-               /post/compbio_gnn/fig1_hu3479184427380367237.webp 400w,
-               /post/compbio_gnn/fig1_hu2261907717937882707.webp 760w,
-               /post/compbio_gnn/fig1_hu11170528079376645331.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/compbio_gnn/fig1_hu3479184427380367237.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;540&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      圖一 分子表示法比較
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;smiles-表示法&#34;&gt;SMILES 表示法&lt;/h2&gt;
-&lt;h4 id=&#34;原子與鍵&#34;&gt;原子與鍵&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;一般原子&lt;/code&gt;：在 SMILES 字串中，每個原子由其化學符號表示。大多數原子使用單個&lt;code&gt;大寫字母&lt;/code&gt;表示（例如，C 表示碳，O 表示氧）。一些原子需要兩個字母的組合（如 &lt;code&gt;Na 表示鈉，Cl 表示氯&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;芳香原子&lt;/code&gt;：在 SMILES 中，&lt;code&gt;小寫字母&lt;/code&gt;表示芳香化合物中的原子。例如，小寫的 c 表示&lt;code&gt;芳香碳&lt;/code&gt;，常見於&lt;code&gt;苯環&lt;/code&gt;中。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;鍵&lt;/code&gt;：&lt;code&gt;單鍵&lt;/code&gt;通常為簡化&lt;code&gt;省略&lt;/code&gt;，但也可使用單個破折號 &lt;code&gt;-&lt;/code&gt; 明確表示。&lt;code&gt;雙鍵&lt;/code&gt;用等號 &lt;code&gt;=&lt;/code&gt; 表示，&lt;code&gt;三鍵&lt;/code&gt;用井號 &lt;code&gt;#&lt;/code&gt; 表示。芳香鍵通常省略，因為小寫原子符號已隱含芳香性。分子組件的分離：句點 &lt;code&gt;.&lt;/code&gt; 用於表示分子中&lt;code&gt;不連接&lt;/code&gt;的部分，例如鹽或離子對。例：&lt;code&gt;Na.Cl 表示氯化鈉&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;鏈與分支&#34;&gt;鏈與分支&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;線性鏈&lt;/code&gt;：簡單的原子鏈以&lt;code&gt;直線順序&lt;/code&gt;表示。例如，乙醇的 SMILES 表示為 CCO，表示碳-碳-氧鏈。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;分支&lt;/code&gt;：SMILES 使用&lt;code&gt;括號&lt;/code&gt;表示從主鏈分支的結構。主鏈從括號前的原子開始繼續。例如，&lt;code&gt;異丙醇 (2-propanol or isopropanol)&lt;/code&gt;的 SMILES 表示為 &lt;code&gt;CC(O)C&lt;/code&gt;，其中 &lt;code&gt;(O)&lt;/code&gt; 表示&lt;code&gt;OH-&lt;/code&gt;分支。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;其他例子：&lt;/p&gt;
-&lt;p&gt;CC(=O)C: 2-Propanone&lt;/p&gt;
-&lt;p&gt;CC(CC)C: 2_Methylbutane&lt;/p&gt;
-&lt;p&gt;CC(C)CC(=O): 2-Methylbutanal&lt;/p&gt;
-&lt;p&gt;c1c(N)(=O)=O)cccc1: Nitrobenzene&lt;/p&gt;
-&lt;p&gt;CC(C)(C)CC: 2,2-Dimethylbutane&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&#34;環與環狀結構&#34;&gt;環與環狀結構&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;環閉合&lt;/code&gt;：SMILES 使用&lt;code&gt;數字&lt;/code&gt;標記環閉合。例如，&lt;code&gt;苯&lt;/code&gt;的表示為 &lt;code&gt;c1ccccc1&lt;/code&gt;，其中 &lt;code&gt;1&lt;/code&gt; 表示&lt;code&gt;第一和最後&lt;/code&gt;的碳原子相連以完成環。相同的數字表示開環與閉環的原子位置。鍵的類型著記在原子之後，但在數字之前。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;多重環&lt;/code&gt;：對於更複雜的環系統，使用額外的數字來表示分子內的每個環。例如，&lt;code&gt;萘&lt;/code&gt;的 SMILES 表示為 c1ccc2ccccc2c1，其中 1 和 2 標記了兩個融合的環 (圖二)。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖二-萘-naphthalene的smiles表示法&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig2&#34; srcset=&#34;
-               /post/compbio_gnn/fig2_hu10946339939307287139.webp 400w,
-               /post/compbio_gnn/fig2_hu13962839815580817115.webp 760w,
-               /post/compbio_gnn/fig2_hu7996518131002891555.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/compbio_gnn/fig2_hu10946339939307287139.webp&#34;
-               width=&#34;292&#34;
-               height=&#34;204&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      圖二 萘 (Naphthalene)的SMILES表示法
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;h4 id=&#34;電荷&#34;&gt;電荷&lt;/h4&gt;
-&lt;p&gt;電荷表示：SMILES 使用卷曲括號 &lt;code&gt;{}&lt;/code&gt; 和加號 &lt;code&gt;+&lt;/code&gt; 或減號 &lt;code&gt;-&lt;/code&gt; 表示原子的電荷。&lt;/p&gt;
-&lt;h4 id=&#34;模稜兩可的名稱&#34;&gt;模稜兩可的名稱&lt;/h4&gt;
-&lt;p&gt;若是比較容易讓人誤解的標示方法，用大括號 &lt;code&gt;[]&lt;/code&gt; 來區分，如Sc沒有框起來的話表示Sulfur與aromatic carbon，而[Sc]則表示Scandium。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;morgan-指紋機器學習中的分子結構編碼&#34;&gt;Morgan 指紋：機器學習中的分子結構編碼&lt;/h2&gt;
-&lt;p&gt;Morgan 指紋（也稱為&lt;code&gt;環狀指紋&lt;/code&gt;）是一種強大的工具，可將分子結構轉換為&lt;code&gt;固定長度的二進制向量&lt;/code&gt;，使其非常適合於機器學習應用。與需要詳細結構數據的完整分子圖不同，Morgan 指紋提供了一種&lt;code&gt;計算效率更高&lt;/code&gt;的表示方式，捕捉每個原子周圍的結構特徵並以易於輸入機器學習模型的格式儲存。&lt;/p&gt;
-&lt;h4 id=&#34;morgan-指紋的目的&#34;&gt;Morgan 指紋的目的&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;定量結構-活性關係（QSAR）建模&lt;/code&gt;：例如，預測分子的疏水性、溶解度或潛在生物活性。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;高通量篩選&lt;/code&gt;：在藥物發現中，用於快速篩選分子。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;主要優勢&#34;&gt;主要優勢&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;固定長度表示&lt;/code&gt;：每個分子無論大小都表示為特定長度的向量，與許多機器學習模型直接兼容。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;結構資訊封裝&lt;/code&gt;：通過編碼以原子為中心的子結構（達到&lt;code&gt;指定半徑&lt;/code&gt;），捕捉&lt;code&gt;局部化學環境&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;計算效率&lt;/code&gt;：這種表示方式&lt;code&gt;比生成完整分子圖更快&lt;/code&gt;，並且生成的指紋可快速用於機器學習。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;morgan-如何運作&#34;&gt;Morgan 如何運作？&lt;/h4&gt;
-&lt;p&gt;生成 Morgan 指紋涉及一系列步驟，這些步驟專注於分子中的每個原子，並檢查其在指定半徑內的&lt;code&gt;局部結構&lt;/code&gt; (圖三)。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;以原子為中心的編碼&lt;/code&gt;： 每個&lt;code&gt;原子&lt;/code&gt;作為&lt;code&gt;中心點&lt;/code&gt;，檢查其周圍的子結構。這些子結構的細節取決於設定的&lt;code&gt;半徑&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;定義半徑：&lt;/p&gt;
-&lt;p&gt;半徑 0：僅編碼原子本身。&lt;/p&gt;
-&lt;p&gt;半徑 1：編碼原子及其鄰近原子。&lt;/p&gt;
-&lt;p&gt;半徑 2：編碼原子、其鄰近原子及這些鄰近原子的鄰居。&lt;/p&gt;
-&lt;p&gt;通常，使用半徑 2 即可捕捉足夠的細節，而不會導致向量過於龐大。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;將子結構映射到比特 (bit) 位置&lt;/code&gt;：每個環狀子結構都被編碼為一個&lt;code&gt;二進制向量（bit string）&lt;/code&gt;，其中特定特徵（例如原子、鍵、環）的存在記錄為&lt;code&gt;1&lt;/code&gt;，缺失記錄為&lt;code&gt;0&lt;/code&gt;。半徑決定了圍繞中心原子的原子層數（例如，半徑為2時包括距離中心原子兩鍵以內的原子和鍵）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;子結構碰撞&lt;/code&gt;：子結構被哈希(hash)轉換為固定長度的指紋（例如1024位），這可能導致哈希碰撞，即多個子結構可能映射到相同的位。可以考慮增加長度來解決。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖三-morgan-fingerprinthttpstowardsdatasciencecoma-practical-introduction-to-the-use-of-molecular-fingerprints-in-drug-discovery-7f15021be2b1&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig3&#34; srcset=&#34;
-               /post/compbio_gnn/fig3_hu1804110335273990854.webp 400w,
-               /post/compbio_gnn/fig3_hu17041954323525736801.webp 760w,
-               /post/compbio_gnn/fig3_hu9009013187830519231.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/compbio_gnn/fig3_hu1804110335273990854.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;171&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      &lt;a href=&#34;https://towardsdatascience.com/a-practical-introduction-to-the-use-of-molecular-fingerprints-in-drug-discovery-7f15021be2b1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;圖三 Morgan fingerprint&lt;/a&gt;
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;h4 id=&#34;morgan-指紋生成範例&#34;&gt;Morgan 指紋生成範例&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;第一步：從分子內的某原子開始。&lt;/li&gt;
-&lt;li&gt;第二步：根據特定的半徑來建構子結構。&lt;/li&gt;
-&lt;li&gt;第三步：使用Hash table來將子結構轉換成獨特的比特編號。&lt;/li&gt;
-&lt;li&gt;第四步：針對每一個原子完成以上步驟，產生一個二元分子指紋，表示整個分子。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;以乙醇cco為例&#34;&gt;以乙醇（CCO）為例&lt;/h4&gt;
-&lt;p&gt;每個碳和氧原子作為中心點，評估其半徑 2 內的子結構。&lt;/p&gt;
-&lt;p&gt;這將產生以下信息：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;原子 1：第一個碳及其鄰居（第二個碳和氧）。&lt;/li&gt;
-&lt;li&gt;原子 2：第二個碳及其鄰居（第一個碳和氧）。&lt;/li&gt;
-&lt;li&gt;原子 3：氧及其鄰近的碳。
-每個原子和子結構會映射到指紋中，形成唯一表示乙醇結構的比特向量。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;morgan-指紋的優點&#34;&gt;Morgan 指紋的優點&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;對結構改變非常敏感，結構的些微修飾都可以被捕捉。&lt;/li&gt;
-&lt;li&gt;效率高。&lt;/li&gt;
-&lt;li&gt;廣泛使用於常見化學資訊學的工具中，如&lt;code&gt;RDKit&lt;/code&gt;，也常用在視覺篩選與相似性搜索中。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;半徑與比特向量長度的平衡&#34;&gt;半徑與比特向量長度的平衡&lt;/h4&gt;
-&lt;p&gt;半徑增加的影響：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;半徑越大，捕捉的子結構越詳細，但需要更大的向量以避免碰撞。&lt;/li&gt;
-&lt;li&gt;半徑 2 提供了適度的細節，廣泛用於化學資訊學。&lt;/li&gt;
-&lt;li&gt;半徑 3 或更大通常僅在需要非常細粒度結構細節時使用，但會顯著增加計算需求和複雜性。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;向量長度&#34;&gt;向量長度&lt;/h4&gt;
-&lt;p&gt;常用長度為 1024 或 2048 比特。更大的向量幫助減少哈希碰撞，但在數據集較小時可能導致稀疏性問題。&lt;/p&gt;
-&lt;h4 id=&#34;在機器學習中的解釋與應用&#34;&gt;在機器學習中的解釋與應用&lt;/h4&gt;
-&lt;p&gt;Morgan 指紋將複雜的分子結構轉換為向量空間表示，其中具有相似拓撲特徵的分子具有相似的指紋。結果向量可用於以下機器學習模型：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;隨機森林&lt;/code&gt;：適合特徵豐富的數據集，向量直接表示分子特徵。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;多層感知機（MLP）&lt;/code&gt;：能有效處理 Morgan 指紋，學習數據中的非線性模式。&lt;/li&gt;
-&lt;li&gt;其他演算法：包括支持向量機（SVM）和邏輯回歸在內的任何處理二進制或數值向量的演算法均可使用 Morgan 指紋。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;限制與考量&#34;&gt;限制與考量&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;不可逆&lt;/code&gt;：指紋無法反向解碼為原始分子。&lt;/li&gt;
-&lt;li&gt;碰撞問題：不同的分子結構可能映射到相同的比特位置，尤其是在&lt;code&gt;較小的比特向量&lt;/code&gt;或&lt;code&gt;大分子&lt;/code&gt;時。&lt;/li&gt;
-&lt;li&gt;不適用於大生物分子：對於&lt;code&gt;非常大的生物分子（如蛋白質）&lt;/code&gt;，Morgan 指紋可能不適用，因為結構的複雜性超出了其表達能力。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;分子圖化學結構的進階表示&#34;&gt;分子圖：化學結構的進階表示&lt;/h2&gt;
-&lt;p&gt;分子圖是一種靈活且精細的方式，能夠以數學形式表示分子，特別是在指紋&lt;code&gt;無法捕捉足夠結構細節&lt;/code&gt;時尤其有用。與比特向量指紋不同，分子圖提供了分子結構的&lt;code&gt;直接映射&lt;/code&gt;，將每個原子作為&lt;code&gt;節點 (node)&lt;/code&gt;，每條鍵作為&lt;code&gt;邊 (edge)&lt;/code&gt;。這種基於結構的表示允許更高的&lt;code&gt;特異性&lt;/code&gt;和數據的豐富性，使其成為&lt;code&gt;圖神經網絡（Graph Neural Networks, GNNs）&lt;/code&gt;的最佳輸入，尤其適用於需要深入探索原子間的關係時，例如定量QSAR和藥物設計。&lt;/p&gt;
-&lt;h4 id=&#34;分子圖的結構&#34;&gt;分子圖的結構&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;節點與邊&lt;/code&gt;：在分子圖中，每個&lt;code&gt;節點表示一個原子&lt;/code&gt;，每條&lt;code&gt;邊表示一條化學鍵&lt;/code&gt;。這種結構捕捉了分子內的原子類型及鍵類型（單鍵、雙鍵、三鍵或芳香鍵），能夠詳細描述化學關係。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;節點標籤&lt;/code&gt;：每個節點可以攜帶標籤或類型（例如，碳用 C 表示，氮用 N 表示），以區分不同的原子類型。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;邊標籤&lt;/code&gt;：邊可以標示鍵的類型（如單鍵、雙鍵、三鍵等）。這在分子圖中尤為重要，因為鍵類型對分子的化學行為和特性有著重要影響。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;圖的種類&#34;&gt;圖的種類&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;方向性&lt;/code&gt;：在大多數情況下，分子圖是&lt;code&gt;無向 (undirected)&lt;/code&gt;的，因為&lt;code&gt;化學鍵通常沒有方向性&lt;/code&gt;。但在某些情境下，如&lt;code&gt;化學反應&lt;/code&gt;網絡中，可以使用&lt;code&gt;有向圖 (directed)&lt;/code&gt;來表示從反應物到產物的轉化流程。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;圖標籤&lt;/code&gt;：原子和鍵都被標示，說明原子和鍵的類型，在對於需要化學分子細節的探討中很重要。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;加權圖&lt;/code&gt;：雖然在基本分子圖中不常使用，但可以引入&lt;code&gt;加權邊&lt;/code&gt;以指示&lt;code&gt;鍵強度&lt;/code&gt;、相互作用強度或其他結構行為的&lt;code&gt;先驗知識&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;對稱性&lt;/code&gt;：對於無向圖，鄰接矩陣是對稱的；對於有向圖，則是非對稱的，反映每條邊的方向性。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;分子圖的表示方法&#34;&gt;分子圖的表示方法&lt;/h4&gt;
-&lt;h4 id=&#34;鄰接矩陣-adjacency-matrix&#34;&gt;鄰接矩陣 (Adjacency Matrix)：&lt;/h4&gt;
-&lt;p&gt;鄰接矩陣提供了一種表格式的圖表示，其中每個單元格表示原子之間&lt;code&gt;是否存在鍵（或鍵的類型）&lt;/code&gt;。例如，若原子
-(i,j) 的值為 1（或表示鍵類型的整數）；否則為 0。&lt;/p&gt;
-&lt;h4 id=&#34;鄰接列表-adjacency-list&#34;&gt;鄰接列表 （Adjacency List）&lt;/h4&gt;
-&lt;p&gt;在處理大型圖（如社交網絡或大規模數據集）時比矩陣更高效。每個原子只保存與其直接相連的原子清單，大大減少稀疏網絡中的存儲需求。&lt;/p&gt;
-&lt;h4 id=&#34;稀疏矩陣表示&#34;&gt;稀疏矩陣表示：&lt;/h4&gt;
-&lt;p&gt;另一種選擇是使用稀疏矩陣，只存儲非零值（即存在鍵的原子對），進一步降低內存使用量。&lt;/p&gt;
-&lt;h4 id=&#34;圖的可視化&#34;&gt;圖的可視化：&lt;/h4&gt;
-&lt;p&gt;分子圖也可以被可視化，提供直觀的方式來檢查分子結構、理解其複雜性並排查表示中的問題。&lt;/p&gt;
-&lt;h4 id=&#34;分子圖的應用與優勢&#34;&gt;分子圖的應用與優勢&lt;/h4&gt;
-&lt;h4 id=&#34;完整的結構編碼分子圖保留了分子的完整拓撲結構允許對其特性和相互作用進行更深入的檢查&#34;&gt;完整的結構編碼：分子圖保留了分子的完整拓撲結構，允許對其特性和相互作用進行更深入的檢查。&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;與圖神經網絡（GNNs）的兼容性：分子圖可以與 GNNs 無縫集成，後者專門設計用於處理圖結構數據。&lt;/li&gt;
-&lt;li&gt;強化的預測模型：基於分子圖構建的 GNN 模型能夠更準確地預測分子的各種特性，如生物活性、毒性、溶解度和結合親和力。&lt;/li&gt;
-&lt;li&gt;消息傳遞：在 GNN 中，每個節點通過一種稱為消息傳遞的迭代過程與其鄰居進行通信。這允許每個節點聚合鄰近節點的信息，有效地捕捉其分子環境的影響。&lt;/li&gt;
-&lt;li&gt;分層結構：與傳統神經網絡類似，GNN 有多層結構，每層允許圖捕捉分子中越來越遠的關係。&lt;/li&gt;
-&lt;li&gt;可定制性：GNN 可以納入方向性和邊權重的設計，特別適合於處理具有專門相互作用的分子結構。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;其他圖應用&#34;&gt;其他圖應用&lt;/h3&gt;
-&lt;p&gt;雖然分子圖是化學中的自然選擇，但其原則和技術可廣泛應用於其他與圖相關的領域，例如：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;社交網絡：節點表示個體，邊表示聯繫（通常是有向的）。&lt;/li&gt;
-&lt;li&gt;通訊網絡：路由信息，其中節點表示服務器或路由器，邊表示數據流路徑。&lt;/li&gt;
-&lt;li&gt;生物網絡：基因與蛋白質的交互網絡，節點表示基因或蛋白質，邊表示相互作用或調控關係。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;運用分子圖於藥物開發領域&#34;&gt;運用分子圖於藥物開發領域&lt;/h2&gt;
-&lt;p&gt;分子圖在藥物發現和開發的各個階段都不可或缺，能夠精準捕捉並操作分子的完整結構。以下是分子圖如何顯著提升藥物開發流程的幾種方式：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;化學相似性搜索 （Chemical similarity searching）&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;當一種化合物顯示出與特定靶點的良好結合親和力時，研究人員通常會尋找與之結構相似的化合物，因為它們可能具有類似的活性。通過分子圖，我們可以編碼已知化合物的結構特徵，並在包含數百萬化合物的大型化學庫中搜索類似結構。&lt;/li&gt;
-&lt;li&gt;研究人員可以優先選擇較小且更具針對性的分子集進行初步測試，從而減少大規模篩選的成本和資源使用。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;code&gt;定量結構-活性關係（QSAR）建模&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;QSAR 模型使用分子圖來預測各種生物化學和藥代動力學特性。例如，可以基於分子結構預測以下屬性：&lt;/li&gt;
-&lt;li&gt;溶解度&lt;/li&gt;
-&lt;li&gt;血腦屏障的滲透性&lt;/li&gt;
-&lt;li&gt;ADME（吸收、分布、代謝、排泄）&lt;/li&gt;
-&lt;li&gt;毒性&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;code&gt;基於結構的藥物設計&lt;/code&gt;
-分子圖允許進行基於結構的藥物設計，通過表現完整的分子結構，支持更準確的分子-靶標作用模擬與預測。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;研究人員可以利用基於分子圖的表示法來模擬&lt;code&gt;結合能量&lt;/code&gt;及&lt;code&gt;交互動態&lt;/code&gt;，設計專門與目標結合的化合物。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;卷積神經網絡-cnns&#34;&gt;卷積神經網絡 (CNNs)&lt;/h2&gt;
-&lt;p&gt;為更直觀地理解GNNs，可以先考慮CNNs的結構與功能。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;CNN 處理 2D 網格數據&lt;/code&gt;: 以像素為單位：CNN 將每個像素視為一個單位，並與相鄰像素進行連接（垂直或水平），從而學習局部模式（如邊緣、梯度和紋理）。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;層級學習&lt;/code&gt;：隨著網絡層數的增加，CNN 將這些&lt;code&gt;初級&lt;/code&gt;特徵&lt;code&gt;聚合為更高級模式&lt;/code&gt;，最終能夠識別複雜對象（例如貓、狗或汽車）。&lt;/li&gt;
-&lt;li&gt;從 CNN 到&lt;code&gt;幾何深度學習（GDL）的過渡&lt;/code&gt;: 將 CNN 在結構化數據（如影像）上的成功&lt;code&gt;推廣到非結構化&lt;/code&gt;、&lt;code&gt;非歐幾里得數據&lt;/code&gt;，如&lt;code&gt;圖&lt;/code&gt;和&lt;code&gt;流形&lt;/code&gt; (graphs, meshes and point clouds)。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;而圖與網格或矩陣不同，因其&lt;code&gt;缺乏固定的節點排列&lt;/code&gt;且&lt;code&gt;連接多樣化&lt;/code&gt;，因此需要專門的神經網絡架構，因此才有圖神經網路的角色出現。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;invariance-與-equivariance&#34;&gt;Invariance 與 Equivariance&lt;/h2&gt;
-&lt;p&gt;在深度學習中，Invariance（不變性）與 Equivariance（等變性）是兩個非常重要的概念，特別是在處理結構化數據（例如圖像、序列、圖）時，對模型的性能和泛化能力有著深遠的影響。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Invariance: 不變性指的是模型或函數對某些輸入變換保持輸出不變的特性。如果f(x)是某個模型或函數，針對某個變換T，不變性表示：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
-$$
-f(T(x))=f(x)
-$$
-&lt;/div&gt;
-&lt;p&gt;如圖四，貓的圖片在轉換之後，模型仍然能偵測為貓。或是一個模型在預測分子溶解度時應該對分子的&lt;code&gt;旋轉&lt;/code&gt;或&lt;code&gt;平移&lt;/code&gt;保持不變，因為這些變換&lt;code&gt;不影響分子的溶解性&lt;/code&gt;。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Equivariance: 等變性指的是模型或函數對某些輸入變換的輸出也發生相應的變換。如果f(x)是某個模型或函數，針對某個變換T，等變性表示：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
-$$
-f(T(x))=T(f(x))
-$$
-&lt;/div&gt;
-&lt;p&gt;換句話說，輸入經過某種變化後，輸出的結果應該跟著同步變化。例如，分子動力學模擬中，對參考框架的旋轉應該導致原子位置與動量的相應旋轉。&lt;/p&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖四&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig4&#34; srcset=&#34;
-               /post/compbio_gnn/fig4_hu11891778795753320154.webp 400w,
-               /post/compbio_gnn/fig4_hu2327891892416369507.webp 760w,
-               /post/compbio_gnn/fig4_hu5704989358987084869.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/compbio_gnn/fig4_hu11891778795753320154.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;329&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      圖四
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;圖神經網路&#34;&gt;圖神經網路&lt;/h2&gt;
-&lt;p&gt;圖神經網絡是一類專為處理圖結構數據而設計的深度學習模型。與傳統神經網絡處理網格數據（如圖像或時間序列）不同，GNNs 專注於以節點（例如原子）和邊（例如化學鍵）表示的圖結構數據，這使其在分子圖、社交網絡和知識圖譜等複雜結構中應用廣泛。GNNs 的目標是捕捉圖中的關係與依賴性，預測與節點、邊甚至整個圖相關的特性或行為。&lt;/p&gt;
-&lt;h4 id=&#34;關鍵概念&#34;&gt;關鍵概念&lt;/h4&gt;
-&lt;p&gt;圖神經網路可以學習如何表達以圖為結構的數據，並且可以利用節點和邊的關係來做預測。&lt;/p&gt;
-&lt;h4 id=&#34;gnn-的關鍵應用&#34;&gt;GNN 的關鍵應用&lt;/h4&gt;
-&lt;p&gt;廣泛使用於&lt;code&gt;化學資訊學&lt;/code&gt;、生物資訊學與&lt;code&gt;社群網路&lt;/code&gt;分析。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;節點級預測&lt;/code&gt;：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;應用：例如預測某特定節點（如分子中的原子）是否會參與活性位點的結合或參與化學反應。&lt;/li&gt;
-&lt;li&gt;實例：在蛋白質-小分子交互研究中，GNN 可預測分子中的&lt;code&gt;哪個原子參與結合位點&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;code&gt;邊級（鏈路）預測&lt;/code&gt;：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;應用：判斷節點間邊的存在性或強度（例如化學鍵的形成可能性）。&lt;/li&gt;
-&lt;li&gt;實例：基因組學中，預測可能與疾病相關的基因之間的潛在關聯。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;code&gt;圖級預測&lt;/code&gt;：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;應用：為整個圖進行分類或性質預測，例如預測&lt;code&gt;分子的毒性&lt;/code&gt;或是&lt;code&gt;否能穿越血腦屏障&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;實例：在藥物篩選中，基於&lt;code&gt;整個分子結構&lt;/code&gt;預測其生物活性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;gnn-的一般工作流程&#34;&gt;GNN 的一般工作流程&lt;/h4&gt;
-&lt;p&gt;GNN 的工作流程通常包括以下幾個階段：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;輸入數據與初始嵌入&lt;/code&gt;: 圖中的每個&lt;code&gt;節點&lt;/code&gt;都有一些初始輸入特徵。例如，在分子應用中，每個節點可能表示一個原子，其特徵可能包括原子序數、電荷狀態等。這些初始特徵被嵌入到一個高維空間中的潛在表示中（latent representation），以捕捉每個節點的初始狀態。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖五-圖神經網路的節點特徵嵌入&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig5&#34; srcset=&#34;
-               /post/compbio_gnn/fig5_hu12922210404889534981.webp 400w,
-               /post/compbio_gnn/fig5_hu9082402036942852217.webp 760w,
-               /post/compbio_gnn/fig5_hu3447441218360307289.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/compbio_gnn/fig5_hu12922210404889534981.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;292&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      圖五 圖神經網路的節點特徵嵌入
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;通過 GNN 層進行&lt;code&gt;信息傳遞 (Message Passing)&lt;/code&gt;: 嵌入後，GNN 在多層網絡中進行一系列的消息傳遞（message passing）步驟。這一過程類似於 CNN 中的卷積操作，CNN 是從&lt;code&gt;鄰近像素中聚合信息&lt;/code&gt;，而 GNN 則是從&lt;code&gt;相鄰節點中聚合信息&lt;/code&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;聚合與更新: 在每一層 GNN 中，每個節點都從其鄰居處接收訊息。節點將這些訊息聚合起來，與自身的潛在向量結合後&lt;code&gt;更新其狀態&lt;/code&gt;。這種聚合方法可以是&lt;code&gt;求和（sum&lt;/code&gt;）、&lt;code&gt;均值（mean）&lt;/code&gt;、或&lt;code&gt;最大池化（max pooling&lt;/code&gt;），具體取決於任務需求。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖六-訊息的結合&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig6&#34; srcset=&#34;
-               /post/compbio_gnn/fig6_hu14644748546000289295.webp 400w,
-               /post/compbio_gnn/fig6_hu12299013578289705132.webp 760w,
-               /post/compbio_gnn/fig6_hu17719637959162410375.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/compbio_gnn/fig6_hu14644748546000289295.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;246&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      圖六 訊息的結合
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖七-節點訊息的更新&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig7&#34; srcset=&#34;
-               /post/compbio_gnn/fig7_hu15690456253749884017.webp 400w,
-               /post/compbio_gnn/fig7_hu8201984966484311980.webp 760w,
-               /post/compbio_gnn/fig7_hu296375659254389028.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/compbio_gnn/fig7_hu15690456253749884017.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;261&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      圖七 節點訊息的更新
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;節點的更新公式：&lt;/p&gt;
-&lt;div style=&#34;overflow-x: scroll;&#34;&gt;
-$$
-\documentclass{article}
-\usepackage{amsmath}
-&lt;p&gt;\begin{document}&lt;/p&gt;
-&lt;p&gt;[
-h_u^{(k)} = \sigma \left( W_{\text{self}}^{(k)} h_u^{(k-1)} + W_{\text{neigh}}^{(k)} \sum_{v \in \mathcal{N}_u} h_v^{(k-1)} + b^{(k)} \right)
-]&lt;/p&gt;
-&lt;p&gt;\begin{itemize}
-\item $h_u^{(k-1)} \in \mathbb{R}^{d^{(k-1)}}$: Node embeddings
-\item $W_{\text{self}}^{(k)}, W_{\text{neigh}}^{(k)} \in \mathbb{R}^{d^{(k)} \times d^{(k-1)}}$: Learnable parameters
-\item $b^{(k)} \in \mathbb{R}^{d^{(k)}}$: Bias term
-\item $\sigma$: Elementwise non-linearity (e.g., a $\tanh$ or ReLU)
-\end{itemize}&lt;/p&gt;
-&lt;p&gt;\end{document}
-$$&lt;/p&gt;
-&lt;/div&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;多層結構: 信息通過&lt;code&gt;多層傳遞&lt;/code&gt;，每層使節點可以&lt;code&gt;看到&lt;/code&gt;圖中&lt;code&gt;更遠的鄰居&lt;/code&gt;。例如，經過兩層後，每個節點可以融入來自其&lt;code&gt;兩跳&lt;/code&gt;鄰居的信息。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;最終狀態與輸出生成: 當圖經過多層 GNN 處理後，節點達到最終狀態，該狀態包含從周圍節點學到的信息。這些最終狀態可以用於生成多種預測：&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;節點級任務：使用每個節點的最終狀態進行預測。&lt;/li&gt;
-&lt;li&gt;邊級任務：分析相鄰節點最終狀態之間的關係。&lt;/li&gt;
-&lt;li&gt;圖級任務：將所有節點的最終狀態池化成單一圖表示，用於分類或回歸。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;使用-gnn-進行分子預測的例子&#34;&gt;使用 GNN 進行分子預測的例子&lt;/h2&gt;
-&lt;p&gt;初始設置：
-圖形化表示分子：每個原子是節點，特徵包括原子質量、電負性和雜化。
-每條邊表示鍵，特徵包括鍵類型（單鍵、雙鍵、芳香鍵等）。
-初始嵌入：
-每個節點用一個潛在向量表示其初始特徵。
-信息傳遞：
-在多層 GNN 中，節點之間交換並聚合信息。
-節點的潛在向量在多層信息傳遞過程中迭代更新。
-預測：
-使用節點的最終嵌入向量進行任務，例如預測分子與特定蛋白結合的可能性。
-GNN 的操作類型&lt;/p&gt;
-&lt;p&gt;GNN 層中的操作旨在將卷積操作推廣到圖結構，其中空間結構由節點之間的邊定義，而不是固定的空間坐標。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;圖上的卷積（Convolution on Graphs）
-在 CNN 中，卷積在固定的網格上進行；而在 GNN 中，卷積基於每個節點的鄰域進行。
-這種局部特徵的聚合使得每個節點可以從其鄰居中學習，同時保留圖的固有結構。&lt;/li&gt;
-&lt;li&gt;池化與讀出（Pooling and Readout）
-與 CNN 中的池化層類似，GNN 的池化用於減少維度並聚合節點信息。
-池化可以應用於子圖內的節點，也可以應用於整個圖，用於生成圖級輸出。&lt;/li&gt;
-&lt;li&gt;正規化（Normalization）
-由於節點的度數（連接數）可能不同，對聚合的消息進行正規化有助於防止模型過度依賴於高連接節點，並保證信息流的平衡。
-GNN 在分子建模與藥物發現中的優勢&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;GNN 的結構化消息傳遞使其能夠有效地從複雜的關係中學習，這在分子和生物應用中尤為重要。主要優勢包括：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;靈活處理複雜結構
-GNN 能夠處理分子圖的不規則和非歐幾里得結構，其中原子和鍵並不遵循網格狀結構。&lt;/li&gt;
-&lt;li&gt;高效利用結構信息
-通過嵌入和消息傳遞，GNN 能夠內在地尊重分子內的空間和化學關係。&lt;/li&gt;
-&lt;li&gt;可擴展性
-GNN 通過基於鄰域的聚合機制，可以有效處理大型圖形數據，例如虛擬篩選中的分子庫。
-GNN 的消息傳遞機制（Message Passing）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;消息傳遞是 GNN 的核心操作，使節點能夠從鄰居處接收和聚合信息，形成更豐富的上下文表示。&lt;/p&gt;
-&lt;p&gt;消息傳遞的步驟&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;消息創建（Message Creation）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;對於圖中的每個節點，GNN 從其鄰居創建消息。
-這通常通過將每個鄰居節點的潛在向量（隱藏表示）乘以一個可學習的權重矩陣來完成。
-2. 聚合（Aggregation）&lt;/p&gt;
-&lt;p&gt;聚合將所有鄰居的消息合併成一個向量，表示所有鄰居的綜合影響。
-常用的聚合策略：
-求和（Sum Aggregation）：簡單地將所有消息相加。
-均值（Mean Aggregation）：計算消息的平均值，歸一化連接數。
-最大池化（Max Pooling）：保留所有消息中最重要的元素。
-3. 更新（Update Function）&lt;/p&gt;
-&lt;p&gt;節點將其當前的潛在向量與聚合的消息向量結合，更新自身狀態。
-更新函數通常包括將節點的潛在向量乘以一個可學習的權重矩陣，並與聚合消息結合（例如相加或拼接）。
-4. 多層傳遞&lt;/p&gt;
-&lt;p&gt;經過每層 GNN 後，節點的潛在向量更新，並輸入到下一層。
-每增加一層，節點可以“看到”圖中更遠的節點，最終學習更長距離的依賴關係。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -2665,44 +2797,10 @@ ED50: 一半群體產生治療效果的劑量。
     </item>
     
     <item>
-      <title>如何誘導細胞表現突變胜肽或是蛋白？</title>
-      <link>http://localhost:1313/post/mutation_technique/</link>
-      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/mutation_technique/</guid>
-      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;當我們發現某個蛋白的特定區域若發生關鍵突變可能會導致功能改變時，設計實驗來驗證這一假設非常重要。我們需要採用一些方法誘導細胞表現突變的目標蛋白，並分析細胞在功能性方面的變化。&lt;/p&gt;
-&lt;h2 id=&#34;site-directed-mutagenesis&#34;&gt;Site-Directed Mutagenesis&lt;/h2&gt;
-&lt;p&gt;利用定點突變技術設計特定的核酸序列改變（例如，單點突變或插入突變）。
-突變基因會被克隆到表現載體中，並通過轉染或病毒感染引入細胞中，從而誘導突變蛋白的表現。
-設計突變基因：
-使用 定點突變技術（Site-Directed Mutagenesis） 或其他基因編輯方法設計突變基因。
-將突變基因插入到適合的 逆轉錄病毒載體（Retroviral Vector） 中。
-病毒包裝：
-在病毒包裝細胞（如 293T 細胞）中共轉染逆轉錄病毒載體和包裝質粒（提供結構蛋白和包膜蛋白）。
-包裝細胞會生成帶有突變基因的逆轉錄病毒顆粒。
-感染目標細胞：
-使用產生的逆轉錄病毒顆粒感染目標細胞（如腫瘤細胞、原代細胞等）。
-逆轉錄病毒將突變基因插入到目標細胞的基因組中。
-突變蛋白的穩定表達：
-突變基因在細胞中整合後，隨著宿主基因組的轉錄和翻譯而穩定表達突變蛋白。&lt;/p&gt;
-&lt;h2 id=&#34;crisprcas9-genome-editing&#34;&gt;CRISPR/Cas9 Genome Editing&lt;/h2&gt;
-&lt;p&gt;使用 CRISPR/Cas9 系統在細胞基因組中直接引入目標基因的突變。
-這種方法能精確地在內源性基因中引入突變，模擬更接近生理環境的突變效果。&lt;/p&gt;
-&lt;h2 id=&#34;recombinant-dna-technology&#34;&gt;Recombinant DNA Technology&lt;/h2&gt;
-&lt;p&gt;通過將編碼突變蛋白的基因克隆到適當的表現載體中，研究人員可以將這一構建物引入宿主細胞（例如細菌、酵母、昆蟲或哺乳動物細胞）中以表達突變蛋白。宿主的選擇取決於例如蛋白質翻譯後修飾和摺疊等因素的需求。&lt;/p&gt;
-&lt;h2 id=&#34;baculovirus-mediated-gene-delivery-bacmam&#34;&gt;Baculovirus-Mediated Gene Delivery (BacMam)&lt;/h2&gt;
-&lt;p&gt;該方法利用桿狀病毒將基因導入哺乳動物細胞中。目標基因（編碼突變蛋白）被插入到桿狀病毒中，該病毒隨後感染哺乳動物細胞以表達蛋白。桿狀病毒具有攜帶大量外源基因的優勢，並能感染多種類型的細胞。&lt;/p&gt;
-&lt;h2 id=&#34;adeno-associated-virus-aav-vectors&#34;&gt;Adeno-Associated Virus (AAV) Vectors&lt;/h2&gt;
-&lt;p&gt;AAV 載體可用於基因傳遞，將突變基因引入細胞中。由於其低免疫原性以及感染分裂和非分裂細胞的能力，這些載體特別適合於體內研究。&lt;/p&gt;
-&lt;h2 id=&#34;cell-penetrating-peptides-cpps&#34;&gt;Cell-Penetrating Peptides (CPPs)&lt;/h2&gt;
-&lt;p&gt;如果只需短期分析功能，可通過純化帶有突變的重組蛋白直接處理細胞，或使用蛋白質轉導技術（如與細胞穿膜肽結合）。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>計算生物學聊聊：Hidden Markov Chain (上)</title>
-      <link>http://localhost:1313/post/markov/</link>
+      <link>http://localhost:1313/post/markov1/</link>
       <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/markov/</guid>
+      <guid>http://localhost:1313/post/markov1/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;Hidden Markov Chain(HMM)&lt;/code&gt;是計算生物學中一個重要的數學模型，廣泛應用於DNA序列分析和蛋白質結構預測等領域。HMM的核心概念是用&lt;code&gt;隱藏的狀態&lt;/code&gt;來建立模型，並解釋觀察到的數據，通過&lt;code&gt;轉移機率&lt;/code&gt;和&lt;code&gt;觀察機率&lt;/code&gt;來描述系統的動態行為。&lt;/p&gt;
 &lt;hr&gt;
@@ -2833,10 +2931,10 @@ $$
 &lt;figure  id=&#34;figure-圖一&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig1&#34; srcset=&#34;
-               /post/markov/fig1_hu8822840645180452515.webp 400w,
-               /post/markov/fig1_hu2316656150060041621.webp 760w,
-               /post/markov/fig1_hu8691795879731039526.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/markov/fig1_hu8822840645180452515.webp&#34;
+               /post/markov1/fig1_hu11377556874918994716.webp 400w,
+               /post/markov1/fig1_hu2316656150060041621.webp 760w,
+               /post/markov1/fig1_hu8691795879731039526.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/markov1/fig1_hu11377556874918994716.webp&#34;
                width=&#34;760&#34;
                height=&#34;348&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -2932,10 +3030,10 @@ $$
 &lt;figure  id=&#34;figure-圖二&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig2&#34; srcset=&#34;
-               /post/markov/fig2_hu4390774657599844428.webp 400w,
-               /post/markov/fig2_hu9501806590322226021.webp 760w,
-               /post/markov/fig2_hu16811126276551008659.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/markov/fig2_hu4390774657599844428.webp&#34;
+               /post/markov1/fig2_hu7300730543932683762.webp 400w,
+               /post/markov1/fig2_hu9501806590322226021.webp 760w,
+               /post/markov1/fig2_hu16811126276551008659.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/markov1/fig2_hu7300730543932683762.webp&#34;
                width=&#34;708&#34;
                height=&#34;408&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
