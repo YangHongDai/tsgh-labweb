@@ -22,16 +22,15 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;backward-algorithm&#34;&gt;Backward Algorithm&lt;/h2&gt;
 &lt;p&gt;Backward Algorithm 是 Forward Algorithm 的「對偶」，用於計算從時間點 $t$ 開始到序列結束生成觀察序列的機率。它主要用於與 Forward Algorithm 結合，進行參數估計和隱藏狀態的後驗分佈計算。&lt;/p&gt;
-&lt;h3 id=&#34;數學公式&#34;&gt;數學公式&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;初始化（時間 $t = T$）&lt;/strong&gt;：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;$$
+&lt;li&gt;初始化(時間 $t = T$)：
+$$
 \beta_T(i) = 1, \quad \text{for } 1 \leq i \leq N
-$$&lt;/p&gt;
-&lt;p&gt;表示在最後一個時間點的機率總和為 1。&lt;/p&gt;
+$$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;i 表示不同的隱藏狀態， 表示在最後一個時間點的&lt;code&gt;機率總和為 1&lt;/code&gt;，意即後面不會再有觀測值，機率已確定。&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;strong&gt;遞推（時間 $t &amp;lt; T$）&lt;/strong&gt;：&lt;/li&gt;
+&lt;li&gt;遞推(時間 $t &amp;lt; T$)：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \beta_t(i) = \sum_{j=1}^N a_{ij} \cdot b_j(o_{t+1}) \cdot \beta_{t+1}(j), \quad 1 \leq i \leq N
@@ -42,9 +41,12 @@ $$&lt;/p&gt;
 &lt;li&gt;$a_{ij}$ 是狀態 $s_i$ 到 $s_j$ 的轉移機率。&lt;/li&gt;
 &lt;li&gt;$b_j(o_{t+1})$ 是狀態 $s_j$ 生成觀察值 $o_{t+1}$ 的機率。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;其實就是forward algorithm 的計算方式由後往前算，因為每一個機率節點已經&lt;code&gt;繼承&lt;/code&gt;了前一個或後一個節點傳輸過來的資訊，因此可以接續往下計算。前向算法與後向算法的差別在於，一個機率取決於已經出現的觀察值，一個取決於未來值，即某一個時間點的前與後面的序列。&lt;/p&gt;
+&lt;p&gt;此外，最重要的結論是不管前向還是後向，對總觀察機率的計算結果是一致的，因為總序列相同，條件的參數也相同。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;forward-backward-algorithm&#34;&gt;Forward-Backward Algorithm&lt;/h2&gt;
-&lt;p&gt;Forward-Backward Algorithm 結合 Forward 和 Backward 的結果，用於計算隱藏狀態的後驗分佈（Posterior Distribution）。這在參數重估（如 Baum-Welch Algorithm）或狀態分析中非常重要。&lt;/p&gt;
+&lt;p&gt;前面講的forward algorithm 或是 backward algorithm 是用在觀測值機率的計算，但是如果要計算隱藏態的機率，就必須要靠兩者的結合。而隱藏狀態也是條件機率，但是前向和後向給的條件不同，也就是序列不同，所以兩者所評估的隱藏狀態分不會不一樣，因此必須要結合兩者來正確評估隱藏狀態的分佈。
+Forward-Backward Algorithm 結合 Forward 和 Backward 的結果，用於計算隱藏狀態的後驗分佈（Posterior Distribution）。這在參數重估（如 Baum-Welch Algorithm）或狀態分析中非常重要。&lt;/p&gt;
 &lt;h3 id=&#34;後驗機率計算公式&#34;&gt;後驗機率計算公式&lt;/h3&gt;
 &lt;p&gt;給定觀察序列 $O = {o_1, o_2, \dots, o_T}$，隱藏狀態 $s_i$ 在時間 $t$ 出現的後驗機率為：&lt;/p&gt;
 &lt;p&gt;$$
@@ -59,28 +61,22 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 P(O \mid \lambda) = \sum_{i=1}^N \alpha_T(i)
 $$&lt;/p&gt;
-&lt;h3 id=&#34;解釋&#34;&gt;解釋&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;$\alpha_t(i)$ 表示從初始到時間 $t$ 並到達狀態 $s_i$ 的機率。&lt;/li&gt;
-&lt;li&gt;$\beta_t(i)$ 表示從時間 $t$ 開始到序列結尾的機率。&lt;/li&gt;
-&lt;li&gt;它們的乘積代表整個序列中，經過狀態 $s_i$ 的貢獻。&lt;/li&gt;
-&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;viterbi-algorithm&#34;&gt;Viterbi Algorithm&lt;/h2&gt;
 &lt;p&gt;Viterbi Algorithm 用於解碼問題，即在給定觀察序列的情況下，找出最可能的隱藏狀態序列（最短路徑問題）。&lt;/p&gt;
-&lt;h3 id=&#34;數學公式-1&#34;&gt;數學公式&lt;/h3&gt;
+&lt;h3 id=&#34;數學公式&#34;&gt;數學公式&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;初始化（時間 $t=1$）&lt;/strong&gt;：&lt;/li&gt;
+&lt;li&gt;初始化(時間 $t=1$)：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \delta_1(i) = \pi_i \cdot b_i(o_1), \quad \psi_1(i) = 0, \quad 1 \leq i \leq N
 $$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;$\delta_1(i)$ 表示狀態 $s_i$ 在時間 $t=1$ 的最優路徑機率。&lt;/li&gt;
+&lt;li&gt;$\delta_1(i)$ 表示狀態 $s_i$ 在時間 $t=1$ 的最優路徑機，也就是&lt;code&gt;機率較大&lt;/code&gt;的那條。&lt;/li&gt;
 &lt;li&gt;$\psi_1(i)$ 是回溯指標，用於記錄上一個狀態。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;strong&gt;遞推（時間 $t &amp;gt; 1$）&lt;/strong&gt;：&lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt;遞推(時間 $t &amp;gt; 1$)：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$
 \delta_t(i) = \max_{j=1}^N \big[\delta_{t-1}(j) \cdot a_{ji}\big] \cdot b_i(o_t), \quad 1 \leq i \leq N
@@ -93,7 +89,7 @@ $$&lt;/p&gt;
 &lt;li&gt;$\psi_t(i)$ 是到達 $s_i$ 的最可能上一個狀態。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;strong&gt;回溯&lt;/strong&gt;：&lt;/li&gt;
+&lt;li&gt;回溯：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;從最後一個時間點 $T$ 開始，找到最可能的終點狀態：&lt;/p&gt;
 &lt;p&gt;$$
@@ -103,35 +99,12 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 s_t^* = \psi_{t+1}(s_{t+1}^*), \quad t = T-1, T-2, \dots, 1
 $$&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;範例hmm-解碼&#34;&gt;範例：HMM 解碼&lt;/h2&gt;
-&lt;p&gt;假設有以下參數：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;初始狀態分佈：$\pi = [0.6, 0.4]$&lt;/li&gt;
-&lt;li&gt;轉移機率矩陣：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-A = \begin{bmatrix}
-0.7 &amp;amp; 0.3 \
-0.4 &amp;amp; 0.6
-\end{bmatrix}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;觀察機率矩陣：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-B = \begin{bmatrix}
-0.5 &amp;amp; 0.5 \
-0.1 &amp;amp; 0.9
-\end{bmatrix}
-$$&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;觀察序列 $O = {H, T, H}$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;透過上述公式，我們可以計算最優隱藏狀態序列，並解釋生成觀察序列的最可能路徑。&lt;/p&gt;
+&lt;p&gt;和forward-backward 演算法相比，Viterbi 在多數情況下會給出相似的計算，但因為Viterbi只會考慮最優解，所以會忽略其他路徑的貢獻，但forward-backward 演算法可能會給出機率較低的隱藏態。Forward-Backward 的後驗概率分佈反映了所有可能隱藏狀態的加權機率，而不是選擇單一路徑。因此，對某些時間點，它可能偏向於總體解釋力強但機率較低的狀態。&lt;/p&gt;
+&lt;h2 id=&#34;其他演算法baum-welch-algorithm&#34;&gt;其他演算法：Baum Welch Algorithm&lt;/h2&gt;
+&lt;p&gt;Baum-Welch 演算法是一種基於 EM (Expectation-Maximization) 框架的HMM參數學習方法，通過 Forward-Backward 演算法計算隱藏狀態的後驗分佈，並迭代更新初始分佈、轉移機率和觀察機率，以最大化觀察序列的對數似然值。其精髓在於將不可觀測的隱藏狀態以概率分佈的形式處理（軟標籤），適用於無監督學習的序列數據建模，但可能受初始值影響，易陷入局部最優。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;總結&#34;&gt;總結&lt;/h2&gt;
-&lt;p&gt;本篇介紹了 HMM 的三個核心演算法：Backward Algorithm、Forward-Backward Algorithm 和 Viterbi Algorithm。這些演算法在生物資訊學中被廣泛應用，例如基因組注釋、蛋白質結構預測和序列比對。未來的篇章將繼續探討這些演算法的實際應用案例。&lt;/p&gt;</description>
+&lt;p&gt;本篇主要介紹了 HMM 的三個核心演算法：Backward Algorithm、Forward-Backward Algorithm 和 Viterbi Algorithm。這些演算法在生物資訊學中被廣泛應用，例如基因組注釋、蛋白質結構預測和序列比對。未來的篇章將繼續探討這些演算法的實際應用案例。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1200,10 +1173,10 @@ $$
 &lt;figure  id=&#34;figure-圖一&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig1&#34; srcset=&#34;
-               /post/markov1/fig1_hu15320763817933284004.webp 400w,
-               /post/markov1/fig1_hu6599417977594382767.webp 760w,
+               /post/markov1/fig1_hu8822840645180452515.webp 400w,
+               /post/markov1/fig1_hu2316656150060041621.webp 760w,
                /post/markov1/fig1_hu8691795879731039526.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/markov1/fig1_hu15320763817933284004.webp&#34;
+               src=&#34;http://localhost:1313/post/markov1/fig1_hu8822840645180452515.webp&#34;
                width=&#34;760&#34;
                height=&#34;348&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1299,10 +1272,10 @@ $$
 &lt;figure  id=&#34;figure-圖二&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig2&#34; srcset=&#34;
-               /post/markov1/fig2_hu13946878424083619652.webp 400w,
-               /post/markov1/fig2_hu3740418654422800552.webp 760w,
+               /post/markov1/fig2_hu4390774657599844428.webp 400w,
+               /post/markov1/fig2_hu9501806590322226021.webp 760w,
                /post/markov1/fig2_hu16811126276551008659.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/markov1/fig2_hu13946878424083619652.webp&#34;
+               src=&#34;http://localhost:1313/post/markov1/fig2_hu4390774657599844428.webp&#34;
                width=&#34;708&#34;
                height=&#34;408&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
