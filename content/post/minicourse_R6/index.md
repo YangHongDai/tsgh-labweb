@@ -1,5 +1,5 @@
 ---
-title: 迷你課程:R語言-5~輸入與輸出
+title: 迷你課程:R語言-6~輸入與輸出
 date: 2025-01-04
 authors: ["戴揚紘", ""]
 commentable: true
