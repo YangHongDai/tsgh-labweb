@@ -1,6 +1,6 @@
 ---
 title: 迷你課程:R語言-8~Debugging
-date: 2025-02-15
+date: 2025-02-14
 authors: ["戴揚紘", ""]
 commentable: true
 categories: [R語言迷你課程]
