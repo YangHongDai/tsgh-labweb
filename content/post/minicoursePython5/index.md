@@ -8,6 +8,7 @@ tags: [Python,coding]
 isCJKLanguage: true
 draft: false
 ---
+<!--more-->
 ## Quick look
 本課程將帶你學習 Python 中的單元測試基礎，包括使用標準庫中的 assert 語句、處理異常、以及使用 pytest 框架來進行更進階的測試。
 
