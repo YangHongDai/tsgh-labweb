@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: February 3, 2025 --><html lang="en-us" >
+<!-- Last Published: February 16, 2025 --><html lang="en-us" >
 
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
@@ -302,18 +302,17 @@
 
 
   
-  
 
 
 
 
 
 
-<meta property="twitter:card" content="summary" />
+<meta property="twitter:card" content="summary_large_image" />
 
   <meta property="twitter:site" content="@GetResearchDev" />
   <meta property="twitter:creator" content="@GetResearchDev" />
-<meta property="twitter:image" content="http://localhost:1313/media/icon_hu15379254428347791189.png" />
+<meta property="twitter:image" content="http://localhost:1313/post/minicourse_r7/featured.jpeg" />
 
 
 
@@ -323,7 +322,7 @@
 <meta property="og:site_name" content="DLit-Hub" />
 <meta property="og:url" content="http://localhost:1313/post/minicourse_r7/" />
 <meta property="og:title" content="迷你課程:R語言-7~錯誤的處理 | DLit-Hub" />
-<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:1313/media/icon_hu15379254428347791189.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:1313/post/minicourse_r7/featured.jpeg" /><meta property="og:locale" content="en-us" />
 
   
     <meta
@@ -361,6 +360,10 @@
     "@id": "http://localhost:1313/post/minicourse_r7/"
   },
   "headline": "迷你課程:R語言-7~錯誤的處理",
+  
+  "image": [
+    "http://localhost:1313/post/minicourse_r7/featured.jpeg"
+  ],
   
   "datePublished": "2025-01-15T00:00:00Z",
   "dateModified": "2025-01-15T00:00:00Z",
@@ -730,18 +733,26 @@
 
 
 
-  
+
+
+
+
+
+
+
+
 
   
   
-  
+
+
+
 <div class="article-container pt-3">
   <h1>迷你課程:R語言-7~錯誤的處理</h1>
 
   
 
   
-    
 
 
 <div class="article-metadata">
@@ -795,13 +806,20 @@
 
 </div>
 
-    
-
-
-
-
-
   
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 225px; max-height: 225px;">
+  <div style="position: relative">
+    <img src="/post/minicourse_r7/featured_hu870526075801613790.webp" width="225" height="225" alt="" class="featured-image">
+    
+  </div>
 </div>
 
 
@@ -957,6 +975,13 @@
 </span></span><span class="line"><span class="cl">    <span class="kr">return</span><span class="p">(</span><span class="n">inverse_list</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>這樣可以事先篩選不符合條件的矩陣，提高效率。</p>
+<p>&ndash;</p>
+<h2 id="課程小結">課程小結</h2>
+<p>在 R 語言的開發過程中，錯誤處理至關重要，尤其是在需要確保程式能夠持續執行而不崩潰的情境下。本篇文章介紹了 try()、tryCatch() 以及 condition handling 的使用方式，幫助我們有效管理錯誤並根據不同情境做適當處理。</p>
+<p>我們首先透過 try() 讓程式在遇到錯誤時不會中斷，但 try() 只能簡單忽略錯誤，無法提供詳細錯誤處理機制。因此，tryCatch() 提供了更進階的解法，允許我們針對特定錯誤定義不同的回應方式，例如記錄錯誤訊息、返回特定值（如 NA）、甚至根據錯誤類型執行不同處理邏輯。</p>
+<p>此外，我們進一步結合錯誤訊息解析（catch_cnd()），透過 grepl() 檢查錯誤內容，實現更細緻的錯誤分類與應對，例如：</p>
+<p>奇異矩陣（Singular Matrix） → 返回 全 NA 矩陣 以確保數據格式一致。
+非方陣（Non-Square Matrix） → 直接終止程式，避免不必要的運算。</p>
     </div>
 
     
