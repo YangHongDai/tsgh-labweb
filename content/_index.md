@@ -8,9 +8,9 @@ sections:
   - block: hero
     content:
       title: |
-        DLit-Hub
+        BioMed Communications
       image:
-        filename: dlithub.jpg
+        filename: biomedcom.jpg
       text: |
         <br>
         
