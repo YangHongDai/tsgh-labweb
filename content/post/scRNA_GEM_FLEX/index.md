@@ -1,5 +1,5 @@
 ---
-title: 單細胞RNA-seq數據分析教學-1：從數據處理到細胞註解
+title: 單細胞RNA-seq數據分析教學-1：從數據處理到降維視覺化
 date: 2025-03-16
 authors: ["戴揚紘", ""]
 commentable: true
@@ -8,6 +8,9 @@ tags: [基因體學,生物資訊學]
 isCJKLanguage: true
 draft: true
 ---
+<!--more-->
+## Quick look
+這篇參考Zhisong He與Barbara Treutlein等人撰寫的單細胞定序處理[教學](https://github.com/quadbio/scRNAseq_analysis_vignette/blob/master/Tutorial.pdf)。
 
 ## 安裝與導入必要套件
 ```r
@@ -50,6 +53,7 @@ seurat <- CreateSeuratObject(counts, project = "scRNA_project1")
 
 如果資料夾裡的檔案是CellRanger 處理好的輸出: filtered_feature_bc_matrix.h5，使用`Read10X_h5()`
 
+---
 ## 品質控制（QC）
 這一步我們希望過濾掉：
 1. 偵測到太少基因的細胞：常見原因是測序深度太淺，通常研究需要2-2.5倍的測序深度 (1倍為10000 reads per cell)。
@@ -79,16 +83,38 @@ seurat <- subset(seurat, subset =
     percent.mt < 5 
 )
 ```
+請記住，上面的數值要根據跑出來的Violin plots來決定。
+另外，有時候也建議做額外的QC，尤其是針對doublets的偵測。主要原因是，因為不同的細胞抓到的RNA變化很大，所以即使邏輯上doublets 的基因會比單顆細胞高出很多，也不能保證能藉此排除doublets的可能! 目前有一些工具來預測某細胞究竟是singlet 或是doublet。例如[DoubletFinder]()，利用隨機平均化細胞來建立人工doublets，然後針對每顆細胞去測試與人工doublets的相似程度。除此之外，粒線體的轉錄本比例可能並不足夠完全排除不健康或是受到壓力的細胞，有時候就會需要其他方式來過濾，例如使用[機器學習的方式來做預測]()。
 
+---
+## 數據標準化
+與bulk RNA-seq一樣，每顆細胞的基因轉錄本數量都不同，也就是被`抓`到的RNA數量不同，因此不能直接比較。舉個例子，假設今天有兩位攝影師在拍鳥類生態紀錄片，一位待在鳥類豐富的森林，一位則在鳥相較稀少的郊區。他們分別拍攝了 300 張與 50 張鳥類照片。乍看之下，拍到 300 張的攝影師似乎捕捉到了更多鳥類，但如果我們考量他們待在現場的時間——前者拍攝了 10 小時，而後者僅拍攝了 2 小時，那麼計算每小時拍攝的鳥類照片數量，分別是 30 張/小時與 25 張/小時。這樣的標準化比較才更具代表性，而不是僅看總照片數。因此，在分析單細胞 RNA-seq 數據時，通常需要進行歸一化，以確保比較不同細胞間的基因表達量時，不受總 RNA 捕獲量的影響。
 
-## 數據標準化與特徵選擇
-XXX
+針對scRNA-seq，非常常用的標準化方法與TPM （Transcripts per million reads）的方式很類似，也就是針對每顆細胞的總表現亮做歸一化，然後再乘上一個縮放因子 (default 為10000)，公式如下：
+<div style="overflow-x: scroll;">
+$$
+\
+X'_{ij} = \log_2 \left( \frac{X_{ij}}{\sum_j X_{ij}} \times 10^4 + 1 \right)
+\
+$$
+</div>
 
+其中：
+- Xij是細胞i中基因j的原始 UMI（Unique Molecular Identifier）計數。
+- 分母是是該細胞 所有基因的 UMI 總和，也就是該細胞的測序深度。
+- 取log目的是將基因表現分佈拉到常態分佈。
+- 乘上10000 用來將比例數據擴展到更容易比較的範圍（類似於 TPM）。
+- 加 1（又稱pseudocount） 避免 log 取值為負無窮大，或是出現zero transcripts。
 
 ```r
 # 標準化（LogNormalize）
-seurat <- NormalizeData(seurat)
+seurat <- NormalizeData(seurat) 
+```
+通常NormalizeData()有一些設定參數，但一般不用去更動，default 即可滿足大部分分析的需求。
 
+## 特徵選擇
+並非細胞裡面的所有基因都有相同程度的訊息，例如低度表現得基因，或是不同細胞間表現程度相近的基因，基本上並不帶有可用的訊息，因此需要利用特徵選取來找出具有代表性的基因。不過別擔心，Seurat的`FindVariableFeatures()`可以幫我們找出具有高度變異性的基因。
+```r
 # 識別高度可變基因（HVGs）
 seurat <- FindVariableFeatures(seurat, nfeatures = 3000) #可以2000-3000視情況而定
 
@@ -97,14 +123,48 @@ top20 <- head(VariableFeatures(seurat), 20)
 plot <- VariableFeaturePlot(seurat)
 LabelPoints(plot, points = top20, repel = TRUE)
 ```
+Seurat 針對不同樣本的某基因，計算標準化的變異 (standardized variance)，並選取前2000-3000個基因。
+值得注意的是，關於要選多少基因，目前並沒有好的準則，有時候需要選擇不同的數量來看分析效果，並選擇最能解釋結果的基因數量。大致上，2000-5000個基因是可以接受的範圍，選擇不同的基因數量並不太會影響分析結果。但根據最新的[論文](https://www.nature.com/articles/s41592-025-02624-3)，2000個基因是最好的選擇。
 
-##  數據縮放與降維
+---
+##  數據縮放
+因為不同的基因有不同的base expression 與分佈，因此每個基因的貢獻程度是不同的。為了不讓某些基因的影響力偏移，我們需要做適當的縮放。
 
-SCTransform
 ```r
 # 縮放數據（可選回歸變異源）
 seurat <- ScaleData(seurat, vars.to.regress = c("nFeature_RNA", "percent.mt"))
+```
 
+---
+## SCTransform
+上面展示的一般的正規化與縮放流程，利用`NormalizeData()`與`ScaleData()`來調整基因數據到可以比較的形式，然而傳統的log-normalization轉換會有個缺點，就是會導致零膨脹效應（zero-inflation artifact）。這個現象是在說明當數據裡面出現過多的零時 （可預期或是不可預期），會影響統計模型的建立與後續的預測，因此有不少的演算法在解決這一塊。而對於單細胞數據來說，基因的dropout本來就是常見的現象（以10X來說），因此拿到的數據會有大量的零，而這些零在log-normalization後雖然仍為零（log(x+1)），但是會被拉近與其他基因表現的距離，因此會導致零這個數值影響力變大。為了避免這個問題，Hafemeister與Satija教授開發了`SCTransform`，利用一regularized negative binomial regression model 來fit基因的表現，同時考慮測序深度（將不同基因的UMI做考慮，不像TPM那樣弭平測序深度的影響）。
+技術上：
+- 基於 Pearson 殘差（Pearson residuals）變異性來選擇高變異性基因。
+- 自動對測序深度進行正規化（即不需要手動調整 UMI 數）。
+- 使用一般化線性模型（GLM, Generalized Linear Model）調整技術變異。
+
+```r
+seurat <- SCTransform(seurat, variable.features.n = 2000)
+
+#也可以選擇要將哪些特徵作regress out，近一步移除不想要的數據變異
+seurat <- SCTransform(seurat, 
+                      vars.to.regress = c("nFeature_RNA", "percent.mt"),
+                      variable.features.n = 2000)
+```
+這個函式基本上已經包含了normalization、scaling與特徵選取的過程，所以要注意若使用SCTransform，不需要做上面的步驟。然而SCTransform有一些缺點：
+1. 效率相對慢。
+2. 傳統log-normalization 的正規化是針對dataset裡每個細胞做計算，正規化後數據可以不依賴測序深度，因此不同datasets之間的細胞是可以互相比較的，即使沒有辦法處理`測序深度`的影響以及校正`生物或是技術噪音`。但SCTransform 需要考慮dataset裡其他細胞的資訊來做計算，然而不同datasets的細胞資訊都不同，所以兩個各自使用SCTransform處理的數據是無法互相比較的，如果整合後需要做differential expression analysis需要另外處理。我們會在數據整合（integration）的時候專篇講解。
+
+---
+## 線性降維
+雖然我們可以在找到高變異性基因後觀察細胞異質性，但強烈建議在標準化之後先使用線性降維來對數據做整理。這個步驟在目前單細胞分析算是基本需求，因為：
+1. 數據變得較為緊密（compact），運算更快。
+2. 因為單細胞數據內在較為稀疏，在降維處理後可以增強特徵訊號的穩健性。
+而PC的數量取決於基因或是細胞的數量，看哪一個數量比較少。然而大多數PC並不會提供太多訊息而只是隨機噪音，只有前幾個PC帶有較多的訊息來解釋細胞之間的特徵變化。Seurat 在計算PCA時並不會計算全部的PC，而是只針對前50 PC 做運算（by deafult），但這個數字可以透過`npcs`參數去做修改。
+
+但到底要選擇多少PC才夠？
+
+```r
 # PCA降維
 seurat <- RunPCA(seurat, npcs = 50)
 
@@ -112,10 +172,8 @@ seurat <- RunPCA(seurat, npcs = 50)
 ElbowPlot(seurat, ndims = 50)
 
 # 選擇前20個主成分進行後續分析
+PCHeatmap(seurat, dims=1:20, cells=500, balanced=TRUE, ncol=4)
 ```
-
-
-
 
 
 ## 非線性降維與分群

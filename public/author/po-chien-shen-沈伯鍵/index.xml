@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Po-Chien Shen 沈伯鍵 | DLit-Hub</title>
+    <title>Po-Chien Shen 沈伯鍵 | BioMed Communications</title>
     <link>http://localhost:1313/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</link>
       <atom:link href="http://localhost:1313/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/index.xml" rel="self" type="application/rss+xml" />
     <description>Po-Chien Shen 沈伯鍵</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 06 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 04 Mar 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/avatar_hu508877709439512294.png</url>
       <title>Po-Chien Shen 沈伯鍵</title>
@@ -15,10 +15,112 @@
     <item>
       <title>Po-Chien Shen 沈伯鍵</title>
       <link>http://localhost:1313/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</link>
-      <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</guid>
       <description>&lt;p&gt;我是放射腫瘤科醫師，在臨床工作之餘，專注研究透過資料科學分析臨床數據，推動放射治療的個人化發展。我的研究核心在於結合影像組學，探討如何預測患者的放療副作用及預後。期望在現行治療指引的基礎上，進一步針對個別患者的風險，量身優化放射治療的劑量或照野，提升治療的精準性與效果。&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>影像組學在醫學影像的運用（下）</title>
+      <link>http://localhost:1313/post/radiomics_2/</link>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/radiomics_2/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;今天接續上一篇的&lt;a href=&#34;https://dlithub.netlify.app/post/radiomics_1/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;，來接著探討影像組學數據中的維度詛咒及其解決方法。&lt;/p&gt;
+&lt;h2 id=&#34;何謂維度詛咒&#34;&gt;何謂維度詛咒？&lt;/h2&gt;
+&lt;p&gt;先解釋一下&lt;code&gt;「維度」&lt;/code&gt;的概念，我們生活在三維世界，物體有長寬高(x,y,z)三個座標軸，若加上時間，我們是平常是生活在四維的時空。每個人在時空中所處的位置，可以用一個四維的座標點(x,y,z,t)去定義。同樣的，醫學研究中，每一個樣本或個案都有多項特徵(身體檢查、實驗室檢查、影像組學等等)，所以每一個樣本的整體特性也可以用一個n維的座標點(C1,C2,C3,……,Cn)去表示。傳統的生物統計中，我們可能是幾百或幾千個樣本，而每個樣本可能只有10幾項特徵(n=10)；但當引入影像組學後，每個樣本都可能有500個以上的特徵(n&amp;gt;500)，變成一組非常高維的數據。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;維度詛咒（Curse of Dimensionality）&lt;/code&gt;是一個來自高維數據分析的統計與數學概念，指的是當數據的維度（特徵數量）增加時，數據分析和建模變得愈發困難，尤其是在樣本量不足的情況下。該現象主要體現在以下幾個方面：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;數據稀疏化：
+隨著維度的增加，數據點在高維空間中變得越來越稀疏，導致樣本之間的距離趨於相似(都很遠)，進而降低機器學習模型的分辨能力。 =&amp;gt; 簡單想像100個人分布在一個立方體中，相比於分布在同樣長寬的一個正方形平面中，彼此間的距離會更遠更分散。&lt;/li&gt;
+&lt;li&gt;模型過擬合：
+高維數據可能包含大量冗餘或無意義的特徵，這些特徵在模型訓練過程中可能導致過擬合，即模型在訓練數據上表現良好，但在測試數據上表現不佳 =&amp;gt; 實際應用價值低。&lt;/li&gt;
+&lt;li&gt;計算資源消耗增加：
+高維數據需要更多的計算資源進行處理，尤其是對於影像組學這樣的數據集，特徵數量可以輕鬆超過500個。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;如何解決影像組學中的維度詛咒以下方式可挑選適合自己情況的合併使用&#34;&gt;如何解決影像組學中的維度詛咒？(以下方式可挑選適合自己情況的合併使用)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;增大樣本數量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;多中心數據&lt;/code&gt;:可顯著增加樣本量之外，不同機構的患者，可能代表不同族群特徵（如種族、生活習慣、社經背景等），因此能夠提高模型的泛化能力。=&amp;gt; 理論上的最佳解，但實務上通常需要足夠的人脈資源去操作；另外跨機構的影像標準化會是另一個重要的問題。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;數據增強&lt;/code&gt;：通過如影像旋轉、翻轉、對比度調整等生成更多的數據樣本；或使用GAN（生成對抗網絡）模擬罕見病例或異常特徵，增加樣本的平衡性。=&amp;gt;挑戰是如此生成的樣本可能與真實世界資料偏差甚大，未必對模型有正向效益。即使有效益，也容易因缺乏解釋性被質疑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;特徵選擇（Feature Selection）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;特徵重要性評估：使用統計方法或演算法選擇與研究目標最相關的特徵，根據特徵與目標變量的相關性進行排序並篩選，例如t檢驗、卡方檢驗。也可以使用&lt;code&gt;Shapley Additive Explanations (SHAP)值&lt;/code&gt;或其他解釋性方法，判斷特徵對模型預測的貢獻度，幫助研究者理解模型並進一步優化特徵集。&lt;/li&gt;
+&lt;li&gt;穩定性選擇(Stability selection) ：通過多次抽樣，選擇在不同數據子集中均表現出重要性的特徵，增強模型的穩定性和泛化能力。無論選擇何種特徵選擇法，搭配穩定性選擇會使篩選出的特徵更有代表性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;大致步驟如下&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;從訓練集中多次隨機抽取子集&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;在每個子集用選定的特徵選擇法選出重要特徵&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;統計每個特徵在不同次抽樣中(不同子集中)被選為重要特徵的次數，作為其重要性指標。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;搭判肘狀圖設定閾值，只選擇在多次抽樣中被穩定選中(選中次數高於閾值)的特徵來建立模型。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;降維方法（Dimensionality Reduction）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;降維的目的是將高維度的數據壓縮成較低維度的形式，同時儘量保留原數據中最有用的信息。可以類比成陽光下的影子，影子雖然展示了物體的許多特徵，但並不能完全還原物體的全部細節。因此，降維本質上是一種信息壓縮，但需要謹慎選擇壓縮方式以盡可能減少信息損失。
+例如，對於三維空間中的數據點，降維可以理解為將這些點投影到一個二維平面或一條一維直線。理想的情況是選擇一個最佳投影方向，使數據在投影後能最大限度地保留其主要變化，而不是簡單地忽略一個維度。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;線性降維方法&lt;/code&gt;：主成分分析（PCA）是典型的線性降維方法，通過將數據投影到一個低維的子空間來實現降維。PCA 的每個低維軸都是高維空間中原始軸的線性組合，這些軸是根據數據的變異程度選擇的。然而，PCA 假設數據中的變異是線性分佈的，對於具有非線性結構的數據表現可能不佳。詳細數學推導可以參考本Hub另一篇&lt;a href=&#34;https://dlithub.netlify.app/post/data_pca/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文章&lt;/a&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;非線性降維方法&lt;/code&gt;：對於非線性結構的數據，方法如 &lt;code&gt;t-distributed Stochastic Neighbor Embedding (t-SNE)&lt;/code&gt;和 &lt;code&gt;Uniform Manifold Approximation and Projection (UMAP)&lt;/code&gt; 可以保留數據的鄰近關係或拓撲結構。這些方法不僅僅是簡單的幾何投影，而是通過最佳化過程來重新排列數據點，使得低維空間中的點分佈能夠反映高維空間中的關係。例如，t-SNE 通過比較高維和低維空間中的相似性分佈來定位數據點，而 UMAP 則重建數據的局部鄰域結構。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;正則化技術（Regularization）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;LASSO：在回歸模型中通過引入L1懲罰項壓縮部分特徵的權重到零，從而有效選擇出重要特徵。這也屬於一種特徵選擇的方式。&lt;/li&gt;
+&lt;li&gt;Ridge回歸：通過L2懲罰項壓縮部分特徵的權重縮小到一個較小範圍內，但不會將它們縮為 0，從而降低模型的複雜度，減少過擬合。&lt;/li&gt;
+&lt;li&gt;Elastic Net 是 LASSO 和 Ridge 的結合體，利用兩者的優點同時進行特徵選擇和係數縮小。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;適用情境參考&#34;&gt;適用情境參考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;LASSO: 預期有許多無用/冗餘特徵&lt;/li&gt;
+&lt;li&gt;LASSO: 需要具有解釋力的少數特徵&lt;/li&gt;
+&lt;li&gt;Ridge: 特徵之間存在高度相關性/可能存在多重共線性&lt;/li&gt;
+&lt;li&gt;Elastic net: 特徵之間存在高度相關性；同時存在許多無用特徵&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;交叉驗證與模型驗證&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;交叉驗證（如k-fold cross validation）&lt;/li&gt;
+&lt;li&gt;獨立驗證集（hold-out validation): 也就是一般的切8:2或7:3成訓練及測試集，模型的訓練結果用測試集來測試，缺點是如果樣本數少，加上切分結果不佳，會導致泛化能力嚴重受限。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果樣本數足夠，以上兩種方式可以合併使用:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在訓練集上做交叉驗證：將訓練集進行k折交叉驗證（k-fold cross-validation），以調整模型的超參數並評估模型在訓練過程中的性能。這有助於選擇最佳的模型配置，並減少過擬合的風險。&lt;/li&gt;
+&lt;li&gt;獨立驗證集：在另一個未參與訓練的獨立驗證集上評估模型的性能，以獲得對模型泛化能力的初步估計。這一步驟可以幫助檢測模型是否在訓練數據上過度擬合。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;總結&#34;&gt;總結&lt;/h2&gt;
+&lt;p&gt;影像組學數據因其高維特性，容易受到維度詛咒影響，導致數據稀疏、過擬合、計算資源消耗大等問題。因此，在模型開發過程中，需要考量適當的降維、特徵選擇、正則化、數據增強、模型驗證等策略。&lt;/p&gt;</description>
     </item>
     
     <item>

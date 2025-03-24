@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Support Vector Machine | DLit-Hub</title>
+    <title>Support Vector Machine | BioMed Communications</title>
     <link>http://localhost:1313/tag/support-vector-machine/</link>
       <atom:link href="http://localhost:1313/tag/support-vector-machine/index.xml" rel="self" type="application/rss+xml" />
     <description>Support Vector Machine</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:1313/media/icon_hu4369633333135054090.png</url>
       <title>Support Vector Machine</title>
       <link>http://localhost:1313/tag/support-vector-machine/</link>
     </image>

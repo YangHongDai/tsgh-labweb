@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>微生物學 | BioMed Communications</title>
+    <link>http://localhost:1313/tag/%E5%BE%AE%E7%94%9F%E7%89%A9%E5%AD%B8/</link>
+      <atom:link href="http://localhost:1313/tag/%E5%BE%AE%E7%94%9F%E7%89%A9%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
+    <description>微生物學</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 16 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu4369633333135054090.png</url>
+      <title>微生物學</title>
+      <link>http://localhost:1313/tag/%E5%BE%AE%E7%94%9F%E7%89%A9%E5%AD%B8/</link>
+    </image>
+    
+    <item>
+      <title>免疫學新知-Viroid-like colonists of human microbiomes</title>
+      <link>http://localhost:1313/post/immunology_obelisk/</link>
+      <pubDate>Sun, 16 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/immunology_obelisk/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;今天這篇2024年11月發表在Cell[https://www.cell.com/cell/fulltext/S0092-8674(24)01091-2]的文章顛覆了細菌與病毒之間的關係，描述了一個存在於微生物中未知的類病毒RNA，至於這個新的生物體作用及目的為何，為何會出現在細菌裡，都還處於未知的階段。&lt;/p&gt;
+&lt;h2 id=&#34;背景知識&#34;&gt;背景知識&lt;/h2&gt;
+&lt;p&gt;在病毒學中，RNA病毒（Riboviria）以自帶複製聚合酶為特徵，這使得研究者能夠透過同源性尋找新病毒。然而，類似於&lt;code&gt;類病毒（Viroids）&lt;/code&gt;和&lt;code&gt;肝炎δ病毒樣病毒（HDV-like satellites）&lt;/code&gt;的RNA因子，則是&lt;code&gt;利用宿主細胞的RNA聚合酶&lt;/code&gt;來進行複製，形成目前已知最小的基因體（類病毒約&lt;code&gt;350 nt&lt;/code&gt;，HDV約1.7 kb）。這些超簡約基因體挑戰了生物訊息傳遞的極限，也讓我們不禁思考：相比RNA病毒，為何類病毒和類HDV的發現如此稀少？&lt;/p&gt;
+&lt;p&gt;類病毒缺少蛋白質的編碼能力，但又具有ribozyme-like 特徵，近期因為蛋白質相似性的研究，讓科學家有機會擴展對類病毒的認識 （先前認為局限於植物）。&lt;/p&gt;
+&lt;h2 id=&#34;探索人類腸道微生物組hgmb揭示未知rna因子&#34;&gt;探索人類腸道微生物組（hGMB），揭示未知RNA因子&lt;/h2&gt;
+&lt;p&gt;為了發掘潛在的RNA基因體，研究團隊開發了一種&lt;code&gt;無參考基因組的生物資訊學分析方法&lt;/code&gt; ——「Viroid Nominator（VNom）」，並將其應用於&lt;code&gt;人類整合微生物組計畫（iHMP）&lt;/code&gt;的數據分析，最終發現了一類全新的RNA因子，並命名為 &lt;code&gt;Obelisks&lt;/code&gt;！&lt;/p&gt;
+&lt;h2 id=&#34;-obelisks-的特點&#34;&gt;🧬 Obelisks 的特點&lt;/h2&gt;
+&lt;p&gt;✅ 形成獨特的進化分支，僅限於RNA數據集中發現
+✅ 無已知基因組或病毒組（Virome）相似性
+✅ RNA序列可組裝成 約1,000 nt 的環狀基因體
+✅ 具備 棒狀 RNA二級結構，並編碼新的 Oblin 蛋白超級家族
+✅ 部分Obelisks 擁有特異性的鎚頭核酶（Hammerhead Ribozyme）&lt;/p&gt;
+&lt;h2 id=&#34;obelisks-的廣泛分布&#34;&gt;Obelisks 的廣泛分布&lt;/h2&gt;
+&lt;p&gt;研究團隊分析了 540萬組公共測序數據，發現 29,959種不同的Obelisks（90%相似性閾值），遍布 22萬個不同的生態系統，超越了人類腸道微生物組（hGMB）的範疇。&lt;/p&gt;
+&lt;h2 id=&#34;-發現宿主obelisks-可在-streptococcus-sanguinis-中複製&#34;&gt;🔬 發現宿主：Obelisks 可在 Streptococcus sanguinis 中複製！&lt;/h2&gt;
+&lt;p&gt;研究進一步確定了 Streptococcus sanguinis（一種常見的口腔細菌）是Obelisks的複製宿主。在 實驗室培養條件下，Obelisks 可穩定存在於S. sanguinis，但 對細菌生長沒有明顯影響。&lt;/p&gt;
+&lt;h2 id=&#34;-人類微生物組中的obelisks普遍性&#34;&gt;📊 人類微生物組中的Obelisks普遍性&lt;/h2&gt;
+&lt;p&gt;團隊分析了 5個已發表的人類口腔與腸道微生物組研究（472名受試者），發現 約9.7% 的受試者攜帶Obelisks，並且在人體不同解剖部位中 存在解剖學特異性的分布模式。&lt;/p&gt;
+&lt;h2 id=&#34;總結&#34;&gt;總結&lt;/h2&gt;
+&lt;p&gt;Obelisks的發現顛覆了傳統病毒學認知，揭示了一類全新的RNA因子！ 這項研究不僅擴展了我們對RNA基因組多樣性的理解，也為探索未知微生物組遺傳因子的發現開闢了新的道路。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

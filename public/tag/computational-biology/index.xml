@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Computational Biology | DLit-Hub</title>
+    <title>Computational Biology | BioMed Communications</title>
     <link>http://localhost:1313/tag/computational-biology/</link>
       <atom:link href="http://localhost:1313/tag/computational-biology/index.xml" rel="self" type="application/rss+xml" />
     <description>Computational Biology</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 12 Jan 2025 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:1313/media/icon_hu4369633333135054090.png</url>
       <title>Computational Biology</title>
       <link>http://localhost:1313/tag/computational-biology/</link>
     </image>
@@ -1052,6 +1052,40 @@ ED50: 一半群體產生治療效果的劑量。
 &lt;hr&gt;
 &lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
 &lt;p&gt;藥物開發是一個複雜、多階段的過程，需耗費大量時間、資源與法規合規性。這一漫長的時間線和高淘汰率凸顯了開發安全有效藥物的困難與昂貴，強調了精準與創新的重要性。未來，我們將進一步探索現代計算技術如何縮短藥物開發時間線，提高成功率並降低總成本。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>如何誘導細胞表現突變胜肽或是蛋白？</title>
+      <link>http://localhost:1313/post/mutation_technique/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mutation_technique/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;當我們發現某個蛋白的特定區域若發生關鍵突變可能會導致功能改變時，設計實驗來驗證這一假設非常重要。我們需要採用一些方法誘導細胞表現突變的目標蛋白，並分析細胞在功能性方面的變化。&lt;/p&gt;
+&lt;h2 id=&#34;site-directed-mutagenesis&#34;&gt;Site-Directed Mutagenesis&lt;/h2&gt;
+&lt;p&gt;利用定點突變技術設計特定的核酸序列改變（例如，單點突變或插入突變）。
+突變基因會被克隆到表現載體中，並通過轉染或病毒感染引入細胞中，從而誘導突變蛋白的表現。
+設計突變基因：
+使用 定點突變技術（Site-Directed Mutagenesis） 或其他基因編輯方法設計突變基因。
+將突變基因插入到適合的 逆轉錄病毒載體（Retroviral Vector） 中。
+病毒包裝：
+在病毒包裝細胞（如 293T 細胞）中共轉染逆轉錄病毒載體和包裝質粒（提供結構蛋白和包膜蛋白）。
+包裝細胞會生成帶有突變基因的逆轉錄病毒顆粒。
+感染目標細胞：
+使用產生的逆轉錄病毒顆粒感染目標細胞（如腫瘤細胞、原代細胞等）。
+逆轉錄病毒將突變基因插入到目標細胞的基因組中。
+突變蛋白的穩定表達：
+突變基因在細胞中整合後，隨著宿主基因組的轉錄和翻譯而穩定表達突變蛋白。&lt;/p&gt;
+&lt;h2 id=&#34;crisprcas9-genome-editing&#34;&gt;CRISPR/Cas9 Genome Editing&lt;/h2&gt;
+&lt;p&gt;使用 CRISPR/Cas9 系統在細胞基因組中直接引入目標基因的突變。
+這種方法能精確地在內源性基因中引入突變，模擬更接近生理環境的突變效果。&lt;/p&gt;
+&lt;h2 id=&#34;recombinant-dna-technology&#34;&gt;Recombinant DNA Technology&lt;/h2&gt;
+&lt;p&gt;通過將編碼突變蛋白的基因克隆到適當的表現載體中，研究人員可以將這一構建物引入宿主細胞（例如細菌、酵母、昆蟲或哺乳動物細胞）中以表達突變蛋白。宿主的選擇取決於例如蛋白質翻譯後修飾和摺疊等因素的需求。&lt;/p&gt;
+&lt;h2 id=&#34;baculovirus-mediated-gene-delivery-bacmam&#34;&gt;Baculovirus-Mediated Gene Delivery (BacMam)&lt;/h2&gt;
+&lt;p&gt;該方法利用桿狀病毒將基因導入哺乳動物細胞中。目標基因（編碼突變蛋白）被插入到桿狀病毒中，該病毒隨後感染哺乳動物細胞以表達蛋白。桿狀病毒具有攜帶大量外源基因的優勢，並能感染多種類型的細胞。&lt;/p&gt;
+&lt;h2 id=&#34;adeno-associated-virus-aav-vectors&#34;&gt;Adeno-Associated Virus (AAV) Vectors&lt;/h2&gt;
+&lt;p&gt;AAV 載體可用於基因傳遞，將突變基因引入細胞中。由於其低免疫原性以及感染分裂和非分裂細胞的能力，這些載體特別適合於體內研究。&lt;/p&gt;
+&lt;h2 id=&#34;cell-penetrating-peptides-cpps&#34;&gt;Cell-Penetrating Peptides (CPPs)&lt;/h2&gt;
+&lt;p&gt;如果只需短期分析功能，可通過純化帶有突變的重組蛋白直接處理細胞，或使用蛋白質轉導技術（如與細胞穿膜肽結合）。&lt;/p&gt;</description>
     </item>
     
     <item>

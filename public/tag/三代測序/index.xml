@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>三代測序 | DLit-Hub</title>
+    <title>三代測序 | BioMed Communications</title>
     <link>http://localhost:1313/tag/%E4%B8%89%E4%BB%A3%E6%B8%AC%E5%BA%8F/</link>
       <atom:link href="http://localhost:1313/tag/%E4%B8%89%E4%BB%A3%E6%B8%AC%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
     <description>三代測序</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 16 Feb 2025 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu15379254428347791189.png</url>
+      <url>http://localhost:1313/media/icon_hu4369633333135054090.png</url>
       <title>三代測序</title>
       <link>http://localhost:1313/tag/%E4%B8%89%E4%BB%A3%E6%B8%AC%E5%BA%8F/</link>
     </image>
@@ -21,7 +21,7 @@
 &lt;h2 id=&#34;dna測序技術革命從鹼基解碼到生命藍圖的全息解析&#34;&gt;DNA測序技術革命：從鹼基解碼到生命藍圖的全息解析&lt;/h2&gt;
 &lt;p&gt;自1977年Sanger開創性發表&lt;code&gt;鏈終止法&lt;/code&gt;以來，DNA測序技術歷經&lt;code&gt;三次革命&lt;/code&gt;，徹底改變了生命科學的研究模式。本文將探討各代技術的關鍵突破。&lt;/p&gt;
 &lt;h2 id=&#34;第一代測序分子生物學的基石&#34;&gt;第一代測序：分子生物學的基石&lt;/h2&gt;
-&lt;p&gt;Sanger測序以&lt;code&gt;終止子ddNTP&lt;/code&gt;與&lt;code&gt;放射性標記&lt;/code&gt;為核心，建立「毛細管電泳分離-終止片段」的模型。其單次讀長可達&lt;code&gt;1,000鹼基&lt;/code&gt;，準確率高達&lt;code&gt;99.99%&lt;/code&gt;，成為&lt;code&gt;人類基因組計劃（HGP）&lt;/code&gt;的主力工具。然而，其核心限制在於&lt;code&gt;通量瓶頸&lt;/code&gt;——完成首個人類基因組耗時13年，成本達27億美元。此階段技術奠定了&lt;code&gt;片段化測序&lt;/code&gt;與&lt;code&gt;序列拼接&lt;/code&gt;的基礎框架，卻無法滿足大規模基因組學需求。&lt;/p&gt;
+&lt;p&gt;Sanger測序以&lt;code&gt;終止子ddNTP&lt;/code&gt;與&lt;code&gt;放射性標記&lt;/code&gt;為核心，建立&lt;code&gt;毛細管電泳分離-終止片段&lt;/code&gt;的模型。其單次讀長可達&lt;code&gt;1,000鹼基&lt;/code&gt;，準確率高達&lt;code&gt;99.99%&lt;/code&gt;，成為&lt;code&gt;人類基因組計劃（HGP）&lt;/code&gt;的主力工具。然而，其核心限制在於&lt;code&gt;通量瓶頸&lt;/code&gt;——完成首個人類基因組耗時13年，成本達27億美元。此階段技術奠定了&lt;code&gt;片段化測序&lt;/code&gt;與&lt;code&gt;序列拼接&lt;/code&gt;的基礎框架，卻無法滿足大規模基因組學需求。&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -40,11 +40,21 @@
 
 &lt;figure  id=&#34;figure-sange-技術&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;%27Fig1.png%27&#34; alt=&#34;Fig1&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;fig1&#34; srcset=&#34;
+               /post/bioinfo_sequencing/fig1_hu15412436877870183173.webp 400w,
+               /post/bioinfo_sequencing/fig1_hu15350414303097857435.webp 760w,
+               /post/bioinfo_sequencing/fig1_hu14822588634153908391.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/bioinfo_sequencing/fig1_hu15412436877870183173.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;570&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       Sange 技術
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
+&lt;h4 id=&#34;sanger-sequencing&#34;&gt;Sanger sequencing&lt;/h4&gt;
+&lt;p&gt;傳統Sanger sequencing 需要有單股DNA片段、DNA 引子、DNA polymerase、normal deoxynucleotide triphosphates (dNTP)與改造過的di-deoxynucleotide triphosphates (ddNTP)。ddNTP具有終止DNA的能力，因為他缺少3&amp;rsquo;-OH基，因此無法跟其他核苷酸形成phosphodiester group。這些ddNTP可能帶有輻射線或是螢光，來讓定序儀器偵測。&lt;/p&gt;
+&lt;p&gt;Sanger 定序法將 DNA 樣本分成&lt;code&gt;四個&lt;/code&gt;獨立的反應，每個反應含有四種標準去氧核苷酸（dATP、dGTP、dCTP 和 dTTP）及 DNA 聚合酶，每個反應液額外加入四種裡面一種特定的雙去氧核苷酸（ddATP、ddGTP、ddCTP 或 ddTTP）。dNTP 的濃度通常比 ddNTP 高約 100 倍，以確保足夠的片段生成，同時允許序列完整轉錄。在 1977 年的原始發表中，研究人員發現單鏈 DNA（ssDNA）可能會形成互補鹼基對的環狀結構，這導致在某些位置上難以清晰分辨電泳條帶。因此，為了避免這個問題，通常會使用變性聚丙烯醯胺尿素凝膠（denaturing polyacrylamide-urea gel）進行分離（尿素能夠破壞氫鍵，防止ssDNA形成鹼基配對的環狀結構，使 DNA 保持線性，減少條帶分辨困難的情況），並以放射自顯影或紫外線檢測，以讀取 DNA 序列。&lt;/p&gt;
 &lt;h2 id=&#34;第二代測序高通量時代的臨界點突破&#34;&gt;第二代測序：高通量時代的臨界點突破&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;2005年後&lt;/code&gt;，以&lt;code&gt;Illumina&lt;/code&gt;、&lt;code&gt;Ion Torrent&lt;/code&gt;為代表的&lt;code&gt;NGS（大家耳熟能詳的次世代測序）技術&lt;/code&gt;，通過&lt;code&gt;橋式PCR擴增&lt;/code&gt;與&lt;code&gt;邊合成邊測序（SBS）&lt;/code&gt;兩大創新，實現指數級通量增長。核心突破包含：&lt;/p&gt;
 &lt;ol&gt;
