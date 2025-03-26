@@ -65,6 +65,8 @@ seurat <- CreateSeuratObject(counts, project = "scRNA_project1")
 - `nCount_RNA`：總轉錄本數
 - `percent.mt`：粒線體基因比例
 
+以下數據我用我之前在國衛院上課時給的pbmc數據做範例。
+
 針對粒線體基因比例需要手動設定：
 ```r
 # 計算線粒體基因比例
