@@ -1,16 +1,16 @@
 ---
 title: 迷你課程:R語言-10~繪圖
-date: 2025-03-07
+date: 2025-03-29
 authors: ["戴揚紘", ""]
 commentable: true
 categories: [R語言迷你課程]
 tags: [R,coding]
 isCJKLanguage: true
-draft: true
+draft: false
 ---
 <!--more-->
 ## Quick look
-R 提供了強大的繪圖功能，透過不同的函數和參數設定，我們可以 靈活控制圖形輸出。本篇教學將從最基本的 圖形設備（Graphics Device）、基礎繪圖函數、圖形參數（Graphical Parameters），到 高級繪圖技巧（如座標軸自訂、圖形裝飾），帶你全面掌握 R 的繪圖機制。
+R 提供了強大的繪圖功能，透過不同的函數和參數設定，我們可以靈活控制圖形輸出。本篇教學將從最基本的圖形設備（Graphics Device）、基礎繪圖函數、圖形參數（Graphical Parameters），到 高級繪圖技巧（如座標軸自訂、圖形裝飾），帶你全面掌握 R 的繪圖機制。
 
 ## R 的圖形設備（Graphics Device）
 在 R 中，所有的圖形繪製都需要在`圖形設備（Graphics Device）`上完成。當我們執行繪圖函數（如 plot()），R 會自動開啟一個圖形設備，然後在其上繪製圖形。
@@ -163,7 +163,6 @@ plot(x1, x2)  # 使用灰色點和洋紅色座標軸
 ```
 如果以dev.off()將plots關閉，再重繪，系統會忘記par()的設定，因此只適用於當前的graphic device。
 
-
 ---
 ## 練習：使用 Hershey 字體繪製時鐘
 以下範例繪製了一個時鐘，並使用 Hershey 字體為時鐘標記數字。
@@ -176,26 +175,35 @@ plot(0, type = "n", xlim = plotsize * c(-1,1), ylim = plotsize * c(-1,1), axes =
 ```
 
 ### 添加 1~12 的數字
+```r
 circ <- circle_points(n = 12, noise = 0)
 x1 <- circ$x1
 x2 <- circ$x2
 nums <- c(2,1, 12:3)
 text(x1, x2, nums, cex = 3.0, vfont = c("serif", "bold"))
+```
 
 ### 繪製指針
+```r
 points(0,0, pch = 16, cex = 4)
 arrows(0, 0, 0.7*cos(2*pi*5/12), 0.7*sin(2*pi*5/12), lwd = 8)  # 時針
 arrows(0, 0, 0.85*cos(2*pi*1/12), 0.85*sin(2*pi*1/12), lwd = 4)  # 分針
+```
 
 ### 添加公司名稱
+```r
 text(0, 0.5, "WatchCo", vfont = c("serif", "plain"), cex = 1.75)
+```
 
 ### 添加邊框
+```r
 rect(-1.25, -1.25, 1.25, 1.25, border = 2, lwd = 12)
+```
 
 ---
 ## 課程小結
-plot() 是 R 最基本的繪圖函數，但可以透過 points()、lines()、text() 來進一步擴展功能。
-par() 可用來設定全局繪圖參數，影響多個圖形的顯示方式。
-座標軸可以自訂，並且可以使用 Hershey 字體進行高級標註。
-R 允許我們輸出到 PDF 或影像格式，方便匯出分析結果。
+本次課程介紹了如何在 R 環境中開啟與關閉圖形裝置。雖然各作業系統使用的指令略有不同，但基本概念相通。
+
+透過 plot() 函數，我們可以靈活繪製基礎圖形；搭配 par() 函數設定全域圖形參數，可套用於後續所有圖形操作。此外，lines() 和 points() 等函數能在現有圖層上疊加線條與資料點，增強視覺表達。
+
+掌握這些基本繪圖技巧，能有效地將各類資料轉化為清晰直觀的視覺化成果。

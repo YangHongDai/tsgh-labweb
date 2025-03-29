@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: March 16, 2025 --><html lang="en-us" >
+<!-- Last Published: March 29, 2025 --><html lang="en-us" >
 
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
@@ -326,7 +326,7 @@
 <meta property="og:description" content="A highly-customizable Hugo research group theme powered by Wowchemy website builder." /><meta property="og:image" content="http://localhost:1313/media/icon_hu4369633333135054090.png" /><meta property="og:locale" content="en-us" />
 
   
-    <meta property="og:updated_time" content="2025-03-16T00:00:00&#43;00:00" />
+    <meta property="og:updated_time" content="2025-03-26T00:00:00&#43;00:00" />
   
 
 
@@ -718,23 +718,14 @@
 
 
 
-  
-
 
 <div class="media stream-item view-compact">
   <div class="media-body">
 
     <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/post/cxcl10_target/" >CXCL9, CXCL10, CXCL11/CXCR3 axis for immune activation</a>
+      <a href="/post/scrna_gem_flex/" >單細胞RNA-seq數據分析教學-1：從數據處理到降維視覺化</a>
     </div>
 
-    
-    <a href="/post/cxcl10_target/"  class="summary-link">
-      <div class="article-style">
-        <p>Chemikine 通常為8-15 kD 的蛋白，會與G-protein coupled receptor 結合，誘導chemotaxis、分化、與白血球的外漏作用。
-CXCL9/CXCL10/CXCL11/CXCR3 axis: 調控naive T 細胞的分化，成Th1細胞，而Th1細胞會藉由分泌IFN-r 誘導Cytotoxic T lymphocytes、macrophages 、NK細胞與NKT細胞的活化。</p>
-      </div>
-    </a>
     
 
     <div class="stream-meta article-metadata">
@@ -766,7 +757,7 @@ CXCL9/CXCL10/CXCL11/CXCR3 axis: 調控naive T 細胞的分化，成Th1細胞，�
     
       
     
-    Mar 16, 2025
+    Mar 26, 2025
   </span>
   
 
@@ -775,7 +766,7 @@ CXCL9/CXCL10/CXCL11/CXCR3 axis: 調控naive T 細胞的分化，成Th1細胞，�
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    11 min read
   </span>
   
 
@@ -784,7 +775,7 @@ CXCL9/CXCL10/CXCL11/CXCR3 axis: 調控naive T 細胞的分化，成Th1細胞，�
   
   
     <span class="middot-divider"></span>
-    <a href="/post/cxcl10_target/#disqus_thread"></a>
+    <a href="/post/scrna_gem_flex/#disqus_thread"></a>
   
 
   
@@ -805,6 +796,13 @@ CXCL9/CXCL10/CXCL11/CXCR3 axis: 調控naive T 細胞的分化，成Th1細胞，�
   <div class="ml-3">
     
     
+      
+      
+      <a href="/post/scrna_gem_flex/" >
+        <img src="/post/scrna_gem_flex/featured_hu10851519584711348372.webp" height="100" width="150"
+            alt="單細胞RNA-seq數據分析教學-1：從數據處理到降維視覺化" loading="lazy">
+      </a>
+    
   </div>
 </div>
 
@@ -823,40 +821,14 @@ CXCL9/CXCL10/CXCL11/CXCR3 axis: 調控naive T 細胞的分化，成Th1細胞，�
 
 
 
-  
-
 
 <div class="media stream-item view-compact">
   <div class="media-body">
 
     <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/post/scrna_gem_flex/" >單細胞RNA-seq數據分析教學-1：從數據處理到細胞註解</a>
+      <a href="/post/scrna_gem_flex_2/" >單細胞RNA-seq數據分析教學-2：從數據處理到降維視覺化</a>
     </div>
 
-    
-    <a href="/post/scrna_gem_flex/"  class="summary-link">
-      <div class="article-style">
-        <h2 id="安裝與導入必要套件">安裝與導入必要套件</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 基礎分析套件</span>
-</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;Seurat&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;dplyr&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;patchwork&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;ggplot2&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 輔助套件（用於快速標記基因分析）</span>
-</span></span><span class="line"><span class="cl"><span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">,</span> <span class="n">quietly</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;BiocManager&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;presto&#34;</span><span class="p">)</span>  <span class="c1"># 快速Wilcoxon檢定</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 加載套件</span>
-</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">Seurat</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">patchwork</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">presto</span><span class="p">)</span>
-</span></span></code></pre></div><h2 id="創建seurat物件">創建Seurat物件</h2>
-<p>從10x Genomics數據讀取並構建Seurat物件：</p>
-      </div>
-    </a>
     
 
     <div class="stream-meta article-metadata">
@@ -897,7 +869,7 @@ CXCL9/CXCL10/CXCL11/CXCR3 axis: 調控naive T 細胞的分化，成Th1細胞，�
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    7 min read
+    2 min read
   </span>
   
 
@@ -906,7 +878,7 @@ CXCL9/CXCL10/CXCL11/CXCR3 axis: 調控naive T 細胞的分化，成Th1細胞，�
   
   
     <span class="middot-divider"></span>
-    <a href="/post/scrna_gem_flex/#disqus_thread"></a>
+    <a href="/post/scrna_gem_flex_2/#disqus_thread"></a>
   
 
   

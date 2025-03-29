@@ -13,39 +13,12 @@
     </image>
     
     <item>
-      <title>CXCL9, CXCL10, CXCL11/CXCR3 axis for immune activation</title>
-      <link>http://localhost:1313/post/cxcl10_target/</link>
-      <pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/cxcl10_target/</guid>
-      <description>&lt;p&gt;Chemikine 通常為8-15 kD 的蛋白，會與G-protein coupled receptor 結合，誘導chemotaxis、分化、與白血球的外漏作用。
-CXCL9/CXCL10/CXCL11/CXCR3 axis: 調控naive T 細胞的分化，成Th1細胞，而Th1細胞會藉由分泌IFN-r 誘導Cytotoxic T lymphocytes、macrophages 、NK細胞與NKT細胞的活化。&lt;/p&gt;
-&lt;p&gt;CXCR3主要表達在Th1, some DC, NK cells, CD8+ T cells&lt;/p&gt;
-&lt;p&gt;Th0 通常不表現CXCR3 但會在APC 提供MHC-II抗原刺激後，會活化並開始表達CXCR3?&lt;/p&gt;
-&lt;p&gt;細胞激素不只可以刺激分化，還可以藉由造成激素梯度而讓細胞順著梯度遷徙&lt;/p&gt;
-&lt;p&gt;這種趨化作用由表現於細胞表面的接受器所主導&lt;/p&gt;
-&lt;p&gt;對CXCL9/10/11來說，他們的接受器為CXCR3，這些chemokine 主要由monocyte fibroblast endothelial cell 與癌細胞分泌，而他們的分泌主要是經由IFN-r 刺激來上調，而TNF-alpha 會強化這個調控。
-這些細胞有點類似哨兵，而釋放的激素就是他們告訴其他將士，來實際開戰的訊號。&lt;/p&gt;
-&lt;p&gt;而針對CXCR3，這個接受器主要表現於monocyte, CTL, NK and NKT cells, cancer cells ，通常也是在IFN-r 刺激下上調。這些細胞類似將士，主要處理戰場。而癌細胞橫跨兩種細胞型態，表示他們已經演化出可以欺騙戰場上哨兵與將士的能力。&lt;/p&gt;
-&lt;p&gt;CXC chemokine 分成兩種，一種帶有ELR(Glu-Leu-Arg)，可以允許是中性球遷徙，同時具有血管新生的能力．兒不帶有ELR的，主要讓淋巴細胞遷徙，並且會抑制血管新生。&lt;/p&gt;
-&lt;p&gt;CXCL9/10/11 主要是ELR-negative chemokines，所以會刺激淋巴球遷徙、抑制血管新生並達到腫瘤抑制效果。
-然而，有趣的是，一些證據支持CXCL9/10/11強化腫瘤增生與轉移，這種衝突的現象，跟CXCR3 變異有關（CXCR3A,CXCR3B,CXCR3-alt），因此不同的接受器受到刺激，結果就會不同。&lt;/p&gt;
-&lt;p&gt;CXCL9: 又稱monokine induced by interferon 位在chromosome 4 會被IFN-r 激活，但對IFN-a/b沒反應。
-CXCL9 主要介導局部淋巴浸潤與腫瘤抑制。動物實驗發現缺少CXCL9的癌細胞比同時表現CXCL9/10的細胞更具致癌潛力，顯示其腫瘤抑制的效果&lt;/p&gt;
-&lt;p&gt;CXCL10：又稱interferon r-induced protein 10 (IP-10)，會被IFN-r 與IFN-a/b 誘導，也會較弱的被TNF-alpha誘導。細胞實驗中，CXCL10可以被NF-KB激活，也在缺氧導致發炎的早期反應中扮演角色。除了IFN，其他的分子如IFN-regulatory factor 3、toll-like receptors、retinoic acid-inducible gene (RIG-I)及melanoma differentiation-assocaited gene (MDA-5) 也會協同刺激CXCL10的表現
-有研究指出，血液中的CXCL10濃度，而非CXCL9，與頭頸癌放療後血中出現淋巴球有關。&lt;/p&gt;
-&lt;p&gt;CXCL11: 又稱interferon-inducible T cell alpha chemoattractant (I-TAC)，或interferon-gamma-inducible protein 9 (IP-9)，會被IFN-r及IFN-b誘導，而IFN-a刺激強度反而較弱。
-CXCL11有個特點，就是與CXCR3的結合親和力相比於另外兩個是最高的，而與CXCR3的結合區域也不同。此外，CXCL11可以和CXCR7結合，因此與腫瘤侵犯與apoptosis的降低有關。&lt;/p&gt;
-&lt;p&gt;CXCR3 又稱G protein coupled receptor 9 or CD183
-與CXCL9/10/11 類似，會被IFN-r 激活&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>單細胞RNA-seq數據分析教學-1：從數據處理到細胞註解</title>
+      <title>單細胞RNA-seq數據分析教學-1：從數據處理到降維視覺化</title>
       <link>http://localhost:1313/post/scrna_gem_flex/</link>
-      <pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/scrna_gem_flex/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;這篇參考Zhisong He與Barbara Treutlein等人撰寫的單細胞定序處理&lt;a href=&#34;https://github.com/quadbio/scRNAseq_analysis_vignette/blob/master/Tutorial.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;教學&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;安裝與導入必要套件&#34;&gt;安裝與導入必要套件&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 基礎分析套件&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;install.packages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Seurat&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -89,7 +62,7 @@ CXCL11有個特點，就是與CXCR3的結合親和力相比於另外兩個是最
 &lt;ol&gt;
 &lt;li&gt;偵測到太少基因的細胞：常見原因是測序深度太淺，通常研究需要2-2.5倍的測序深度 (1倍為10000 reads per cell)。&lt;/li&gt;
 &lt;li&gt;偵測到太多基因的細胞：可能原因為一顆油滴包到兩顆以上的細胞 (doublet or multiplet)，所以共享cell barcode，導致基因數量大增。&lt;/li&gt;
-&lt;li&gt;太多粒線體的轉錄本：大多的scRNA-seq實驗是用oligo-T去抓mRNA，理論上不會抓到粒線體的基因，因為粒線體RNA缺少poly-A tail，但難免會抓到一些。也有證據顯示一些粒線體的轉錄本帶有poly-A tails作為降解的標記。原則上，太多粒線體基因表示細胞處於stress （如缺氧），所以產生更多粒線體。&lt;/li&gt;
+&lt;li&gt;太多粒線體的轉錄本：大多的scRNA-seq實驗是用oligo-T去抓mRNA，理論上不會抓到粒線體的基因，因為粒線體轉錄本大多缺少穩定的poly-A tail（較短且角色較複雜），但難免會抓到一些。也有證據顯示一些粒線體的轉錄本帶有poly-A tails作為降解的標記。原則上，太多粒線體基因表示細胞處於stress （如缺氧），所以產生更多粒線體。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;而Seurat可以基於以下指標，過濾低質量細胞：&lt;/p&gt;
 &lt;ul&gt;
@@ -97,6 +70,7 @@ CXCL11有個特點，就是與CXCR3的結合親和力相比於另外兩個是最
 &lt;li&gt;&lt;code&gt;nCount_RNA&lt;/code&gt;：總轉錄本數&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;percent.mt&lt;/code&gt;：粒線體基因比例&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;以下數據我用我之前在國衛院上課時給的pbmc數據做範例。&lt;/p&gt;
 &lt;p&gt;針對粒線體基因比例需要手動設定：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 計算線粒體基因比例&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat[[&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;percent.mt&amp;#34;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;]]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;PercentageFeatureSet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pattern&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;^MT-&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -110,8 +84,38 @@ CXCL11有個特點，就是與CXCR3的結合親和力相比於另外兩個是最
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;nFeature_RNA&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;5000&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;percent.mt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;請記住，上面的數值要根據跑出來的Violin plots來決定。
-另外，有時候也建議做額外的QC，尤其是針對doublets的偵測。主要原因是，因為不同的細胞抓到的RNA變化很大，所以即使邏輯上doublets 的基因會比單顆細胞高出很多，也不能保證能藉此排除doublets的可能! 目前有一些工具來預測某細胞究竟是singlet 或是doublet。例如&lt;a href=&#34;&#34;&gt;DoubletFinder&lt;/a&gt;，利用隨機平均化細胞來建立人工doublets，然後針對每顆細胞去測試與人工doublets的相似程度。除此之外，粒線體的轉錄本比例可能並不足夠完全排除不健康或是受到壓力的細胞，有時候就會需要其他方式來過濾，例如使用&lt;a href=&#34;&#34;&gt;機器學習的方式來做預測&lt;/a&gt;。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖一-vlnplot結果&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig1&#34; srcset=&#34;
+               /post/scrna_gem_flex/Fig1_hu16983972440329545574.webp 400w,
+               /post/scrna_gem_flex/Fig1_hu16269241505443034539.webp 760w,
+               /post/scrna_gem_flex/Fig1_hu506643242692220543.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig1_hu16983972440329545574.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;612&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖一 VlnPlot結果
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;請記住，上面的數值要根據跑出來的Violin plots來決定。
+另外，有時候也建議做額外的QC，尤其是針對doublets的偵測。主要原因是，因為不同的細胞抓到的RNA變化很大，所以即使邏輯上doublets 的基因會比單顆細胞高出很多，也不能保證能藉此排除doublets的可能! 目前有一些工具來預測某細胞究竟是singlet 或是doublet。例如&lt;a href=&#34;&#34;&gt;DoubletFinder&lt;/a&gt;，利用隨機平均化細胞來建立人工doublets，然後針對每顆細胞去測試與人工doublets的相似程度。除此之外，粒線體的轉錄本比例可能並不足夠完全排除不健康或是受到壓力的細胞，有時候就會需要其他方式來過濾，例如使用&lt;a href=&#34;https://www.nature.com/articles/s41586-019-1654-9#Sec2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;機器學習的方式來做預測&lt;/a&gt;。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;數據標準化&#34;&gt;數據標準化&lt;/h2&gt;
 &lt;p&gt;與bulk RNA-seq一樣，每顆細胞的基因轉錄本數量都不同，也就是被&lt;code&gt;抓&lt;/code&gt;到的RNA數量不同，因此不能直接比較。舉個例子，假設今天有兩位攝影師在拍鳥類生態紀錄片，一位待在鳥類豐富的森林，一位則在鳥相較稀少的郊區。他們分別拍攝了 300 張與 50 張鳥類照片。乍看之下，拍到 300 張的攝影師似乎捕捉到了更多鳥類，但如果我們考量他們待在現場的時間——前者拍攝了 10 小時，而後者僅拍攝了 2 小時，那麼計算每小時拍攝的鳥類照片數量，分別是 30 張/小時與 25 張/小時。這樣的標準化比較才更具代表性，而不是僅看總照片數。因此，在分析單細胞 RNA-seq 數據時，通常需要進行歸一化，以確保比較不同細胞間的基因表達量時，不受總 RNA 捕獲量的影響。&lt;/p&gt;
@@ -125,16 +129,17 @@ $$
 &lt;/div&gt;
 &lt;p&gt;其中：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Xij是 細胞i中基因j的原始 UMI（Unique Molecular Identifier）計數。&lt;/li&gt;
+&lt;li&gt;Xij是細胞i中基因j的原始 UMI（Unique Molecular Identifier）計數。&lt;/li&gt;
 &lt;li&gt;分母是是該細胞 所有基因的 UMI 總和，也就是該細胞的測序深度。&lt;/li&gt;
 &lt;li&gt;取log目的是將基因表現分佈拉到常態分佈。&lt;/li&gt;
-&lt;li&gt;乘上10000 用來將比例數據擴展到更容易比較的範圍（類似於 TPM）。&lt;/li&gt;
-&lt;li&gt;加 1（又稱pseudocount） 避免 log 取值為負無窮大，或是出現zero transcripts。&lt;/li&gt;
+&lt;li&gt;乘上&lt;code&gt;10000&lt;/code&gt;用來將比例數據擴展到更容易比較的範圍（類似於 TPM）。&lt;/li&gt;
+&lt;li&gt;加 1（又稱&lt;code&gt;pseudocount&lt;/code&gt;） 避免 log 取值為負無窮大，或是出現zero transcripts。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 標準化（LogNormalize）&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;NormalizeData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通常NormalizeData()有一些設定參數，但一般不用去更動，default 即可滿足大部分分析的需求。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通常&lt;code&gt;NormalizeData()&lt;/code&gt;有一些設定參數，但一般不用去更動，default 即可滿足大部分分析的需求。&lt;/p&gt;
 &lt;h2 id=&#34;特徵選擇&#34;&gt;特徵選擇&lt;/h2&gt;
+&lt;p&gt;並非細胞裡面的所有基因都有相同程度的訊息，例如低度表現得基因，或是不同細胞間表現程度相近的基因，基本上並不帶有可用的訊息，因此需要利用特徵選取來找出具有代表性的基因。不過別擔心，Seurat的&lt;code&gt;FindVariableFeatures()&lt;/code&gt;可以幫我們找出具有高度變異性的基因。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 識別高度可變基因（HVGs）&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;FindVariableFeatures&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nfeatures&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;3000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#可以2000-3000視情況而定&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
@@ -142,20 +147,141 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;top20&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;VariableFeatures&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;plot&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;VariableFeaturePlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;LabelPoints&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;points&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;top20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;repel&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;數據縮放與降維&#34;&gt;數據縮放與降維&lt;/h2&gt;
-&lt;p&gt;SCTransform&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖二-可視化高變異基因-top20顯示基因名稱&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig2&#34; srcset=&#34;
+               /post/scrna_gem_flex/Fig2_hu11252956819295819830.webp 400w,
+               /post/scrna_gem_flex/Fig2_hu2049454034692453610.webp 760w,
+               /post/scrna_gem_flex/Fig2_hu17777678879938835299.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig2_hu11252956819295819830.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;609&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖二 可視化高變異基因-top20顯示基因名稱
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Seurat 針對不同樣本的某基因，計算標準化的變異 &lt;code&gt;(standardized variance)&lt;/code&gt;，並選取前2000-3000個基因。
+值得注意的是，關於要選多少基因，目前並沒有好的準則，有時候需要選擇不同的數量來看分析效果，並選擇最能解釋結果的基因數量。大致上，2000-5000個基因是可以接受的範圍，選擇不同的基因數量並不太會影響分析結果。但根據最新的&lt;a href=&#34;https://www.nature.com/articles/s41592-025-02624-3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;論文&lt;/a&gt;，&lt;code&gt;2000&lt;/code&gt;個基因是最好的選擇。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;數據縮放&#34;&gt;數據縮放&lt;/h2&gt;
+&lt;p&gt;因為不同的基因有不同的base expression 與分佈，因此每個基因的貢獻程度是不同的。為了不讓某些基因的影響力偏移，我們需要做適當的縮放。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 縮放數據（可選回歸變異源）&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;ScaleData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vars.to.regress&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;nFeature_RNA&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;percent.mt&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;sctransform&#34;&gt;SCTransform&lt;/h2&gt;
+&lt;p&gt;上面展示的一般的正規化與縮放流程，利用&lt;code&gt;NormalizeData()&lt;/code&gt;與&lt;code&gt;ScaleData()&lt;/code&gt;來調整基因數據到可以比較的形式，然而傳統的log-normalization轉換會有個缺點，就是會導致零膨脹效應（zero-inflation artifact）。這個現象是在說明當數據裡面出現過多的零時 （可預期或是不可預期），會影響統計模型的建立與後續的預測，因此有不少的演算法在解決這一塊。而對於單細胞數據來說，基因的dropout本來就是常見的現象（以10X來說），因此拿到的數據會有大量的零，而這些零在log-normalization後雖然仍為零（log(x+1)），但是會被拉近與其他基因表現的距離，因此會導致零這個數值影響力變大。為了避免這個問題，Hafemeister與Satija教授開發了&lt;code&gt;SCTransform&lt;/code&gt;，利用一regularized negative binomial regression model 來fit基因的表現，同時考慮測序深度（將不同基因的UMI做考慮，不像TPM那樣弭平測序深度的影響）。
+技術上：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基於 Pearson 殘差（Pearson residuals）變異性來選擇高變異性基因。&lt;/li&gt;
+&lt;li&gt;自動對測序深度進行正規化（即不需要手動調整 UMI 數）。&lt;/li&gt;
+&lt;li&gt;使用一般化線性模型（GLM, Generalized Linear Model）調整技術變異。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;SCTransform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;variable.features.n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# PCA降維&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#也可以選擇要將哪些特徵作regress out，近一步移除不想要的數據變異&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;SCTransform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                      &lt;span class=&#34;n&#34;&gt;vars.to.regress&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;nFeature_RNA&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;percent.mt&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                      &lt;span class=&#34;n&#34;&gt;variable.features.n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這個函式基本上已經包含了normalization、scaling與特徵選取的過程，所以要注意若使用SCTransform，不需要做上面的步驟。然而SCTransform有一些缺點：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;效率相對慢。&lt;/li&gt;
+&lt;li&gt;傳統log-normalization 的正規化是針對dataset裡每個細胞做計算，正規化後數據可以不依賴測序深度，因此不同datasets之間的細胞是可以互相比較的，即使沒有辦法處理&lt;code&gt;測序深度&lt;/code&gt;的影響以及校正&lt;code&gt;生物或是技術噪音&lt;/code&gt;。但SCTransform 需要考慮dataset裡其他細胞的資訊來做計算，然而不同datasets的細胞資訊都不同，所以兩個各自使用SCTransform處理的數據是無法互相比較的，如果整合後需要做differential expression analysis需要另外處理。我們會在&lt;code&gt;數據整合（integration）&lt;/code&gt;的時候專篇講解。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;線性降維&#34;&gt;線性降維&lt;/h2&gt;
+&lt;p&gt;雖然我們可以在找到高變異性基因後觀察細胞異質性，但強烈建議在標準化之後先使用線性降維來對數據做整理。這個步驟在目前單細胞分析算是基本需求，因為：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;數據變得較為&lt;code&gt;緊密（compact）&lt;/code&gt;，運算更快。&lt;/li&gt;
+&lt;li&gt;因為單細胞數據內在較為稀疏，在降維處理後可以增強特徵訊號的穩健性。
+而PC的數量取決於基因或是細胞的數量，看哪一個數量比較少。然而大多數PC並不會提供太多訊息而只是隨機噪音，只有前幾個PC帶有較多的訊息來解釋細胞之間的特徵變化。Seurat 在計算PCA時並不會計算全部的PC，而是只針對前50 PC 做運算（by deafult），但這個數字可以透過&lt;code&gt;npcs&lt;/code&gt;參數去做修改。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;但到底要選擇多少PC才夠？&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# PCA降維&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;RunPCA&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;npcs&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 可視化PCA結果（肘部圖）&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;ElbowPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ndims&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 選擇前20個主成分進行後續分析&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;非線性降維與分群&#34;&gt;非線性降維與分群&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;PCHeatmap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dims&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cells&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;500&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;balanced&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ncol&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖三-elbow-plot&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig3&#34; srcset=&#34;
+               /post/scrna_gem_flex/Fig3_hu3181410962363797049.webp 400w,
+               /post/scrna_gem_flex/Fig3_hu13903029109238814588.webp 760w,
+               /post/scrna_gem_flex/Fig3_hu15224868253806051869.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig3_hu3181410962363797049.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;605&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖三 Elbow plot
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖四-heatmap-只做示意實際可以調整&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig4&#34; srcset=&#34;
+               /post/scrna_gem_flex/Fig4_hu12405622846497645762.webp 400w,
+               /post/scrna_gem_flex/Fig4_hu6305109519020820238.webp 760w,
+               /post/scrna_gem_flex/Fig4_hu10258874650159471613.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig4_hu12405622846497645762.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;453&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖四 Heatmap (只做示意，實際可以調整)
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;非線性降維與分群&#34;&gt;非線性降維與分群&lt;/h2&gt;
 &lt;p&gt;scRNA-seq分析通常基於多個基因的表達值來比較細胞。例如，聚類分析 (clustering) 透過計算細胞在多個基因上的歐幾里得距離，來識別具有相似轉錄組特徵的細胞。在這些應用中，每個基因都可以視為一個數據維度。舉個簡單的例子，假設我們的數據集中僅包含兩個基因，那麼我們可以用二維圖來表示，每個軸對應一個基因的表達量，而圖上的每個點代表一個細胞。當數據集包含數千個基因時，每個細胞的表達譜就構成了一個高維表達空間中的位置。&lt;/p&gt;
 &lt;p&gt;降維 (dimensionality reduction) 的目標是減少數據的維度數量，以便進行更高效的分析。
 這是因為許多基因的表達是相關的，受到相同的生物過程影響，因此無需單獨存儲每個基因的資訊，而是可以將多個基因的特徵壓縮到少數幾個統合的維度，例如&lt;code&gt;特徵基因 (eigengene)&lt;/code&gt;（Langfelder 和 Horvath，2007）。降維的主要優勢包括：&lt;/p&gt;
@@ -165,17 +291,291 @@ $$
 &lt;li&gt;便於數據可視化，讓我們能夠在 2D 或 3D 圖 中直觀展示細胞間的關係，避免高維度的數據難以理解的問題。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;而且降維後，會將稀疏矩陣轉換成較緊密的數據(compact)，有助於後續的分析的效率與可靠性。這種方式對分析基本上沒有缺點，除非是整合百萬細胞數量等級的數據，可能需要保存稀疏矩陣的特性來減少記憶體的佔用 (可以用&lt;code&gt;truncated SVD&lt;/code&gt; 或是 &lt;code&gt;autoencoder&lt;/code&gt;)。&lt;/p&gt;
-&lt;p&gt;透過降維技術，如主成分分析 (PCA) 和 t-SNE、UMAP 等非線性方法，研究者可以更有效地探索單細胞數據的內在結構，發現潛在的細胞類型與功能模式。&lt;/p&gt;
+&lt;p&gt;透過降維技術，如&lt;code&gt;主成分分析 (PCA)&lt;/code&gt; 和 &lt;code&gt;t-SNE&lt;/code&gt;、&lt;code&gt;UMAP&lt;/code&gt; 等非線性方法，研究者可以更有效地探索單細胞數據的內在結構，發現潛在的細胞類型與功能模式。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# UMAP降維&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;RunUMAP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dims&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# UMAP 資訊會自動存在seurat裡更新&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;UMAPPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 分群（分辨率決定分群細緻度）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;FindNeighbors&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dims&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;FindClusters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;resolution&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0.8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 可視化分群結果&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;DimPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reduction&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;umap&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;label&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;細胞註解cell-annotation&#34;&gt;細胞註解（Cell Annotation）&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# TSNE降維&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;RunTSNE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dims&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# UMAP 資訊會自動存在seurat裡更新&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;TSNEPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖五-umap-plot&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig5&#34; srcset=&#34;
+               /post/scrna_gem_flex/Fig5_hu7405616901280231289.webp 400w,
+               /post/scrna_gem_flex/Fig5_hu15258401119505091862.webp 760w,
+               /post/scrna_gem_flex/Fig5_hu2176629246489442817.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig5_hu7405616901280231289.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;642&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖五 UMAP plot
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖六-tsne-plot&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig6&#34; srcset=&#34;
+               /post/scrna_gem_flex/Fig6_hu2208951479455636655.webp 400w,
+               /post/scrna_gem_flex/Fig6_hu10153218768370550009.webp 760w,
+               /post/scrna_gem_flex/Fig6_hu12468940136302047162.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig6_hu2208951479455636655.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;633&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖六 TSNE plot
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
+&lt;p&gt;本篇教學文章介紹了單細胞RNA定序（scRNA-seq）分析的基礎流程，從數據讀取、Seurat物件建立、品質控制、標準化與特徵選取，到降維與視覺化，構成了典型的單細胞分析前處理與探索性分析流程。透過這些步驟，我們能有效地過濾低品質細胞、識別具有生物學意義的基因表達變化，並在降維空間中觀察細胞間的異質性與潛在群集結構。&lt;/p&gt;
+&lt;p&gt;值得強調的是，scRNA-seq數據分析並非僅依賴單一工具或固定參數，每個步驟中都蘊含著根據實驗設計、樣本特性與研究問題進行調整的彈性與必要。例如，品質控制的閾值應根據實際資料分佈決定；HVGs的選取數量與方法則可能影響下游分析結果。此外，選擇何種正規化方式（如LogNormalize或SCTransform），也需根據是否需要後續整合多個樣本或資料集而做考量。&lt;/p&gt;
+&lt;p&gt;後續的教學將會進一步介紹：細胞分群（clustering）、細胞類型註解（cell type annotation）、差異表達分析（differential expression）、軌跡推斷（pseudotime trajectory）、資料整合（integration）以及細胞通訊（cell-cell communication）等更進階的主題。&lt;/p&gt;
+&lt;p&gt;單細胞分析不僅為基礎研究提供了前所未有的解析度，也為轉譯醫學與個人化醫療開創了全新視野。希望透過這一系列教學，能幫助讀者打下堅實的分析基礎，並在未來更有效地應用這項技術於自己的研究之中。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CXCL9/10/11–CXCR3 軸：免疫調控與腫瘤行為的雙面刃</title>
+      <link>http://localhost:1313/post/cxcl10_target/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/cxcl10_target/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;本篇參考2018年發表在Cancer Treatment Review 的文章，回顧了免疫反應中很重要的軸：CXCL9/10/11-CXCR3，了解這條軸的意義將能對癌症免疫治療有更深一層的理解。&lt;/p&gt;
+&lt;h2 id=&#34;cxcl91011cxcr3-axis&#34;&gt;CXCL9/10/11/CXCR3 axis&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;趨化激素（chemokines）&lt;/code&gt;是一群小分子蛋白質，分子量約為 &lt;code&gt;8–15 kDa&lt;/code&gt;，主要功能是透過與G蛋白偶聯受體（G-protein coupled receptors）結合，誘導白血球的&lt;code&gt;趨化（chemotaxis）&lt;/code&gt;、分化與血管通透性增加，進而促進白血球從血管移動至發炎或腫瘤部位。這些激素在免疫反應與腫瘤微環境中扮演極其重要的「指揮官」角色。&lt;/p&gt;
+&lt;p&gt;CXCL9、CXCL10、CXCL11 是&lt;code&gt;CXC&lt;/code&gt;家族中&lt;code&gt;不含ELR（Glu-Leu-Arg）序列&lt;/code&gt;的成員，其專一接受器為 CXCR3。這些chemokine 主要由&lt;code&gt;單核球&lt;/code&gt;、&lt;code&gt;纖維母細胞&lt;/code&gt;、&lt;code&gt;內皮細胞&lt;/code&gt;與&lt;code&gt;癌細胞&lt;/code&gt;分泌，分泌機制多受&lt;code&gt;IFN-γ&lt;/code&gt;誘導，而&lt;code&gt;TNF-α&lt;/code&gt;可進一步增強其上調。這些細胞類似「哨兵」，釋放的激素猶如「集合號」，吸引「將士」—免疫效應細胞進入戰場。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;CXCR3&lt;/code&gt; 則主要表現在 &lt;code&gt;Th1&lt;/code&gt;細胞、&lt;code&gt;部分樹突細胞（DC）&lt;/code&gt;、&lt;code&gt;NK 細胞&lt;/code&gt;、&lt;code&gt;CD8+ T 細胞&lt;/code&gt;與&lt;code&gt;癌細胞&lt;/code&gt;上。其表現也受 &lt;code&gt;IFN-γ&lt;/code&gt; 誘導。此一表現型態顯示，CXCR3 軸線是免疫系統調動與活化的重要路徑。而癌細胞也可表現CXCR3，顯示其可能藉由&lt;code&gt;模仿免疫細胞&lt;/code&gt;來逃避免疫監視，甚至促進自身轉移。&lt;/p&gt;
+&lt;p&gt;在未活化的 T 細胞（&lt;code&gt;Th0&lt;/code&gt;）中，CXCR3 表現量低；然而當樹突細胞呈遞抗原（MHC-II）後，T 細胞活化並快速上調 CXCR3，趨向 &lt;code&gt;Th1 &lt;/code&gt;分化，進而分泌 IFN-γ，活化 CTL、NK、NKT 細胞與巨噬細胞等免疫效應細胞，形成&lt;code&gt;正回饋免疫循環&lt;/code&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;從結構上看，CXCR3 屬於G蛋白偶聯受體，也稱為 &lt;code&gt;CD183&lt;/code&gt;，具有&lt;code&gt;兩個&lt;/code&gt;特異性的胞內結構區域：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CXCL9/10靠其 C端胞內區域（carboxy-terminal domain）來活化。&lt;/li&gt;
+&lt;li&gt;CXCL11 則主要靠第三胞內環結合（third intracellular loop）來活化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;此外，CXCR3具有三個主要變異型：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;CXCR3A&lt;/code&gt;：經典型，促進細胞&lt;code&gt;趨化&lt;/code&gt;與&lt;code&gt;增生&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CXCR3B&lt;/code&gt;：誘導細胞凋亡、抑制遷移，並可與&lt;code&gt;CXCL4&lt;/code&gt;結合（由活化血小板釋放）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CXCR3-alt&lt;/code&gt;：主要媒介 &lt;code&gt;CXCL11&lt;/code&gt; 的功能，但其結合與訊號傳導機制尚待釐清&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;這些趨化激素彼此在功能與表現調控上有所區別：&lt;/p&gt;
+&lt;h2 id=&#34;cxcl9又稱-mig-monokine-induced-by-ifn-γ&#34;&gt;CXCL9（又稱 MIG, monokine induced by IFN-γ）&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;僅由 IFN-γ 強烈誘導，對 IFN-α/β 無明顯反應&lt;/li&gt;
+&lt;li&gt;位於染色體 4&lt;/li&gt;
+&lt;li&gt;主要介導淋巴球的局部浸潤與腫瘤抑制&lt;/li&gt;
+&lt;li&gt;動物實驗顯示，缺乏CXCL9的腫瘤細胞 (CXCL9-deficient) 有更高的致癌潛能 (tumorigenicity)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;cxcl10又稱-ip-10-interferon-γ-induced-protein-10&#34;&gt;CXCL10（又稱 IP-10, interferon-γ-induced protein 10）&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;由 IFN-γ、IFN-α/β 誘導，TNF-α可弱誘導 &amp;ndash;&amp;gt; 多重誘導潛能&lt;/li&gt;
+&lt;li&gt;可由 NF-κB 活化，在缺氧與發炎反應初期扮演關鍵角色&lt;/li&gt;
+&lt;li&gt;其他協同IFN-γ的誘導因子包括 IRF3、&lt;code&gt;TLR&lt;/code&gt;、RIG-I、MDA-5 等&lt;/li&gt;
+&lt;li&gt;有研究指出，CXCL10的血中濃度與頭頸癌放療後淋巴球數量有關（CXCL9 則無明顯關聯）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;cxcl11又稱-i-tac-interferon-inducible-t-cell-alpha-chemoattractant&#34;&gt;CXCL11（又稱 I-TAC, interferon-inducible T cell alpha chemoattractant）&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;由 IFN-γ、IFN-β 誘導，IFN-α可弱誘導&lt;/li&gt;
+&lt;li&gt;結合CXCR3親和力最高，且結合區域與CXCL9/10不同&lt;/li&gt;
+&lt;li&gt;可同時與 &lt;code&gt;CXCR7&lt;/code&gt; 結合 → 可能參與腫瘤浸潤與&lt;code&gt;抑制細胞凋亡&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;由於 CXCL9/10/11 均為不含 ELR 序列的 CXC chemokines，因此在理論上它們會：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;促進淋巴球遷徙&lt;/li&gt;
+&lt;li&gt;抑制血管新生→ 具有抗腫瘤潛力&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;然而，部分研究卻指出這些chemokines亦可能促進腫瘤轉移與增生，形成矛盾現象。這種差異可能來自CXCR3亞型的表現不同，例如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;CXCR3A促進遷移與轉移&lt;/li&gt;
+&lt;li&gt;CXCR3B則&lt;code&gt;抑制腫瘤生長&lt;/code&gt;並誘導凋亡&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;這突顯了CXCL9/10/11–CXCR3軸的「雙面性」：在免疫細胞中可促進免疫活化與腫瘤清除，而在腫瘤細胞中卻可能促進轉移與免疫逃脫。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;個人假設：同一個接受器CXCR3會有不同的結合區，可能是演化過程中節省能量又可以達到多樣功能的方式。&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;cxcl91011cxcr3軸的總體功能&#34;&gt;CXCL9/10/11–CXCR3軸的總體功能&lt;/h2&gt;
+&lt;p&gt;這個軸在免疫細胞的遷移、分化與活化中扮演關鍵角色。各種疾病中的免疫反應取決於浸潤到病灶部位的白血球類型。此軸也會直接作用於癌細胞，促進癌細胞的&lt;code&gt;增殖與轉移&lt;/code&gt;。臨床上，CXCR3 表現量與癌症轉移潛能與預後有關。&lt;/p&gt;
+&lt;h4 id=&#34;免疫細胞的遷移&#34;&gt;免疫細胞的遷移&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;CXCL9、CXCL10、CXCL11 對&lt;code&gt;Th1&lt;/code&gt;細胞、CTLs、NK細胞都有誘導遷移的效果。&lt;/li&gt;
+&lt;li&gt;CXCR3 缺失小鼠模型證實，缺乏 CXCR3 的 CTLs 和 NK 細胞無法有效進入腫瘤區域，&lt;code&gt;腫瘤長得更快&lt;/code&gt;、生存率變差。&lt;/li&gt;
+&lt;li&gt;CXCL9/10/11 還能吸引 Th1 細胞並抑制 Th2 細胞的遷移（透過拮抗 CCR3）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;γδT&lt;/code&gt; 細胞的遷移也依賴 CXCL9–CXCR3。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CXCL4/CXCR3B&lt;/code&gt; 軸可引發凋亡，但不誘導 T 細胞遷移，可能有其他功能。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;免疫細胞的分化&#34;&gt;免疫細胞的分化&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;CXCL9/10/11 一般促進 Th1 分化，但也有不同功能表現。&lt;/li&gt;
+&lt;li&gt;CXCL10 可促進 &lt;code&gt;T-bet&lt;/code&gt;、&lt;code&gt;RORγ&lt;/code&gt; 的表現，誘導 Tr1 (Foxp1- type 1 regulatory cells) 或 Th17 分化（透過 STAT1/4/5）。&lt;/li&gt;
+&lt;li&gt;CXCL11 反而會降低 RORγ，傾向誘導 Tr1 或 &lt;code&gt;Th2&lt;/code&gt; 細胞（透過 mTOR 路徑）。&lt;/li&gt;
+&lt;li&gt;CXCR3 軸也會影響腫瘤相關巨噬細胞（TAMs） 的極化：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;M1 → 抗腫瘤&lt;/li&gt;
+&lt;li&gt;M2 → 促腫瘤&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;缺乏 CXCR3 會導致偏向 M2 極化、IL-4 增加，抗腫瘤免疫減弱。&lt;/li&gt;
+&lt;li&gt;有研究指出 CXCR3 陽性的 B 細胞會誘導 M2 極化（如肝癌中）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;免疫細胞的活化&#34;&gt;免疫細胞的活化&lt;/h4&gt;
+&lt;p&gt;CXCL9/10/11 可促進 Th1 活化，進而產生 IFN-γ、TNF-α、IL-2，加強對腫瘤的免疫攻擊。IFN-γ 可反過來促進 CXCL9/10/11 的釋放，形成正回饋循環。NK 細胞可透過 CXCR3 被活化，也能促進樹突細胞功能。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;腫瘤中的-cxcr3-軸雙面刃&#34;&gt;腫瘤中的 CXCR3 軸：雙面刃&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;旁分泌作用（paracrine）： CXCL9/10/11 從免疫細胞釋放，誘導抗腫瘤免疫。&lt;/li&gt;
+&lt;li&gt;自分泌作用（autocrine）： 癌細胞本身表現 CXCR3，CXCL9/10/11 反而促進 癌細胞增殖、血管新生、轉移。&lt;/li&gt;
+&lt;li&gt;CXCR3-A 是主要促進癌轉移的亞型。&lt;/li&gt;
+&lt;li&gt;CXCR3A 的選擇性抑制可能是治療轉移的策略。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;預後與臨床意義&#34;&gt;預後與臨床意義&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;高 CXCR3 表現與癌症轉移、預後不良有關。&lt;/li&gt;
+&lt;li&gt;不同研究對於 CXCL9/10/11 表現與預後的關係有矛盾結果：&lt;/li&gt;
+&lt;li&gt;有研究顯示高 CXCL9、CXCL10 表現 → 預後差 / 治療反應不佳&lt;/li&gt;
+&lt;li&gt;也有研究顯示相反 → 高表現反而預後較佳&lt;/li&gt;
+&lt;li&gt;這可能與不同癌種、組織背景、炎症程度有關。&lt;/li&gt;
+&lt;li&gt;Weisi 等人開發了一種「整體表達評分系統」，整合 CXCL9/10/11 表達來預測病人預後。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;cxcl9--10--11cxcr3軸作為癌症治療標的&#34;&gt;CXCL9, -10, -11/CXCR3軸作為癌症治療標的&lt;/h2&gt;
+&lt;p&gt;這條免疫軸線具有雙向功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;旁分泌功能（paracrine）：來自免疫細胞的 CXCL9/10/11 可招募抗腫瘤細胞（如 Th1、CTL、NK、M1 巨噬細胞），發揮抗腫瘤作用。&lt;/li&gt;
+&lt;li&gt;自分泌功能（autocrine）：&lt;code&gt;癌細胞自身產生並接受 CXCL9/10/11 刺激會促進癌細胞增生、轉移與血管新生&lt;/code&gt;。
+假說：如果癌細胞本身有autocrine能力，訊息路徑會轉變為刺激增生，但如果來源是免疫細胞，則會抵抗腫瘤生長。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;激活旁分泌軸的研究成果&#34;&gt;激活旁分泌軸的研究成果&lt;/h4&gt;
+&lt;p&gt;利用 CXCL9/10/11 刺激免疫細胞進入腫瘤微環境（TME）以達到抗癌目的，已有多項動物實驗顯示效果良好：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;結腸癌、肺癌: &lt;code&gt;Plasmid CXCL9 + Cisplatin&lt;/code&gt; -&amp;gt;增加CTLs、抑制腫瘤生長&lt;/li&gt;
+&lt;li&gt;腎細胞癌: &lt;code&gt;局部CXCL9 + 系統性IL-2&lt;/code&gt; -&amp;gt;抑制腫瘤與血管新生&lt;/li&gt;
+&lt;li&gt;肺癌: &lt;code&gt;CXCL10腫瘤內注射&lt;/code&gt; -&amp;gt;提高小鼠存活率&lt;/li&gt;
+&lt;li&gt;黑色素瘤、肉瘤: &lt;code&gt;CXCL10基因轉導&lt;/code&gt; -&amp;gt;抑制腫瘤生長&lt;/li&gt;
+&lt;li&gt;多發性骨髓瘤: &lt;code&gt;CXCL10-Ig融合蛋白&lt;/code&gt; -&amp;gt;延長半衰期，誘導CTL與NK細胞浸潤&lt;/li&gt;
+&lt;li&gt;神經膠質瘤: &lt;code&gt;CXCL10-EGFRvIII 融合蛋白（IP10-scFv）+ CTL給藥&lt;/code&gt; -&amp;gt;增加腫瘤浸潤淋巴細胞、生存期延長&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;關於cxcl11的治療爭議&#34;&gt;關於CXCL11的治療爭議&lt;/h4&gt;
+&lt;p&gt;CXCL11 除了可招募 CTL/NK，有時也會促進 &lt;code&gt;Treg 或 Th2 細胞 的極化&lt;/code&gt;，產生&lt;code&gt;免疫抑制&lt;/code&gt;效果。
+在間皮瘤模型中，CXCL11 搭配腫瘤選擇性病毒載體可增強CTL與NK浸潤，延長生存。但在自體免疫腦脊髓炎模型中，CXCL11-Ig 融合蛋白促進 Treg 分化，快速緩解疾病。所以，CXCL11的作用&lt;code&gt;依疾病背景而異&lt;/code&gt;，其治療用途需謹慎評估。&lt;/p&gt;
+&lt;h4 id=&#34;cxcr3-拮抗劑抗-cxcr3療法的利與弊&#34;&gt;CXCR3 拮抗劑（抗-CXCR3）療法的利與弊&lt;/h4&gt;
+&lt;p&gt;CXCR3 拮抗劑（例如 AMG487） 被用來阻止癌細胞自分泌的 CXCR3 活化，尤其是&lt;code&gt;CXCR3A&lt;/code&gt;。
+成果如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;結腸癌、骨肉瘤: AMG487 抑制腫瘤生長與肺轉移&lt;/li&gt;
+&lt;li&gt;乳癌: 僅抑制肺轉移，不影響原位腫瘤生長&lt;/li&gt;
+&lt;li&gt;肝轉移: AMG487 無效
+問題： AMG487 &lt;code&gt;抑制所有CXCR3變異型（CXCR3A, B, alt）&lt;/code&gt;，可能也抑制了免疫細胞的&lt;code&gt;旁分泌抗腫瘤效果&lt;/code&gt;，導致反效果。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;未來方向雙管齊下的策略&#34;&gt;未來方向：雙管齊下的策略&lt;/h2&gt;
+&lt;p&gt;建議的策略是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;同時促進免疫活化（提供 CXCL9/10）&lt;/li&gt;
+&lt;li&gt;並選擇性抑制癌細胞的 CXCR3A（避免全抑 CXCR3）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;這樣的組合治療可能能夠：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;增強免疫攻擊效果&lt;/li&gt;
+&lt;li&gt;減少轉移風險&lt;/li&gt;
+&lt;li&gt;避免削弱身體的免疫反應&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;cxcr3軸與免疫檢查點抑制劑pd-1pd-l1的交互作用&#34;&gt;CXCR3軸與免疫檢查點抑制劑（PD-1/PD-L1）的交互作用&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;PD-1在腫瘤部位的T細胞表現明顯高於peripheral blood。&lt;/li&gt;
+&lt;li&gt;抗PD-1抗體可阻斷免疫逃逸、激活T細胞。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CXCL10 與 IFN-γ 表現會在 PD-1 抑制後上升（CXCL9 與 CXCL11 則不顯著）&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;Chheda 等人指出，PD-1 單獨在 CXCR3-knockout 小鼠中無效 → &lt;code&gt;PD-1治療需依賴 CXCR3 路徑發揮作用&lt;/code&gt;。
+5.&lt;code&gt; CTLA-4 抑制劑（ipilimumab）&lt;/code&gt;也被證實可&lt;code&gt;增加 CXCL9/10/11 表現，尤其在預後良好的病人&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;dpp4-抑制劑提升-cxcl10-功效&#34;&gt;DPP4 抑制劑提升 CXCL10 功效&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;DPP4 酶會截斷 CXCL10 的N端，使其&lt;code&gt;喪失招募淋巴球功能&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;DPP4 抑制劑可保留活性 CXCL10，&lt;code&gt;提升 T 細胞進入腫瘤&lt;/code&gt;，增強免疫治療效力。&lt;/li&gt;
+&lt;li&gt;DPP4 抑制劑為臨床可用藥物、副作用少，有望成為免疫療法輔助藥。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;cox-抑制劑與-cxcl910-軸的正向調控&#34;&gt;COX 抑制劑與 CXCL9/10 軸的正向調控&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;COX-2 表現與 CXCL9 呈負相關（在乳癌中）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;抑制 COX（COX-1 / COX-2）&lt;/code&gt;→ 增加 CXCL9/10 表達，提升腫瘤浸潤淋巴球、改善預後。&lt;/li&gt;
+&lt;li&gt;COX-2 抑制劑 + PD-1 抗體（用海藻酸水凝膠載體）：增加 Th1/CTL 數量、CXCL9/10 表達、降低 Tregs 與 MDSCs 抑制細胞。單獨使用 PD-1 抑制劑無法達到此效果&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;cxcr3軸也可增強以下療法的效力&#34;&gt;CXCR3軸也可增強以下療法的效力&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Lapatinib + Doxorubicin&lt;/li&gt;
+&lt;li&gt;全反式維甲酸（ATRA）&lt;/li&gt;
+&lt;li&gt;傳統化療藥物&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;cxcr3軸作為免疫療法的生物標記與作用平台&#34;&gt;CXCR3軸作為免疫療法的生物標記與作用平台&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;CXCL9/10/11、CCL5 是轉移性黑色素瘤 T 細胞移植治療（adoptive T cell transfer）的潛在預測標記。&lt;/li&gt;
+&lt;li&gt;MAGE-A3 疫苗治療中，CXCL9/10 表現與療效正相關（在黑色素瘤與非小細胞肺癌）&lt;/li&gt;
+&lt;li&gt;此軸與以下免疫療法皆有交集：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;樹突細胞疫苗治療&lt;/li&gt;
+&lt;li&gt;IL-2 治療&lt;/li&gt;
+&lt;li&gt;IL-7 治療&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;表觀遺傳與mirna調控&#34;&gt;表觀遺傳與miRNA調控&lt;/h4&gt;
+&lt;p&gt;miR-21（癌基因miRNA） 被證實調控乳癌細胞中的 CCL5 與 CXCL10 表達。
+因此，表觀遺傳因子也參與 CXCR3 軸的調控&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
+&lt;p&gt;CXCL9/10/11–CXCR3 軸不僅是免疫細胞遷徙與活化的關鍵橋梁，也在腫瘤微環境中扮演著雙重角色。其在正常免疫反應中能促進 Th1 細胞極化、活化 CTLs 與 NK 細胞，形成強而有力的抗腫瘤攻擊。然而，當腫瘤細胞表現 CXCR3 並利用此軸線進行自分泌信號傳遞時，則可能反過來促進腫瘤增殖、血管新生與遠端轉移，突顯了這條軸線的「雙面刃」特性。&lt;/p&gt;
+&lt;p&gt;因此，對於 CXCR3 的不同變異型功能進行選擇性調控，將是未來精準腫瘤免疫治療的重要方向。同時，CXCR3 軸亦可作為免疫檢查點抑制劑（如 anti-PD-1）、DPP4 抑制劑、COX 抑制劑等新興療法的強化平台，具備高度整合潛力。&lt;/p&gt;
+&lt;p&gt;未來研究應著重於：
+探討 CXCR3 不同變異型在各種腫瘤類型中的功能分化
+發展同時促進免疫旁分泌、抑制腫瘤自分泌的雙效治療策略
+評估 CXCL9/10/11 表現作為預後與療效反應的生物標記
+綜合而言，CXCL9/10/11–CXCR3 軸不僅揭示了腫瘤與免疫系統之間的精密互動，也為發展新型免疫治療提供了關鍵的機會與方向。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>單細胞RNA-seq數據分析教學-2：從數據處理到降維視覺化</title>
+      <link>http://localhost:1313/post/scrna_gem_flex_2/</link>
+      <pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/scrna_gem_flex_2/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;細胞群聚&#34;&gt;細胞群聚&lt;/h2&gt;
+&lt;h2 id=&#34;細胞註解cell-annotation&#34;&gt;細胞註解（Cell Annotation）&lt;/h2&gt;
 &lt;p&gt;基於已知標記基因或參考數據集進行註解。&lt;/p&gt;
 &lt;p&gt;方法1：手動標記基因檢查&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 定義標記基因列表&lt;/span&gt;
@@ -263,7 +663,7 @@ $$
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/minicourse_r10/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;R 提供了強大的繪圖功能，透過不同的函數和參數設定，我們可以 靈活控制圖形輸出。本篇教學將從最基本的 圖形設備（Graphics Device）、基礎繪圖函數、圖形參數（Graphical Parameters），到 高級繪圖技巧（如座標軸自訂、圖形裝飾），帶你全面掌握 R 的繪圖機制。&lt;/p&gt;
+&lt;p&gt;R 提供了強大的繪圖功能，透過不同的函數和參數設定，我們可以靈活控制圖形輸出。本篇教學將從最基本的圖形設備（Graphics Device）、基礎繪圖函數、圖形參數（Graphical Parameters），到 高級繪圖技巧（如座標軸自訂、圖形裝飾），帶你全面掌握 R 的繪圖機制。&lt;/p&gt;
 &lt;h2 id=&#34;r-的圖形設備graphics-device&#34;&gt;R 的圖形設備（Graphics Device）&lt;/h2&gt;
 &lt;p&gt;在 R 中，所有的圖形繪製都需要在&lt;code&gt;圖形設備（Graphics Device）&lt;/code&gt;上完成。當我們執行繪圖函數（如 plot()），R 會自動開啟一個圖形設備，然後在其上繪製圖形。&lt;/p&gt;
 &lt;h4 id=&#34;開啟圖形設備&#34;&gt;開啟圖形設備&lt;/h4&gt;
@@ -348,10 +748,10 @@ $$
 &lt;figure  id=&#34;figure-圖一&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig1&#34; srcset=&#34;
-               /post/minicourse_r10/Fig1_hu1803318192953804568.webp 400w,
-               /post/minicourse_r10/Fig1_hu6964468611433478832.webp 760w,
+               /post/minicourse_r10/Fig1_hu5976430835907526703.webp 400w,
+               /post/minicourse_r10/Fig1_hu6607582669161919008.webp 760w,
                /post/minicourse_r10/Fig1_hu2409710731844039414.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r10/Fig1_hu1803318192953804568.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r10/Fig1_hu5976430835907526703.webp&#34;
                width=&#34;760&#34;
                height=&#34;718&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -378,10 +778,10 @@ $$
 &lt;figure  id=&#34;figure-圖二&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig2&#34; srcset=&#34;
-               /post/minicourse_r10/Fig2_hu12555515638197065178.webp 400w,
-               /post/minicourse_r10/Fig2_hu7620687709136813429.webp 760w,
+               /post/minicourse_r10/Fig2_hu7478213123430768722.webp 400w,
+               /post/minicourse_r10/Fig2_hu8478034052868871177.webp 760w,
                /post/minicourse_r10/Fig2_hu14963695072640001142.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r10/Fig2_hu12555515638197065178.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r10/Fig2_hu7478213123430768722.webp&#34;
                width=&#34;760&#34;
                height=&#34;663&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -408,10 +808,10 @@ $$
 &lt;figure  id=&#34;figure-圖三&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig3&#34; srcset=&#34;
-               /post/minicourse_r10/FIg3_hu12311215505245690077.webp 400w,
-               /post/minicourse_r10/FIg3_hu10693362228329510940.webp 760w,
+               /post/minicourse_r10/FIg3_hu13936011685555551377.webp 400w,
+               /post/minicourse_r10/FIg3_hu13594388682234763717.webp 760w,
                /post/minicourse_r10/FIg3_hu15494291904483520847.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r10/FIg3_hu12311215505245690077.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r10/FIg3_hu13936011685555551377.webp&#34;
                width=&#34;760&#34;
                height=&#34;691&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -447,10 +847,10 @@ $$
 &lt;figure  id=&#34;figure-圖四&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig4&#34; srcset=&#34;
-               /post/minicourse_r10/Fig4_hu11884176234639189122.webp 400w,
-               /post/minicourse_r10/Fig4_hu11110357063268275864.webp 760w,
+               /post/minicourse_r10/Fig4_hu4700072871002839268.webp 400w,
+               /post/minicourse_r10/Fig4_hu1697390242890579808.webp 760w,
                /post/minicourse_r10/Fig4_hu7378429767812584344.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r10/Fig4_hu11884176234639189122.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r10/Fig4_hu4700072871002839268.webp&#34;
                width=&#34;760&#34;
                height=&#34;717&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -481,10 +881,10 @@ $$
 &lt;figure  id=&#34;figure-圖五&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig5&#34; srcset=&#34;
-               /post/minicourse_r10/Fig5_hu4258197876804697068.webp 400w,
-               /post/minicourse_r10/Fig5_hu613241920849368659.webp 760w,
+               /post/minicourse_r10/Fig5_hu562804883989845914.webp 400w,
+               /post/minicourse_r10/Fig5_hu2146386573194572670.webp 760w,
                /post/minicourse_r10/Fig5_hu7236681208168097965.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r10/Fig5_hu4258197876804697068.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r10/Fig5_hu562804883989845914.webp&#34;
                width=&#34;760&#34;
                height=&#34;681&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -515,10 +915,10 @@ $$
 &lt;figure  id=&#34;figure-圖六&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig6&#34; srcset=&#34;
-               /post/minicourse_r10/Fig6_hu4404162393060017963.webp 400w,
-               /post/minicourse_r10/Fig6_hu9692768695071469459.webp 760w,
+               /post/minicourse_r10/Fig6_hu7376950590877536899.webp 400w,
+               /post/minicourse_r10/Fig6_hu16947922764136333637.webp 760w,
                /post/minicourse_r10/Fig6_hu4589004087860960025.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r10/Fig6_hu4404162393060017963.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r10/Fig6_hu7376950590877536899.webp&#34;
                width=&#34;733&#34;
                height=&#34;760&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -549,25 +949,24 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;plotsize&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1.5&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;plot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;xlim&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;plotsize&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;-1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ylim&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;plotsize&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;-1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;axes&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ann&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;添加-112-的數字&#34;&gt;添加 1~12 的數字&lt;/h3&gt;
-&lt;p&gt;circ &amp;lt;- circle_points(n = 12, noise = 0)
-x1 &amp;lt;- circ$x1
-x2 &amp;lt;- circ$x2
-nums &amp;lt;- c(2,1, 12:3)
-text(x1, x2, nums, cex = 3.0, vfont = c(&amp;ldquo;serif&amp;rdquo;, &amp;ldquo;bold&amp;rdquo;))&lt;/p&gt;
-&lt;h3 id=&#34;繪製指針&#34;&gt;繪製指針&lt;/h3&gt;
-&lt;p&gt;points(0,0, pch = 16, cex = 4)
-arrows(0, 0, 0.7&lt;em&gt;cos(2&lt;/em&gt;pi&lt;em&gt;5/12), 0.7&lt;/em&gt;sin(2&lt;em&gt;pi&lt;/em&gt;5/12), lwd = 8)  # 時針
-arrows(0, 0, 0.85&lt;em&gt;cos(2&lt;/em&gt;pi&lt;em&gt;1/12), 0.85&lt;/em&gt;sin(2&lt;em&gt;pi&lt;/em&gt;1/12), lwd = 4)  # 分針&lt;/p&gt;
-&lt;h3 id=&#34;添加公司名稱&#34;&gt;添加公司名稱&lt;/h3&gt;
-&lt;p&gt;text(0, 0.5, &amp;ldquo;WatchCo&amp;rdquo;, vfont = c(&amp;ldquo;serif&amp;rdquo;, &amp;ldquo;plain&amp;rdquo;), cex = 1.75)&lt;/p&gt;
-&lt;h3 id=&#34;添加邊框&#34;&gt;添加邊框&lt;/h3&gt;
-&lt;p&gt;rect(-1.25, -1.25, 1.25, 1.25, border = 2, lwd = 12)&lt;/p&gt;
-&lt;hr&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;circ&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;circle_points&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;noise&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;x1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;circ&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;x2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;circ&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;nums&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cex&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;3.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vfont&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;serif&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;bold&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;繪製指針&#34;&gt;繪製指針&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;points&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pch&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cex&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;arrows&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0.7&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;cos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0.7&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lwd&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 時針&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;arrows&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0.85&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;cos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0.85&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;sin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;pi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lwd&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 分針&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;添加公司名稱&#34;&gt;添加公司名稱&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0.5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;WatchCo&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vfont&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;serif&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;plain&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cex&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1.75&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;添加邊框&#34;&gt;添加邊框&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;rect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;-1.25&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;-1.25&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1.25&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1.25&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;border&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lwd&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;h2 id=&#34;課程小結&#34;&gt;課程小結&lt;/h2&gt;
-&lt;p&gt;plot() 是 R 最基本的繪圖函數，但可以透過 points()、lines()、text() 來進一步擴展功能。
-par() 可用來設定全局繪圖參數，影響多個圖形的顯示方式。
-座標軸可以自訂，並且可以使用 Hershey 字體進行高級標註。
-R 允許我們輸出到 PDF 或影像格式，方便匯出分析結果。&lt;/p&gt;</description>
+&lt;p&gt;本次課程介紹了如何在 R 環境中開啟與關閉圖形裝置。雖然各作業系統使用的指令略有不同，但基本概念相通。&lt;/p&gt;
+&lt;p&gt;透過 plot() 函數，我們可以靈活繪製基礎圖形；搭配 par() 函數設定全域圖形參數，可套用於後續所有圖形操作。此外，lines() 和 points() 等函數能在現有圖層上疊加線條與資料點，增強視覺表達。&lt;/p&gt;
+&lt;p&gt;掌握這些基本繪圖技巧，能有效地將各類資料轉化為清晰直觀的視覺化成果。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -726,10 +1125,10 @@ R 允許我們輸出到 PDF 或影像格式，方便匯出分析結果。&lt;/p&
 &lt;figure  id=&#34;figure-圖一&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig1&#34; srcset=&#34;
-               /post/minicourse_r9/Fig1_hu17870849190795368513.webp 400w,
-               /post/minicourse_r9/Fig1_hu15810152017253312954.webp 760w,
+               /post/minicourse_r9/Fig1_hu9824911903863055704.webp 400w,
+               /post/minicourse_r9/Fig1_hu13605269894446561683.webp 760w,
                /post/minicourse_r9/Fig1_hu12943762072852431543.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r9/Fig1_hu17870849190795368513.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r9/Fig1_hu9824911903863055704.webp&#34;
                width=&#34;760&#34;
                height=&#34;282&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -798,10 +1197,10 @@ summary() 花費 10 ms，但這部分通常不會影響核心計算。&lt;/p&gt;
 &lt;figure  id=&#34;figure-圖二-使用lmfit優化效率&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig2&#34; srcset=&#34;
-               /post/minicourse_r9/Fig2_hu3856083469819253250.webp 400w,
-               /post/minicourse_r9/Fig2_hu13315996823804011661.webp 760w,
+               /post/minicourse_r9/Fig2_hu1481514149387706660.webp 400w,
+               /post/minicourse_r9/Fig2_hu7738761989118472065.webp 760w,
                /post/minicourse_r9/Fig2_hu11858468424168176585.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r9/Fig2_hu3856083469819253250.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r9/Fig2_hu1481514149387706660.webp&#34;
                width=&#34;760&#34;
                height=&#34;158&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;

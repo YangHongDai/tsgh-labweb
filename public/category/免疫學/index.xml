@@ -5,12 +5,213 @@
     <link>http://localhost:1313/category/%E5%85%8D%E7%96%AB%E5%AD%B8/</link>
       <atom:link href="http://localhost:1313/category/%E5%85%8D%E7%96%AB%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
     <description>免疫學</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 16 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 24 Mar 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu4369633333135054090.png</url>
       <title>免疫學</title>
       <link>http://localhost:1313/category/%E5%85%8D%E7%96%AB%E5%AD%B8/</link>
     </image>
+    
+    <item>
+      <title>CXCL9/10/11–CXCR3 軸：免疫調控與腫瘤行為的雙面刃</title>
+      <link>http://localhost:1313/post/cxcl10_target/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/cxcl10_target/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;本篇參考2018年發表在Cancer Treatment Review 的文章，回顧了免疫反應中很重要的軸：CXCL9/10/11-CXCR3，了解這條軸的意義將能對癌症免疫治療有更深一層的理解。&lt;/p&gt;
+&lt;h2 id=&#34;cxcl91011cxcr3-axis&#34;&gt;CXCL9/10/11/CXCR3 axis&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;趨化激素（chemokines）&lt;/code&gt;是一群小分子蛋白質，分子量約為 &lt;code&gt;8–15 kDa&lt;/code&gt;，主要功能是透過與G蛋白偶聯受體（G-protein coupled receptors）結合，誘導白血球的&lt;code&gt;趨化（chemotaxis）&lt;/code&gt;、分化與血管通透性增加，進而促進白血球從血管移動至發炎或腫瘤部位。這些激素在免疫反應與腫瘤微環境中扮演極其重要的「指揮官」角色。&lt;/p&gt;
+&lt;p&gt;CXCL9、CXCL10、CXCL11 是&lt;code&gt;CXC&lt;/code&gt;家族中&lt;code&gt;不含ELR（Glu-Leu-Arg）序列&lt;/code&gt;的成員，其專一接受器為 CXCR3。這些chemokine 主要由&lt;code&gt;單核球&lt;/code&gt;、&lt;code&gt;纖維母細胞&lt;/code&gt;、&lt;code&gt;內皮細胞&lt;/code&gt;與&lt;code&gt;癌細胞&lt;/code&gt;分泌，分泌機制多受&lt;code&gt;IFN-γ&lt;/code&gt;誘導，而&lt;code&gt;TNF-α&lt;/code&gt;可進一步增強其上調。這些細胞類似「哨兵」，釋放的激素猶如「集合號」，吸引「將士」—免疫效應細胞進入戰場。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;CXCR3&lt;/code&gt; 則主要表現在 &lt;code&gt;Th1&lt;/code&gt;細胞、&lt;code&gt;部分樹突細胞（DC）&lt;/code&gt;、&lt;code&gt;NK 細胞&lt;/code&gt;、&lt;code&gt;CD8+ T 細胞&lt;/code&gt;與&lt;code&gt;癌細胞&lt;/code&gt;上。其表現也受 &lt;code&gt;IFN-γ&lt;/code&gt; 誘導。此一表現型態顯示，CXCR3 軸線是免疫系統調動與活化的重要路徑。而癌細胞也可表現CXCR3，顯示其可能藉由&lt;code&gt;模仿免疫細胞&lt;/code&gt;來逃避免疫監視，甚至促進自身轉移。&lt;/p&gt;
+&lt;p&gt;在未活化的 T 細胞（&lt;code&gt;Th0&lt;/code&gt;）中，CXCR3 表現量低；然而當樹突細胞呈遞抗原（MHC-II）後，T 細胞活化並快速上調 CXCR3，趨向 &lt;code&gt;Th1 &lt;/code&gt;分化，進而分泌 IFN-γ，活化 CTL、NK、NKT 細胞與巨噬細胞等免疫效應細胞，形成&lt;code&gt;正回饋免疫循環&lt;/code&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;從結構上看，CXCR3 屬於G蛋白偶聯受體，也稱為 &lt;code&gt;CD183&lt;/code&gt;，具有&lt;code&gt;兩個&lt;/code&gt;特異性的胞內結構區域：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CXCL9/10靠其 C端胞內區域（carboxy-terminal domain）來活化。&lt;/li&gt;
+&lt;li&gt;CXCL11 則主要靠第三胞內環結合（third intracellular loop）來活化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;此外，CXCR3具有三個主要變異型：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;CXCR3A&lt;/code&gt;：經典型，促進細胞&lt;code&gt;趨化&lt;/code&gt;與&lt;code&gt;增生&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CXCR3B&lt;/code&gt;：誘導細胞凋亡、抑制遷移，並可與&lt;code&gt;CXCL4&lt;/code&gt;結合（由活化血小板釋放）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CXCR3-alt&lt;/code&gt;：主要媒介 &lt;code&gt;CXCL11&lt;/code&gt; 的功能，但其結合與訊號傳導機制尚待釐清&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;這些趨化激素彼此在功能與表現調控上有所區別：&lt;/p&gt;
+&lt;h2 id=&#34;cxcl9又稱-mig-monokine-induced-by-ifn-γ&#34;&gt;CXCL9（又稱 MIG, monokine induced by IFN-γ）&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;僅由 IFN-γ 強烈誘導，對 IFN-α/β 無明顯反應&lt;/li&gt;
+&lt;li&gt;位於染色體 4&lt;/li&gt;
+&lt;li&gt;主要介導淋巴球的局部浸潤與腫瘤抑制&lt;/li&gt;
+&lt;li&gt;動物實驗顯示，缺乏CXCL9的腫瘤細胞 (CXCL9-deficient) 有更高的致癌潛能 (tumorigenicity)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;cxcl10又稱-ip-10-interferon-γ-induced-protein-10&#34;&gt;CXCL10（又稱 IP-10, interferon-γ-induced protein 10）&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;由 IFN-γ、IFN-α/β 誘導，TNF-α可弱誘導 &amp;ndash;&amp;gt; 多重誘導潛能&lt;/li&gt;
+&lt;li&gt;可由 NF-κB 活化，在缺氧與發炎反應初期扮演關鍵角色&lt;/li&gt;
+&lt;li&gt;其他協同IFN-γ的誘導因子包括 IRF3、&lt;code&gt;TLR&lt;/code&gt;、RIG-I、MDA-5 等&lt;/li&gt;
+&lt;li&gt;有研究指出，CXCL10的血中濃度與頭頸癌放療後淋巴球數量有關（CXCL9 則無明顯關聯）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;cxcl11又稱-i-tac-interferon-inducible-t-cell-alpha-chemoattractant&#34;&gt;CXCL11（又稱 I-TAC, interferon-inducible T cell alpha chemoattractant）&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;由 IFN-γ、IFN-β 誘導，IFN-α可弱誘導&lt;/li&gt;
+&lt;li&gt;結合CXCR3親和力最高，且結合區域與CXCL9/10不同&lt;/li&gt;
+&lt;li&gt;可同時與 &lt;code&gt;CXCR7&lt;/code&gt; 結合 → 可能參與腫瘤浸潤與&lt;code&gt;抑制細胞凋亡&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;由於 CXCL9/10/11 均為不含 ELR 序列的 CXC chemokines，因此在理論上它們會：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;促進淋巴球遷徙&lt;/li&gt;
+&lt;li&gt;抑制血管新生→ 具有抗腫瘤潛力&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;然而，部分研究卻指出這些chemokines亦可能促進腫瘤轉移與增生，形成矛盾現象。這種差異可能來自CXCR3亞型的表現不同，例如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;CXCR3A促進遷移與轉移&lt;/li&gt;
+&lt;li&gt;CXCR3B則&lt;code&gt;抑制腫瘤生長&lt;/code&gt;並誘導凋亡&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;這突顯了CXCL9/10/11–CXCR3軸的「雙面性」：在免疫細胞中可促進免疫活化與腫瘤清除，而在腫瘤細胞中卻可能促進轉移與免疫逃脫。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;個人假設：同一個接受器CXCR3會有不同的結合區，可能是演化過程中節省能量又可以達到多樣功能的方式。&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;cxcl91011cxcr3軸的總體功能&#34;&gt;CXCL9/10/11–CXCR3軸的總體功能&lt;/h2&gt;
+&lt;p&gt;這個軸在免疫細胞的遷移、分化與活化中扮演關鍵角色。各種疾病中的免疫反應取決於浸潤到病灶部位的白血球類型。此軸也會直接作用於癌細胞，促進癌細胞的&lt;code&gt;增殖與轉移&lt;/code&gt;。臨床上，CXCR3 表現量與癌症轉移潛能與預後有關。&lt;/p&gt;
+&lt;h4 id=&#34;免疫細胞的遷移&#34;&gt;免疫細胞的遷移&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;CXCL9、CXCL10、CXCL11 對&lt;code&gt;Th1&lt;/code&gt;細胞、CTLs、NK細胞都有誘導遷移的效果。&lt;/li&gt;
+&lt;li&gt;CXCR3 缺失小鼠模型證實，缺乏 CXCR3 的 CTLs 和 NK 細胞無法有效進入腫瘤區域，&lt;code&gt;腫瘤長得更快&lt;/code&gt;、生存率變差。&lt;/li&gt;
+&lt;li&gt;CXCL9/10/11 還能吸引 Th1 細胞並抑制 Th2 細胞的遷移（透過拮抗 CCR3）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;γδT&lt;/code&gt; 細胞的遷移也依賴 CXCL9–CXCR3。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CXCL4/CXCR3B&lt;/code&gt; 軸可引發凋亡，但不誘導 T 細胞遷移，可能有其他功能。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;免疫細胞的分化&#34;&gt;免疫細胞的分化&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;CXCL9/10/11 一般促進 Th1 分化，但也有不同功能表現。&lt;/li&gt;
+&lt;li&gt;CXCL10 可促進 &lt;code&gt;T-bet&lt;/code&gt;、&lt;code&gt;RORγ&lt;/code&gt; 的表現，誘導 Tr1 (Foxp1- type 1 regulatory cells) 或 Th17 分化（透過 STAT1/4/5）。&lt;/li&gt;
+&lt;li&gt;CXCL11 反而會降低 RORγ，傾向誘導 Tr1 或 &lt;code&gt;Th2&lt;/code&gt; 細胞（透過 mTOR 路徑）。&lt;/li&gt;
+&lt;li&gt;CXCR3 軸也會影響腫瘤相關巨噬細胞（TAMs） 的極化：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;M1 → 抗腫瘤&lt;/li&gt;
+&lt;li&gt;M2 → 促腫瘤&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;缺乏 CXCR3 會導致偏向 M2 極化、IL-4 增加，抗腫瘤免疫減弱。&lt;/li&gt;
+&lt;li&gt;有研究指出 CXCR3 陽性的 B 細胞會誘導 M2 極化（如肝癌中）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;免疫細胞的活化&#34;&gt;免疫細胞的活化&lt;/h4&gt;
+&lt;p&gt;CXCL9/10/11 可促進 Th1 活化，進而產生 IFN-γ、TNF-α、IL-2，加強對腫瘤的免疫攻擊。IFN-γ 可反過來促進 CXCL9/10/11 的釋放，形成正回饋循環。NK 細胞可透過 CXCR3 被活化，也能促進樹突細胞功能。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;腫瘤中的-cxcr3-軸雙面刃&#34;&gt;腫瘤中的 CXCR3 軸：雙面刃&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;旁分泌作用（paracrine）： CXCL9/10/11 從免疫細胞釋放，誘導抗腫瘤免疫。&lt;/li&gt;
+&lt;li&gt;自分泌作用（autocrine）： 癌細胞本身表現 CXCR3，CXCL9/10/11 反而促進 癌細胞增殖、血管新生、轉移。&lt;/li&gt;
+&lt;li&gt;CXCR3-A 是主要促進癌轉移的亞型。&lt;/li&gt;
+&lt;li&gt;CXCR3A 的選擇性抑制可能是治療轉移的策略。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;預後與臨床意義&#34;&gt;預後與臨床意義&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;高 CXCR3 表現與癌症轉移、預後不良有關。&lt;/li&gt;
+&lt;li&gt;不同研究對於 CXCL9/10/11 表現與預後的關係有矛盾結果：&lt;/li&gt;
+&lt;li&gt;有研究顯示高 CXCL9、CXCL10 表現 → 預後差 / 治療反應不佳&lt;/li&gt;
+&lt;li&gt;也有研究顯示相反 → 高表現反而預後較佳&lt;/li&gt;
+&lt;li&gt;這可能與不同癌種、組織背景、炎症程度有關。&lt;/li&gt;
+&lt;li&gt;Weisi 等人開發了一種「整體表達評分系統」，整合 CXCL9/10/11 表達來預測病人預後。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;cxcl9--10--11cxcr3軸作為癌症治療標的&#34;&gt;CXCL9, -10, -11/CXCR3軸作為癌症治療標的&lt;/h2&gt;
+&lt;p&gt;這條免疫軸線具有雙向功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;旁分泌功能（paracrine）：來自免疫細胞的 CXCL9/10/11 可招募抗腫瘤細胞（如 Th1、CTL、NK、M1 巨噬細胞），發揮抗腫瘤作用。&lt;/li&gt;
+&lt;li&gt;自分泌功能（autocrine）：&lt;code&gt;癌細胞自身產生並接受 CXCL9/10/11 刺激會促進癌細胞增生、轉移與血管新生&lt;/code&gt;。
+假說：如果癌細胞本身有autocrine能力，訊息路徑會轉變為刺激增生，但如果來源是免疫細胞，則會抵抗腫瘤生長。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;激活旁分泌軸的研究成果&#34;&gt;激活旁分泌軸的研究成果&lt;/h4&gt;
+&lt;p&gt;利用 CXCL9/10/11 刺激免疫細胞進入腫瘤微環境（TME）以達到抗癌目的，已有多項動物實驗顯示效果良好：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;結腸癌、肺癌: &lt;code&gt;Plasmid CXCL9 + Cisplatin&lt;/code&gt; -&amp;gt;增加CTLs、抑制腫瘤生長&lt;/li&gt;
+&lt;li&gt;腎細胞癌: &lt;code&gt;局部CXCL9 + 系統性IL-2&lt;/code&gt; -&amp;gt;抑制腫瘤與血管新生&lt;/li&gt;
+&lt;li&gt;肺癌: &lt;code&gt;CXCL10腫瘤內注射&lt;/code&gt; -&amp;gt;提高小鼠存活率&lt;/li&gt;
+&lt;li&gt;黑色素瘤、肉瘤: &lt;code&gt;CXCL10基因轉導&lt;/code&gt; -&amp;gt;抑制腫瘤生長&lt;/li&gt;
+&lt;li&gt;多發性骨髓瘤: &lt;code&gt;CXCL10-Ig融合蛋白&lt;/code&gt; -&amp;gt;延長半衰期，誘導CTL與NK細胞浸潤&lt;/li&gt;
+&lt;li&gt;神經膠質瘤: &lt;code&gt;CXCL10-EGFRvIII 融合蛋白（IP10-scFv）+ CTL給藥&lt;/code&gt; -&amp;gt;增加腫瘤浸潤淋巴細胞、生存期延長&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;關於cxcl11的治療爭議&#34;&gt;關於CXCL11的治療爭議&lt;/h4&gt;
+&lt;p&gt;CXCL11 除了可招募 CTL/NK，有時也會促進 &lt;code&gt;Treg 或 Th2 細胞 的極化&lt;/code&gt;，產生&lt;code&gt;免疫抑制&lt;/code&gt;效果。
+在間皮瘤模型中，CXCL11 搭配腫瘤選擇性病毒載體可增強CTL與NK浸潤，延長生存。但在自體免疫腦脊髓炎模型中，CXCL11-Ig 融合蛋白促進 Treg 分化，快速緩解疾病。所以，CXCL11的作用&lt;code&gt;依疾病背景而異&lt;/code&gt;，其治療用途需謹慎評估。&lt;/p&gt;
+&lt;h4 id=&#34;cxcr3-拮抗劑抗-cxcr3療法的利與弊&#34;&gt;CXCR3 拮抗劑（抗-CXCR3）療法的利與弊&lt;/h4&gt;
+&lt;p&gt;CXCR3 拮抗劑（例如 AMG487） 被用來阻止癌細胞自分泌的 CXCR3 活化，尤其是&lt;code&gt;CXCR3A&lt;/code&gt;。
+成果如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;結腸癌、骨肉瘤: AMG487 抑制腫瘤生長與肺轉移&lt;/li&gt;
+&lt;li&gt;乳癌: 僅抑制肺轉移，不影響原位腫瘤生長&lt;/li&gt;
+&lt;li&gt;肝轉移: AMG487 無效
+問題： AMG487 &lt;code&gt;抑制所有CXCR3變異型（CXCR3A, B, alt）&lt;/code&gt;，可能也抑制了免疫細胞的&lt;code&gt;旁分泌抗腫瘤效果&lt;/code&gt;，導致反效果。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;未來方向雙管齊下的策略&#34;&gt;未來方向：雙管齊下的策略&lt;/h2&gt;
+&lt;p&gt;建議的策略是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;同時促進免疫活化（提供 CXCL9/10）&lt;/li&gt;
+&lt;li&gt;並選擇性抑制癌細胞的 CXCR3A（避免全抑 CXCR3）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;這樣的組合治療可能能夠：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;增強免疫攻擊效果&lt;/li&gt;
+&lt;li&gt;減少轉移風險&lt;/li&gt;
+&lt;li&gt;避免削弱身體的免疫反應&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;cxcr3軸與免疫檢查點抑制劑pd-1pd-l1的交互作用&#34;&gt;CXCR3軸與免疫檢查點抑制劑（PD-1/PD-L1）的交互作用&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;PD-1在腫瘤部位的T細胞表現明顯高於peripheral blood。&lt;/li&gt;
+&lt;li&gt;抗PD-1抗體可阻斷免疫逃逸、激活T細胞。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CXCL10 與 IFN-γ 表現會在 PD-1 抑制後上升（CXCL9 與 CXCL11 則不顯著）&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;Chheda 等人指出，PD-1 單獨在 CXCR3-knockout 小鼠中無效 → &lt;code&gt;PD-1治療需依賴 CXCR3 路徑發揮作用&lt;/code&gt;。
+5.&lt;code&gt; CTLA-4 抑制劑（ipilimumab）&lt;/code&gt;也被證實可&lt;code&gt;增加 CXCL9/10/11 表現，尤其在預後良好的病人&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;dpp4-抑制劑提升-cxcl10-功效&#34;&gt;DPP4 抑制劑提升 CXCL10 功效&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;DPP4 酶會截斷 CXCL10 的N端，使其&lt;code&gt;喪失招募淋巴球功能&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;DPP4 抑制劑可保留活性 CXCL10，&lt;code&gt;提升 T 細胞進入腫瘤&lt;/code&gt;，增強免疫治療效力。&lt;/li&gt;
+&lt;li&gt;DPP4 抑制劑為臨床可用藥物、副作用少，有望成為免疫療法輔助藥。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;cox-抑制劑與-cxcl910-軸的正向調控&#34;&gt;COX 抑制劑與 CXCL9/10 軸的正向調控&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;COX-2 表現與 CXCL9 呈負相關（在乳癌中）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;抑制 COX（COX-1 / COX-2）&lt;/code&gt;→ 增加 CXCL9/10 表達，提升腫瘤浸潤淋巴球、改善預後。&lt;/li&gt;
+&lt;li&gt;COX-2 抑制劑 + PD-1 抗體（用海藻酸水凝膠載體）：增加 Th1/CTL 數量、CXCL9/10 表達、降低 Tregs 與 MDSCs 抑制細胞。單獨使用 PD-1 抑制劑無法達到此效果&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;cxcr3軸也可增強以下療法的效力&#34;&gt;CXCR3軸也可增強以下療法的效力&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Lapatinib + Doxorubicin&lt;/li&gt;
+&lt;li&gt;全反式維甲酸（ATRA）&lt;/li&gt;
+&lt;li&gt;傳統化療藥物&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;cxcr3軸作為免疫療法的生物標記與作用平台&#34;&gt;CXCR3軸作為免疫療法的生物標記與作用平台&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;CXCL9/10/11、CCL5 是轉移性黑色素瘤 T 細胞移植治療（adoptive T cell transfer）的潛在預測標記。&lt;/li&gt;
+&lt;li&gt;MAGE-A3 疫苗治療中，CXCL9/10 表現與療效正相關（在黑色素瘤與非小細胞肺癌）&lt;/li&gt;
+&lt;li&gt;此軸與以下免疫療法皆有交集：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;樹突細胞疫苗治療&lt;/li&gt;
+&lt;li&gt;IL-2 治療&lt;/li&gt;
+&lt;li&gt;IL-7 治療&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;表觀遺傳與mirna調控&#34;&gt;表觀遺傳與miRNA調控&lt;/h4&gt;
+&lt;p&gt;miR-21（癌基因miRNA） 被證實調控乳癌細胞中的 CCL5 與 CXCL10 表達。
+因此，表觀遺傳因子也參與 CXCR3 軸的調控&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
+&lt;p&gt;CXCL9/10/11–CXCR3 軸不僅是免疫細胞遷徙與活化的關鍵橋梁，也在腫瘤微環境中扮演著雙重角色。其在正常免疫反應中能促進 Th1 細胞極化、活化 CTLs 與 NK 細胞，形成強而有力的抗腫瘤攻擊。然而，當腫瘤細胞表現 CXCR3 並利用此軸線進行自分泌信號傳遞時，則可能反過來促進腫瘤增殖、血管新生與遠端轉移，突顯了這條軸線的「雙面刃」特性。&lt;/p&gt;
+&lt;p&gt;因此，對於 CXCR3 的不同變異型功能進行選擇性調控，將是未來精準腫瘤免疫治療的重要方向。同時，CXCR3 軸亦可作為免疫檢查點抑制劑（如 anti-PD-1）、DPP4 抑制劑、COX 抑制劑等新興療法的強化平台，具備高度整合潛力。&lt;/p&gt;
+&lt;p&gt;未來研究應著重於：
+探討 CXCR3 不同變異型在各種腫瘤類型中的功能分化
+發展同時促進免疫旁分泌、抑制腫瘤自分泌的雙效治療策略
+評估 CXCL9/10/11 表現作為預後與療效反應的生物標記
+綜合而言，CXCL9/10/11–CXCR3 軸不僅揭示了腫瘤與免疫系統之間的精密互動，也為發展新型免疫治療提供了關鍵的機會與方向。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>免疫學新知-Viroid-like colonists of human microbiomes</title>
