@@ -115,7 +115,7 @@ with open("students.csv") as file:
         student = {"name": name, "house": house}
         students.append(student)
 
-for student in sorted(students, key=lambda student: student["name"]):
+for student in sorted(students, key=lambda student: student["name"]): #匿名函式更為簡潔，同時告訴sorted()要以哪個參數當作排序標準。
     print(f"{student['name']} is in {student['house']}")
 ```
 為什麼使用字典好？
@@ -131,7 +131,7 @@ import csv
 
 students = []
 with open("students.csv") as file:
-    reader = csv.DictReader(file)  # 自動以第一行為欄位名
+    reader = csv.DictReader(file)  # 自動以第一行為欄位名 所以要先創造:name,home
     for row in reader:
         students.append({"name": row["name"], "home": row["home"]})
 ```
@@ -165,6 +165,7 @@ with open("students.csv", "a", newline="") as file:
 1. 保證欄位對應正確
 2. 即使順序調整，也不會影響資料結構
 
+---
 ## 課程小結
 | 主題           | 重點內容                                                                 |
 |----------------|--------------------------------------------------------------------------|
