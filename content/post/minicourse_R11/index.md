@@ -26,6 +26,7 @@ head(dat)
 ```
 這段程式碼載入 mpg 資料集並檢視前幾筆資料。mpg 包含美國市面上各種汽車的油耗、車種與引擎資訊。
 
+---
 ## 資料結構觀察
 ```r
 class(dat)
@@ -38,6 +39,7 @@ summary(dat)
 
 這些工具有助於我們了解資料的內容與結構，是資料分析的第一步。
 
+---
 ## 篩選資料：filter()
 ```r
 filter(dat, manufacturer == "toyota")
@@ -46,6 +48,7 @@ filter(dat, manufacturer == "toyota", hwy > 30)
 ```
 filter() 用於根據條件篩選列（rows）。你可以依據某廠牌、油耗表現等篩選出感興趣的車款。多個條件會自動使用 `AND` 關係。
 
+---
 ## 欄位選取：select()
 ```r
 select(dat, manufacturer, model, hwy)
@@ -55,6 +58,7 @@ select(dat, where(is.numeric))
 ```
 select() 用來選取欄位。可以指定欄位名稱、關鍵字或是使用 `where() 搭配函數過濾型別（如數值欄位）`。非常適合整理與精簡資料集。
 
+---
 ## 資料排序：arrange()
 ```r
 arrange(dat, desc(hwy))
@@ -62,6 +66,7 @@ filter(dat, hwy > 30) |> arrange(hwy)
 ```
 arrange() 可將資料依欄位數值做排序，`預設為遞增`，使用 desc() 則為遞減排序。搭配 filter() 可先選後排，或搭配 mutate() 做多欄位排序。
 
+---
 ## 新增欄位：mutate()
 ```r
 mutate(dat, avg_mpg = (cty + hwy)/2)
@@ -69,6 +74,7 @@ mutate(dat, avg_mpg = (cty + hwy)/2) |> select(manufacturer, model, avg_mpg)
 ```
 mutate() 可以新增計算欄位。例如計算平均油耗 (cty + hwy)/2，是做衍生變數與前處理的常見方式。
 
+---
 ## 分組與摘要：group_by() + summarize()
 ```r
 mpg_summary <- dat |>
@@ -78,6 +84,7 @@ mpg_summary <- dat |>
 ```
 group_by() `先將資料按類別分組`，然後 `summarize() 計算每組的統計值`，例如平均油耗、樣本數等，是進行群組分析的基礎。
 
+---
 ## 資料合併：left_join() /right_join/ inner_join()
 當你有兩個資料表（data frames），並想依某個「共通欄位」將它們合併在一起時，dplyr 提供了幾個非常實用的函數來完成這件事，分別是：
 
@@ -134,6 +141,7 @@ joined_data <- left_join(dat, avg_data, by = "manufacturer")
 ```
 當你擁有兩張資料表時，可以使用 left_join() 或 inner_join() 依照指定欄位合併。這對於將 summary 整併回原始資料非常實用。
 
+---
 ## 管道運算符 |>：提高可讀性與效率
 ```r
 dat |> 
@@ -144,6 +152,7 @@ dat |>
 ```
 使用 |> 可以將多個操作串接起來，依序執行，大幅提高可讀性與維護性。這種寫法對於資料處理流程清晰透明，非常推薦！
 
+---
 ## 建議延伸學習
 
 以下為 dplyr 的延伸工具與套件，適合進階學習：
