@@ -1,5 +1,5 @@
 ---
-title: 單細胞RNA-seq數據分析教學-2：細胞標注
+title: 單細胞RNA-seq數據分析教學-2：細胞分群與初步標注
 date: 2025-04-14
 authors: ["戴揚紘", ""]
 commentable: true
