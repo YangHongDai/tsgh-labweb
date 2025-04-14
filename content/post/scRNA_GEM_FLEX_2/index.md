@@ -15,7 +15,7 @@ draft: false
 1. 使用 FeaturePlot() 觀察特定 marker 基因（如 CXCL9/CXCL10）在 UMAP 上的表現分布
 2. 基於圖的鄰接關係（KNN + SNN）建立細胞間的 network
 3. 利用 Louvain 或 Leiden algorithm 對細胞進行 community clustering
-4. 視覺化 clustering 結果並進行細胞標註（manual marker gene vs. automated marker detection）
+4. 視覺化 clustering 結果並進行初步細胞標註
 
 ## Feature plot
 在做完數據降維及視覺化後，我們可以初步使用feature plots 來看某些目標基因的表現，讓我們能夠了解數據分佈的概況。
@@ -67,7 +67,7 @@ DimPlot(seurat, reduction='umap', label=TRUE)
 3. 和現行的參考數據做比較。
 
 ---
-#### 方法1：手動標記基因檢查
+#### 手動標記基因檢查
 我們這邊使用mouse攝護腺癌細胞當作範例，單純看CD8+ T 細胞、巨噬細胞與fibroblast marker (因為RM1 prostate cancer cells 具有fibroblast-like morphology，所以用fibroblast marker 可以迅速找到，但還是需要後續分析實際marker，這邊只做舉例)。最後可以用Heatmap 來觀察這些基因表現在每一群細胞的狀況。
 ```r
 # 定義標記基因列表
