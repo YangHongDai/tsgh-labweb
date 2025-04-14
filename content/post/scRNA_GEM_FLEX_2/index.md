@@ -101,7 +101,7 @@ top_markers <- markers %>% group_by(group) %>% top_n(5, auc)
 ```
 我們可以發現結果是很類似的，但速度更快。
 
-
+---
 ## 課程小結
 1. Feature Plot 初探
 利用 FeaturePlot() 可視化基因在 UMAP 上的表現，有助於初步了解細胞間的異質性及 marker distribution。
