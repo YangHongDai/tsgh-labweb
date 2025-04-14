@@ -1,12 +1,12 @@
 ---
 title: 單細胞RNA-seq數據分析教學-2：細胞標注
-date: 2025-03-16
+date: 2025-04-14
 authors: ["戴揚紘", ""]
 commentable: true
 categories: [單細胞定序]
 tags: [基因體學,生物資訊學]
 isCJKLanguage: true
-draft: true
+draft: false
 ---
 <!--more-->
 ## Quick look
