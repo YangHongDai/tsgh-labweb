@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: March 29, 2025 --><html lang="en-us" >
+<!-- Last Published: April 18, 2025 --><html lang="en-us" >
 
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
@@ -302,18 +302,17 @@
 
 
   
-  
 
 
 
 
 
 
-<meta property="twitter:card" content="summary" />
+<meta property="twitter:card" content="summary_large_image" />
 
   <meta property="twitter:site" content="@GetResearchDev" />
   <meta property="twitter:creator" content="@GetResearchDev" />
-<meta property="twitter:image" content="http://localhost:1313/media/icon_hu4369633333135054090.png" />
+<meta property="twitter:image" content="http://localhost:1313/post/scrna_gem_flex_2/featured.png" />
 
 
 
@@ -322,17 +321,17 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="BioMed Communications" />
 <meta property="og:url" content="http://localhost:1313/post/scrna_gem_flex_2/" />
-<meta property="og:title" content="單細胞RNA-seq數據分析教學-2：從數據處理到降維視覺化 | BioMed Communications" />
-<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:1313/media/icon_hu4369633333135054090.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:title" content="單細胞RNA-seq數據分析教學-2：細胞分群與初步標注 | BioMed Communications" />
+<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:1313/post/scrna_gem_flex_2/featured.png" /><meta property="og:locale" content="en-us" />
 
   
     <meta
       property="article:published_time"
-      content="2025-03-16T00:00:00&#43;00:00"
+      content="2025-04-14T00:00:00&#43;00:00"
     />
   
   
-    <meta property="article:modified_time" content="2025-03-16T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2025-04-14T00:00:00&#43;00:00">
   
 
 
@@ -360,10 +359,14 @@
     "@type": "WebPage",
     "@id": "http://localhost:1313/post/scrna_gem_flex_2/"
   },
-  "headline": "單細胞RNA-seq數據分析教學-2：從數據處理到降維視覺化",
+  "headline": "單細胞RNA-seq數據分析教學-2：細胞分群與初步標注",
   
-  "datePublished": "2025-03-16T00:00:00Z",
-  "dateModified": "2025-03-16T00:00:00Z",
+  "image": [
+    "http://localhost:1313/post/scrna_gem_flex_2/featured.png"
+  ],
+  
+  "datePublished": "2025-04-14T00:00:00Z",
+  "dateModified": "2025-04-14T00:00:00Z",
   
   "author": {
     "@type": "Person",
@@ -400,7 +403,7 @@
 
 
   
-  <title>單細胞RNA-seq數據分析教學-2：從數據處理到降維視覺化 | BioMed Communications</title>
+  <title>單細胞RNA-seq數據分析教學-2：細胞分群與初步標注 | BioMed Communications</title>
 
   
   
@@ -730,18 +733,26 @@
 
 
 
-  
+
+
+
+
+
+
+
+
 
   
   
-  
+
+
+
 <div class="article-container pt-3">
-  <h1>單細胞RNA-seq數據分析教學-2：從數據處理到降維視覺化</h1>
+  <h1>單細胞RNA-seq數據分析教學-2：細胞分群與初步標注</h1>
 
   
 
   
-    
 
 
 <div class="article-metadata">
@@ -765,7 +776,7 @@
     
       
     
-    Mar 16, 2025
+    Apr 14, 2025
   </span>
   
 
@@ -774,7 +785,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    5 min read
   </span>
   
 
@@ -795,13 +806,20 @@
 
 </div>
 
-    
-
-
-
-
-
   
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 718px;">
+  <div style="position: relative">
+    <img src="/post/scrna_gem_flex_2/featured_hu14241305345927334758.webp" width="720" height="718" alt="" class="featured-image">
+    
+  </div>
 </div>
 
 
@@ -810,88 +828,263 @@
 
     <div class="article-style">
       <h2 id="quick-look">Quick look</h2>
+<p>在這堂課中，我們從FeaturePlot 初探基因表現，進一步進入圖論為基礎的細胞聚類，並完成初步的細胞型態標註流程。整體流程依序為：</p>
+<ol>
+<li>使用 FeaturePlot() 觀察特定 marker 基因（如 CXCL9/CXCL10）在 UMAP 上的表現分布</li>
+<li>基於圖的鄰接關係（KNN + SNN）建立細胞間的 network</li>
+<li>利用 Louvain 或 Leiden algorithm 對細胞進行 community clustering</li>
+<li>視覺化 clustering 結果並進行初步細胞標註</li>
+</ol>
+<h2 id="feature-plot">Feature plot</h2>
+<p>在做完數據降維及視覺化後，我們可以初步使用feature plots 來看某些目標基因的表現，讓我們能夠了解數據分佈的概況。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">FeaturePlot</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;CXCL10&#39;</span><span class="p">,</span> <span class="s">&#39;CXCL9&#39;</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s">&#39;umap&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-圖一-基因表現分布視覺化">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Fig1" srcset="
+               /post/scrna_gem_flex_2/Fig1_hu16725693249921381227.webp 400w,
+               /post/scrna_gem_flex_2/Fig1_hu9652705281537831940.webp 760w,
+               /post/scrna_gem_flex_2/Fig1_hu17241418231365437827.webp 1200w"
+               src="/post/scrna_gem_flex_2/Fig1_hu16725693249921381227.webp"
+               width="760"
+               height="540"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      圖一 基因表現分布視覺化
+    </figcaption></figure>
+</p>
+<h2 id="cluster-the-cells">Cluster the cells</h2>
+<p>雖然使用feature map 是一個不錯的開始，但是如果我們要更深入了解細胞的異質性，我們必須使用不具偏差的方式來標注細胞群。而clustering 就是第一步。原則上，我們可以任意選擇想要用的clustering algorithm，例如hierarchical clustering 與k-means，但實際運用比較困難，主要原因是scRNA-seq 數據通常較大，所以這些方法在效率上會比較慢。
+除此之外，因為數據較為稀疏的關係，即便已經利用降維技術如PCA來降噪，細胞彼此之間的差異並不像bulk-RNA seq的數據可以比較好的量化。因此針對單細胞數據比較常用的方法為基於圖的聚類方法如graph-based community identification algorithm。
+在這邊，<code>圖(graph)</code>是一個數學概念，基於一系列的物件、有關聯性的配對或是網路來進行擴展，而對單細胞數據而言就是細胞之間的網路。</p>
+<p>至於為何要用圖論來解析高維空間的數據，原因如下：</p>
+<ol>
+<li>
+<p>scRNA-seq的背景雜訊（Noise）比例高
+單細胞的樣本量小，導致每一個基因的表達值在技術與<code>生物變異上</code>都會產生非常大的波動。
+這使得即使已經做了PCA或其他降噪方法，<code>細胞間的表達差異仍然難以明確區分</code>。</p>
+</li>
+<li>
+<p>無法直接使用常見的距離衡量法
+在bulk RNA-seq中，由於<code>表達值穩定</code>，可以直接使用歐氏距離（Euclidean distance）或皮爾森相關係數等方式來比較樣本之間的相似性。</p>
+</li>
+</ol>
+<p>但在scRNA-seq中，因為資料<code>稀疏與非線性</code>，這些傳統的距離度量方法不再適用，導致需要依賴「圖論方法」如<code>KNN graph + Louvain 或 Leiden algorithm</code>來做聚類。Louvain 或 Leiden 這些方法會根據原始<code>高維空間，或是指定的主成份數量</code>中細胞間的 KNN 圖來做分群。它們是建構在保持局部結構的鄰接圖之上，不受降維影響。</p>
+<p>第一步，先建立細胞間k-nearest neighbor network。每個細胞根據PC 數值先在空間中與最相鄰的細胞連接，接著會計算每一個細胞對（pair）之共同鄰居比例，來反應兩顆細胞之間連結的強度。強度不大的連結會被修剪掉，最後產生一個Shared Nearest Neighbor network。雖然看起來步驟有點複雜，但其實在Seurat中只有一行程式碼：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">seurat</span> <span class="o">&lt;-</span> <span class="nf">FindNeighbors</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">)</span>
+</span></span></code></pre></div><p>上面會建立一個網路，接者需使用louvain community identification algorithm 來在這個網路中尋找communities，也就是細胞因數據相似而靠在一起的群集。同樣Seurat也只提供一行程式碼解決：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">seurat</span> <span class="o">&lt;-</span><span class="nf">FindClusters</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+</span></span></code></pre></div><p>這邊的resolution是用來控制要反回major cell types 還是更細微的cell subtypes。常用的值為0.1-1，通常可以微調來看哪一個數值比較符合分析的目的。<code>數字越大解析度越好。</code>
+這邊需要注意的是，每做一次clustering 都會在seurat@meta.data 內出現新的分群資訊，如:</p>
+<ul>
+<li>RNA_snn_res.1</li>
+<li>RNA_snn_res.0.1
+但seurat_clusters 與seurat@active.ident會是最新跑完的分群結果。</li>
+</ul>
+<p>接著就是將分群結果視覺化了：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">DimPlot</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s">&#39;umap&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-圖二-分群結果視覺化">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Fig2" srcset="
+               /post/scrna_gem_flex_2/Fig2_hu3282989775055468590.webp 400w,
+               /post/scrna_gem_flex_2/Fig2_hu3460521921405133162.webp 760w,
+               /post/scrna_gem_flex_2/Fig2_hu6308575042941320221.webp 1200w"
+               src="/post/scrna_gem_flex_2/Fig2_hu3282989775055468590.webp"
+               width="681"
+               height="543"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      圖二 分群結果視覺化
+    </figcaption></figure>
+</p>
 <hr>
-<h2 id="細胞群聚">細胞群聚</h2>
-<h2 id="細胞註解cell-annotation">細胞註解（Cell Annotation）</h2>
-<p>基於已知標記基因或參考數據集進行註解。</p>
-<p>方法1：手動標記基因檢查</p>
+<h2 id="細胞標注-cell-annotaiton">細胞標注 (Cell annotaiton)</h2>
+<p>聚類後會給每一群細胞一個數字標記，所以我們可以假設同一個標注的細胞群彼此之間很相似，下一步就是要問某一群細胞到底是哪一種細胞？針對這個問題目前沒有一個完美的答案，輔助標注的工具眾多且各有優缺點，但有幾個原則可以先注意：</p>
+<ol>
+<li>先檢查canonical cell type的基因表現。</li>
+<li>找出signature genes 或是marker genes，可以靠尋找文獻、enrichment analysis或是詢問專家。</li>
+<li>和現行的參考數據做比較。</li>
+</ol>
+<hr>
+<h4 id="手動標記基因檢查">手動標記基因檢查</h4>
+<p>我們這邊使用mouse攝護腺癌細胞當作範例，單純看CD8+ T 細胞、巨噬細胞與fibroblast marker (因為RM1 prostate cancer cells 具有fibroblast-like morphology，所以用fibroblast marker 可以迅速找到，但還是需要後續分析實際marker，這邊只做舉例)。最後可以用Heatmap 來觀察這些基因表現在每一群細胞的狀況。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 定義標記基因列表</span>
-</span></span><span class="line"><span class="cl"><span class="n">markers</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;SOX2&#34;</span><span class="p">,</span> <span class="s">&#34;NES&#34;</span><span class="p">,</span> <span class="s">&#34;DCX&#34;</span><span class="p">,</span> <span class="s">&#34;FOXG1&#34;</span><span class="p">,</span> <span class="s">&#34;EMX1&#34;</span><span class="p">,</span> <span class="s">&#34;DLX2&#34;</span><span class="p">,</span> <span class="s">&#34;GAD1&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">markers</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;CD8a&#34;</span><span class="p">,</span> <span class="s">&#34;Adgre1&#34;</span><span class="p">,</span> <span class="s">&#34;Sparc&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">FeaturePlot</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">features</span> <span class="o">=</span> <span class="n">markers</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s">&#39;umap&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">DoHeatmap</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="n">markers</span><span class="p">)</span> <span class="o">+</span> <span class="nf">NoLegend</span><span class="p">()</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-圖三">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Fig3" srcset="
+               /post/scrna_gem_flex_2/Fig3_hu13657820685765276936.webp 400w,
+               /post/scrna_gem_flex_2/Fig3_hu274021635287567529.webp 760w,
+               /post/scrna_gem_flex_2/Fig3_hu12886557246042893517.webp 1200w"
+               src="/post/scrna_gem_flex_2/Fig3_hu13657820685765276936.webp"
+               width="760"
+               height="383"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      圖三
+    </figcaption></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-圖四">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Fig4" srcset="
+               /post/scrna_gem_flex_2/Fig4_hu10856080470911182124.webp 400w,
+               /post/scrna_gem_flex_2/Fig4_hu18221674867065668843.webp 760w,
+               /post/scrna_gem_flex_2/Fig4_hu3972460471002676485.webp 1200w"
+               src="/post/scrna_gem_flex_2/Fig4_hu10856080470911182124.webp"
+               width="760"
+               height="201"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      圖四
+    </figcaption></figure>
+</p>
+<hr>
+<p>接下來，為了要讓細胞標注不受到任何偏差影響，我們必需要針對每一個細胞群找出cluster markers。在Seurat，只要使用FindAllMarkers()函式即可：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">cl_markers</span> <span class="o">&lt;-</span><span class="nf">FindAllMarkers</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">only.pos</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="n">min.pct</span><span class="o">=</span><span class="m">0.25</span><span class="p">,</span> <span class="n">logfc.threshold</span><span class="o">=</span><span class="nf">log</span><span class="p">(</span><span class="m">1.2</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 可視化標記基因表達</span>
-</span></span><span class="line"><span class="cl"><span class="nf">FeaturePlot</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">features</span> <span class="o">=</span> <span class="n">markers</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">VlnPlot</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">features</span> <span class="o">=</span> <span class="n">markers</span><span class="p">,</span> <span class="n">pt.size</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 根據表達模式標註分群</span>
-</span></span><span class="line"><span class="cl"><span class="n">new.cluster.ids</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;0&#34;</span> <span class="o">=</span> <span class="s">&#34;Neural Progenitors&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;1&#34;</span> <span class="o">=</span> <span class="s">&#34;Neurons&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;2&#34;</span> <span class="o">=</span> <span class="s">&#34;Glutamatergic Neurons&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;3&#34;</span> <span class="o">=</span> <span class="s">&#34;GABAergic Neurons&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">seurat</span> <span class="o">&lt;-</span> <span class="nf">RenameIdents</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">new.cluster.ids</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">DimPlot</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
-</span></span></code></pre></div><h2 id="方法2自動化註解工具">方法2：自動化註解工具</h2>
-<h4 id="garnett基於機器學習的註解工具">Garnett：基於機器學習的註解工具</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 安裝與使用</span>
-</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;garnett&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">garnett</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 需準備訓練好的分類器（參考官方文檔）</span>
-</span></span></code></pre></div><h4 id="singler對比參考數據集">SingleR：對比參考數據集</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 安裝</span>
-</span></span><span class="line"><span class="cl"><span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&#34;SingleR&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 使用示例</span>
-</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">SingleR</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">ref</span> <span class="o">&lt;-</span> <span class="n">celldex</span><span class="o">::</span><span class="nf">HumanPrimaryCellAtlasData</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">pred</span> <span class="o">&lt;-</span> <span class="nf">SingleR</span><span class="p">(</span><span class="n">test</span> <span class="o">=</span> <span class="n">seurat</span><span class="o">@</span><span class="n">assays</span><span class="o">$</span><span class="n">RNA</span><span class="o">@</span><span class="n">data</span><span class="p">,</span> <span class="n">ref</span> <span class="o">=</span> <span class="n">ref</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ref</span><span class="o">$</span><span class="n">label.main</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">seurat</span><span class="o">$</span><span class="n">SingleR_labels</span> <span class="o">&lt;-</span> <span class="n">pred</span><span class="o">$</span><span class="n">labels</span>
-</span></span><span class="line"><span class="cl"><span class="nf">DimPlot</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">group.by</span> <span class="o">=</span> <span class="s">&#34;SingleR_labels&#34;</span><span class="p">)</span>
-</span></span></code></pre></div><h2 id="方法3參考數據集整合seurat-v4">方法3：參考數據集整合（Seurat v4+）</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 假設已加載參考數據集seurat_ref</span>
-</span></span><span class="line"><span class="cl"><span class="n">anchors</span> <span class="o">&lt;-</span> <span class="nf">FindTransferAnchors</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="n">reference</span> <span class="o">=</span> <span class="n">seurat_ref</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">query</span> <span class="o">=</span> <span class="n">seurat</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">dims</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">30</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">predictions</span> <span class="o">&lt;-</span> <span class="nf">TransferData</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="n">anchorset</span> <span class="o">=</span> <span class="n">anchors</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">refdata</span> <span class="o">=</span> <span class="n">seurat_ref</span><span class="o">$</span><span class="n">cell_type</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">seurat</span><span class="o">$</span><span class="n">predicted_labels</span> <span class="o">&lt;-</span> <span class="n">predictions</span><span class="o">$</span><span class="n">predicted.id</span>
-</span></span><span class="line"><span class="cl"><span class="nf">DimPlot</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">group.by</span> <span class="o">=</span> <span class="s">&#34;predicted_labels&#34;</span><span class="p">)</span>
-</span></span></code></pre></div><h2 id="推薦輔助套件">推薦輔助套件</h2>
-<h4 id="presto快速差異基因分析">presto：快速差異基因分析</h4>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">cl_markers</span> <span class="o">%&gt;%</span> <span class="nf">group_by</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">top_n</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">5</span><span class="p">,</span> <span class="n">wt</span><span class="o">=</span><span class="n">avg_logFC</span><span class="p">)</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-圖五">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Fig5" srcset="
+               /post/scrna_gem_flex_2/Fig5_hu11678205594026374892.webp 400w,
+               /post/scrna_gem_flex_2/Fig5_hu3624742426134554124.webp 760w,
+               /post/scrna_gem_flex_2/Fig5_hu18264684326066720365.webp 1200w"
+               src="/post/scrna_gem_flex_2/Fig5_hu11678205594026374892.webp"
+               width="706"
+               height="314"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      圖五
+    </figcaption></figure>
+</p>
+<p>因為每一顆細胞都代表一個樣本，所以建議也要調整在群集內與外的基因的偵測率（pct）與fold change between cells (logfc)。</p>
+<p>上面的過程會花不少時間，但我們可以使用<code>presto</code>這個套件來加速分析：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 安裝</span>
 </span></span><span class="line"><span class="cl"><span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&#34;immunogenomics/presto&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 使用</span>
 </span></span><span class="line"><span class="cl"><span class="n">markers</span> <span class="o">&lt;-</span> <span class="nf">wilcoxauc</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">group_by</span> <span class="o">=</span> <span class="s">&#34;seurat_clusters&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">top_markers</span> <span class="o">&lt;-</span> <span class="n">markers</span> <span class="o">%&gt;%</span> <span class="nf">group_by</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">top_n</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="n">auc</span><span class="p">)</span>
-</span></span></code></pre></div><h4 id="voxhunt對比allen-brain-atlas">voxhunt：對比Allen Brain Atlas</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 安裝</span>
-</span></span><span class="line"><span class="cl"><span class="n">devtools</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&#34;quadbiolab/voxhunt&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 使用</span>
-</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">voxhunt</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">load_aba_data</span><span class="p">(</span><span class="s">&#39;path_to_ABA_data&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">vox_map</span> <span class="o">&lt;-</span> <span class="nf">voxel_map</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">genes_use</span> <span class="o">=</span> <span class="nf">VariableFeatures</span><span class="p">(</span><span class="n">seurat</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nf">plot_map</span><span class="p">(</span><span class="n">vox_map</span><span class="p">)</span>
-</span></span></code></pre></div><h4 id="sccatch自動細胞註解">scCATCH：自動細胞註解</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># 安裝</span>
-</span></span><span class="line"><span class="cl"><span class="n">remotes</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&#34;ZJUFanLab/scCATCH&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 使用</span>
-</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">scCATCH</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">clusters</span> <span class="o">&lt;-</span> <span class="n">seurat</span><span class="o">@</span><span class="n">active.ident</span>
-</span></span><span class="line"><span class="cl"><span class="n">markers</span> <span class="o">&lt;-</span> <span class="nf">find_markers</span><span class="p">(</span><span class="n">seurat</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">celltype</span> <span class="o">&lt;-</span> <span class="nf">scCATCH</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">species</span> <span class="o">=</span> <span class="s">&#34;Human&#34;</span><span class="p">,</span> <span class="n">tissue</span> <span class="o">=</span> <span class="s">&#34;Brain&#34;</span><span class="p">)</span>
-</span></span></code></pre></div><hr>
-<h2 id="常見問題與解決方案">常見問題與解決方案</h2>
-<p>套件安裝錯誤：確保R與Bioconductor版本兼容，或從GitHub直接安裝開發版。
-記憶體不足：使用subset縮減數據規模，或轉換為稀疏矩陣。
-註解不準確：結合多種方法（如手動檢查與自動化工具）交叉驗證。
-透過以上步驟，可完成從數據預處理到細胞註解的全流程分析。建議根據實際數據特性調整參數（如分群分辨率、標記基因列表），並參考套件官方文檔以獲得最佳結果。</p>
+</span></span><span class="line"><span class="cl"><span class="n">top_markers</span> <span class="o">&lt;-</span> <span class="n">markers</span> <span class="o">%&gt;%</span> <span class="nf">group_by</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">top_n</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="n">auc</span><span class="p">)</span>
+</span></span></code></pre></div><p>我們可以發現結果是很類似的，但速度更快。</p>
+<hr>
+<h2 id="課程小結">課程小結</h2>
+<ol>
+<li>
+<p>Feature Plot 初探
+利用 FeaturePlot() 可視化基因在 UMAP 上的表現，有助於初步了解細胞間的異質性及 marker distribution。</p>
+</li>
+<li>
+<p>為什麼要用圖論來聚類？</p>
+</li>
+</ol>
+<ul>
+<li>scRNA-seq 資料稀疏且雜訊高，常見的距離計算方法難以準確反映細胞間差異</li>
+<li>圖論（KNN graph）能保留局部結構，有助於辨識生物學上相似的細胞群</li>
+</ul>
+<ol start="3">
+<li>用 Seurat 建構細胞之間的 SNN network 並執行 Louvain 聚類</li>
+</ol>
+<ul>
+<li>FindNeighbors() → 建立 shared nearest neighbor network</li>
+<li>FindClusters() → 執行 Louvain clustering，可調整 resolution 解析度</li>
+</ul>
+<ol start="4">
+<li>細胞標註（Cell Annotation）策略</li>
+</ol>
+<ul>
+<li>利用 canonical markers（如 CD8a、Adgre1、Sparc）進行手動標註</li>
+<li>FindAllMarkers() 可快速篩選各 cluster 的差異性基因</li>
+<li>搭配 presto 套件（使用 AUC-based ranking）可加速大資料量運算，效果與傳統 Wilcoxon 方法相近但更高效</li>
+</ul>
+<ol start="5">
+<li>視覺化推薦：</li>
+</ol>
+<ul>
+<li>使用 DoHeatmap() 或 FeaturePlot() 快速查看 marker gene 在群集中的分布情況</li>
+<li>適當設定 min.pct、logfc.threshold 以控制 marker gene 的可靠性</li>
+</ul>
     </div>
 
     
@@ -925,7 +1118,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fscrna_gem_flex_2%2F&amp;text=%E5%96%AE%E7%B4%B0%E8%83%9ERNA-seq%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E6%95%99%E5%AD%B8-2%EF%BC%9A%E5%BE%9E%E6%95%B8%E6%93%9A%E8%99%95%E7%90%86%E5%88%B0%E9%99%8D%E7%B6%AD%E8%A6%96%E8%A6%BA%E5%8C%96" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fscrna_gem_flex_2%2F&amp;text=%E5%96%AE%E7%B4%B0%E8%83%9ERNA-seq%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E6%95%99%E5%AD%B8-2%EF%BC%9A%E7%B4%B0%E8%83%9E%E5%88%86%E7%BE%A4%E8%88%87%E5%88%9D%E6%AD%A5%E6%A8%99%E6%B3%A8" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -942,7 +1135,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fscrna_gem_flex_2%2F&amp;t=%E5%96%AE%E7%B4%B0%E8%83%9ERNA-seq%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E6%95%99%E5%AD%B8-2%EF%BC%9A%E5%BE%9E%E6%95%B8%E6%93%9A%E8%99%95%E7%90%86%E5%88%B0%E9%99%8D%E7%B6%AD%E8%A6%96%E8%A6%BA%E5%8C%96" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fscrna_gem_flex_2%2F&amp;t=%E5%96%AE%E7%B4%B0%E8%83%9ERNA-seq%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E6%95%99%E5%AD%B8-2%EF%BC%9A%E7%B4%B0%E8%83%9E%E5%88%86%E7%BE%A4%E8%88%87%E5%88%9D%E6%AD%A5%E6%A8%99%E6%B3%A8" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -961,7 +1154,7 @@
         
       
       <li>
-        <a href="mailto:?subject=%E5%96%AE%E7%B4%B0%E8%83%9ERNA-seq%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E6%95%99%E5%AD%B8-2%EF%BC%9A%E5%BE%9E%E6%95%B8%E6%93%9A%E8%99%95%E7%90%86%E5%88%B0%E9%99%8D%E7%B6%AD%E8%A6%96%E8%A6%BA%E5%8C%96&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fscrna_gem_flex_2%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=%E5%96%AE%E7%B4%B0%E8%83%9ERNA-seq%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E6%95%99%E5%AD%B8-2%EF%BC%9A%E7%B4%B0%E8%83%9E%E5%88%86%E7%BE%A4%E8%88%87%E5%88%9D%E6%AD%A5%E6%A8%99%E6%B3%A8&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fscrna_gem_flex_2%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -978,7 +1171,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fscrna_gem_flex_2%2F&amp;title=%E5%96%AE%E7%B4%B0%E8%83%9ERNA-seq%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E6%95%99%E5%AD%B8-2%EF%BC%9A%E5%BE%9E%E6%95%B8%E6%93%9A%E8%99%95%E7%90%86%E5%88%B0%E9%99%8D%E7%B6%AD%E8%A6%96%E8%A6%BA%E5%8C%96" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fscrna_gem_flex_2%2F&amp;title=%E5%96%AE%E7%B4%B0%E8%83%9ERNA-seq%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E6%95%99%E5%AD%B8-2%EF%BC%9A%E7%B4%B0%E8%83%9E%E5%88%86%E7%BE%A4%E8%88%87%E5%88%9D%E6%AD%A5%E6%A8%99%E6%B3%A8" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -995,7 +1188,7 @@
       
       
       <li>
-        <a href="whatsapp://send?text=%E5%96%AE%E7%B4%B0%E8%83%9ERNA-seq%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E6%95%99%E5%AD%B8-2%EF%BC%9A%E5%BE%9E%E6%95%B8%E6%93%9A%E8%99%95%E7%90%86%E5%88%B0%E9%99%8D%E7%B6%AD%E8%A6%96%E8%A6%BA%E5%8C%96%20http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fscrna_gem_flex_2%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+        <a href="whatsapp://send?text=%E5%96%AE%E7%B4%B0%E8%83%9ERNA-seq%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E6%95%99%E5%AD%B8-2%EF%BC%9A%E7%B4%B0%E8%83%9E%E5%88%86%E7%BE%A4%E8%88%87%E5%88%9D%E6%AD%A5%E6%A8%99%E6%B3%A8%20http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fscrna_gem_flex_2%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1012,7 +1205,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fscrna_gem_flex_2%2F&amp;title=%E5%96%AE%E7%B4%B0%E8%83%9ERNA-seq%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E6%95%99%E5%AD%B8-2%EF%BC%9A%E5%BE%9E%E6%95%B8%E6%93%9A%E8%99%95%E7%90%86%E5%88%B0%E9%99%8D%E7%B6%AD%E8%A6%96%E8%A6%BA%E5%8C%96" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fscrna_gem_flex_2%2F&amp;title=%E5%96%AE%E7%B4%B0%E8%83%9ERNA-seq%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E6%95%99%E5%AD%B8-2%EF%BC%9A%E7%B4%B0%E8%83%9E%E5%88%86%E7%BE%A4%E8%88%87%E5%88%9D%E6%AD%A5%E6%A8%99%E6%B3%A8" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
