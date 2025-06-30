@@ -5,7 +5,7 @@
     <link>http://localhost:1313/tag/%E5%9F%BA%E5%9B%A0%E9%AB%94%E5%AD%B8/</link>
       <atom:link href="http://localhost:1313/tag/%E5%9F%BA%E5%9B%A0%E9%AB%94%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
     <description>基因體學</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 14 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 18 Apr 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu4369633333135054090.png</url>
       <title>基因體學</title>
@@ -13,274 +13,9 @@
     </image>
     
     <item>
-      <title>單細胞RNA-seq數據分析教學-2：細胞分群與初步標注</title>
-      <link>http://localhost:1313/post/scrna_gem_flex_2/</link>
-      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/scrna_gem_flex_2/</guid>
-      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;在這堂課中，我們從FeaturePlot 初探基因表現，進一步進入圖論為基礎的細胞聚類，並完成初步的細胞型態標註流程。整體流程依序為：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;使用 FeaturePlot() 觀察特定 marker 基因（如 CXCL9/CXCL10）在 UMAP 上的表現分布&lt;/li&gt;
-&lt;li&gt;基於圖的鄰接關係（KNN + SNN）建立細胞間的 network&lt;/li&gt;
-&lt;li&gt;利用 Louvain 或 Leiden algorithm 對細胞進行 community clustering&lt;/li&gt;
-&lt;li&gt;視覺化 clustering 結果並進行初步細胞標註&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;feature-plot&#34;&gt;Feature plot&lt;/h2&gt;
-&lt;p&gt;在做完數據降維及視覺化後，我們可以初步使用feature plots 來看某些目標基因的表現，讓我們能夠了解數據分佈的概況。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;FeaturePlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;CXCL10&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;CXCL9&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ncol&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reduction&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;umap&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖一-基因表現分布視覺化&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig1&#34; srcset=&#34;
-               /post/scrna_gem_flex_2/Fig1_hu16725693249921381227.webp 400w,
-               /post/scrna_gem_flex_2/Fig1_hu9652705281537831940.webp 760w,
-               /post/scrna_gem_flex_2/Fig1_hu17241418231365437827.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig1_hu16725693249921381227.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;540&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      圖一 基因表現分布視覺化
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;h2 id=&#34;cluster-the-cells&#34;&gt;Cluster the cells&lt;/h2&gt;
-&lt;p&gt;雖然使用feature map 是一個不錯的開始，但是如果我們要更深入了解細胞的異質性，我們必須使用不具偏差的方式來標注細胞群。而clustering 就是第一步。原則上，我們可以任意選擇想要用的clustering algorithm，例如hierarchical clustering 與k-means，但實際運用比較困難，主要原因是scRNA-seq 數據通常較大，所以這些方法在效率上會比較慢。
-除此之外，因為數據較為稀疏的關係，即便已經利用降維技術如PCA來降噪，細胞彼此之間的差異並不像bulk-RNA seq的數據可以比較好的量化。因此針對單細胞數據比較常用的方法為基於圖的聚類方法如graph-based community identification algorithm。
-在這邊，&lt;code&gt;圖(graph)&lt;/code&gt;是一個數學概念，基於一系列的物件、有關聯性的配對或是網路來進行擴展，而對單細胞數據而言就是細胞之間的網路。&lt;/p&gt;
-&lt;p&gt;至於為何要用圖論來解析高維空間的數據，原因如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;scRNA-seq的背景雜訊（Noise）比例高
-單細胞的樣本量小，導致每一個基因的表達值在技術與&lt;code&gt;生物變異上&lt;/code&gt;都會產生非常大的波動。
-這使得即使已經做了PCA或其他降噪方法，&lt;code&gt;細胞間的表達差異仍然難以明確區分&lt;/code&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;無法直接使用常見的距離衡量法
-在bulk RNA-seq中，由於&lt;code&gt;表達值穩定&lt;/code&gt;，可以直接使用歐氏距離（Euclidean distance）或皮爾森相關係數等方式來比較樣本之間的相似性。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;但在scRNA-seq中，因為資料&lt;code&gt;稀疏與非線性&lt;/code&gt;，這些傳統的距離度量方法不再適用，導致需要依賴「圖論方法」如&lt;code&gt;KNN graph + Louvain 或 Leiden algorithm&lt;/code&gt;來做聚類。Louvain 或 Leiden 這些方法會根據原始&lt;code&gt;高維空間，或是指定的主成份數量&lt;/code&gt;中細胞間的 KNN 圖來做分群。它們是建構在保持局部結構的鄰接圖之上，不受降維影響。&lt;/p&gt;
-&lt;p&gt;第一步，先建立細胞間k-nearest neighbor network。每個細胞根據PC 數值先在空間中與最相鄰的細胞連接，接著會計算每一個細胞對（pair）之共同鄰居比例，來反應兩顆細胞之間連結的強度。強度不大的連結會被修剪掉，最後產生一個Shared Nearest Neighbor network。雖然看起來步驟有點複雜，但其實在Seurat中只有一行程式碼：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;FindNeighbors&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dims&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上面會建立一個網路，接者需使用louvain community identification algorithm 來在這個網路中尋找communities，也就是細胞因數據相似而靠在一起的群集。同樣Seurat也只提供一行程式碼解決：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;FindClusters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;resolution&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這邊的resolution是用來控制要反回major cell types 還是更細微的cell subtypes。常用的值為0.1-1，通常可以微調來看哪一個數值比較符合分析的目的。&lt;code&gt;數字越大解析度越好。&lt;/code&gt;
-這邊需要注意的是，每做一次clustering 都會在seurat@meta.data 內出現新的分群資訊，如:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;RNA_snn_res.1&lt;/li&gt;
-&lt;li&gt;RNA_snn_res.0.1
-但seurat_clusters 與seurat@active.ident會是最新跑完的分群結果。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;接著就是將分群結果視覺化了：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;DimPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reduction&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;umap&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;label&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖二-分群結果視覺化&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig2&#34; srcset=&#34;
-               /post/scrna_gem_flex_2/Fig2_hu3282989775055468590.webp 400w,
-               /post/scrna_gem_flex_2/Fig2_hu3460521921405133162.webp 760w,
-               /post/scrna_gem_flex_2/Fig2_hu6308575042941320221.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig2_hu3282989775055468590.webp&#34;
-               width=&#34;681&#34;
-               height=&#34;543&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      圖二 分群結果視覺化
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;細胞標注-cell-annotaiton&#34;&gt;細胞標注 (Cell annotaiton)&lt;/h2&gt;
-&lt;p&gt;聚類後會給每一群細胞一個數字標記，所以我們可以假設同一個標注的細胞群彼此之間很相似，下一步就是要問某一群細胞到底是哪一種細胞？針對這個問題目前沒有一個完美的答案，輔助標注的工具眾多且各有優缺點，但有幾個原則可以先注意：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;先檢查canonical cell type的基因表現。&lt;/li&gt;
-&lt;li&gt;找出signature genes 或是marker genes，可以靠尋找文獻、enrichment analysis或是詢問專家。&lt;/li&gt;
-&lt;li&gt;和現行的參考數據做比較。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h4 id=&#34;手動標記基因檢查&#34;&gt;手動標記基因檢查&lt;/h4&gt;
-&lt;p&gt;我們這邊使用mouse攝護腺癌細胞當作範例，單純看CD8+ T 細胞、巨噬細胞與fibroblast marker (因為RM1 prostate cancer cells 具有fibroblast-like morphology，所以用fibroblast marker 可以迅速找到，但還是需要後續分析實際marker，這邊只做舉例)。最後可以用Heatmap 來觀察這些基因表現在每一群細胞的狀況。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 定義標記基因列表&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;markers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;CD8a&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Adgre1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Sparc&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;FeaturePlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;features&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;markers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ncol&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reduction&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;umap&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;DoHeatmap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;features&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;markers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;NoLegend&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖三&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig3&#34; srcset=&#34;
-               /post/scrna_gem_flex_2/Fig3_hu13657820685765276936.webp 400w,
-               /post/scrna_gem_flex_2/Fig3_hu274021635287567529.webp 760w,
-               /post/scrna_gem_flex_2/Fig3_hu12886557246042893517.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig3_hu13657820685765276936.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;383&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      圖三
-    &lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖四&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig4&#34; srcset=&#34;
-               /post/scrna_gem_flex_2/Fig4_hu10856080470911182124.webp 400w,
-               /post/scrna_gem_flex_2/Fig4_hu18221674867065668843.webp 760w,
-               /post/scrna_gem_flex_2/Fig4_hu3972460471002676485.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig4_hu10856080470911182124.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;201&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      圖四
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;接下來，為了要讓細胞標注不受到任何偏差影響，我們必需要針對每一個細胞群找出cluster markers。在Seurat，只要使用FindAllMarkers()函式即可：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;cl_markers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;FindAllMarkers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;only.pos&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;min.pct&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0.25&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;logfc.threshold&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1.2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dplyr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;cl_markers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;group_by&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cluster&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;top_n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;avg_logFC&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  id=&#34;figure-圖五&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig5&#34; srcset=&#34;
-               /post/scrna_gem_flex_2/Fig5_hu11678205594026374892.webp 400w,
-               /post/scrna_gem_flex_2/Fig5_hu3624742426134554124.webp 760w,
-               /post/scrna_gem_flex_2/Fig5_hu18264684326066720365.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig5_hu11678205594026374892.webp&#34;
-               width=&#34;706&#34;
-               height=&#34;314&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;figcaption&gt;
-      圖五
-    &lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;因為每一顆細胞都代表一個樣本，所以建議也要調整在群集內與外的基因的偵測率（pct）與fold change between cells (logfc)。&lt;/p&gt;
-&lt;p&gt;上面的過程會花不少時間，但我們可以使用&lt;code&gt;presto&lt;/code&gt;這個套件來加速分析：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 安裝&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;remotes&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;install_github&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;immunogenomics/presto&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 使用&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;markers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;wilcoxauc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group_by&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;seurat_clusters&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;top_markers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;markers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;group_by&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;group&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;top_n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;auc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我們可以發現結果是很類似的，但速度更快。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;課程小結&#34;&gt;課程小結&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Feature Plot 初探
-利用 FeaturePlot() 可視化基因在 UMAP 上的表現，有助於初步了解細胞間的異質性及 marker distribution。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;為什麼要用圖論來聚類？&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;scRNA-seq 資料稀疏且雜訊高，常見的距離計算方法難以準確反映細胞間差異&lt;/li&gt;
-&lt;li&gt;圖論（KNN graph）能保留局部結構，有助於辨識生物學上相似的細胞群&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;用 Seurat 建構細胞之間的 SNN network 並執行 Louvain 聚類&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;FindNeighbors() → 建立 shared nearest neighbor network&lt;/li&gt;
-&lt;li&gt;FindClusters() → 執行 Louvain clustering，可調整 resolution 解析度&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;細胞標註（Cell Annotation）策略&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;利用 canonical markers（如 CD8a、Adgre1、Sparc）進行手動標註&lt;/li&gt;
-&lt;li&gt;FindAllMarkers() 可快速篩選各 cluster 的差異性基因&lt;/li&gt;
-&lt;li&gt;搭配 presto 套件（使用 AUC-based ranking）可加速大資料量運算，效果與傳統 Wilcoxon 方法相近但更高效&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;視覺化推薦：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;使用 DoHeatmap() 或 FeaturePlot() 快速查看 marker gene 在群集中的分布情況&lt;/li&gt;
-&lt;li&gt;適當設定 min.pct、logfc.threshold 以控制 marker gene 的可靠性&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
       <title>單細胞RNA-seq數據分析教學-3：整合單細胞數據集</title>
       <link>http://localhost:1313/post/scrna_gem_flex_3/</link>
-      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 18 Apr 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/scrna_gem_flex_3/</guid>
       <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
 &lt;p&gt;在當前的研究實務中，很少只進行一次scRNA-seq實驗並僅產生一份scRNA-seq資料。這主要有兩個原因：首先，目前的scRNA-seq技術僅能在單次實驗中對有限的樣本提供訊息；若要跨實驗、多條件地測量多個樣本，通常需要將多次實驗所得的scRNA-seq資料進行聯合分析（Joint analysis）。儘管已有如&lt;code&gt;cell hashing&lt;/code&gt;這樣的實驗策略，以及像&lt;code&gt;demuxlet&lt;/code&gt;與&lt;code&gt;scSplit&lt;/code&gt;這類可對樣本進行計算區分的方法 (是在同一次 scRNA-seq 實驗中混合多個樣本（例如不同病人的細胞）後，根據基因型或表現資料，將單細胞正確歸類到原始樣本身上)，在製備與定序scRNA-seq文庫時可以將多個樣本混合，但某些步驟（如組織分離, Tissue dissociation）仍然不可避免地需要針對不同樣本個別進行。因此，就如同在處理bulk RNA-seq資料時一樣，&lt;code&gt;批次效應（batch effect）&lt;/code&gt;通常是分析中必須解決的一個關鍵干擾因素。&lt;/p&gt;
@@ -322,10 +57,10 @@
 &lt;figure  id=&#34;figure-圖一&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig1&#34; srcset=&#34;
-               /post/scrna_gem_flex_3/Fig1_hu14345946916248626207.webp 400w,
-               /post/scrna_gem_flex_3/Fig1_hu8690669266578843194.webp 760w,
+               /post/scrna_gem_flex_3/Fig1_hu2258593892756077728.webp 400w,
+               /post/scrna_gem_flex_3/Fig1_hu9546978327672657906.webp 760w,
                /post/scrna_gem_flex_3/Fig1_hu103474941254535812.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig1_hu14345946916248626207.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig1_hu2258593892756077728.webp&#34;
                width=&#34;760&#34;
                height=&#34;338&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -399,10 +134,10 @@
 &lt;figure  id=&#34;figure-圖二&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig2&#34; srcset=&#34;
-               /post/scrna_gem_flex_3/FIg2_hu1530876593259311439.webp 400w,
-               /post/scrna_gem_flex_3/FIg2_hu12234051012478239951.webp 760w,
+               /post/scrna_gem_flex_3/FIg2_hu14523211824472828689.webp 400w,
+               /post/scrna_gem_flex_3/FIg2_hu16011162382148641062.webp 760w,
                /post/scrna_gem_flex_3/FIg2_hu5040005843486614557.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/FIg2_hu1530876593259311439.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/FIg2_hu14523211824472828689.webp&#34;
                width=&#34;760&#34;
                height=&#34;454&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -484,10 +219,10 @@
 &lt;figure  id=&#34;figure-圖三&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig3&#34; srcset=&#34;
-               /post/scrna_gem_flex_3/Fig3_hu2398861999521397194.webp 400w,
-               /post/scrna_gem_flex_3/Fig3_hu12437884256433263471.webp 760w,
+               /post/scrna_gem_flex_3/Fig3_hu18230662870707562310.webp 400w,
+               /post/scrna_gem_flex_3/Fig3_hu5325750319108332344.webp 760w,
                /post/scrna_gem_flex_3/Fig3_hu14308820703478684976.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig3_hu2398861999521397194.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig3_hu18230662870707562310.webp&#34;
                width=&#34;760&#34;
                height=&#34;447&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -552,10 +287,10 @@
 &lt;figure  id=&#34;figure-圖四&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig4&#34; srcset=&#34;
-               /post/scrna_gem_flex_3/Fig4_hu8791104956617872148.webp 400w,
-               /post/scrna_gem_flex_3/Fig4_hu18133679530426089366.webp 760w,
+               /post/scrna_gem_flex_3/Fig4_hu4127759784512945471.webp 400w,
+               /post/scrna_gem_flex_3/Fig4_hu6860427693094186003.webp 760w,
                /post/scrna_gem_flex_3/Fig4_hu6674916166430600962.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig4_hu8791104956617872148.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig4_hu4127759784512945471.webp&#34;
                width=&#34;760&#34;
                height=&#34;466&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -620,10 +355,10 @@
 &lt;figure  id=&#34;figure-圖五&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig5&#34; srcset=&#34;
-               /post/scrna_gem_flex_3/Fig5_hu1039999711423034831.webp 400w,
-               /post/scrna_gem_flex_3/Fig5_hu6627282442297293998.webp 760w,
+               /post/scrna_gem_flex_3/Fig5_hu819453720326739649.webp 400w,
+               /post/scrna_gem_flex_3/Fig5_hu4185118505624865405.webp 760w,
                /post/scrna_gem_flex_3/Fig5_hu6356132240404003594.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig5_hu1039999711423034831.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig5_hu819453720326739649.webp&#34;
                width=&#34;760&#34;
                height=&#34;462&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -732,6 +467,271 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;h2 id=&#34;課程小結&#34;&gt;課程小結&lt;/h2&gt;
 &lt;p&gt;本課程從scRNA-seq整合的背景與必要性出發，依序介紹了四種整合工具（Seurat, Harmony, LIGER, MNN），並補充如何進行整合品質評估（kBET, LISI, Silhouette Score）以及典型的下游應用分析。透過這些工具與方法，研究者可以更準確解讀跨樣本、多條件的單細胞資料，為後續生物學發現與機制探討奠定基礎。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>單細胞RNA-seq數據分析教學-2：細胞分群與初步標注</title>
+      <link>http://localhost:1313/post/scrna_gem_flex_2/</link>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/scrna_gem_flex_2/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;在這堂課中，我們從FeaturePlot 初探基因表現，進一步進入圖論為基礎的細胞聚類，並完成初步的細胞型態標註流程。整體流程依序為：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用 FeaturePlot() 觀察特定 marker 基因（如 CXCL9/CXCL10）在 UMAP 上的表現分布&lt;/li&gt;
+&lt;li&gt;基於圖的鄰接關係（KNN + SNN）建立細胞間的 network&lt;/li&gt;
+&lt;li&gt;利用 Louvain 或 Leiden algorithm 對細胞進行 community clustering&lt;/li&gt;
+&lt;li&gt;視覺化 clustering 結果並進行初步細胞標註&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;feature-plot&#34;&gt;Feature plot&lt;/h2&gt;
+&lt;p&gt;在做完數據降維及視覺化後，我們可以初步使用feature plots 來看某些目標基因的表現，讓我們能夠了解數據分佈的概況。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;FeaturePlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;CXCL10&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#39;CXCL9&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ncol&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reduction&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;umap&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖一-基因表現分布視覺化&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig1&#34; srcset=&#34;
+               /post/scrna_gem_flex_2/Fig1_hu5369402601156822384.webp 400w,
+               /post/scrna_gem_flex_2/Fig1_hu2068761613297172474.webp 760w,
+               /post/scrna_gem_flex_2/Fig1_hu17241418231365437827.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig1_hu5369402601156822384.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;540&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖一 基因表現分布視覺化
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;cluster-the-cells&#34;&gt;Cluster the cells&lt;/h2&gt;
+&lt;p&gt;雖然使用feature map 是一個不錯的開始，但是如果我們要更深入了解細胞的異質性，我們必須使用不具偏差的方式來標注細胞群。而clustering 就是第一步。原則上，我們可以任意選擇想要用的clustering algorithm，例如hierarchical clustering 與k-means，但實際運用比較困難，主要原因是scRNA-seq 數據通常較大，所以這些方法在效率上會比較慢。
+除此之外，因為數據較為稀疏的關係，即便已經利用降維技術如PCA來降噪，細胞彼此之間的差異並不像bulk-RNA seq的數據可以比較好的量化。因此針對單細胞數據比較常用的方法為基於圖的聚類方法如graph-based community identification algorithm。
+在這邊，&lt;code&gt;圖(graph)&lt;/code&gt;是一個數學概念，基於一系列的物件、有關聯性的配對或是網路來進行擴展，而對單細胞數據而言就是細胞之間的網路。&lt;/p&gt;
+&lt;p&gt;至於為何要用圖論來解析高維空間的數據，原因如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;scRNA-seq的背景雜訊（Noise）比例高
+單細胞的樣本量小，導致每一個基因的表達值在技術與&lt;code&gt;生物變異上&lt;/code&gt;都會產生非常大的波動。
+這使得即使已經做了PCA或其他降噪方法，&lt;code&gt;細胞間的表達差異仍然難以明確區分&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;無法直接使用常見的距離衡量法
+在bulk RNA-seq中，由於&lt;code&gt;表達值穩定&lt;/code&gt;，可以直接使用歐氏距離（Euclidean distance）或皮爾森相關係數等方式來比較樣本之間的相似性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;但在scRNA-seq中，因為資料&lt;code&gt;稀疏與非線性&lt;/code&gt;，這些傳統的距離度量方法不再適用，導致需要依賴「圖論方法」如&lt;code&gt;KNN graph + Louvain 或 Leiden algorithm&lt;/code&gt;來做聚類。Louvain 或 Leiden 這些方法會根據原始&lt;code&gt;高維空間，或是指定的主成份數量&lt;/code&gt;中細胞間的 KNN 圖來做分群。它們是建構在保持局部結構的鄰接圖之上，不受降維影響。&lt;/p&gt;
+&lt;p&gt;第一步，先建立細胞間k-nearest neighbor network。每個細胞根據PC 數值先在空間中與最相鄰的細胞連接，接著會計算每一個細胞對（pair）之共同鄰居比例，來反應兩顆細胞之間連結的強度。強度不大的連結會被修剪掉，最後產生一個Shared Nearest Neighbor network。雖然看起來步驟有點複雜，但其實在Seurat中只有一行程式碼：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;FindNeighbors&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dims&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上面會建立一個網路，接者需使用louvain community identification algorithm 來在這個網路中尋找communities，也就是細胞因數據相似而靠在一起的群集。同樣Seurat也只提供一行程式碼解決：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;FindClusters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;resolution&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這邊的resolution是用來控制要反回major cell types 還是更細微的cell subtypes。常用的值為0.1-1，通常可以微調來看哪一個數值比較符合分析的目的。&lt;code&gt;數字越大解析度越好。&lt;/code&gt;
+這邊需要注意的是，每做一次clustering 都會在seurat@meta.data 內出現新的分群資訊，如:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RNA_snn_res.1&lt;/li&gt;
+&lt;li&gt;RNA_snn_res.0.1
+但seurat_clusters 與seurat@active.ident會是最新跑完的分群結果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接著就是將分群結果視覺化了：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;DimPlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reduction&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;umap&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;label&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖二-分群結果視覺化&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig2&#34; srcset=&#34;
+               /post/scrna_gem_flex_2/Fig2_hu17655286222172481944.webp 400w,
+               /post/scrna_gem_flex_2/Fig2_hu3884554556563522480.webp 760w,
+               /post/scrna_gem_flex_2/Fig2_hu6308575042941320221.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig2_hu17655286222172481944.webp&#34;
+               width=&#34;681&#34;
+               height=&#34;543&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖二 分群結果視覺化
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;細胞標注-cell-annotaiton&#34;&gt;細胞標注 (Cell annotaiton)&lt;/h2&gt;
+&lt;p&gt;聚類後會給每一群細胞一個數字標記，所以我們可以假設同一個標注的細胞群彼此之間很相似，下一步就是要問某一群細胞到底是哪一種細胞？針對這個問題目前沒有一個完美的答案，輔助標注的工具眾多且各有優缺點，但有幾個原則可以先注意：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;先檢查canonical cell type的基因表現。&lt;/li&gt;
+&lt;li&gt;找出signature genes 或是marker genes，可以靠尋找文獻、enrichment analysis或是詢問專家。&lt;/li&gt;
+&lt;li&gt;和現行的參考數據做比較。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;手動標記基因檢查&#34;&gt;手動標記基因檢查&lt;/h4&gt;
+&lt;p&gt;我們這邊使用mouse攝護腺癌細胞當作範例，單純看CD8+ T 細胞、巨噬細胞與fibroblast marker (因為RM1 prostate cancer cells 具有fibroblast-like morphology，所以用fibroblast marker 可以迅速找到，但還是需要後續分析實際marker，這邊只做舉例)。最後可以用Heatmap 來觀察這些基因表現在每一群細胞的狀況。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 定義標記基因列表&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;markers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;CD8a&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Adgre1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Sparc&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;FeaturePlot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;features&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;markers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ncol&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reduction&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;umap&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;DoHeatmap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;features&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;markers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;NoLegend&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖三&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig3&#34; srcset=&#34;
+               /post/scrna_gem_flex_2/Fig3_hu17209305068866466132.webp 400w,
+               /post/scrna_gem_flex_2/Fig3_hu15086704276307972649.webp 760w,
+               /post/scrna_gem_flex_2/Fig3_hu12886557246042893517.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig3_hu17209305068866466132.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;383&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖三
+    &lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖四&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig4&#34; srcset=&#34;
+               /post/scrna_gem_flex_2/Fig4_hu8390064987605698326.webp 400w,
+               /post/scrna_gem_flex_2/Fig4_hu4564519318195456980.webp 760w,
+               /post/scrna_gem_flex_2/Fig4_hu3972460471002676485.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig4_hu8390064987605698326.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;201&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖四
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;接下來，為了要讓細胞標注不受到任何偏差影響，我們必需要針對每一個細胞群找出cluster markers。在Seurat，只要使用FindAllMarkers()函式即可：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;cl_markers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;FindAllMarkers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;only.pos&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;min.pct&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0.25&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;logfc.threshold&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1.2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dplyr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;cl_markers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;group_by&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cluster&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;top_n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;avg_logFC&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖五&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig5&#34; srcset=&#34;
+               /post/scrna_gem_flex_2/Fig5_hu10877396019833338791.webp 400w,
+               /post/scrna_gem_flex_2/Fig5_hu4167292817492395439.webp 760w,
+               /post/scrna_gem_flex_2/Fig5_hu18264684326066720365.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig5_hu10877396019833338791.webp&#34;
+               width=&#34;706&#34;
+               height=&#34;314&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖五
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;因為每一顆細胞都代表一個樣本，所以建議也要調整在群集內與外的基因的偵測率（pct）與fold change between cells (logfc)。&lt;/p&gt;
+&lt;p&gt;上面的過程會花不少時間，但我們可以使用&lt;code&gt;presto&lt;/code&gt;這個套件來加速分析：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 安裝&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;remotes&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;install_github&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;immunogenomics/presto&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 使用&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;markers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;wilcoxauc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seurat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;group_by&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;seurat_clusters&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;top_markers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;markers&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;group_by&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;group&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;top_n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;auc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我們可以發現結果是很類似的，但速度更快。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;課程小結&#34;&gt;課程小結&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Feature Plot 初探
+利用 FeaturePlot() 可視化基因在 UMAP 上的表現，有助於初步了解細胞間的異質性及 marker distribution。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;為什麼要用圖論來聚類？&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;scRNA-seq 資料稀疏且雜訊高，常見的距離計算方法難以準確反映細胞間差異&lt;/li&gt;
+&lt;li&gt;圖論（KNN graph）能保留局部結構，有助於辨識生物學上相似的細胞群&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;用 Seurat 建構細胞之間的 SNN network 並執行 Louvain 聚類&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;FindNeighbors() → 建立 shared nearest neighbor network&lt;/li&gt;
+&lt;li&gt;FindClusters() → 執行 Louvain clustering，可調整 resolution 解析度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;細胞標註（Cell Annotation）策略&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;利用 canonical markers（如 CD8a、Adgre1、Sparc）進行手動標註&lt;/li&gt;
+&lt;li&gt;FindAllMarkers() 可快速篩選各 cluster 的差異性基因&lt;/li&gt;
+&lt;li&gt;搭配 presto 套件（使用 AUC-based ranking）可加速大資料量運算，效果與傳統 Wilcoxon 方法相近但更高效&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;視覺化推薦：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 DoHeatmap() 或 FeaturePlot() 快速查看 marker gene 在群集中的分布情況&lt;/li&gt;
+&lt;li&gt;適當設定 min.pct、logfc.threshold 以控制 marker gene 的可靠性&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -1300,10 +1300,10 @@ SpatialDimPlot(spatial_obj, group.by = &amp;ldquo;predicted_celltype&amp;rdquo;)
 &lt;figure  id=&#34;figure-圖一-vlnplot結果&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig1&#34; srcset=&#34;
-               /post/scrna_gem_flex/Fig1_hu6804414472117154575.webp 400w,
+               /post/scrna_gem_flex/Fig1_hu14241274285339211514.webp 400w,
                /post/scrna_gem_flex/Fig1_hu14125986801024458070.webp 760w,
                /post/scrna_gem_flex/Fig1_hu506643242692220543.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig1_hu6804414472117154575.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig1_hu14241274285339211514.webp&#34;
                width=&#34;760&#34;
                height=&#34;612&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1363,10 +1363,10 @@ $$
 &lt;figure  id=&#34;figure-圖二-可視化高變異基因-top20顯示基因名稱&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig2&#34; srcset=&#34;
-               /post/scrna_gem_flex/Fig2_hu16603579518892927739.webp 400w,
+               /post/scrna_gem_flex/Fig2_hu14195489442910517249.webp 400w,
                /post/scrna_gem_flex/Fig2_hu17665987385012408987.webp 760w,
                /post/scrna_gem_flex/Fig2_hu17777678879938835299.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig2_hu16603579518892927739.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig2_hu14195489442910517249.webp&#34;
                width=&#34;760&#34;
                height=&#34;609&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1437,10 +1437,10 @@ $$
 &lt;figure  id=&#34;figure-圖三-elbow-plot&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig3&#34; srcset=&#34;
-               /post/scrna_gem_flex/Fig3_hu11933747417436893287.webp 400w,
+               /post/scrna_gem_flex/Fig3_hu17493559151970107053.webp 400w,
                /post/scrna_gem_flex/Fig3_hu4933812964616059233.webp 760w,
                /post/scrna_gem_flex/Fig3_hu15224868253806051869.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig3_hu11933747417436893287.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig3_hu17493559151970107053.webp&#34;
                width=&#34;760&#34;
                height=&#34;605&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1467,10 +1467,10 @@ $$
 &lt;figure  id=&#34;figure-圖四-heatmap-只做示意實際可以調整&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig4&#34; srcset=&#34;
-               /post/scrna_gem_flex/Fig4_hu11462284768498015799.webp 400w,
+               /post/scrna_gem_flex/Fig4_hu10102689133946107408.webp 400w,
                /post/scrna_gem_flex/Fig4_hu786979242465472542.webp 760w,
                /post/scrna_gem_flex/Fig4_hu10258874650159471613.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig4_hu11462284768498015799.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig4_hu10102689133946107408.webp&#34;
                width=&#34;760&#34;
                height=&#34;453&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1515,10 +1515,10 @@ $$
 &lt;figure  id=&#34;figure-圖五-umap-plot&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig5&#34; srcset=&#34;
-               /post/scrna_gem_flex/Fig5_hu1214725564875875708.webp 400w,
+               /post/scrna_gem_flex/Fig5_hu10899364815597361563.webp 400w,
                /post/scrna_gem_flex/Fig5_hu3852933126362502221.webp 760w,
                /post/scrna_gem_flex/Fig5_hu2176629246489442817.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig5_hu1214725564875875708.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig5_hu10899364815597361563.webp&#34;
                width=&#34;760&#34;
                height=&#34;642&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1545,10 +1545,10 @@ $$
 &lt;figure  id=&#34;figure-圖六-tsne-plot&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig6&#34; srcset=&#34;
-               /post/scrna_gem_flex/Fig6_hu4669625977682349813.webp 400w,
+               /post/scrna_gem_flex/Fig6_hu8410794143900172939.webp 400w,
                /post/scrna_gem_flex/Fig6_hu13483157716758778151.webp 760w,
                /post/scrna_gem_flex/Fig6_hu12468940136302047162.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig6_hu4669625977682349813.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex/Fig6_hu8410794143900172939.webp&#34;
                width=&#34;760&#34;
                height=&#34;633&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
