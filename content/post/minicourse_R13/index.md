@@ -10,7 +10,7 @@ draft: false
 ---
 <!--more-->
 ## Quick look
-這堂課程參考劍橋大學的課程 `(ntroduction to R for Biologists)`，主要會示範如何從原始 CSV 檔案下載、載入並檢查資料，以及如何操作 data.frame 結構，包括：索引、子集、類別變數（factor）處理等。強化資料探索的基本能力，為後續資料分析打下基礎
+這堂課程參考劍橋大學的課程 `(Introduction to R for Biologists)`，主要會示範如何從原始 CSV 檔案下載、載入並檢查資料，以及如何操作 data.frame 結構，包括：索引、子集、類別變數（factor）處理等。強化資料探索的基本能力，為後續資料分析打下基礎
 
 ---
 ## 課程前置準備：下載資料
