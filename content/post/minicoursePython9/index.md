@@ -87,6 +87,7 @@ def withdraw(self,n):
 
 ```
 這樣`self._balance`在類別裡面大家都可以取用，透過`self`串接起來。
+
 ---
 
 ## 類型提示與靜態檢查
