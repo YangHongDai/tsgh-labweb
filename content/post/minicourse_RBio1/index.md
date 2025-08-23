@@ -6,7 +6,7 @@ commentable: true
 categories: [R語言生物資訊實作]
 tags: [R,coding, bioinformatics]
 isCJKLanguage: true
-draft: true
+draft: false
 ---
 <!--more-->
 ## Quick look
