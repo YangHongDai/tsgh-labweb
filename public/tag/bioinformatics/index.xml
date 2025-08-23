@@ -5,12 +5,106 @@
     <link>http://localhost:1313/tag/bioinformatics/</link>
       <atom:link href="http://localhost:1313/tag/bioinformatics/index.xml" rel="self" type="application/rss+xml" />
     <description>Bioinformatics</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 28 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 02 Jul 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu4369633333135054090.png</url>
       <title>Bioinformatics</title>
       <link>http://localhost:1313/tag/bioinformatics/</link>
     </image>
+    
+    <item>
+      <title>迷你課程:R語言生物資訊實作~Bulk RNA-seq分析-1</title>
+      <link>http://localhost:1313/post/minicourse_rbio1/</link>
+      <pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/minicourse_rbio1/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;歡迎來到我們的bulk RNA-seq分析課程，在這裡我們將把原始的基因表達計數數據轉化為有意義的生物學發現。&lt;/p&gt;
+&lt;h2 id=&#34;為什麼bulk-rna-seq分析如此重要&#34;&gt;為什麼Bulk RNA-seq分析如此重要&lt;/h2&gt;
+&lt;p&gt;RNA測序技術&lt;code&gt;（RNA sequencing, RNA-seq）&lt;/code&gt;透過對全轉錄組的高通量分析，為我們提供了在不同生理條件、實驗處理及疾病狀態下基因表達的全景圖，從而徹底革新了我們對細胞功能與基因調控的理解。相較於傳統只能針對少數基因進行分析的方法，RNA-seq能夠同時量化約20,000個人類基因的表達水平，使研究人員能夠以系統性方式解析細胞內的轉錄活動，發掘潛在的生物標記與調控機制。&lt;/p&gt;
+&lt;h2 id=&#34;生物學影響&#34;&gt;生物學影響&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;疾病研究：RNA-seq揭示了在癌症、神經系統疾病、自身免疫性疾病等無數其他疾病中哪些基因失調。搭配生物資訊學的其他工具如路徑分析，這些發現直接導致新的治療靶點和診斷標記的發現。&lt;/li&gt;
+&lt;li&gt;藥物開發：當製藥公司測試新療法時，RNA-seq顯示藥物如何影響細胞訊息傳遞路徑，幫助優化劑量、識別恰當的生物標記物並預測副作用。&lt;/li&gt;
+&lt;li&gt;精準醫學：通過了解個體患者的基因表達譜如何對不同治療產生反應，臨床醫生可以藉由個人化的治療模式以獲得更好的結果。&lt;/li&gt;
+&lt;li&gt;基礎生物學：RNA-seq可以幫助闡述了發育、衰老、應激反應和細胞分化等基本過程，擴展了我們對生命在分子階層上如何運作的理解。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;分析挑戰&#34;&gt;分析挑戰&lt;/h2&gt;
+&lt;p&gt;雖然&lt;code&gt;RNA-seq&lt;/code&gt;技術能夠產生大量涵蓋整個轉錄組的有用數據，但從中提取具生物意義的訊息並不直接，往往需要結合複雜的統計方法與計算模型。這是因為基因表達數據本身具有以下幾個重要特徵：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;高維度（High Dimensionality）&lt;/code&gt;: RNA-seq可同時量化數千至數萬個基因的表達水準，遠多於樣本數。這種&lt;code&gt;「大p小n」&lt;/code&gt;的特性（即變數遠多於樣本）對統計分析構成挑戰，容易導致&lt;code&gt;過擬合&lt;/code&gt;或偽相關，需要降維、正則化等方法來提高模型的穩定性與可解釋性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;噪音大（High Noise Levels）&lt;/code&gt;
+基因表達受到技術層面（如&lt;code&gt;擴增效率、批次效應&lt;/code&gt;）及生物學層面（如&lt;code&gt;細胞異質性、時序變化&lt;/code&gt;）等多重變因影響，導致測得的表達數據中包含大量背景噪音，可能掩蓋真實的差異訊號。因此，需要進行嚴謹的資料預處理，包括&lt;code&gt;去除低表達基因&lt;/code&gt;、&lt;code&gt;批次校正&lt;/code&gt;與&lt;code&gt;正規化&lt;/code&gt;等步驟，以提取出可靠的生物學資訊。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;複雜依賴性（Complex Dependencies）&lt;/code&gt;
+基因並非獨立運作，而是在調控網絡中以協同、互作、反饋等方式影響彼此。例如，轉錄因子調控目標基因表達，或多基因參與相同生物路徑。這種結構性使得&lt;code&gt;簡單的統計假設（如獨立性）不再適用&lt;/code&gt;，分析需考慮基因間關聯，例如利用&lt;code&gt;共表達網絡&lt;/code&gt;、&lt;code&gt;基因集富集&lt;/code&gt;、分析（GSEA）或圖論方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;上下文依賴性（Context Dependence）&lt;/code&gt;
+基因表達模式高度依賴於細胞類型、發育階段、生理狀態及外界刺激等條件。在一個特定的組織中活躍的基因可能在另一個環境下完全沉默。因此，在分析RNA-seq資料時，必須將樣本的生物學背景納入考量，否則容易導致錯誤推論。例如，同一基因在正常組織和腫瘤中的表達差異，往往反映出疾病特異性的轉錄調控變化。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;差異表達分析deg-analysis現今主流方法概覽&#34;&gt;差異表達分析（DEG Analysis）：現今主流方法概覽&lt;/h2&gt;
+&lt;p&gt;在 RNA-seq 資料分析中，&lt;code&gt;差異表達分析（Differential Expression Analysis, DEG）&lt;/code&gt;是最核心的任務之一。它幫助我們找出在不同實驗條件（例如疾病 vs 健康、處理 vs 控制）下，表達量有顯著改變的基因。為了應對 RNA-seq 數據的特性（如離散性、高變異與多重檢定），研究者已發展出多種統計方法。以下為目前最常用的幾種：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;方法&lt;/th&gt;
+          &lt;th&gt;核心模型&lt;/th&gt;
+          &lt;th&gt;適用對象&lt;/th&gt;
+          &lt;th&gt;優點&lt;/th&gt;
+          &lt;th&gt;缺點&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;DESeq2&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;負二項分布 + shrinkage&lt;/td&gt;
+          &lt;td&gt;Bulk RNA-seq&lt;/td&gt;
+          &lt;td&gt;保守穩健、適合小樣本、廣泛使用&lt;/td&gt;
+          &lt;td&gt;計算稍慢、不適用單細胞資料&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;edgeR&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;負二項分布 + 精確檢定&lt;/td&gt;
+          &lt;td&gt;Bulk RNA-seq&lt;/td&gt;
+          &lt;td&gt;快速、靈活、支援複雜設計&lt;/td&gt;
+          &lt;td&gt;對低表達基因較敏感&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;limma-voom&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;線性模型 + voom 轉換&lt;/td&gt;
+          &lt;td&gt;Bulk RNA-seq（類似微陣列分析）&lt;/td&gt;
+          &lt;td&gt;適合大樣本與複雜設計&lt;/td&gt;
+          &lt;td&gt;對低計數資料表現較差&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;baySeq&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;貝葉斯模型&lt;/td&gt;
+          &lt;td&gt;Bulk RNA-seq&lt;/td&gt;
+          &lt;td&gt;適用先驗知識&lt;/td&gt;
+          &lt;td&gt;使用上相對複雜&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;NOISeq&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;非參數法&lt;/td&gt;
+          &lt;td&gt;Bulk RNA-seq&lt;/td&gt;
+          &lt;td&gt;不依賴分布假設&lt;/td&gt;
+          &lt;td&gt;對樣本數需求高&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;MAST, SCDE, Seurat (FindMarkers)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;混合模型、貝葉斯、Hurdle 模型等&lt;/td&gt;
+          &lt;td&gt;單細胞 RNA-seq&lt;/td&gt;
+          &lt;td&gt;特化單細胞特性&lt;/td&gt;
+          &lt;td&gt;不適用 bulk RNA-seq&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
     
     <item>
       <title>生資硬核技術：公開癌症基因數據下載及操作</title>

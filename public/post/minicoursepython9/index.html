@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: June 29, 2025 --><html lang="en-us" >
+<!-- Last Published: July 31, 2025 --><html lang="en-us" >
 
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
@@ -302,18 +302,17 @@
 
 
   
-  
 
 
 
 
 
 
-<meta property="twitter:card" content="summary" />
+<meta property="twitter:card" content="summary_large_image" />
 
   <meta property="twitter:site" content="@GetResearchDev" />
   <meta property="twitter:creator" content="@GetResearchDev" />
-<meta property="twitter:image" content="http://localhost:1313/media/icon_hu4369633333135054090.png" />
+<meta property="twitter:image" content="http://localhost:1313/post/minicoursepython9/featured.png" />
 
 
 
@@ -322,17 +321,17 @@
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="BioMed Communications" />
 <meta property="og:url" content="http://localhost:1313/post/minicoursepython9/" />
-<meta property="og:title" content="迷你課程:Python-9~Operation overload | BioMed Communications" />
-<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:1313/media/icon_hu4369633333135054090.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:title" content="迷你課程:Python-9~其他好用函式 | BioMed Communications" />
+<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:1313/post/minicoursepython9/featured.png" /><meta property="og:locale" content="en-us" />
 
   
     <meta
       property="article:published_time"
-      content="2025-04-15T00:00:00&#43;00:00"
+      content="2025-07-26T00:00:00&#43;00:00"
     />
   
   
-    <meta property="article:modified_time" content="2025-04-15T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2025-07-26T00:00:00&#43;00:00">
   
 
 
@@ -360,10 +359,14 @@
     "@type": "WebPage",
     "@id": "http://localhost:1313/post/minicoursepython9/"
   },
-  "headline": "迷你課程:Python-9~Operation overload",
+  "headline": "迷你課程:Python-9~其他好用函式",
   
-  "datePublished": "2025-04-15T00:00:00Z",
-  "dateModified": "2025-04-15T00:00:00Z",
+  "image": [
+    "http://localhost:1313/post/minicoursepython9/featured.png"
+  ],
+  
+  "datePublished": "2025-07-26T00:00:00Z",
+  "dateModified": "2025-07-26T00:00:00Z",
   
   "author": {
     "@type": "Person",
@@ -400,7 +403,7 @@
 
 
   
-  <title>迷你課程:Python-9~Operation overload | BioMed Communications</title>
+  <title>迷你課程:Python-9~其他好用函式 | BioMed Communications</title>
 
   
   
@@ -730,18 +733,26 @@
 
 
 
-  
+
+
+
+
+
+
+
+
 
   
   
-  
+
+
+
 <div class="article-container pt-3">
-  <h1>迷你課程:Python-9~Operation overload</h1>
+  <h1>迷你課程:Python-9~其他好用函式</h1>
 
   
 
   
-    
 
 
 <div class="article-metadata">
@@ -765,7 +776,7 @@
     
       
     
-    Apr 15, 2025
+    Jul 26, 2025
   </span>
   
 
@@ -774,7 +785,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    6 min read
   </span>
   
 
@@ -795,13 +806,20 @@
 
 </div>
 
-    
-
-
-
-
-
   
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 360px; max-height: 360px;">
+  <div style="position: relative">
+    <img src="/post/minicoursepython9/featured_hu8939400659219933200.webp" width="360" height="360" alt="" class="featured-image">
+    
+  </div>
 </div>
 
 
@@ -810,6 +828,303 @@
 
     <div class="article-style">
       <h2 id="quick-look">Quick look</h2>
+<p>本課程將深入探討 Python 的進階特性，包括集合操作、函數式編程工具和生成器等強大功能，幫助你寫出更簡潔高效的程式碼。</p>
+<h2 id="集合set操作">集合(Set)操作</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">students</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="s2">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;YHD&#34;</span><span class="p">,</span> <span class="s2">&#34;house&#34;</span><span class="p">:</span><span class="s2">&#34;Summertown&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="s2">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;Mark&#34;</span><span class="p">,</span> <span class="s2">&#34;house&#34;</span><span class="p">:</span><span class="s2">&#34;Headington&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 傳統使用 list 的方法（需手動檢查重複）</span>
+</span></span><span class="line"><span class="cl"><span class="n">houses</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">students</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">student</span><span class="p">[</span><span class="s2">&#34;house&#34;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">houses</span><span class="p">:</span>  <span class="c1"># 每次都要檢查是否已存在</span>
+</span></span><span class="line"><span class="cl">        <span class="n">houses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="s2">&#34;house&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用 set 更簡潔（自動處理重複）</span>
+</span></span><span class="line"><span class="cl"><span class="n">houses</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># 創建空集合</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">students</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">houses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="s2">&#34;house&#34;</span><span class="p">])</span>  <span class="c1"># 注意：使用 add 而非 append</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 錯誤示範：如果用 append 會報 AttributeError</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># houses.append(student[&#34;house&#34;])  # 集合沒有 append 方法</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">house</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">houses</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">house</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>集合<code>自動去重</code>，無需手動檢查 if student[&ldquo;house&rdquo;] not in houses</li>
+<li>查找效率 O(1) 比列表 O(n) 更快</li>
+<li>語意更明確：當我們需要「不重複集合」時就該用 set</li>
+</ul>
+<hr>
+<h2 id="全局變量與作用域">全局變量與作用域</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">balance</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 全局變量</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Balance:&#39;</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deposit</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">withdraw</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Balance:&#39;</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">deposit</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">balance</span>  <span class="c1"># 必須聲明！</span>
+</span></span><span class="line"><span class="cl">    <span class="n">balance</span> <span class="o">+=</span> <span class="n">n</span>  <span class="c1"># 沒有 global 會報 UnboundLocalError</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">withdraw</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">balance</span>
+</span></span><span class="line"><span class="cl">    <span class="n">balance</span> <span class="o">-=</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><p>錯誤解釋：
+如果忘記加 <code>global</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">deposit</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">balance</span> <span class="o">+=</span> <span class="n">n</span>  <span class="c1"># UnboundLocalError: local variable &#39;balance&#39; referenced before assignment</span>
+</span></span></code></pre></div><p>Python 會認為你想修改局部變量，但發現<code>還沒定義就使用</code>。</p>
+<p>其實這樣太麻煩，還要定義global，所以其實可以使用class：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Account</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">=</span> <span class="mi">0</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@property</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">balance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">+=</span><span class="n">n</span>    
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">-=</span><span class="n">n</span>  
+</span></span></code></pre></div><p>這樣<code>self._balance</code>在類別裡面大家都可以取用，透過<code>self</code>串接起來。</p>
+<hr>
+<h2 id="類型提示與靜態檢查">類型提示與靜態檢查</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">meow</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;產生 n 次喵喵叫
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :param n: 喵喵叫次數
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :type n: int
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :raise TypeError: 如果 n 不是整數
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :return: 包含 n 次喵喵叫的字串
+</span></span></span><span class="line"><span class="cl"><span class="s2">    :rtype: str
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s1">&#39;meow</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Number: &#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">meows</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">meow</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">meows</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>函數參數類型提示 <code>n: int</code>: 表示參數 n 應該是一個整數。這只是<code>提示</code>，<code>Python 運行時不會強制檢查</code>，而使用 <code>mypy</code> 等工具可以進行靜態類型檢查</li>
+<li>返回值類型提示 <code>-&gt; str</code>: 表示函數將返回一個<code>字串</code>。幫助開發者理解函數的輸出類型</li>
+<li>變量類型提示 <code>number: int</code> 和 <code>meows: str</code>: 明確變量應該存儲的數據類型，提高代碼可讀性和可維護性</li>
+</ul>
+<h4 id="docstring">Docstring</h4>
+<p><code>docstring（文件字串</code>）是 Python 中用來為模組（module）、函數（function）、類別（class）或方法（method）撰寫說明文件的工具。它通常放在定義下方的三引號<code>&quot;&quot;&quot; &quot;&quot;&quot;</code>中。</p>
+<ol>
+<li>讓程式碼更易讀、更好維護: 清楚描述函數/模組的目的、參數、回傳值與副作用。對團隊合作與長期專案特別有幫助</li>
+<li>開發階段可直接使用 <code>help()</code> 查看說明: 使用者或開發者不需要打開原始碼，也能快速了解用途</li>
+<li>支援自動化工具生成文件: 如：<code>Sphinx</code>、<code>pdoc</code>、<code>mkdocstrings</code> 可自動抓取 docstring 建立 HTML 或 PDF 文件。提高 API 文件一致性與可維護性</li>
+</ol>
+<h4 id="靜態檢查">靜態檢查</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">mypy</span> <span class="n">script</span><span class="o">.</span><span class="n">py</span>  <span class="c1"># 會檢查類型是否匹配</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#如果傳入錯誤類型</span>
+</span></span><span class="line"><span class="cl"><span class="n">meow</span><span class="p">(</span><span class="s2">&#34;3&#34;</span><span class="p">)</span>  <span class="c1"># mypy 會警告但程式仍能運行</span>
+</span></span></code></pre></div><hr>
+<h2 id="命令行參數解析">命令行參數解析</h2>
+<h4 id="使用sysargv">使用sys.argv</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;meow&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="o">==</span><span class="mi">3</span> <span class="ow">and</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;-n&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;meow&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;usage: meows.py&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="使用argparse">使用argparse</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">argparse</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 錯誤處理版本</span>
+</span></span><span class="line"><span class="cl"><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Meow like a cat&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;number of times to meow&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;meow&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>當你從命令列執行 Python 程式時（例如：python script.py -n 3），你可以透過 sys.argv 或 argparse 模組來讀取命令列參數。但它們的設計目標和優勢大不相同。</p>
+<ul>
+<li>sys.argv 是一個 list，包含從命令列輸入的所有字串參數。</li>
+<li>sys.argv[0] 是腳本名稱，其餘是傳入的參數（全部都是字串）。</li>
+</ul>
+<h4 id="使用sysargv缺點">使用sys.argv缺點</h4>
+<ol>
+<li><code>解析複雜</code>: 你必須手動處理參數的解析與順序，例如 if sys.argv[1] == &lsquo;-n&rsquo;</li>
+<li><code>型別轉換需自己處理</code>: int(sys.argv[2])，若不是數字會拋出錯誤</li>
+<li><code>缺少錯誤訊息說明</code>: 使用錯誤時只好手動印出 <code>usage</code></li>
+<li><code>無法支援預設值、自動幫助訊息等</code></li>
+</ol>
+<h4 id="使用-argparse-的優點">使用 argparse 的優點</h4>
+<ol>
+<li><code>自動產生 --help</code>: 自動顯示參數用法與說明文字</li>
+<li><code>內建型別轉換</code>: type=int 會自動檢查與轉換型別</li>
+<li><code>自動錯誤處理</code>: 若參數缺失或格式錯誤，自動印出錯誤訊息與退出</li>
+<li><code>支援預設值</code>: <code>default=1</code> 讓參數可選填</li>
+<li><code>支援多種參數格式</code>: 支援位置參數、可選參數（-n）、旗標（&ndash;verbose）等</li>
+<li><code>文件化與維護性高</code>: 參數都集中在一個地方，容易擴充與閱讀</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;number of times to meow&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</span></span></code></pre></div><p>這一行的意思是：</p>
+<ul>
+<li><code>-n</code> 是一個選擇性參數（optional argument）</li>
+<li>type=int 代表這個參數需要接一個整數值</li>
+<li>所以當你輸入 -n 時，argparse 就會<code>自動期待一個整數跟在後面</code></li>
+</ul>
+<hr>
+<h2 id="unpackaging">Unpackaging</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">total</span><span class="p">(</span><span class="n">galleons</span><span class="p">,</span> <span class="n">sickles</span><span class="p">,</span> <span class="n">knuts</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">galleons</span><span class="o">*</span><span class="mi">18</span> <span class="o">+</span> <span class="n">sickles</span><span class="p">)</span><span class="o">*</span><span class="mi">30</span> <span class="o">+</span> <span class="n">knuts</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 列表解包</span>
+</span></span><span class="line"><span class="cl"><span class="n">coins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">(</span><span class="o">*</span><span class="n">coins</span><span class="p">))</span>  <span class="c1"># 等同 total(coins[0], coins[1], coins[2])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 字典解包</span>
+</span></span><span class="line"><span class="cl"><span class="n">coins_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;galleons&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;sickles&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;knuts&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">(</span><span class="o">**</span><span class="n">coins_dict</span><span class="p">))</span>  <span class="c1"># 鍵名必須匹配參數名</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 常見錯誤：</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># print(total(**{&#39;a&#39;:100,&#39;b&#39;:25,&#39;c&#39;:50}))  # TypeError: 參數名不匹配</span>
+</span></span></code></pre></div><hr>
+<h2 id="args-kwargs">*args, **kwargs</h2>
+<h4 id="args可變位置參數">*args：可變位置參數</h4>
+<p>用來接收任意數量的<code>「位置參數」</code>（positional arguments），會以 <code>tuple </code>形式傳入函數。</p>
+<h4 id="kwargs可變關鍵字參數">**kwargs：可變關鍵字參數</h4>
+<p>用來接收任意數量的<code>「關鍵字參數」</code>（keyword arguments），會以 <code>dict</code> 形式傳入函數。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Positional:&#39;</span> <span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">f</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</span></span></code></pre></div><p>接收幾個input arguments 都可以</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Keyword:&#39;</span> <span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">f</span><span class="p">(</span><span class="n">galleons</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">sickles</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">knuts</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#Keyword: {&#39;galleons&#39;: 100, &#39;sickles&#39;: 50, &#39;knuts&#39;: 25}</span>
+</span></span></code></pre></div><h4 id="注意事項">注意事項</h4>
+<ul>
+<li>*args 一定要放在普通參數之後</li>
+<li>**kwargs 一定要放在 *args 之後</li>
+<li>傳入參數時位置不能亂：普通參數 → *args → **kwargs</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">good</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">bad</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>  <span class="c1"># ❌ 錯誤：位置參數不能在 *args 後面</span>
+</span></span><span class="line"><span class="cl">    <span class="k">pass</span>
+</span></span></code></pre></div><hr>
+<h2 id="函數式編程工具">函數式編程工具</h2>
+<h4 id="map-與-filter">map 與 filter</h4>
+<h4 id="mapfunction-iterable">map(function, iterable)</h4>
+<p>對 iterable 中的每一個元素，套用 function，然後回傳一個新的迭代器。
+這個迭代器包含了每次執行 function(元素) 的結果。</p>
+<h4 id="範例一">範例一</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">students</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="s2">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;Ron&#34;</span><span class="p">,</span> <span class="s2">&#34;house&#34;</span><span class="p">:</span> <span class="s2">&#34;Gryffindor&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="s2">&#34;name&#34;</span><span class="p">:</span><span class="s2">&#34;Draco&#34;</span><span class="p">,</span> <span class="s2">&#34;house&#34;</span><span class="p">:</span> <span class="s2">&#34;Slytherin&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">names</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s2">&#34;name&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">students</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">names</span><span class="p">)</span>  <span class="c1"># 輸出: RON DRACO</span>
+</span></span></code></pre></div><h4 id="範例二">範例二</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">yell</span><span class="p">(</span><span class="s1">&#39;This&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;CS50&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">yell</span><span class="p">(</span><span class="o">*</span><span class="n">words</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">uppercased</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span> <span class="n">words</span><span class="p">)</span> <span class="c1">#調用str.upper 不要用()因為目前沒有要直接呼叫</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">uppercased</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="filterfunction-iterable">filter(function, iterable)</h4>
+<p>對 iterable 中的每一個元素，執行 function。
+如果 function(元素) 回傳 <code>True</code>，就保留這個元素，否則丟掉。
+回傳一個新的迭代器，<code>只包含被保留的元素</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># filter 範例</span>
+</span></span><span class="line"><span class="cl"><span class="n">gryffindors</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s2">&#34;house&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;Gryffindor&#34;</span><span class="p">,</span> <span class="n">students</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">gryffindors</span><span class="p">))</span>  <span class="c1"># 轉為列表顯示</span>
+</span></span></code></pre></div><p>這樣得到的 names 或 gryffindors 其實是個 <code>lazy iterator（惰性迭代器）</code>，這有幾個特性:</p>
+<ol>
+<li><code>不會立刻執行</code>: map / filter 不會立即處理資料，而是等你真正「取用」的時候才一個一個執行</li>
+<li><code>一次性</code>: 你只能「走訪」一次，走過的元素就消失了（記憶體優化的結果）</li>
+<li><code>要轉為 list 或使用迴圈</code>: 否則你看不到裡面的結果</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">names</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="s2">&#34;name&#34;</span><span class="p">],</span> <span class="n">students</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>  <span class="c1"># [&#39;Ron&#39;, &#39;Draco&#39;]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>  <span class="c1"># [] -&gt; 第二次就沒東西了！</span>
+</span></span></code></pre></div><hr>
+<h2 id="list-comprehension-and-dict-comprehension">List comprehension and dict comprehension</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 列表推導式（等價於 map）</span>
+</span></span><span class="line"><span class="cl"><span class="n">uppercased</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="s2">&#34;name&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">students</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 字典推導式</span>
+</span></span><span class="line"><span class="cl"><span class="n">house_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="p">[</span><span class="s2">&#34;name&#34;</span><span class="p">]:</span> <span class="n">s</span><span class="p">[</span><span class="s2">&#34;house&#34;</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">students</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 帶條件的推導式（等價於 filter + map）</span>
+</span></span><span class="line"><span class="cl"><span class="n">gryffindor_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="s2">&#34;name&#34;</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">students</span> <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="s2">&#34;house&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;Gryffindor&#34;</span><span class="p">]</span>
+</span></span></code></pre></div><hr>
+<h2 id="生成器generator">生成器(Generator)</h2>
+<p>生成器是一種特殊的函數，使用 <code>yield</code> 逐步產生值，每次呼叫都會記住當前狀態，不會一次性全部執行完畢。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">star_generator</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;生成星號金字塔&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="n">i</span>  <span class="c1"># 每次產生一個值</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用方式</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">star_generator</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</span></span></code></pre></div><p>優點：</p>
+<ol>
+<li>記憶體效能高（惰性求值 lazy evaluation）</li>
+<li>適合處理大量資料或無限序列</li>
+</ol>
+<h4 id="對比">對比</h4>
+<p>使用 return：一次回傳全部 → 會佔用大量記憶體</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">star</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">star</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">total</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">total</span>  <span class="c1"># 一次回傳所有值</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><p>改用 yield：逐個產生 → 節省資源、可控性強</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">star</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">star</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="n">i</span>  <span class="c1"># 一次回傳一個</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><h4 id="常見錯誤將-yield-寫成-return">常見錯誤：將 yield 寫成 return</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">star</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s1">&#39;*&#39;</span> <span class="o">*</span> <span class="n">i</span>  <span class="c1"># ❌ 錯誤：只會執行一次，i=0 就直接 return</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><hr>
+<h2 id="課程小結">課程小結</h2>
+<p>本課程涵蓋了 Python 的多個進階特性：</p>
+<ol>
+<li>集合操作：使用 set 處理不重複元素</li>
+<li>作用域管理：理解 global 關鍵字和更好的封裝方式</li>
+<li>類型提示：提升程式碼可讀性和可維護性</li>
+<li>命令行參數：使用 argparse 創建專業 CLI 工具</li>
+<li>unpacking操作：靈活處理序列和字典</li>
+<li>函數式編程：map, filter 和推導式</li>
+<li>生成器：高效處理大型數據集</li>
+</ol>
     </div>
 
     
@@ -843,7 +1158,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython9%2F&amp;text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-9~Operation&#43;overload" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython9%2F&amp;text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-9~%E5%85%B6%E4%BB%96%E5%A5%BD%E7%94%A8%E5%87%BD%E5%BC%8F" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -860,7 +1175,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython9%2F&amp;t=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-9~Operation&#43;overload" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython9%2F&amp;t=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-9~%E5%85%B6%E4%BB%96%E5%A5%BD%E7%94%A8%E5%87%BD%E5%BC%8F" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -879,7 +1194,7 @@
         
       
       <li>
-        <a href="mailto:?subject=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-9~Operation%20overload&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython9%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-9~%E5%85%B6%E4%BB%96%E5%A5%BD%E7%94%A8%E5%87%BD%E5%BC%8F&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython9%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -896,7 +1211,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython9%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-9~Operation&#43;overload" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython9%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-9~%E5%85%B6%E4%BB%96%E5%A5%BD%E7%94%A8%E5%87%BD%E5%BC%8F" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -913,7 +1228,7 @@
       
       
       <li>
-        <a href="whatsapp://send?text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-9~Operation&#43;overload%20http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython9%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+        <a href="whatsapp://send?text=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-9~%E5%85%B6%E4%BB%96%E5%A5%BD%E7%94%A8%E5%87%BD%E5%BC%8F%20http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython9%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -930,7 +1245,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython9%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-9~Operation&#43;overload" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fminicoursepython9%2F&amp;title=%E8%BF%B7%E4%BD%A0%E8%AA%B2%E7%A8%8B%3APython-9~%E5%85%B6%E4%BB%96%E5%A5%BD%E7%94%A8%E5%87%BD%E5%BC%8F" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>

@@ -57,10 +57,10 @@
 &lt;figure  id=&#34;figure-圖一&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig1&#34; srcset=&#34;
-               /post/scrna_gem_flex_3/Fig1_hu2258593892756077728.webp 400w,
+               /post/scrna_gem_flex_3/Fig1_hu1570837800921386309.webp 400w,
                /post/scrna_gem_flex_3/Fig1_hu9546978327672657906.webp 760w,
                /post/scrna_gem_flex_3/Fig1_hu103474941254535812.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig1_hu2258593892756077728.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig1_hu1570837800921386309.webp&#34;
                width=&#34;760&#34;
                height=&#34;338&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -134,10 +134,10 @@
 &lt;figure  id=&#34;figure-圖二&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig2&#34; srcset=&#34;
-               /post/scrna_gem_flex_3/FIg2_hu14523211824472828689.webp 400w,
+               /post/scrna_gem_flex_3/FIg2_hu2111940956688759886.webp 400w,
                /post/scrna_gem_flex_3/FIg2_hu16011162382148641062.webp 760w,
                /post/scrna_gem_flex_3/FIg2_hu5040005843486614557.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/FIg2_hu14523211824472828689.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/FIg2_hu2111940956688759886.webp&#34;
                width=&#34;760&#34;
                height=&#34;454&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -219,10 +219,10 @@
 &lt;figure  id=&#34;figure-圖三&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig3&#34; srcset=&#34;
-               /post/scrna_gem_flex_3/Fig3_hu18230662870707562310.webp 400w,
+               /post/scrna_gem_flex_3/Fig3_hu3052305148765506048.webp 400w,
                /post/scrna_gem_flex_3/Fig3_hu5325750319108332344.webp 760w,
                /post/scrna_gem_flex_3/Fig3_hu14308820703478684976.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig3_hu18230662870707562310.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig3_hu3052305148765506048.webp&#34;
                width=&#34;760&#34;
                height=&#34;447&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -287,10 +287,10 @@
 &lt;figure  id=&#34;figure-圖四&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig4&#34; srcset=&#34;
-               /post/scrna_gem_flex_3/Fig4_hu4127759784512945471.webp 400w,
+               /post/scrna_gem_flex_3/Fig4_hu1111249681384365027.webp 400w,
                /post/scrna_gem_flex_3/Fig4_hu6860427693094186003.webp 760w,
                /post/scrna_gem_flex_3/Fig4_hu6674916166430600962.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig4_hu4127759784512945471.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig4_hu1111249681384365027.webp&#34;
                width=&#34;760&#34;
                height=&#34;466&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -355,10 +355,10 @@
 &lt;figure  id=&#34;figure-圖五&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig5&#34; srcset=&#34;
-               /post/scrna_gem_flex_3/Fig5_hu819453720326739649.webp 400w,
+               /post/scrna_gem_flex_3/Fig5_hu3802422279404950750.webp 400w,
                /post/scrna_gem_flex_3/Fig5_hu4185118505624865405.webp 760w,
                /post/scrna_gem_flex_3/Fig5_hu6356132240404003594.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig5_hu819453720326739649.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_3/Fig5_hu3802422279404950750.webp&#34;
                width=&#34;760&#34;
                height=&#34;462&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -504,10 +504,10 @@
 &lt;figure  id=&#34;figure-圖一-基因表現分布視覺化&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig1&#34; srcset=&#34;
-               /post/scrna_gem_flex_2/Fig1_hu5369402601156822384.webp 400w,
+               /post/scrna_gem_flex_2/Fig1_hu5010499185877381814.webp 400w,
                /post/scrna_gem_flex_2/Fig1_hu2068761613297172474.webp 760w,
                /post/scrna_gem_flex_2/Fig1_hu17241418231365437827.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig1_hu5369402601156822384.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig1_hu5010499185877381814.webp&#34;
                width=&#34;760&#34;
                height=&#34;540&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -564,10 +564,10 @@
 &lt;figure  id=&#34;figure-圖二-分群結果視覺化&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig2&#34; srcset=&#34;
-               /post/scrna_gem_flex_2/Fig2_hu17655286222172481944.webp 400w,
+               /post/scrna_gem_flex_2/Fig2_hu14385158313214021163.webp 400w,
                /post/scrna_gem_flex_2/Fig2_hu3884554556563522480.webp 760w,
                /post/scrna_gem_flex_2/Fig2_hu6308575042941320221.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig2_hu17655286222172481944.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig2_hu14385158313214021163.webp&#34;
                width=&#34;681&#34;
                height=&#34;543&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -609,10 +609,10 @@
 &lt;figure  id=&#34;figure-圖三&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig3&#34; srcset=&#34;
-               /post/scrna_gem_flex_2/Fig3_hu17209305068866466132.webp 400w,
+               /post/scrna_gem_flex_2/Fig3_hu13895500437236950301.webp 400w,
                /post/scrna_gem_flex_2/Fig3_hu15086704276307972649.webp 760w,
                /post/scrna_gem_flex_2/Fig3_hu12886557246042893517.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig3_hu17209305068866466132.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig3_hu13895500437236950301.webp&#34;
                width=&#34;760&#34;
                height=&#34;383&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -639,10 +639,10 @@
 &lt;figure  id=&#34;figure-圖四&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig4&#34; srcset=&#34;
-               /post/scrna_gem_flex_2/Fig4_hu8390064987605698326.webp 400w,
+               /post/scrna_gem_flex_2/Fig4_hu12946117017608965013.webp 400w,
                /post/scrna_gem_flex_2/Fig4_hu4564519318195456980.webp 760w,
                /post/scrna_gem_flex_2/Fig4_hu3972460471002676485.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig4_hu8390064987605698326.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig4_hu12946117017608965013.webp&#34;
                width=&#34;760&#34;
                height=&#34;201&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -675,10 +675,10 @@
 &lt;figure  id=&#34;figure-圖五&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig5&#34; srcset=&#34;
-               /post/scrna_gem_flex_2/Fig5_hu10877396019833338791.webp 400w,
+               /post/scrna_gem_flex_2/Fig5_hu16445731870601303742.webp 400w,
                /post/scrna_gem_flex_2/Fig5_hu4167292817492395439.webp 760w,
                /post/scrna_gem_flex_2/Fig5_hu18264684326066720365.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig5_hu10877396019833338791.webp&#34;
+               src=&#34;http://localhost:1313/post/scrna_gem_flex_2/Fig5_hu16445731870601303742.webp&#34;
                width=&#34;706&#34;
                height=&#34;314&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
