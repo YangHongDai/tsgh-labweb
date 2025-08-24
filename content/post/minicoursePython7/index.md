@@ -132,7 +132,7 @@ if re.search(r"^\w+@\w+\.edu$", email, re.IGNORECASE):
 我們在填寫email時，很多時候不像@gmail.com或@hotmail.com那麼簡單，而是有包含多個subdomains，例如@stx.ox.ac.uk，如果要允許@後面有多個`.`時該怎麼做呢？
 不難發現一個subdomain包含`XXX.`，這種形式可以有多個，也可以完全沒有，只剩主domain，所以我們可以把他grouping起來，然後允許他可以`選擇性`的出現。所以我們可以用到`()`與`?`：
 ```python
-if re.search(r"^\w+@(\w\.)?\w+\.edu$", email, re.IGNORECASE):
+if re.search(r"^\w+@(\w+\.)?\w+\.edu$", email, re.IGNORECASE):
     print("Valid")
 ```
 
