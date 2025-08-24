@@ -187,7 +187,13 @@ emails = re.findall(r"\b[\w.-]+@[\w.-]+\.\w+\b", text)
 print(emails)
 # ➜ ['alice@mail.com', 'bob@example.org']
 ```
-- \b 代表 單字邊界（word boundary)，確保 email 是一個獨立單位，不會卡在一個大字串裡面。也就是若出現`@XXX.com123`則會返回`@XXX.com`。
+- \b 代表 單字邊界（word boundary)，確保 email 在text是一個獨立單位，不會卡在一個大字串裡面。也就是如果我們定義:
+```python
+text = "My emails are alice@mail.com and bob@example.com"
+emails = re.findall(r"\b[\w.-]+@[\w.-]+\.com\b", text)
+print(emails)
+```
+若出現`@XXX.com123`就不會被match到。
 
 
 #### re.split(pattern, string)
