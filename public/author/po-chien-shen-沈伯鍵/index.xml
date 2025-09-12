@@ -5,7 +5,7 @@
     <link>http://localhost:1313/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</link>
       <atom:link href="http://localhost:1313/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/index.xml" rel="self" type="application/rss+xml" />
     <description>Po-Chien Shen 沈伯鍵</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 04 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 15 Aug 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/avatar_hu508877709439512294.png</url>
       <title>Po-Chien Shen 沈伯鍵</title>
@@ -13,11 +13,41 @@
     </image>
     
     <item>
+      <title>DriverOmicsNet 被Briefings in Bioinformatics 接受</title>
+      <link>http://localhost:1313/event/driveromics2/</link>
+      <pubDate>Fri, 15 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/event/driveromics2/</guid>
+      <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
+&lt;p&gt;DriverOmicsNet-An Integrated Graph Convolutional Network for Multi-Omics Exploration of Cancer Driver Genes&lt;/p&gt;
+&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;p&gt;Background: Cancer is a complex and heterogeneous group of diseases driven by genetic mutations and molecular changes. Identifying and characterizing cancer driver genes (CDgs) is crucial for understanding cancer biology and guiding precision oncology. Integrating multi-omics data can reveal the intricate molecular interactions underlying cancer progression and treatment responses.&lt;/p&gt;
+&lt;p&gt;Methods: We developed a graph convolutional network (GCN) framework, DriverOmicsNet, that integrates multi-omics data using STRING protein-protein interaction (PPI) networks and correlation-based weighted correlation network analysis (WGCNA). We applied this framework to 15 cancer types, analyzing 5555 tumor samples to predict cancer-related features such as homologous recombination deficiency (HRD), cancer stemness, immune clusters, tumor stage, and survival outcomes.&lt;/p&gt;
+&lt;p&gt;Findings: DriverOmicsNet demonstrated superior predictive accuracy and model performance metrics across all target labels when compared with GCN models based on STRING network alone. Gene expression emerged as the most significant feature, reflecting the dynamic and functional state of cancer cells. The combined use of STRING PPI and WGCNA networks enhanced the identification of key driver genes and their interactions.&lt;/p&gt;
+&lt;p&gt;Interpretation: Our study highlights the effectiveness of using GCNs to integrate multi-omics data for precision oncology. The integration of STRING PPI and WGCNA networks provides a comprehensive framework that improves predictive power and facilitates the understanding of cancer biology, paving the way for more tailored treatments.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Po-Chien Shen 沈伯鍵</title>
       <link>http://localhost:1313/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</link>
-      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 15 Aug 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/author/po-chien-shen-%E6%B2%88%E4%BC%AF%E9%8D%B5/</guid>
       <description>&lt;p&gt;我是放射腫瘤科醫師，在臨床工作之餘，專注研究透過資料科學分析臨床數據，推動放射治療的個人化發展。我的研究核心在於結合影像組學，探討如何預測患者的放療副作用及預後。期望在現行治療指引的基礎上，進一步針對個別患者的風險，量身優化放射治療的劑量或照野，提升治療的精準性與效果。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>新文章發表於EClinicalMedicinee</title>
+      <link>http://localhost:1313/event/eso_dose/</link>
+      <pubDate>Wed, 13 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/event/eso_dose/</guid>
+      <description>&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
+&lt;p&gt;Incorporating knowledge of disease-defining hub genes and regulatory network into a machine learning-based model for predicting treatment response in lupus nephritis after the first renal flare&lt;/p&gt;
+&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;
+&lt;p&gt;Background:Identifying candidates responsive to treatment is important in lupus nephritis (LN) at the renal flare (RF) because an effective treatment can lower the risk of progression to end-stage kidney disease. However, machine learning (ML)-based models that address this issue are lacking.&lt;/p&gt;
+&lt;p&gt;Methods:Transcriptomic profiles based on DNA microarray data were extracted from the GSE32591 and GSE112943 datasets. Comprehensive bioinformatics analyses were performed to identify disease-defining genes (DDGs). Peripheral blood samples (GSE81622, GSE99967, and GSE72326) were used to evaluate the effect of DDGs. Single-sample gene set enrichment analysis (ssGSEA) scores of the DDGs were calculated and correlated with specific immunology genes listed in the nCounter panel. GSE60681 and GSE69438 were used to examine the ability of the DDGs to discriminate LN from other renal diseases. K-means clustering was used to obtain the separate gene sets. The clustering results were extended to data derived using the nCounter technique. The least absolute shrinkage and selection operator (LASSO) algorithm was used to identify genes with high predictive value for treatment response after the first RF in each cluster. LASSO models with tenfold validation were built in GSE200306 and assessed by receiver operating characteristic (ROC) analysis with area under curve (AUC). The models were validated by using an independent dataset (GSE113342).&lt;/p&gt;
+&lt;p&gt;Results:Forty-five hub genes specific to LN were identified. Eight optimal disease-defining clusters (DDCs) were identified in this study. Th1 and Th2 cell differentiation pathway was significantly enriched in DDC-6. LCK in DDC-6, whose expression positively correlated with various subsets of T cell infiltrations, was found to be differentially expressed between responders and non-responders and was ranked high in regulatory network analysis. Based on DDC-6, the prediction model had the best performance (AUC: 0.75; 95% confidence interval: 0.44–1 in the testing set) and high precision (0.83), recall (0.71), and F1 score (0.77) in the validation dataset.&lt;/p&gt;
+&lt;p&gt;Conclusions:Our study demonstrates that incorporating knowledge of biological phenotypes into the ML model is feasible for evaluating treatment response after the first RF in LN. This knowledge-based incorporation improves the model&amp;rsquo;s transparency and performance. In addition, LCK may serve as a biomarker for T-cell infiltration and a therapeutic target in LN.&lt;/p&gt;
 </description>
     </item>
     

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: July 31, 2025 --><html lang="en-us" >
+<!-- Last Published: September 12, 2025 --><html lang="en-us" >
 
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
@@ -302,18 +302,17 @@
 
 
   
-  
 
 
 
 
 
 
-<meta property="twitter:card" content="summary" />
+<meta property="twitter:card" content="summary_large_image" />
 
   <meta property="twitter:site" content="@GetResearchDev" />
   <meta property="twitter:creator" content="@GetResearchDev" />
-<meta property="twitter:image" content="http://localhost:1313/media/icon_hu4369633333135054090.png" />
+<meta property="twitter:image" content="http://localhost:1313/post/minicourse_rbio1/featured.png" />
 
 
 
@@ -323,16 +322,16 @@
 <meta property="og:site_name" content="BioMed Communications" />
 <meta property="og:url" content="http://localhost:1313/post/minicourse_rbio1/" />
 <meta property="og:title" content="迷你課程:R語言生物資訊實作~Bulk RNA-seq分析-1 | BioMed Communications" />
-<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:1313/media/icon_hu4369633333135054090.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:description" content="" /><meta property="og:image" content="http://localhost:1313/post/minicourse_rbio1/featured.png" /><meta property="og:locale" content="en-us" />
 
   
     <meta
       property="article:published_time"
-      content="2025-07-02T00:00:00&#43;00:00"
+      content="2025-08-23T00:00:00&#43;00:00"
     />
   
   
-    <meta property="article:modified_time" content="2025-07-02T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2025-08-23T00:00:00&#43;00:00">
   
 
 
@@ -362,8 +361,12 @@
   },
   "headline": "迷你課程:R語言生物資訊實作~Bulk RNA-seq分析-1",
   
-  "datePublished": "2025-07-02T00:00:00Z",
-  "dateModified": "2025-07-02T00:00:00Z",
+  "image": [
+    "http://localhost:1313/post/minicourse_rbio1/featured.png"
+  ],
+  
+  "datePublished": "2025-08-23T00:00:00Z",
+  "dateModified": "2025-08-23T00:00:00Z",
   
   "author": {
     "@type": "Person",
@@ -730,18 +733,26 @@
 
 
 
-  
+
+
+
+
+
+
+
+
 
   
   
-  
+
+
+
 <div class="article-container pt-3">
   <h1>迷你課程:R語言生物資訊實作~Bulk RNA-seq分析-1</h1>
 
   
 
   
-    
 
 
 <div class="article-metadata">
@@ -765,7 +776,7 @@
     
       
     
-    Jul 2, 2025
+    Aug 23, 2025
   </span>
   
 
@@ -774,7 +785,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    10 min read
   </span>
   
 
@@ -795,13 +806,20 @@
 
 </div>
 
-    
-
-
-
-
-
   
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 480px;">
+  <div style="position: relative">
+    <img src="/post/minicourse_rbio1/featured_hu407587290700061666.webp" width="720" height="480" alt="" class="featured-image">
+    
+  </div>
 </div>
 
 
@@ -896,6 +914,214 @@
       </tr>
   </tbody>
 </table>
+<blockquote>
+<p>DESeq2 — Shrinkage (收縮估計)
+DESeq2 同樣使用 負二項分布，但強調在估計 dispersion 以及 fold change (log2FC) 時加入 Bayesian
+shrinkage。
+它的理念是：小樣本下直接估計 fold change 容易不穩定，因此應向平均值「收縮」（借力於其他基因）。
+這使用 empirical Bayes shrinkage estimation（尤其是 log2 fold change 的 shrinkage，如 lfcShrink()
+）。
+優點：保守、穩健，特別是在少樣本下提供更穩定的 fold change 與 p 值
+缺點：速度略慢；對於極端差異基因可能會「低估 fold change」</p>
+</blockquote>
+<blockquote>
+<p>edgeR — 精確檢定 (Exact Test)
+edgeR 假設基因表現遵循 負二項分布 (Negative Binomial, NB)，來建模 RNA-seq 計數的離散性與過度變異
+（overdispersion）。
+它使用 精確檢定 (exact test)，這是一種類似 Fisher’s exact test 的方法，針對 小樣本下的兩組比較，在 NB 分
+布下計算 p 值。
+若設計更複雜（&gt;2 組或加上 batch），會使用 generalized linear models (GLM)。
+優點：非常適合小樣本快速進行簡單兩組比較
+缺點：小樣本時對於 dispersion 的估計容易不穩，需要良好的 library size normalization。</p>
+</blockquote>
+<hr>
+<h2 id="為什麼-deseq2-成為經典標準">為什麼 DESeq2 成為經典標準？</h2>
+<p>想像你正比較健康與疾病組織樣本的基因表達，從數千個基因中得到的 RNA 計數堆滿整張表格。問題來了：哪些基因的變化是真正的生物現象？哪些只是噪音？
+這正是 DESeq2 大放異彩的地方。它不只是另一種分析工具，而是一個專為 RNA-seq 數據打造的統計框架。傳統統計方法假設資料連續、常態分布，但 RNA-seq 的世界混亂又嘈雜，基因表達高變異、低計數、技術誤差多，DESeq2 正是為這樣的現實而誕生。
+經過十年、大量文獻與研究實踐的驗證，DESeq2 已成為最值得信賴的差異表達分析工具之一。</p>
+<hr>
+<h2 id="為什麼-rna-seq-數據如此特別">為什麼 RNA-seq 數據如此特別？</h2>
+<p>在理解 DESeq2 如何運作前，先來看看為什麼 RNA-seq 資料如此「難搞」，以致於不能用一般統計方法處理：</p>
+<ol>
+<li>
+<p>計數資料（Count Data）不是連續變數: RNA-seq 給我們的是每個基因的 RNA 分子數量，都是整數。例如你不會有 2.5 個 RNA，只會是 2 或 3。這讓很多傳統統計假設<code>（如常態分布）不再成立</code>。</p>
+</li>
+<li>
+<p>基因之間表現量差異巨大
+有些基因每個樣本會產生上千個 RNA 分子，而有些基因則只有幾個。舉例來說，一個基因平均表現量是 10，在不同樣本間可能落在 8 到 12 之間；但另一個基因如果平均有 1000，在樣本間可能會介於 800 到 1200。這不是錯誤，而是生物本來就會這樣運作！但這也代表：<code>不同基因的變異尺度差異很大，我們不能用同一種統計模型套用到所有基因上。</code></p>
+</li>
+<li>
+<p>定序深度的差異
+即使樣本準備得很小心，有些樣本的定序結果還是會比其他樣本多出很多 <code>reads</code>。舉例來說，有的樣本可能產出 2 千萬個 reads，而有的樣本則有 3 千萬。這種差異是<code>技術性差異</code>，不是生物造成的，但卻會影響每一個基因的計數值。
+所以我們必須進行樣本之間的<code>歸一化（normalization）</code>，否則這種深度差異會被誤認為是基因表現變化。</p>
+</li>
+<li>
+<p>多重檢定的陷阱
+RNA-seq 通常是同時比較 20,000 個以上的基因。如果我們對每個基因都用傳統的顯著性水準（例如 p 值 &lt; 0.05），那在完全沒有任何差異的情況下，也會有大約 1,000 個基因「看起來」有差異，純粹是<code>隨機產生的假陽性</code>。
+這就是所謂的<code>多重檢定問題（multiple testing problem）</code>，所以在分析時必須進行 <code>FDR（假發現率）校正</code>，以避免誤判結果。</p>
+</li>
+</ol>
+<hr>
+<h2 id="deseq2-基本流程">DESeq2 基本流程</h2>
+<h2 id="第一步-size-factor-的評估">第一步: Size factor 的評估</h2>
+<p>首先我們在測序完之後，必須要根據每個樣本的測序深度做檢驗，也就是要去評估<code>size factor</code>，DESeq2會針對計算出來的<code>size factor</code>對樣本的測序資料做歸一化：</p>
+<h4 id="before-normalization">Before normalization:</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sample1</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">50</span><span class="p">)</span>   <span class="c1"># 20M total reads</span>
+</span></span><span class="line"><span class="cl"><span class="n">sample2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">150</span><span class="p">,</span> <span class="m">300</span><span class="p">,</span> <span class="m">75</span><span class="p">)</span>   <span class="c1"># 30M total reads</span>
+</span></span></code></pre></div><h4 id="after-size-factor-normalization">After size factor normalization:</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">sample1_norm</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">50</span><span class="p">)</span>     <span class="c1"># Reference</span>
+</span></span><span class="line"><span class="cl"><span class="n">sample2_norm</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">50</span><span class="p">)</span>     <span class="c1"># Scaled down by factor of 1.5</span>
+</span></span></code></pre></div><h2 id="第二步-dispersion-的評估">第二步: Dispersion 的評估</h2>
+<p>RNA-seq 輸出的<code>reads</code>高達上百萬，而每個基因的<code>counts</code>變異很大，但都約為10-1000左右，因此對某一個<code>read</code>要能對應上某一個基因的機率是相對很低的。這種離散的分佈、低機率加上大量的對應 (reads mapped to a gene)其實就跟普瓦松的分佈非常類似，當在二項分佈中試驗的次數變多，而試驗成功的機率變低時，分佈就可以用普瓦松分佈來趨近。然而若要使用普瓦松分佈，就必須要符合平均值等於變異數的性質 (依照公式可得出此結論)，但RNA-seq的數據並非如此，原因是不同基因的樣本間技術上生物變異大，而針對mean與variance作圖時會發現<code>overdispersion</code>的現象 (圖一)，並不適用於普瓦松分佈？
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-圖一-overdispersion">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Fig1" srcset="
+               /post/minicourse_rbio1/Fig1_hu2330347589607157955.webp 400w,
+               /post/minicourse_rbio1/Fig1_hu5284840922008440881.webp 760w,
+               /post/minicourse_rbio1/Fig1_hu6709847901075320416.webp 1200w"
+               src="/post/minicourse_rbio1/Fig1_hu2330347589607157955.webp"
+               width="760"
+               height="547"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      圖一 Overdispersion
+    </figcaption></figure>
+</p>
+<p>DESeq2 會估算某基因計數在樣本間的變異程度，這個步驟非常重要，因為針對變異較大的基因，需要更強的證據來說明他為<code>differentially expressed</code>，我們才成正確的找到具有生物意義的基因變化。</p>
+<h2 id="第三步-統計模型">第三步: 統計模型</h2>
+<p>在完成上面步驟後，DESeq2就可以來用統計模型估算基因表達的統計差異了。</p>
+<hr>
+<p>我們在正式進入分析前，先回顧一下名詞:</p>
+<blockquote>
+<p>Size factor: 就是標準化的權重，如果有一樣本size factor 為1.5，就表示他比平均值在測序上深了50%。</p>
+</blockquote>
+<blockquote>
+<p>Dispersion: 主要是用來描述樣本間基因的變異程度。變異程度越大的基因表示雜訊越多，變異程度小的基因表示樣本間表現平穩。</p>
+</blockquote>
+<blockquote>
+<p>Log2 Fold Change: 量化基因表達改變的指標，也是DE分析的<code>effect size</code>。</p>
+</blockquote>
+<blockquote>
+<p>Adjusted P-value: 因為DE分析同時比較了近兩萬個基因，所以這在統計上是一種多重比較，需要用一些方式來控制偽陽性率，如果adjusted P-value 為0.05，表示目前此基因的偽陽性率是5%，所以這個數值越低越好。</p>
+</blockquote>
+<hr>
+<p>準備好把 RNA-seq count 檔案轉換成 DESeq2 可以直接分析的物件了嗎？這就是從理論到實作的關鍵一步：把序列分析 pipeline 的輸出，整理成統計模型可以用的輸入。 一旦掌握核心要素，DESeq2 的分析其實非常直覺！</p>
+<h4 id="需要準備的兩個檔案">需要準備的兩個檔案</h4>
+<ol>
+<li>Count Matrix（計數矩陣）</li>
+</ol>
+<ul>
+<li>列（row）：基因</li>
+<li>欄（column）：樣本</li>
+<li>值（value）：整數型計數（不能有小數！）</li>
+</ul>
+<ol start="2">
+<li>Sample Metadata（樣本資訊表）</li>
+</ol>
+<ul>
+<li>列（row）：樣本（名稱需與 count matrix 的欄名對應）</li>
+<li>欄（column）：實驗條件（condition, batch, timepoint 等）
+👉 就這兩樣！把它們準備好，就能開始組裝分析物件。</li>
+</ul>
+<h2 id="核心流程三步驟">核心流程：三步驟</h2>
+<h4 id="第一步載入套件與資料">第一步：載入套件與資料</h4>
+<h4 id="載入-deseq2">載入 DESeq2</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">DESeq2</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="匯入-count-matrix">匯入 count matrix</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">#讀取count matrix，注意csv檔的第一欄就是基因名稱，所以在讀取的時候row.names=1，第二欄開始為sample name</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#讀取進來是data frame的形式</span>
+</span></span><span class="line"><span class="cl"><span class="n">counts</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;count_matrix.csv&#34;</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">check.names</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">counts</span> <span class="o">&lt;-</span> <span class="nf">as.matrix</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span> <span class="c1">#轉成矩陣，運算效率更快</span>
+</span></span><span class="line"><span class="cl"><span class="nf">storage.mode</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="s">&#34;integer&#34;</span>   <span class="c1"># 確保為整數，因為是`counts`</span>
+</span></span></code></pre></div><h4 id="匯入樣本資訊">匯入樣本資訊</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">metadata</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;sample_info.csv&#34;</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="確認樣本名稱一致">確認樣本名稱一致</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">stopifnot</span><span class="p">(</span><span class="nf">identical</span><span class="p">(</span><span class="nf">colnames</span><span class="p">(</span><span class="n">counts</span><span class="p">),</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">metadata</span><span class="p">)))</span>
+</span></span></code></pre></div><h4 id="第二步建立-deseqdataset-物件">第二步：建立 DESeqDataSet 物件</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">dds</span> <span class="o">&lt;-</span> <span class="nf">DESeqDataSetFromMatrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">countData</span> <span class="o">=</span> <span class="n">counts</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">colData</span>   <span class="o">=</span> <span class="n">metadata</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">design</span>    <span class="o">=</span> <span class="o">~</span> <span class="n">condition</span>   <span class="c1"># 依照實驗設計調整</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h4 id="第二步基本前處理">第二步：基本前處理</h4>
+<h4 id="過濾低表達基因">過濾低表達基因</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">keep</span> <span class="o">&lt;-</span> <span class="nf">rowSums</span><span class="p">(</span><span class="nf">counts</span><span class="p">(</span><span class="n">dds</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="m">10</span> <span class="c1">#會找出每一列，也就是每一個基因的counts總和需要≥10</span>
+</span></span><span class="line"><span class="cl"><span class="n">dds</span> <span class="o">&lt;-</span> <span class="n">dds[keep</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 設定對照組為參考 (reference level)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dds</span><span class="o">$</span><span class="n">condition</span> <span class="o">&lt;-</span> <span class="nf">relevel</span><span class="p">(</span><span class="n">dds</span><span class="o">$</span><span class="n">condition</span><span class="p">,</span> <span class="n">ref</span> <span class="o">=</span> <span class="s">&#34;control&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>完成！現在你已經擁有 分析-ready 的 DESeqDataSet 🎉</p>
+<hr>
+<h2 id="三大地雷要避免">三大地雷要避免</h2>
+<ol>
+<li>樣本名稱不一致</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">identical</span><span class="p">(</span><span class="nf">colnames</span><span class="p">(</span><span class="n">counts</span><span class="p">),</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">metadata</span><span class="p">))</span>  <span class="c1"># 必須 TRUE</span>
+</span></span></code></pre></div><ol start="2">
+<li>計數不是整數</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">all</span><span class="p">(</span><span class="n">counts</span> <span class="o">==</span> <span class="nf">round</span><span class="p">(</span><span class="n">counts</span><span class="p">))</span>  <span class="c1"># 必須 TRUE</span>
+</span></span></code></pre></div><ol start="3">
+<li>參考組設錯</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">levels</span><span class="p">(</span><span class="n">dds</span><span class="o">$</span><span class="n">condition</span><span class="p">)</span>                 <span class="c1"># 檢查因子水平</span>
+</span></span><span class="line"><span class="cl"><span class="n">dds</span><span class="o">$</span><span class="n">condition</span> <span class="o">&lt;-</span> <span class="nf">relevel</span><span class="p">(</span><span class="n">dds</span><span class="o">$</span><span class="n">condition</span><span class="p">,</span> <span class="n">ref</span> <span class="o">=</span> <span class="s">&#34;control&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="快速-qc">快速 QC</h2>
+<h4 id="概覽資料">概覽資料</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">dds</span>
+</span></span></code></pre></div><h3 id="每個樣本的測序深度">每個樣本的測序深度</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">colSums</span><span class="p">(</span><span class="nf">counts</span><span class="p">(</span><span class="n">dds</span><span class="p">))</span>
+</span></span></code></pre></div><h4 id="每個基因至少在幾個樣本被偵測到">每個基因至少在幾個樣本被偵測到</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">rowSums</span><span class="p">(</span><span class="nf">counts</span><span class="p">(</span><span class="n">dds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="儲存以便後續分析">儲存以便後續分析</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">saveRDS</span><span class="p">(</span><span class="n">dds</span><span class="p">,</span> <span class="s">&#34;analysis_ready_dds.rds&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+<h2 id="課程小結">課程小結</h2>
+<h4 id="你已完成的目標">你已完成的目標</h4>
+<ol>
+<li>了解 bulk RNA-seq 的價值與常見挑戰（高維度、雜訊、依賴性、情境依賴）。</li>
+<li>掌握差異表達分析主流方法的版圖，聚焦 DESeq2 的核心思路（負二項 + shrinkage）。</li>
+<li>準備好兩個關鍵輸入：Count Matrix 與 Sample Metadata，並建立 DESeqDataSet。</li>
+<li>進行最小可行的 前處理（低表達過濾、參考組設定）與 基本 QC（深度、偵測度）。</li>
+</ol>
+<h4 id="本章關鍵觀念">本章關鍵觀念</h4>
+<ol>
+<li>Size factor：校正測序深度差異，避免把技術性差異誤當生物訊號。</li>
+<li>Dispersion：度量跨樣本變異，DESeq2 以經驗貝葉斯估計穩定變異與效應量。</li>
+<li>Shrinkage：在小樣本下「收縮」log2FC，使估計更穩健、可重現。</li>
+<li>多重檢定（FDR）：同時檢驗上萬基因必須控制偽陽性。</li>
+</ol>
+<h4 id="實作檢核清單">實作檢核清單</h4>
+<ol>
+<li>colnames(counts) == rownames(metadata)</li>
+<li>storage.mode(counts) == &ldquo;integer&rdquo;（全為整數）</li>
+<li>低表達過濾門檻（如 rowSums(counts(dds)) &gt;= 10）已應用</li>
+<li>參考組以 relevel() 正確設定（如 ref = &ldquo;control&rdquo;）</li>
+<li>物件已保存：saveRDS(dds, &ldquo;analysis_ready_dds.rds&rdquo;)</li>
+</ol>
+<h4 id="常見地雷">常見地雷</h4>
+<ol>
+<li>樣本對不上：欄名與列名任何一處空白/符號/大小寫不一致都會失敗。</li>
+<li>非整數計數：TPM/FPKM 不能直接用於 DESeq2；請使用原始 counts。</li>
+<li>設計式錯誤：忘記把批次或時間點寫入 design，將導致錯誤推論。</li>
+<li>過度過濾或過度寬鬆：低表達基因過濾門檻過高會犧牲訊號，過低易放大雜訊。</li>
+</ol>
     </div>
 
     

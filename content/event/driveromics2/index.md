@@ -11,12 +11,7 @@ event_url: 'https://academic.oup.com/bib/article/26/4/bbaf412/8235628?searchresu
   #postcode: '94305'
   #country: Taiwan
 
-summary: 
-1. We propose DriverOmicsNet, a GNN-based model that integrates multi-omics data and gene co-expression networks to identify CDgs across 15 cancer types.
-2. DriverOmicsNet incorporates both STRING PPI and WGCNA-derived co-expression networks to capture gene–gene interactions and co-regulatory structures, enhancing biological interpretability.
-3. The model employs a GCN architecture to integrate diverse omics features, including gene expression, mutation, CNV, and DNA methylation. An autoencoder is used to compress methylation data for effective integration.
-4. External validation using the CPTAC PAAD dataset demonstrates the robustness of DriverOmicsNet’s predictions.
-5. Comparative analyses demonstrate that DriverOmicsNet achieves competitive performance relative to baseline models, with improved interpretability and biological relevance of identified CDgs.
+summary: 1. We propose DriverOmicsNet, a GNN-based model that integrates multi-omics data and gene co-expression networks to identify CDgs across 15 cancer types. 2. DriverOmicsNet incorporates both STRING PPI and WGCNA-derived co-expression networks to capture gene–gene interactions and co-regulatory structures, enhancing biological interpretability. 3. The model employs a GCN architecture to integrate diverse omics features, including gene expression, mutation, CNV, and DNA methylation. An autoencoder is used to compress methylation data for effective integration. 4. External validation using the CPTAC PAAD dataset demonstrates the robustness of DriverOmicsNet’s predictions. 5. Comparative analyses demonstrate that DriverOmicsNet achieves competitive performance relative to baseline models, with improved interpretability and biological relevance of identified CDgs.
 #abstract: 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.

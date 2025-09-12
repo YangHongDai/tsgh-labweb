@@ -5,12 +5,314 @@
     <link>http://localhost:1313/tag/r/</link>
       <atom:link href="http://localhost:1313/tag/r/index.xml" rel="self" type="application/rss+xml" />
     <description>R</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 02 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 23 Aug 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu4369633333135054090.png</url>
       <title>R</title>
       <link>http://localhost:1313/tag/r/</link>
     </image>
+    
+    <item>
+      <title>迷你課程:R語言生物資訊實作~Bulk RNA-seq分析-1</title>
+      <link>http://localhost:1313/post/minicourse_rbio1/</link>
+      <pubDate>Sat, 23 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/minicourse_rbio1/</guid>
+      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
+&lt;p&gt;歡迎來到我們的bulk RNA-seq分析課程，在這裡我們將把原始的基因表達計數數據轉化為有意義的生物學發現。&lt;/p&gt;
+&lt;h2 id=&#34;為什麼bulk-rna-seq分析如此重要&#34;&gt;為什麼Bulk RNA-seq分析如此重要&lt;/h2&gt;
+&lt;p&gt;RNA測序技術&lt;code&gt;（RNA sequencing, RNA-seq）&lt;/code&gt;透過對全轉錄組的高通量分析，為我們提供了在不同生理條件、實驗處理及疾病狀態下基因表達的全景圖，從而徹底革新了我們對細胞功能與基因調控的理解。相較於傳統只能針對少數基因進行分析的方法，RNA-seq能夠同時量化約20,000個人類基因的表達水平，使研究人員能夠以系統性方式解析細胞內的轉錄活動，發掘潛在的生物標記與調控機制。&lt;/p&gt;
+&lt;h2 id=&#34;生物學影響&#34;&gt;生物學影響&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;疾病研究：RNA-seq揭示了在癌症、神經系統疾病、自身免疫性疾病等無數其他疾病中哪些基因失調。搭配生物資訊學的其他工具如路徑分析，這些發現直接導致新的治療靶點和診斷標記的發現。&lt;/li&gt;
+&lt;li&gt;藥物開發：當製藥公司測試新療法時，RNA-seq顯示藥物如何影響細胞訊息傳遞路徑，幫助優化劑量、識別恰當的生物標記物並預測副作用。&lt;/li&gt;
+&lt;li&gt;精準醫學：通過了解個體患者的基因表達譜如何對不同治療產生反應，臨床醫生可以藉由個人化的治療模式以獲得更好的結果。&lt;/li&gt;
+&lt;li&gt;基礎生物學：RNA-seq可以幫助闡述了發育、衰老、應激反應和細胞分化等基本過程，擴展了我們對生命在分子階層上如何運作的理解。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;分析挑戰&#34;&gt;分析挑戰&lt;/h2&gt;
+&lt;p&gt;雖然&lt;code&gt;RNA-seq&lt;/code&gt;技術能夠產生大量涵蓋整個轉錄組的有用數據，但從中提取具生物意義的訊息並不直接，往往需要結合複雜的統計方法與計算模型。這是因為基因表達數據本身具有以下幾個重要特徵：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;高維度（High Dimensionality）&lt;/code&gt;: RNA-seq可同時量化數千至數萬個基因的表達水準，遠多於樣本數。這種&lt;code&gt;「大p小n」&lt;/code&gt;的特性（即變數遠多於樣本）對統計分析構成挑戰，容易導致&lt;code&gt;過擬合&lt;/code&gt;或偽相關，需要降維、正則化等方法來提高模型的穩定性與可解釋性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;噪音大（High Noise Levels）&lt;/code&gt;
+基因表達受到技術層面（如&lt;code&gt;擴增效率、批次效應&lt;/code&gt;）及生物學層面（如&lt;code&gt;細胞異質性、時序變化&lt;/code&gt;）等多重變因影響，導致測得的表達數據中包含大量背景噪音，可能掩蓋真實的差異訊號。因此，需要進行嚴謹的資料預處理，包括&lt;code&gt;去除低表達基因&lt;/code&gt;、&lt;code&gt;批次校正&lt;/code&gt;與&lt;code&gt;正規化&lt;/code&gt;等步驟，以提取出可靠的生物學資訊。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;複雜依賴性（Complex Dependencies）&lt;/code&gt;
+基因並非獨立運作，而是在調控網絡中以協同、互作、反饋等方式影響彼此。例如，轉錄因子調控目標基因表達，或多基因參與相同生物路徑。這種結構性使得&lt;code&gt;簡單的統計假設（如獨立性）不再適用&lt;/code&gt;，分析需考慮基因間關聯，例如利用&lt;code&gt;共表達網絡&lt;/code&gt;、&lt;code&gt;基因集富集&lt;/code&gt;、分析（GSEA）或圖論方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;上下文依賴性（Context Dependence）&lt;/code&gt;
+基因表達模式高度依賴於細胞類型、發育階段、生理狀態及外界刺激等條件。在一個特定的組織中活躍的基因可能在另一個環境下完全沉默。因此，在分析RNA-seq資料時，必須將樣本的生物學背景納入考量，否則容易導致錯誤推論。例如，同一基因在正常組織和腫瘤中的表達差異，往往反映出疾病特異性的轉錄調控變化。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;差異表達分析deg-analysis現今主流方法概覽&#34;&gt;差異表達分析（DEG Analysis）：現今主流方法概覽&lt;/h2&gt;
+&lt;p&gt;在 RNA-seq 資料分析中，&lt;code&gt;差異表達分析（Differential Expression Analysis, DEG）&lt;/code&gt;是最核心的任務之一。它幫助我們找出在不同實驗條件（例如疾病 vs 健康、處理 vs 控制）下，表達量有顯著改變的基因。為了應對 RNA-seq 數據的特性（如離散性、高變異與多重檢定），研究者已發展出多種統計方法。以下為目前最常用的幾種：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;方法&lt;/th&gt;
+          &lt;th&gt;核心模型&lt;/th&gt;
+          &lt;th&gt;適用對象&lt;/th&gt;
+          &lt;th&gt;優點&lt;/th&gt;
+          &lt;th&gt;缺點&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;DESeq2&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;負二項分布 + shrinkage&lt;/td&gt;
+          &lt;td&gt;Bulk RNA-seq&lt;/td&gt;
+          &lt;td&gt;保守穩健、適合小樣本、廣泛使用&lt;/td&gt;
+          &lt;td&gt;計算稍慢、不適用單細胞資料&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;edgeR&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;負二項分布 + 精確檢定&lt;/td&gt;
+          &lt;td&gt;Bulk RNA-seq&lt;/td&gt;
+          &lt;td&gt;快速、靈活、支援複雜設計&lt;/td&gt;
+          &lt;td&gt;對低表達基因較敏感&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;limma-voom&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;線性模型 + voom 轉換&lt;/td&gt;
+          &lt;td&gt;Bulk RNA-seq（類似微陣列分析）&lt;/td&gt;
+          &lt;td&gt;適合大樣本與複雜設計&lt;/td&gt;
+          &lt;td&gt;對低計數資料表現較差&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;baySeq&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;貝葉斯模型&lt;/td&gt;
+          &lt;td&gt;Bulk RNA-seq&lt;/td&gt;
+          &lt;td&gt;適用先驗知識&lt;/td&gt;
+          &lt;td&gt;使用上相對複雜&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;NOISeq&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;非參數法&lt;/td&gt;
+          &lt;td&gt;Bulk RNA-seq&lt;/td&gt;
+          &lt;td&gt;不依賴分布假設&lt;/td&gt;
+          &lt;td&gt;對樣本數需求高&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;MAST, SCDE, Seurat (FindMarkers)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;混合模型、貝葉斯、Hurdle 模型等&lt;/td&gt;
+          &lt;td&gt;單細胞 RNA-seq&lt;/td&gt;
+          &lt;td&gt;特化單細胞特性&lt;/td&gt;
+          &lt;td&gt;不適用 bulk RNA-seq&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;DESeq2 — Shrinkage (收縮估計)
+DESeq2 同樣使用 負二項分布，但強調在估計 dispersion 以及 fold change (log2FC) 時加入 Bayesian
+shrinkage。
+它的理念是：小樣本下直接估計 fold change 容易不穩定，因此應向平均值「收縮」（借力於其他基因）。
+這使用 empirical Bayes shrinkage estimation（尤其是 log2 fold change 的 shrinkage，如 lfcShrink()
+）。
+優點：保守、穩健，特別是在少樣本下提供更穩定的 fold change 與 p 值
+缺點：速度略慢；對於極端差異基因可能會「低估 fold change」&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;edgeR — 精確檢定 (Exact Test)
+edgeR 假設基因表現遵循 負二項分布 (Negative Binomial, NB)，來建模 RNA-seq 計數的離散性與過度變異
+（overdispersion）。
+它使用 精確檢定 (exact test)，這是一種類似 Fisher’s exact test 的方法，針對 小樣本下的兩組比較，在 NB 分
+布下計算 p 值。
+若設計更複雜（&amp;gt;2 組或加上 batch），會使用 generalized linear models (GLM)。
+優點：非常適合小樣本快速進行簡單兩組比較
+缺點：小樣本時對於 dispersion 的估計容易不穩，需要良好的 library size normalization。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;為什麼-deseq2-成為經典標準&#34;&gt;為什麼 DESeq2 成為經典標準？&lt;/h2&gt;
+&lt;p&gt;想像你正比較健康與疾病組織樣本的基因表達，從數千個基因中得到的 RNA 計數堆滿整張表格。問題來了：哪些基因的變化是真正的生物現象？哪些只是噪音？
+這正是 DESeq2 大放異彩的地方。它不只是另一種分析工具，而是一個專為 RNA-seq 數據打造的統計框架。傳統統計方法假設資料連續、常態分布，但 RNA-seq 的世界混亂又嘈雜，基因表達高變異、低計數、技術誤差多，DESeq2 正是為這樣的現實而誕生。
+經過十年、大量文獻與研究實踐的驗證，DESeq2 已成為最值得信賴的差異表達分析工具之一。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;為什麼-rna-seq-數據如此特別&#34;&gt;為什麼 RNA-seq 數據如此特別？&lt;/h2&gt;
+&lt;p&gt;在理解 DESeq2 如何運作前，先來看看為什麼 RNA-seq 資料如此「難搞」，以致於不能用一般統計方法處理：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;計數資料（Count Data）不是連續變數: RNA-seq 給我們的是每個基因的 RNA 分子數量，都是整數。例如你不會有 2.5 個 RNA，只會是 2 或 3。這讓很多傳統統計假設&lt;code&gt;（如常態分布）不再成立&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;基因之間表現量差異巨大
+有些基因每個樣本會產生上千個 RNA 分子，而有些基因則只有幾個。舉例來說，一個基因平均表現量是 10，在不同樣本間可能落在 8 到 12 之間；但另一個基因如果平均有 1000，在樣本間可能會介於 800 到 1200。這不是錯誤，而是生物本來就會這樣運作！但這也代表：&lt;code&gt;不同基因的變異尺度差異很大，我們不能用同一種統計模型套用到所有基因上。&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;定序深度的差異
+即使樣本準備得很小心，有些樣本的定序結果還是會比其他樣本多出很多 &lt;code&gt;reads&lt;/code&gt;。舉例來說，有的樣本可能產出 2 千萬個 reads，而有的樣本則有 3 千萬。這種差異是&lt;code&gt;技術性差異&lt;/code&gt;，不是生物造成的，但卻會影響每一個基因的計數值。
+所以我們必須進行樣本之間的&lt;code&gt;歸一化（normalization）&lt;/code&gt;，否則這種深度差異會被誤認為是基因表現變化。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;多重檢定的陷阱
+RNA-seq 通常是同時比較 20,000 個以上的基因。如果我們對每個基因都用傳統的顯著性水準（例如 p 值 &amp;lt; 0.05），那在完全沒有任何差異的情況下，也會有大約 1,000 個基因「看起來」有差異，純粹是&lt;code&gt;隨機產生的假陽性&lt;/code&gt;。
+這就是所謂的&lt;code&gt;多重檢定問題（multiple testing problem）&lt;/code&gt;，所以在分析時必須進行 &lt;code&gt;FDR（假發現率）校正&lt;/code&gt;，以避免誤判結果。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;deseq2-基本流程&#34;&gt;DESeq2 基本流程&lt;/h2&gt;
+&lt;h2 id=&#34;第一步-size-factor-的評估&#34;&gt;第一步: Size factor 的評估&lt;/h2&gt;
+&lt;p&gt;首先我們在測序完之後，必須要根據每個樣本的測序深度做檢驗，也就是要去評估&lt;code&gt;size factor&lt;/code&gt;，DESeq2會針對計算出來的&lt;code&gt;size factor&lt;/code&gt;對樣本的測序資料做歸一化：&lt;/p&gt;
+&lt;h4 id=&#34;before-normalization&#34;&gt;Before normalization:&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sample1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;200&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;# 20M total reads&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sample2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;150&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;300&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;75&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;# 30M total reads&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;after-size-factor-normalization&#34;&gt;After size factor normalization:&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sample1_norm&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;200&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;# Reference&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sample2_norm&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;200&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;# Scaled down by factor of 1.5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;第二步-dispersion-的評估&#34;&gt;第二步: Dispersion 的評估&lt;/h2&gt;
+&lt;p&gt;RNA-seq 輸出的&lt;code&gt;reads&lt;/code&gt;高達上百萬，而每個基因的&lt;code&gt;counts&lt;/code&gt;變異很大，但都約為10-1000左右，因此對某一個&lt;code&gt;read&lt;/code&gt;要能對應上某一個基因的機率是相對很低的。這種離散的分佈、低機率加上大量的對應 (reads mapped to a gene)其實就跟普瓦松的分佈非常類似，當在二項分佈中試驗的次數變多，而試驗成功的機率變低時，分佈就可以用普瓦松分佈來趨近。然而若要使用普瓦松分佈，就必須要符合平均值等於變異數的性質 (依照公式可得出此結論)，但RNA-seq的數據並非如此，原因是不同基因的樣本間技術上生物變異大，而針對mean與variance作圖時會發現&lt;code&gt;overdispersion&lt;/code&gt;的現象 (圖一)，並不適用於普瓦松分佈？
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-圖一-overdispersion&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig1&#34; srcset=&#34;
+               /post/minicourse_rbio1/Fig1_hu2330347589607157955.webp 400w,
+               /post/minicourse_rbio1/Fig1_hu5284840922008440881.webp 760w,
+               /post/minicourse_rbio1/Fig1_hu6709847901075320416.webp 1200w&#34;
+               src=&#34;http://localhost:1313/post/minicourse_rbio1/Fig1_hu2330347589607157955.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;547&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      圖一 Overdispersion
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;DESeq2 會估算某基因計數在樣本間的變異程度，這個步驟非常重要，因為針對變異較大的基因，需要更強的證據來說明他為&lt;code&gt;differentially expressed&lt;/code&gt;，我們才成正確的找到具有生物意義的基因變化。&lt;/p&gt;
+&lt;h2 id=&#34;第三步-統計模型&#34;&gt;第三步: 統計模型&lt;/h2&gt;
+&lt;p&gt;在完成上面步驟後，DESeq2就可以來用統計模型估算基因表達的統計差異了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;我們在正式進入分析前，先回顧一下名詞:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Size factor: 就是標準化的權重，如果有一樣本size factor 為1.5，就表示他比平均值在測序上深了50%。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Dispersion: 主要是用來描述樣本間基因的變異程度。變異程度越大的基因表示雜訊越多，變異程度小的基因表示樣本間表現平穩。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Log2 Fold Change: 量化基因表達改變的指標，也是DE分析的&lt;code&gt;effect size&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Adjusted P-value: 因為DE分析同時比較了近兩萬個基因，所以這在統計上是一種多重比較，需要用一些方式來控制偽陽性率，如果adjusted P-value 為0.05，表示目前此基因的偽陽性率是5%，所以這個數值越低越好。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;準備好把 RNA-seq count 檔案轉換成 DESeq2 可以直接分析的物件了嗎？這就是從理論到實作的關鍵一步：把序列分析 pipeline 的輸出，整理成統計模型可以用的輸入。 一旦掌握核心要素，DESeq2 的分析其實非常直覺！&lt;/p&gt;
+&lt;h4 id=&#34;需要準備的兩個檔案&#34;&gt;需要準備的兩個檔案&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Count Matrix（計數矩陣）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;列（row）：基因&lt;/li&gt;
+&lt;li&gt;欄（column）：樣本&lt;/li&gt;
+&lt;li&gt;值（value）：整數型計數（不能有小數！）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Sample Metadata（樣本資訊表）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;列（row）：樣本（名稱需與 count matrix 的欄名對應）&lt;/li&gt;
+&lt;li&gt;欄（column）：實驗條件（condition, batch, timepoint 等）
+👉 就這兩樣！把它們準備好，就能開始組裝分析物件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;核心流程三步驟&#34;&gt;核心流程：三步驟&lt;/h2&gt;
+&lt;h4 id=&#34;第一步載入套件與資料&#34;&gt;第一步：載入套件與資料&lt;/h4&gt;
+&lt;h4 id=&#34;載入-deseq2&#34;&gt;載入 DESeq2&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;DESeq2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;匯入-count-matrix&#34;&gt;匯入 count matrix&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#讀取count matrix，注意csv檔的第一欄就是基因名稱，所以在讀取的時候row.names=1，第二欄開始為sample name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#讀取進來是data frame的形式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;counts&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;read.csv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;count_matrix.csv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row.names&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;check.names&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;FALSE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;counts&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;as.matrix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;counts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#轉成矩陣，運算效率更快&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;storage.mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;counts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;integer&amp;#34;&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;# 確保為整數，因為是`counts`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;匯入樣本資訊&#34;&gt;匯入樣本資訊&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;metadata&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;read.csv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;sample_info.csv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;row.names&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stringsAsFactors&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;TRUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;確認樣本名稱一致&#34;&gt;確認樣本名稱一致&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;stopifnot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;identical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;colnames&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;counts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;rownames&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;metadata&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;第二步建立-deseqdataset-物件&#34;&gt;第二步：建立 DESeqDataSet 物件&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;dds&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;DESeqDataSetFromMatrix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;countData&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;counts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;colData&lt;/span&gt;   &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;metadata&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;design&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;condition&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;# 依照實驗設計調整&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;第二步基本前處理&#34;&gt;第二步：基本前處理&lt;/h4&gt;
+&lt;h4 id=&#34;過濾低表達基因&#34;&gt;過濾低表達基因&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;keep&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;rowSums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;counts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#會找出每一列，也就是每一個基因的counts總和需要≥10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;dds&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dds[keep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 設定對照組為參考 (reference level)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;dds&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;condition&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;relevel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dds&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;condition&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ref&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;control&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;完成！現在你已經擁有 分析-ready 的 DESeqDataSet 🎉&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;三大地雷要避免&#34;&gt;三大地雷要避免&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;樣本名稱不一致&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;identical&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;colnames&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;counts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;rownames&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;metadata&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 必須 TRUE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;計數不是整數&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;all&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;counts&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;round&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;counts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 必須 TRUE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;參考組設錯&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;levels&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dds&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;condition&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;                 &lt;span class=&#34;c1&#34;&gt;# 檢查因子水平&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;dds&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;condition&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;relevel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dds&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;condition&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ref&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;control&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;快速-qc&#34;&gt;快速 QC&lt;/h2&gt;
+&lt;h4 id=&#34;概覽資料&#34;&gt;概覽資料&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;dds&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;每個樣本的測序深度&#34;&gt;每個樣本的測序深度&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;colSums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;counts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;每個基因至少在幾個樣本被偵測到&#34;&gt;每個基因至少在幾個樣本被偵測到&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;rowSums&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;counts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;儲存以便後續分析&#34;&gt;儲存以便後續分析&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;saveRDS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;analysis_ready_dds.rds&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;課程小結&#34;&gt;課程小結&lt;/h2&gt;
+&lt;h4 id=&#34;你已完成的目標&#34;&gt;你已完成的目標&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;了解 bulk RNA-seq 的價值與常見挑戰（高維度、雜訊、依賴性、情境依賴）。&lt;/li&gt;
+&lt;li&gt;掌握差異表達分析主流方法的版圖，聚焦 DESeq2 的核心思路（負二項 + shrinkage）。&lt;/li&gt;
+&lt;li&gt;準備好兩個關鍵輸入：Count Matrix 與 Sample Metadata，並建立 DESeqDataSet。&lt;/li&gt;
+&lt;li&gt;進行最小可行的 前處理（低表達過濾、參考組設定）與 基本 QC（深度、偵測度）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;本章關鍵觀念&#34;&gt;本章關鍵觀念&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Size factor：校正測序深度差異，避免把技術性差異誤當生物訊號。&lt;/li&gt;
+&lt;li&gt;Dispersion：度量跨樣本變異，DESeq2 以經驗貝葉斯估計穩定變異與效應量。&lt;/li&gt;
+&lt;li&gt;Shrinkage：在小樣本下「收縮」log2FC，使估計更穩健、可重現。&lt;/li&gt;
+&lt;li&gt;多重檢定（FDR）：同時檢驗上萬基因必須控制偽陽性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;實作檢核清單&#34;&gt;實作檢核清單&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;colnames(counts) == rownames(metadata)&lt;/li&gt;
+&lt;li&gt;storage.mode(counts) == &amp;ldquo;integer&amp;rdquo;（全為整數）&lt;/li&gt;
+&lt;li&gt;低表達過濾門檻（如 rowSums(counts(dds)) &amp;gt;= 10）已應用&lt;/li&gt;
+&lt;li&gt;參考組以 relevel() 正確設定（如 ref = &amp;ldquo;control&amp;rdquo;）&lt;/li&gt;
+&lt;li&gt;物件已保存：saveRDS(dds, &amp;ldquo;analysis_ready_dds.rds&amp;rdquo;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;常見地雷&#34;&gt;常見地雷&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;樣本對不上：欄名與列名任何一處空白/符號/大小寫不一致都會失敗。&lt;/li&gt;
+&lt;li&gt;非整數計數：TPM/FPKM 不能直接用於 DESeq2；請使用原始 counts。&lt;/li&gt;
+&lt;li&gt;設計式錯誤：忘記把批次或時間點寫入 design，將導致錯誤推論。&lt;/li&gt;
+&lt;li&gt;過度過濾或過度寬鬆：低表達基因過濾門檻過高會犧牲訊號，過低易放大雜訊。&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
     
     <item>
       <title>迷你課程:R語言-13~數據資料再訪</title>
@@ -44,10 +346,10 @@
 &lt;figure  id=&#34;figure-圖一-檔案打開後的樣子&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig1&#34; srcset=&#34;
-               /post/minicourse_r13/Fig1_hu5642018092904480647.webp 400w,
-               /post/minicourse_r13/Fig1_hu596515944081955312.webp 760w,
+               /post/minicourse_r13/Fig1_hu7345400157391041499.webp 400w,
+               /post/minicourse_r13/Fig1_hu8332539001748489126.webp 760w,
                /post/minicourse_r13/Fig1_hu12179285864676804741.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r13/Fig1_hu5642018092904480647.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r13/Fig1_hu7345400157391041499.webp&#34;
                width=&#34;760&#34;
                height=&#34;382&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -96,10 +398,10 @@
 &lt;figure  id=&#34;figure-圖二-檔案讀取後的前六列&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig2&#34; srcset=&#34;
-               /post/minicourse_r13/Fig2_hu17515704529268751165.webp 400w,
-               /post/minicourse_r13/Fig2_hu517969873239333065.webp 760w,
+               /post/minicourse_r13/Fig2_hu3931666553235130358.webp 400w,
+               /post/minicourse_r13/Fig2_hu1382221545557245101.webp 760w,
                /post/minicourse_r13/Fig2_hu15737632850246944391.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r13/Fig2_hu17515704529268751165.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r13/Fig2_hu3931666553235130358.webp&#34;
                width=&#34;760&#34;
                height=&#34;252&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -151,10 +453,10 @@
 &lt;figure  id=&#34;figure-圖三-data-frame-structure&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig3&#34; srcset=&#34;
-               /post/minicourse_r13/Fig3_hu16826135885901847889.webp 400w,
-               /post/minicourse_r13/Fig3_hu7159846730401899847.webp 760w,
+               /post/minicourse_r13/Fig3_hu177833190433740569.webp 400w,
+               /post/minicourse_r13/Fig3_hu6865805847332494269.webp 760w,
                /post/minicourse_r13/Fig3_hu12750794323591079507.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r13/Fig3_hu16826135885901847889.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r13/Fig3_hu177833190433740569.webp&#34;
                width=&#34;760&#34;
                height=&#34;285&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -341,100 +643,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;h2 id=&#34;課程小結&#34;&gt;課程小結&lt;/h2&gt;
 &lt;p&gt;本次介紹了 R 中處理表格資料的核心技能，從 &lt;code&gt;read.csv()&lt;/code&gt; 讀取資料，到認識 &lt;code&gt;data.frame&lt;/code&gt; 結構，再深入至數值、名稱與邏輯索引，最後拓展到處理&lt;code&gt;分類變數（factor）&lt;/code&gt;與其轉換與重命名技巧。透過實作與範例，課程幫助學員建立資料探索與清理的基本觀念，為後續的統計分析與視覺化奠定紮實的基礎，特別適合剛入門資料分析與生物資訊的學習者。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>迷你課程:R語言生物資訊實作~Bulk RNA-seq分析-1</title>
-      <link>http://localhost:1313/post/minicourse_rbio1/</link>
-      <pubDate>Wed, 02 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/minicourse_rbio1/</guid>
-      <description>&lt;h2 id=&#34;quick-look&#34;&gt;Quick look&lt;/h2&gt;
-&lt;p&gt;歡迎來到我們的bulk RNA-seq分析課程，在這裡我們將把原始的基因表達計數數據轉化為有意義的生物學發現。&lt;/p&gt;
-&lt;h2 id=&#34;為什麼bulk-rna-seq分析如此重要&#34;&gt;為什麼Bulk RNA-seq分析如此重要&lt;/h2&gt;
-&lt;p&gt;RNA測序技術&lt;code&gt;（RNA sequencing, RNA-seq）&lt;/code&gt;透過對全轉錄組的高通量分析，為我們提供了在不同生理條件、實驗處理及疾病狀態下基因表達的全景圖，從而徹底革新了我們對細胞功能與基因調控的理解。相較於傳統只能針對少數基因進行分析的方法，RNA-seq能夠同時量化約20,000個人類基因的表達水平，使研究人員能夠以系統性方式解析細胞內的轉錄活動，發掘潛在的生物標記與調控機制。&lt;/p&gt;
-&lt;h2 id=&#34;生物學影響&#34;&gt;生物學影響&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;疾病研究：RNA-seq揭示了在癌症、神經系統疾病、自身免疫性疾病等無數其他疾病中哪些基因失調。搭配生物資訊學的其他工具如路徑分析，這些發現直接導致新的治療靶點和診斷標記的發現。&lt;/li&gt;
-&lt;li&gt;藥物開發：當製藥公司測試新療法時，RNA-seq顯示藥物如何影響細胞訊息傳遞路徑，幫助優化劑量、識別恰當的生物標記物並預測副作用。&lt;/li&gt;
-&lt;li&gt;精準醫學：通過了解個體患者的基因表達譜如何對不同治療產生反應，臨床醫生可以藉由個人化的治療模式以獲得更好的結果。&lt;/li&gt;
-&lt;li&gt;基礎生物學：RNA-seq可以幫助闡述了發育、衰老、應激反應和細胞分化等基本過程，擴展了我們對生命在分子階層上如何運作的理解。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;分析挑戰&#34;&gt;分析挑戰&lt;/h2&gt;
-&lt;p&gt;雖然&lt;code&gt;RNA-seq&lt;/code&gt;技術能夠產生大量涵蓋整個轉錄組的有用數據，但從中提取具生物意義的訊息並不直接，往往需要結合複雜的統計方法與計算模型。這是因為基因表達數據本身具有以下幾個重要特徵：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;高維度（High Dimensionality）&lt;/code&gt;: RNA-seq可同時量化數千至數萬個基因的表達水準，遠多於樣本數。這種&lt;code&gt;「大p小n」&lt;/code&gt;的特性（即變數遠多於樣本）對統計分析構成挑戰，容易導致&lt;code&gt;過擬合&lt;/code&gt;或偽相關，需要降維、正則化等方法來提高模型的穩定性與可解釋性。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;噪音大（High Noise Levels）&lt;/code&gt;
-基因表達受到技術層面（如&lt;code&gt;擴增效率、批次效應&lt;/code&gt;）及生物學層面（如&lt;code&gt;細胞異質性、時序變化&lt;/code&gt;）等多重變因影響，導致測得的表達數據中包含大量背景噪音，可能掩蓋真實的差異訊號。因此，需要進行嚴謹的資料預處理，包括&lt;code&gt;去除低表達基因&lt;/code&gt;、&lt;code&gt;批次校正&lt;/code&gt;與&lt;code&gt;正規化&lt;/code&gt;等步驟，以提取出可靠的生物學資訊。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;複雜依賴性（Complex Dependencies）&lt;/code&gt;
-基因並非獨立運作，而是在調控網絡中以協同、互作、反饋等方式影響彼此。例如，轉錄因子調控目標基因表達，或多基因參與相同生物路徑。這種結構性使得&lt;code&gt;簡單的統計假設（如獨立性）不再適用&lt;/code&gt;，分析需考慮基因間關聯，例如利用&lt;code&gt;共表達網絡&lt;/code&gt;、&lt;code&gt;基因集富集&lt;/code&gt;、分析（GSEA）或圖論方法。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;上下文依賴性（Context Dependence）&lt;/code&gt;
-基因表達模式高度依賴於細胞類型、發育階段、生理狀態及外界刺激等條件。在一個特定的組織中活躍的基因可能在另一個環境下完全沉默。因此，在分析RNA-seq資料時，必須將樣本的生物學背景納入考量，否則容易導致錯誤推論。例如，同一基因在正常組織和腫瘤中的表達差異，往往反映出疾病特異性的轉錄調控變化。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;差異表達分析deg-analysis現今主流方法概覽&#34;&gt;差異表達分析（DEG Analysis）：現今主流方法概覽&lt;/h2&gt;
-&lt;p&gt;在 RNA-seq 資料分析中，&lt;code&gt;差異表達分析（Differential Expression Analysis, DEG）&lt;/code&gt;是最核心的任務之一。它幫助我們找出在不同實驗條件（例如疾病 vs 健康、處理 vs 控制）下，表達量有顯著改變的基因。為了應對 RNA-seq 數據的特性（如離散性、高變異與多重檢定），研究者已發展出多種統計方法。以下為目前最常用的幾種：&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;方法&lt;/th&gt;
-          &lt;th&gt;核心模型&lt;/th&gt;
-          &lt;th&gt;適用對象&lt;/th&gt;
-          &lt;th&gt;優點&lt;/th&gt;
-          &lt;th&gt;缺點&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;DESeq2&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;負二項分布 + shrinkage&lt;/td&gt;
-          &lt;td&gt;Bulk RNA-seq&lt;/td&gt;
-          &lt;td&gt;保守穩健、適合小樣本、廣泛使用&lt;/td&gt;
-          &lt;td&gt;計算稍慢、不適用單細胞資料&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;edgeR&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;負二項分布 + 精確檢定&lt;/td&gt;
-          &lt;td&gt;Bulk RNA-seq&lt;/td&gt;
-          &lt;td&gt;快速、靈活、支援複雜設計&lt;/td&gt;
-          &lt;td&gt;對低表達基因較敏感&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;limma-voom&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;線性模型 + voom 轉換&lt;/td&gt;
-          &lt;td&gt;Bulk RNA-seq（類似微陣列分析）&lt;/td&gt;
-          &lt;td&gt;適合大樣本與複雜設計&lt;/td&gt;
-          &lt;td&gt;對低計數資料表現較差&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;baySeq&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;貝葉斯模型&lt;/td&gt;
-          &lt;td&gt;Bulk RNA-seq&lt;/td&gt;
-          &lt;td&gt;適用先驗知識&lt;/td&gt;
-          &lt;td&gt;使用上相對複雜&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;NOISeq&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;非參數法&lt;/td&gt;
-          &lt;td&gt;Bulk RNA-seq&lt;/td&gt;
-          &lt;td&gt;不依賴分布假設&lt;/td&gt;
-          &lt;td&gt;對樣本數需求高&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;MAST, SCDE, Seurat (FindMarkers)&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;混合模型、貝葉斯、Hurdle 模型等&lt;/td&gt;
-          &lt;td&gt;單細胞 RNA-seq&lt;/td&gt;
-          &lt;td&gt;特化單細胞特性&lt;/td&gt;
-          &lt;td&gt;不適用 bulk RNA-seq&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</description>
     </item>
     
     <item>

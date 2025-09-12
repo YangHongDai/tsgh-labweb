@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: July 31, 2025 --><html lang="en-us" >
+<!-- Last Published: September 12, 2025 --><html lang="en-us" >
 
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
@@ -923,7 +923,7 @@
 </span></span></code></pre></div><h2 id="多個subdomains">多個subdomains</h2>
 <p>我們在填寫email時，很多時候不像@gmail.com或@hotmail.com那麼簡單，而是有包含多個subdomains，例如@stx.ox.ac.uk，如果要允許@後面有多個<code>.</code>時該怎麼做呢？
 不難發現一個subdomain包含<code>XXX.</code>，這種形式可以有多個，也可以完全沒有，只剩主domain，所以我們可以把他grouping起來，然後允許他可以<code>選擇性</code>的出現。所以我們可以用到<code>()</code>與<code>?</code>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;^\w+@(\w\.)?\w+\.edu$&#34;</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">):</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;^\w+@(\w+\.)?\w+\.edu$&#34;</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Valid&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><hr>
 <h2 id="姓名matching">姓名matching</h2>
@@ -965,8 +965,12 @@
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">emails</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># ➜ [&#39;alice@mail.com&#39;, &#39;bob@example.org&#39;]</span>
 </span></span></code></pre></div><ul>
-<li>\b 代表 單字邊界（word boundary)，確保 email 是一個獨立單位，不會卡在一個大字串裡面。也就是若出現<code>@XXX.com123</code>則會返回<code>@XXX.com</code>。</li>
+<li>\b 代表 單字邊界（word boundary)，確保 email 在text是一個獨立單位，不會卡在一個大字串裡面。也就是如果我們定義:</li>
 </ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span> <span class="s2">&#34;My emails are alice@mail.com and bob@example.com&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">emails</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&#34;\b[\w.-]+@[\w.-]+\.com\b&#34;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">emails</span><span class="p">)</span>
+</span></span></code></pre></div><p>若出現<code>@XXX.com123</code>就不會被match到。</p>
 <h4 id="resplitpattern-string">re.split(pattern, string)</h4>
 <p>以符合 pattern 的地方切割字串，回傳一個 list。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span> <span class="s2">&#34;apple, orange; banana,pear&#34;</span>
