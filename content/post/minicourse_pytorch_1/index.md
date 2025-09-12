@@ -10,7 +10,7 @@ draft: false
 ---
 <!--more-->
 ## Quick look
-參考了這個教學「[網站](https://www.learnpytorch.io/00_pytorch_fundamentals/#introduction-to-tensors)，以及我自己在Udemy購買的線上課程
+參考了這個教學[網站](https://www.learnpytorch.io/00_pytorch_fundamentals/#introduction-to-tensors)，以及我自己在Udemy購買的線上課程
 
 
 ## 什麼是 PyTorch？能做什麼？為何用它？
