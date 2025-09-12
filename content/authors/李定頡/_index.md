@@ -33,7 +33,7 @@ education:
       institution: 國立陽明交通大學
       year: 2023
     - course: 醫學士
-      institution: 國防醫學院
+      institution: 國防醫學大學
       year: 2007
 
 # Social/Academic Networking
