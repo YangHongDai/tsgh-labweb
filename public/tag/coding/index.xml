@@ -522,10 +522,10 @@ RNA-seq 通常是同時比較 20,000 個以上的基因。如果我們對每個�
 &lt;figure  id=&#34;figure-圖一-overdispersion&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig1&#34; srcset=&#34;
-               /post/minicourse_rbio1/Fig1_hu2330347589607157955.webp 400w,
-               /post/minicourse_rbio1/Fig1_hu5284840922008440881.webp 760w,
+               /post/minicourse_rbio1/Fig1_hu6548829400641148732.webp 400w,
+               /post/minicourse_rbio1/Fig1_hu14043326017223622575.webp 760w,
                /post/minicourse_rbio1/Fig1_hu6709847901075320416.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_rbio1/Fig1_hu2330347589607157955.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_rbio1/Fig1_hu6548829400641148732.webp&#34;
                width=&#34;760&#34;
                height=&#34;547&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -991,10 +991,10 @@ RNA-seq 通常是同時比較 20,000 個以上的基因。如果我們對每個�
 &lt;figure  id=&#34;figure-圖一-檔案打開後的樣子&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig1&#34; srcset=&#34;
-               /post/minicourse_r13/Fig1_hu7345400157391041499.webp 400w,
+               /post/minicourse_r13/Fig1_hu14172535430052942308.webp 400w,
                /post/minicourse_r13/Fig1_hu8332539001748489126.webp 760w,
                /post/minicourse_r13/Fig1_hu12179285864676804741.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r13/Fig1_hu7345400157391041499.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r13/Fig1_hu14172535430052942308.webp&#34;
                width=&#34;760&#34;
                height=&#34;382&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1043,10 +1043,10 @@ RNA-seq 通常是同時比較 20,000 個以上的基因。如果我們對每個�
 &lt;figure  id=&#34;figure-圖二-檔案讀取後的前六列&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig2&#34; srcset=&#34;
-               /post/minicourse_r13/Fig2_hu3931666553235130358.webp 400w,
+               /post/minicourse_r13/Fig2_hu3448614020453484810.webp 400w,
                /post/minicourse_r13/Fig2_hu1382221545557245101.webp 760w,
                /post/minicourse_r13/Fig2_hu15737632850246944391.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r13/Fig2_hu3931666553235130358.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r13/Fig2_hu3448614020453484810.webp&#34;
                width=&#34;760&#34;
                height=&#34;252&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -1098,10 +1098,10 @@ RNA-seq 通常是同時比較 20,000 個以上的基因。如果我們對每個�
 &lt;figure  id=&#34;figure-圖三-data-frame-structure&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Fig3&#34; srcset=&#34;
-               /post/minicourse_r13/Fig3_hu177833190433740569.webp 400w,
+               /post/minicourse_r13/Fig3_hu3361893169877109986.webp 400w,
                /post/minicourse_r13/Fig3_hu6865805847332494269.webp 760w,
                /post/minicourse_r13/Fig3_hu12750794323591079507.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/minicourse_r13/Fig3_hu177833190433740569.webp&#34;
+               src=&#34;http://localhost:1313/post/minicourse_r13/Fig3_hu3361893169877109986.webp&#34;
                width=&#34;760&#34;
                height=&#34;285&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
