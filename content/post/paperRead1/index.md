@@ -3,8 +3,8 @@ title: 生醫文摘-Dysregulated RNA splicing impairs regeneration in alcohol-as
 date: 2025-09-14
 authors: ["戴揚紘", ""]
 commentable: true
-categories: [Python迷你課程]
-tags: [Python,coding]
+categories: [生醫文章]
+tags: [Biomedicine,bioinformatics]
 isCJKLanguage: true
 draft: false
 ---
