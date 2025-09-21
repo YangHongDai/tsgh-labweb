@@ -6,7 +6,7 @@ commentable: true
 categories: [PyTorch迷你課程]
 tags: [Python,coding]
 isCJKLanguage: true
-draft: false
+draft: true
 ---
 <!--more-->
 ## Quick look
@@ -82,7 +82,8 @@ def plot_predictions(train_data=X_train,
 
 plot_predictions()
 ```
-[!Fig1]('Fig1.png 圖一 訓練集與測試集散布圖')
+![Fig1](Fig1.png '圖一 訓練集與測試集散布圖')
+
 
 #### 建立模型
 方式 A：用 nn.Parameter 手刻線性回歸
