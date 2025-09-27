@@ -3404,11 +3404,6 @@ import plotly.express as px, pandas as pd
 <Fig> = px.histogram(<DF>, x=col_keys, y=col_key)     # Also color, nbins. All are optional.
 ```
 
-#### Displays a line chart of total COVID-19 deaths per million grouped by continent:
-
-![Covid Deaths](web/covid_deaths.png)
-<div id="2a950764-39fc-416d-97fe-0a6226a3095f" class="plotly-graph-div" style="height:312px; width:914px;"></div>
-
 ```python
 covid = pd.read_csv('https://raw.githubusercontent.com/owid/covid-19-data/8dde8ca49b'
                     '6e648c17dd420b2726ca0779402651/public/data/owid-covid-data.csv',
@@ -3422,11 +3417,6 @@ df = df[df.date > '2020-03-14']
 df = df.rename({'date': 'Date', 'Continent_Name': 'Continent'}, axis='columns')
 px.line(df, x='Date', y='Total Deaths per Million', color='Continent')
 ```
-
-#### Displays a multi-axis line chart of total COVID-19 cases and changes in prices of Bitcoin, Dow Jones and gold:
-
-![Covid Cases](web/covid_cases.png)
-<div id="e23ccacc-a456-478b-b467-7282a2165921" class="plotly-graph-div" style="height:285px; width:935px;"></div>
 
 ```python
 # $ pip3 install pandas lxml selenium plotly
