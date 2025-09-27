@@ -1,5 +1,5 @@
 ---
-title: 迷你課程:Python-13~Python cheatsheet
+title: 迷你課程:Python-13~Python cheat sheet
 date: 2025-09-27
 authors: ["戴揚紘", ""]
 commentable: true
@@ -10,7 +10,7 @@ draft: false
 ---
 <!--more-->
 ## Quick look
-找到一個超完整的[Python cheatsheet](https://github.com/gto76/python-cheatsheet?tab=readme-ov-file#plotly)，不囉唆直接分享。
+找到一個超完整的[Python cheat sheet](https://github.com/gto76/python-cheatsheet?tab=readme-ov-file#plotly)，不囉唆直接分享。
 
 ## List
 ```python
