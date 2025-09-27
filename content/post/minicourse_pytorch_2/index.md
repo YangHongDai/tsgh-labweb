@@ -94,28 +94,40 @@ class LinearRegressionModel(nn.Module):
         super().__init__()
         self.weights = nn.Parameter(torch.randn(1, dtype=torch.float), requires_grad=True)
         self.bias    = nn.Parameter(torch.randn(1, dtype=torch.float), requires_grad=True)
-
+#通常default都是True for requires_grad 所以其實不用特定寫出來
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.weights * x + self.bias
 
 torch.manual_seed(42)
-model_0 = LinearRegressionModel()
+model_0 = LinearRegressionModel() #呼叫模型
 list(model_0.parameters())      # 檢查參數
-model_0.state_dict()            # 或者看 state_dict
+model_0.state_dict()            # 或者看 state_dict 檢查named parameters
 ```
-> 裡面的`nn.Parameter()`是建立PyTorch模型參數的特有方法，要讓某個張量被視為`可學習權重`：用 nn.Parameter 放到 nn.Module 的屬性上。所以只要是 model.parameters() 要看得到、optimizer 要更新、state_dict 要保存 的，請用 nn.Parameter。
+> 裡面的`nn.Parameter()`是建立PyTorch模型參數的特有方法，要讓某個張量被視為`可學習權重`：用 nn.Parameter 放到 nn.Module 的屬性上。所以只要是 model.parameters() 要看得到、optimizer 要更新、state_dict 要保存 的，請用 nn.Parameter。而`requires_grad=True`會讓PyTorch的`torch.autograd`有辦法追蹤梯度。
 
 這個模型做了什麼？
-1. 從建立`random value` (weight與bias)開始。
+1. 從建立`random value` (weight與bias)開始。後面會提到的模型基本上不會像這邊寫的一樣，而是會初始化參數的串列來讓模型學習。
 2. 檢視Training data並`修正random value`到更好的(`更接近的`)的數值 (就是我們用來建立數據所使用的weight與bias)
 3. 如何達到? a. 使用`gradient descent`; b. 使用`backpropagation`
+4. 所有subclass of module 的forward 都需要`覆寫`掉nn.Module的forward method，告訴模型內部需要如何計算。
 
+## PyTorch 重要的modules
+PyTorch內部提供了一個完整的生態，讓我們不用煩惱建構模型的細節，一些最核心的模組如下:
+1. torch.nn: 包含所有模型的底層運算圖結構
+2. torch.nn.Module: 所有模型母架構
+3. torch.optim: 包含所有優化的方法
+4. torch.utils.data.Dataset: 建構特徵與標籤之間的關聯
+5. torch.utils.data.DataLoader: 建構可以遞迴的數據框架構
 
 #### 推論模式與預測（尚未訓練）
 ```python
 with torch.inference_mode():
     y_preds = model_0(X_test)
 plot_predictions(predictions=y_preds)
+#inference mode 會解除gradient tracking 機制，運算起來會較快
+#他基本上替代了torch.no_grad(): 但inference_mode is preferred
+with torch.no_grad():
+    y_preds = model_0(X_test)
 ```
 初次預測會很差，因為參數是亂數，尚未學習。
 
