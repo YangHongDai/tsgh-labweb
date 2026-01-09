@@ -14,7 +14,7 @@ draft: true
 
 ## 我們要做什麼？
 - 建立一條已知參數的直線資料（線性回歸）。
-- 用 PyTorch 建立模型、定義損失與最佳化器。
+- 用 PyTorch 建立模型、定義`損失`與`最佳化器`。
 - 進行訓練（fitting）、推論（inference）與評估。
 - 存檔與讀檔。
 - 最後把流程整合起來（含裝置無關 GPU/CPU 寫法）。
@@ -33,7 +33,7 @@ torch.__version__  # e.g. '1.12.1+cu113'
 1. 機器學習的資料可以是表格、影像、聲音、文字……
 2. 這些資料必須先轉換成`numerical input`或`numerical representation`
 3. 本次課用直線資料示範。
-先建立線性關係 y = weight * X + bias 作為真實資料，再讓模型去學習這個關係。
+先建立線性關係 `y = weight * X + bias` 作為真實資料，再讓模型去學習這個關係。
 
 #### 已知參數
 ```python
@@ -132,28 +132,48 @@ with torch.no_grad():
 初次預測會很差，因為參數是亂數，尚未學習。
 
 #### 訓練模型（建立損失與最佳化器 + 訓練/測試迴圈）
-- 損失與最佳化器
+為了改善模型預測，我們需要建立損失函數，並利用迴圈來逐步優化權重。
+- `損失`與最佳化器
 - 回歸常用：MAE（L1Loss）、MSE（MSELoss）
 - 最佳化器常用：SGD、Adam
 ```python
-loss_fn  = nn.L1Loss()  # MAE
+loss_fn  = nn.L1Loss()  # MAE (Mean absolute error)
 optimizer = torch.optim.SGD(params=model_0.parameters(), lr=0.01)
-訓練/測試迴圈（100 個 epoch）
+```
+接下來我們要正式來建立一個PyTorch training loop了，但有幾件事需要先知道：
+1. PyTorch 會進入訓練迴圈，遍歷每一個數據
+2. Forward pass: 利用模型的forward()來對數據做預測
+3. 計算損失，也就是比較forward pass prediction與ground truth之間的差異
+4. Optimizer zero grad
+5. Loss backward: 計算相對於每個loss的梯度
+6. Optimizer step: 使用optimizer來調整模型參數，降低損失
+```python
+#訓練/測試迴圈（100 個 epoch）
 torch.manual_seed(42)
-epochs = 100
+epochs = 100 (times of looping through the data)
 train_loss_values, test_loss_values, epoch_count = [], [], []
 
 for epoch in range(epochs):
     # ---- Train ----
+    #set the model to training mode
     model_0.train()
-    y_pred = model_0(X_train)
+    # 1. Forward pass
+    y_pred = model_0(X_train) 
+
+    # 2. Calculate the loss
     loss = loss_fn(y_pred, y_train)
+
+    # 3. Optimizer zero grad
     optimizer.zero_grad()
+
+    # 4. Perform backpropagation on the loss with respect to the parameters of the model
     loss.backward()
-    optimizer.step()
+
+    # 5. Step the optimizer (perform gradient descent)
+    optimizer.step() #因為optimizer change 會在每一次loop累積，所以必須在step 3 歸零
 
     # ---- Test ----
-    model_0.eval()
+    model_0.eval() #Truns off gradient tracking
     with torch.inference_mode():
         test_pred = model_0(X_test)
         test_loss = loss_fn(test_pred, y_test.type(torch.float))
@@ -164,13 +184,19 @@ for epoch in range(epochs):
         test_loss_values.append(test_loss.detach().numpy())
         print(f"Epoch: {epoch} | MAE Train Loss: {loss} | MAE Test Loss: {test_loss}")
 ```
+- 為何要特別用training mode?
+在訓練階段，如果沒有 `model.train()`，Dropout會被關掉、BatchNorm會使用推論模式，訓練不會正確！
+- Dropout 在 Train Mode 會，隨機把一部分 neuron 設成 0，每次 forward 都不一樣 → 有 randomness
+- 但推論時 不應該讓 model 隨機丟掉 neuron。
+- 所以如果你 testing 時沒有 model.eval()：你的模型每次推論都會不同，導致output 波動與評估不穩定，accuracy 會很奇怪。
+
 #### 繪製學習曲線
 ```python
 plt.plot(epoch_count, train_loss_values, label="Train loss")
 plt.plot(epoch_count, test_loss_values,  label="Test loss")
 plt.title("Training and test loss curves")
 plt.ylabel("Loss"); plt.xlabel("Epochs"); plt.legend()
-查看學到的參數
+#查看學到的參數
 print("Learned params:", model_0.state_dict())
 print(f"Ground truth -> weight={weight}, bias={bias}")
 ```
